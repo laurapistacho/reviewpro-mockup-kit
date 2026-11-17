@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews Dashboard · ReviewPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="rp-icons.css" />
+  <style>
+    .page-header { margin-top: 0; }
+    .index-select { margin: var(--spacing-1-5) 0 var(--spacing-2); }
+    .summary-item { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-1); text-align: center; }
+    .summary-donut { width: 150px; height: 150px; }
+    .summary-goal { display: flex; align-items: center; gap: var(--spacing-1); min-height: 40px; text-align: left; }
+    .insights-title { align-items: center; }
+    .insights-title .rp-tile-title-label .rp-chip { margin-left: var(--spacing-1); }
+    /* AICardHeader: the quota chip is an info chip tinted with the neon ramp (the AI surface accent) */
+    .insights-chip { background: var(--neon-20); border-color: var(--neon-30); color: var(--neon-90); }
+    .chart-legend { justify-content: center; align-items: center; margin-top: var(--spacing-1); }
+    .mentions-cell { width: 160px; }
+    .impact, .cqi { display: flex; align-items: center; justify-content: flex-end; gap: var(--spacing-1); }
+    .impact .rp-progress-bar-track { width: 120px; background: transparent; }
+    .impact-value { left: auto; right: 0; background: var(--red-main); border-radius: 0; }
+    .cqi .rp-progress-bar-track { width: 140px; }
+    .cqi span { min-width: 52px; }
+    .category-link { display: inline-flex; align-items: center; gap: var(--spacing-1); font-weight: 400; }
+    .category-link .rp-icon { color: inherit; }
+    .word-cloud { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: var(--spacing-0-5) var(--spacing-2); padding: var(--spacing-2) 0; }
+    .trends { gap: var(--spacing-4); align-items: start; }
+    .trend-delta { width: 64px; }
+    .competition-gri { gap: var(--spacing-2); }
+    .segments { display: flex; gap: 2px; width: 220px; height: 8px; margin-top: var(--spacing-1); }
+    .segments span { flex: 1; }
+  </style>
+  <link rel="alternate" data-rp-version="v2" href="index-v2.html" title="Modernised">
+</head>
+<body>
+  <header class="rp-top-bar">
+    <div class="rp-top-bar-left">
+      <img class="rp-top-bar-logo" src="establishment-logo.png" alt="" />
+      <button type="button" class="rp-top-bar-button rp-top-bar-establishment" data-rp-top-bar="establishment" aria-label="Select establishment">
+        <span class="rp-top-bar-establishment-text"><strong>Grand Marina Resort &amp; Spa (Default)</strong><span>Establishment view</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down-big"></span>
+      </button>
+      <button type="button" class="rp-top-bar-button rp-top-bar-date-range" data-rp-top-bar="date" aria-label="Date range">
+        <span class="rp-icon rp-icon-size-32 rp-icon-calendar"></span>
+        <span class="rp-top-bar-date-text"><strong>1 Jun 2026 - 17 Nov 2026</strong><span>vs. 1 Jun 2025 - 17 Nov 2025</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down-big"></span>
+      </button>
+    </div>
+    <div class="rp-top-bar-right">
+      <button type="button" class="rp-icon-button" data-rp-top-bar="notifications" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-badge rp-badge-error rp-badge-size-small"><span class="rp-icon rp-icon-alert"></span><span class="rp-badge-content">30</span></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="help" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="apps" aria-label="App Launcher" data-rp-tooltip="App Launcher" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-size-32 rp-icon-shiji-menu"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="account" aria-label="Account menu, Alex Rivera" data-rp-user-name="Alex Rivera" data-rp-user-email="alex.rivera@coastalhotels.com"><span class="rp-avatar">AR</span></button>
+    </div>
+  </header>
+  <div class="rp-shell-body">
+    <nav class="rp-side-bar" aria-label="Main navigation">
+      <a class="rp-side-bar-item" href="#" data-rp-section="dashboard" aria-label="Dynamic Dashboard" data-rp-tooltip="Dynamic Dashboard" data-rp-tooltip-placement="right"><span class="rp-badge rp-badge-dot"><span class="rp-icon rp-icon-dashboard"></span><span class="rp-badge-content"></span></span></a>
+      <a class="rp-side-bar-item" href="#" data-rp-section="home" aria-label="My Page" data-rp-tooltip="My Page" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-home"></span></a>
+      <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="reviews" aria-label="Reviews" data-rp-tooltip="Reviews" data-rp-tooltip-placement="right" aria-controls="panel-reviews" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-reviews"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="surveys" aria-label="Surveys" data-rp-tooltip="Surveys" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-survey"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="semantic" aria-label="Semantic" data-rp-tooltip="Semantic" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-semantic"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-settings-outlined"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
+    </nav>
+    <aside class="rp-side-bar-panel" id="panel-reviews" aria-label="Reviews pages">
+      <div class="rp-side-bar-panel-header">Reviews</div>
+      <ul class="rp-side-bar-panel-list">
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="#" aria-current="page"><span>Dashboard</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Results</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Tracking</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Competition</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Brand Competition</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Management Response</span></a></li>
+      </ul>
+      <img class="rp-side-bar-panel-logo" src="reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
+    </aside>
+    <main class="rp-content">
+      <div class="rp-disclaimer rp-disclaimer-compact" role="note"><span class="rp-icon rp-icon-ai"></span>Actionable Insight priorities are determined by an AI model and may not reflect all factors. Please validate the data before taking action.</div>
+      <div class="rp-content-wrapper">
+        <div class="kit-toolbar page-header">
+          <h1 class="rp-text-h6 rp-text-bold">Reviews Dashboard</h1>
+          <div class="kit-toolbar-group rp-text-secondary">
+            <button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-open="scheduleDialog"><span class="rp-icon rp-icon-report-schedule"></span><span>Schedule Report</span></button>
+            <button type="button" class="rp-ghost-button" data-rp-menu="downloadMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-download"></span><span>Download Report</span></button>
+          </div>
+        </div>
+        <div class="index-select">
+          <div class="rp-select rp-select-size-small" style="width: 200px" data-rp-placeholder="Select">
+            <span class="rp-field-label">Index</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Index"><span class="rp-select-value">GRI™</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">GRI™</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Average rating</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">NPS</button>
+            </div>
+          </div>
+        </div>
+        <div class="kit-stack">
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Summary</h2></div></div>
+            <div class="rp-tile-content">
+              <div class="kit-grid" style="--kit-columns: 4">
+                <div class="summary-item">
+                  <span class="rp-text-secondary">Global Review Index™</span>
+                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Global Review Index: 88.1%">
+                    <circle cx="70" cy="70" r="60" style="fill: none; stroke: var(--neutral-10); stroke-width: 7" />
+                    <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="88.1 100" stroke-dashoffset="-0.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--green-main); stroke-width: 7" />
+                    <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">88.1%</text>
+                    <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">-1.7</text>
+                  </svg>
+                  <div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-success"></span><span class="rp-text-caption">Goal 77.7%<br />by 31 Dec 2026</span></div>
+                </div>
+                <div class="summary-item">
+                  <span class="rp-text-secondary">Reviews</span>
+                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Reviews: 157">
+                    <circle cx="70" cy="70" r="60" style="fill: none; stroke: var(--neutral-10); stroke-width: 7" />
+                    <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="82.0 100" stroke-dashoffset="-0.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--green-main); stroke-width: 7" />
+                    <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="9.0 100" stroke-dashoffset="-82.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--orange-main); stroke-width: 7" />
+                    <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="9.0 100" stroke-dashoffset="-91.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--red-main); stroke-width: 7" />
+                    <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">157</text>
+                    <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">+70</text>
+                  </svg>
+                  <div class="summary-goal"></div>
+                </div>
+                <div class="summary-item">
+                  <span class="rp-text-secondary">Semantic Analysis</span>
+                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Semantic analysis: 71.2%">
+                    <circle cx="70" cy="70" r="60" style="fill: none; stroke: var(--neutral-10); stroke-width: 7" />
+                    <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="71.2 100" stroke-dashoffset="-0.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--green-main); stroke-width: 7" />
+                    <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="28.8 100" stroke-dashoffset="-71.2" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--red-main); stroke-width: 7" />
+                    <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">71.2%</text>
+                    <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">-2.0</text>
+                  </svg>
+                  <div class="summary-goal"></div>
+                </div>
+                <div class="summary-item">
+                  <span class="rp-text-secondary">Management Response</span>
+                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Management response: 0%">
+                    <circle cx="70" cy="70" r="60" style="fill: none; stroke: var(--neutral-10); stroke-width: 7" />
+  
+                    <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">0%</text>
+                    <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">0</text>
+                  </svg>
+                  <div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-error"></span><span class="rp-text-caption">Goal 77.8%<br />by 18 Nov 2026</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title insights-title">
+              <span class="rp-icon rp-icon-ai"></span>
+              <div class="rp-tile-title-text"><h2 class="rp-tile-title-label rp-text-bold">AI Powered Actionable Insights <span class="rp-chip rp-chip-info rp-chip-size-small rp-text-semibold insights-chip">Requests 12/30</span></h2></div>
+              <div class="rp-tile-title-actions"><button type="button" class="rp-main-button rp-main-button-accent-brand rp-main-button-size-small" data-rp-snackbar="Generating insights. They appear here in a few minutes." data-rp-snackbar-variant="info"><span class="rp-icon rp-icon-ai"></span>Generate Insights</button></div>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title">
+              <div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Indexes Evolution</h2></div>
+              <div class="rp-tile-title-actions">
+                <div class="rp-select rp-select-size-small" style="width: 160px" data-rp-placeholder="Select">
+                  <span class="rp-field-label">Group by</span>
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Group by"><span class="rp-select-value">Daily</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Daily</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Weekly</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Monthly</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rp-tile-content">
+              <svg class="kit-chart" viewBox="0 0 1340 260" role="img" aria-label="GRI evolution and daily review volume, 1 January to 17 November 2026">
+                <line x1="56" x2="1296" y1="216.0" y2="216.0" style="stroke: var(--neutral-10)" /><text x="48" y="220.0" text-anchor="end" style="fill: var(--text-secondary); font-size: 11px">70</text><line x1="56" x2="1296" y1="149.3" y2="149.3" style="stroke: var(--neutral-10)" /><text x="48" y="153.3" text-anchor="end" style="fill: var(--text-secondary); font-size: 11px">80</text><line x1="56" x2="1296" y1="82.7" y2="82.7" style="stroke: var(--neutral-10)" /><text x="48" y="86.7" text-anchor="end" style="fill: var(--text-secondary); font-size: 11px">90</text><line x1="56" x2="1296" y1="16.0" y2="16.0" style="stroke: var(--neutral-10)" /><text x="48" y="20.0" text-anchor="end" style="fill: var(--text-secondary); font-size: 11px">100</text><text x="1304" y="220.0" style="fill: var(--text-secondary); font-size: 11px">0</text><text x="1304" y="166.7" style="fill: var(--text-secondary); font-size: 11px">2</text><text x="1304" y="113.3" style="fill: var(--text-secondary); font-size: 11px">4</text><text x="1304" y="60.0" style="fill: var(--text-secondary); font-size: 11px">6</text><text x="56.0" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Jan</text><text x="176.5" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Feb</text><text x="285.3" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Mar</text><text x="405.8" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Apr</text><text x="522.5" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 May</text><text x="643.0" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Jun</text><text x="759.6" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Jul</text><text x="880.1" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Aug</text><text x="1000.6" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Sep</text><text x="1117.2" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Oct</text><text x="1237.7" y="238" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">1 Nov</text>
+                <text x="12" y="116" transform="rotate(-90 12 116)" text-anchor="middle" style="fill: var(--text-secondary); font-size: 11px">GRI™</text>
+                <path d="M56.0,216 L56.0,204.8 L59.9,211.1 L63.8,215.6 L67.7,215.0 L71.5,216.0 L75.4,205.5 L79.3,210.6 L83.2,195.1 L87.1,214.7 L91.0,216.0 L94.9,205.1 L98.8,215.3 L102.6,203.8 L106.5,206.6 L110.4,199.1 L114.3,206.9 L118.2,216.0 L122.1,174.2 L126.0,200.9 L129.9,215.6 L133.7,216.0 L137.6,216.0 L141.5,206.4 L145.4,196.5 L149.3,204.4 L153.2,216.0 L157.1,216.0 L161.0,210.8 L164.8,209.4 L168.7,215.4 L172.6,213.0 L176.5,216.0 L180.4,207.5 L184.3,216.0 L188.2,210.3 L192.1,216.0 L195.9,213.9 L199.8,208.9 L203.7,216.0 L207.6,207.1 L211.5,208.3 L215.4,215.4 L219.3,216.0 L223.1,216.0 L227.0,214.8 L230.9,215.3 L234.8,211.6 L238.7,214.3 L242.6,215.7 L246.5,214.3 L250.4,211.2 L254.2,216.0 L258.1,208.9 L262.0,211.5 L265.9,216.0 L269.8,183.8 L273.7,207.6 L277.6,175.0 L281.5,212.8 L285.3,200.2 L289.2,216.0 L293.1,198.2 L297.0,216.0 L300.9,216.0 L304.8,208.2 L308.7,215.7 L312.6,203.4 L316.4,186.5 L320.3,216.0 L324.2,213.3 L328.1,205.6 L332.0,216.0 L335.9,198.9 L339.8,190.3 L343.6,216.0 L347.5,199.4 L351.4,216.0 L355.3,210.5 L359.2,216.0 L363.1,214.3 L367.0,216.0 L370.9,216.0 L374.7,211.4 L378.6,215.8 L382.5,208.0 L386.4,194.1 L390.3,212.9 L394.2,206.6 L398.1,214.5 L402.0,209.5 L405.8,216.0 L409.7,216.0 L413.6,208.1 L417.5,213.8 L421.4,216.0 L425.3,202.2 L429.2,208.2 L433.1,216.0 L436.9,213.0 L440.8,216.0 L444.7,200.8 L448.6,205.9 L452.5,203.4 L456.4,209.1 L460.3,193.7 L464.2,207.3 L468.0,216.0 L471.9,209.8 L475.8,215.2 L479.7,216.0 L483.6,202.6 L487.5,193.1 L491.4,183.5 L495.2,167.0 L499.1,210.0 L503.0,213.7 L506.9,216.0 L510.8,209.8 L514.7,205.6 L518.6,171.1 L522.5,216.0 L526.3,215.6 L530.2,214.5 L534.1,216.0 L538.0,214.3 L541.9,203.1 L545.8,203.6 L549.7,186.3 L553.6,216.0 L557.4,216.0 L561.3,216.0 L565.2,207.4 L569.1,214.5 L573.0,214.8 L576.9,213.6 L580.8,200.8 L584.7,213.9 L588.5,212.9 L592.4,216.0 L596.3,209.1 L600.2,197.8 L604.1,196.8 L608.0,203.6 L611.9,197.0 L615.7,210.5 L619.6,214.5 L623.5,216.0 L627.4,215.1 L631.3,216.0 L635.2,213.0 L639.1,209.1 L643.0,85.4 L646.8,204.8 L650.7,198.4 L654.6,190.3 L658.5,187.9 L662.4,212.2 L666.3,215.1 L670.2,180.8 L674.1,216.0 L677.9,216.0 L681.8,200.2 L685.7,164.5 L689.6,143.9 L693.5,163.1 L697.4,186.3 L701.3,216.0 L705.2,216.0 L709.0,216.0 L712.9,205.5 L716.8,198.1 L720.7,216.0 L724.6,176.6 L728.5,215.9 L732.4,216.0 L736.3,172.9 L740.1,216.0 L744.0,203.7 L747.9,162.1 L751.8,196.7 L755.7,157.7 L759.6,212.8 L763.5,161.6 L767.3,215.5 L771.2,171.4 L775.1,202.3 L779.0,190.9 L782.9,216.0 L786.8,216.0 L790.7,191.4 L794.6,216.0 L798.4,206.6 L802.3,181.2 L806.2,93.9 L810.1,216.0 L814.0,216.0 L817.9,124.8 L821.8,215.9 L825.7,201.6 L829.5,200.8 L833.4,160.4 L837.3,111.6 L841.2,216.0 L845.1,196.0 L849.0,198.1 L852.9,214.0 L856.8,216.0 L860.6,216.0 L864.5,187.4 L868.4,90.9 L872.3,216.0 L876.2,216.0 L880.1,165.1 L884.0,216.0 L887.8,216.0 L891.7,214.0 L895.6,190.4 L899.5,162.3 L903.4,173.3 L907.3,195.9 L911.2,206.7 L915.1,206.1 L918.9,216.0 L922.8,207.5 L926.7,212.2 L930.6,182.3 L934.5,216.0 L938.4,186.3 L942.3,213.4 L946.2,216.0 L950.0,176.3 L953.9,212.6 L957.8,209.7 L961.7,216.0 L965.6,215.7 L969.5,216.0 L973.4,216.0 L977.3,216.0 L981.1,216.0 L985.0,214.8 L988.9,203.8 L992.8,216.0 L996.7,216.0 L1000.6,215.6 L1004.5,189.1 L1008.4,214.5 L1012.2,203.2 L1016.1,208.1 L1020.0,213.3 L1023.9,212.2 L1027.8,216.0 L1031.7,216.0 L1035.6,213.0 L1039.4,216.0 L1043.3,208.6 L1047.2,212.8 L1051.1,216.0 L1055.0,211.6 L1058.9,213.6 L1062.8,216.0 L1066.7,178.6 L1070.5,216.0 L1074.4,200.8 L1078.3,216.0 L1082.2,213.3 L1086.1,184.3 L1090.0,213.4 L1093.9,215.4 L1097.8,191.6 L1101.6,216.0 L1105.5,216.0 L1109.4,186.7 L1113.3,204.4 L1117.2,211.7 L1121.1,212.5 L1125.0,216.0 L1128.9,216.0 L1132.7,197.6 L1136.6,215.5 L1140.5,189.1 L1144.4,191.8 L1148.3,198.2 L1152.2,215.6 L1156.1,216.0 L1159.9,216.0 L1163.8,212.6 L1167.7,212.8 L1171.6,212.6 L1175.5,216.0 L1179.4,185.4 L1183.3,209.1 L1187.2,216.0 L1191.0,210.0 L1194.9,216.0 L1198.8,216.0 L1202.7,216.0 L1206.6,211.8 L1210.5,199.7 L1214.4,201.1 L1218.3,215.6 L1222.1,174.1 L1226.0,216.0 L1229.9,214.9 L1233.8,216.0 L1237.7,210.2 L1241.6,201.3 L1245.5,214.6 L1249.4,207.1 L1253.2,216.0 L1257.1,213.0 L1261.0,216.0 L1264.9,210.6 L1268.8,213.2 L1272.7,165.8 L1276.6,197.8 L1280.5,216.0 L1284.3,214.6 L1288.2,216.0 L1292.1,216.0 L1296.0,216.0 L1296.0,216 Z" style="fill: var(--blue-20); opacity: 0.8" />
+                <polyline fill="none" points="56.0,83.8 59.9,87.1 63.8,90.3 67.7,90.2 71.5,90.2 75.4,92.8 79.3,88.3 83.2,83.8 87.1,85.2 91.0,86.4 94.9,88.6 98.8,89.2 102.6,92.3 106.5,92.2 110.4,91.9 114.3,89.6 118.2,88.8 122.1,86.3 126.0,89.1 129.9,91.4 133.7,89.4 137.6,88.2 141.5,89.2 145.4,88.0 149.3,83.8 153.2,87.1 157.1,85.4 161.0,82.3 164.8,80.6 168.7,83.2 172.6,80.6 176.5,81.3 180.4,84.5 184.3,81.0 188.2,77.7 192.1,78.8 195.9,74.8 199.8,77.1 203.7,76.3 207.6,76.9 211.5,73.0 215.4,72.1 219.3,68.9 223.1,66.1 227.0,67.3 230.9,66.5 234.8,69.3 238.7,73.3 242.6,76.7 246.5,73.5 250.4,75.6 254.2,78.7 258.1,74.5 262.0,78.0 265.9,79.8 269.8,82.4 273.7,81.9 277.6,85.6 281.5,82.1 285.3,83.0 289.2,82.4 293.1,83.5 297.0,79.1 300.9,76.4 304.8,74.4 308.7,75.6 312.6,77.4 316.4,73.5 320.3,69.5 324.2,70.9 328.1,73.6 332.0,70.3 335.9,70.7 339.8,74.3 343.6,72.0 347.5,72.3 351.4,73.8 355.3,69.9 359.2,66.4 363.1,69.5 367.0,66.4 370.9,69.7 374.7,65.9 378.6,65.9 382.5,62.3 386.4,59.2 390.3,57.1 394.2,59.6 398.1,62.2 402.0,59.3 405.8,59.3 409.7,60.5 413.6,61.1 417.5,65.7 421.4,70.2 425.3,73.1 429.2,72.7 433.1,72.4 436.9,75.8 440.8,77.6 444.7,77.4 448.6,73.9 452.5,73.9 456.4,74.4 460.3,70.7 464.2,67.2 468.0,63.8 471.9,67.3 475.8,71.2 479.7,69.9 483.6,66.8 487.5,65.8 491.4,62.3 495.2,63.7 499.1,61.4 503.0,61.8 506.9,63.8 510.8,68.3 514.7,72.6 518.6,72.6 522.5,70.3 526.3,73.8 530.2,71.5 534.1,72.3 538.0,69.8 541.9,67.2 545.8,72.3 549.7,74.4 553.6,74.5 557.4,79.7 561.3,85.0 565.2,86.8 569.1,84.2 573.0,85.2 576.9,89.7 580.8,92.8 584.7,96.1 588.5,98.9 592.4,104.7 596.3,105.6 600.2,102.9 604.1,104.8 608.0,107.2 611.9,104.0 615.7,103.4 619.6,106.2 623.5,111.5 627.4,115.1 631.3,113.3 635.2,113.0 639.1,116.3 643.0,118.1 646.8,115.0 650.7,112.0 654.6,118.0 658.5,119.3 662.4,125.3 666.3,127.5 670.2,130.7 674.1,131.8 677.9,131.6 681.8,126.2 685.7,120.1 689.6,117.1 693.5,112.2 697.4,108.1 701.3,106.8 705.2,102.9 709.0,101.1 712.9,98.6 716.8,101.5 720.7,103.8 724.6,102.2 728.5,99.6 732.4,96.1 736.3,95.2 740.1,98.1 744.0,99.2 747.9,96.3 751.8,91.5 755.7,91.0 759.6,89.4 763.5,91.8 767.3,92.8 771.2,95.7 775.1,93.3 779.0,92.4 782.9,94.9 786.8,96.6 790.7,92.1 794.6,88.8 798.4,88.7 802.3,84.4 806.2,87.0 810.1,89.6 814.0,89.0 817.9,86.7 821.8,86.4 825.7,86.0 829.5,88.6 833.4,85.2 837.3,82.0 841.2,79.9 845.1,81.5 849.0,77.1 852.9,77.6 856.8,80.8 860.6,82.4 864.5,84.2 868.4,86.4 872.3,82.7 876.2,81.4 880.1,77.4 884.0,81.1 887.8,81.3 891.7,79.8 895.6,76.1 899.5,77.3 903.4,73.3 907.3,75.0 911.2,77.8 915.1,74.3 918.9,71.0 922.8,71.5 926.7,75.1 930.6,77.3 934.5,74.0 938.4,74.7 942.3,75.8 946.2,77.6 950.0,80.6 953.9,77.4 957.8,79.4 961.7,75.4 965.6,72.3 969.5,70.7 973.4,71.1 977.3,72.2 981.1,69.6 985.0,65.9 988.9,69.1 992.8,65.7 996.7,64.8 1000.6,65.6 1004.5,63.6 1008.4,62.9 1012.2,65.4 1016.1,69.1 1020.0,68.6 1023.9,68.0 1027.8,68.6 1031.7,67.7 1035.6,68.2 1039.4,64.6 1043.3,66.7 1047.2,65.6 1051.1,64.5 1055.0,67.2 1058.9,68.2 1062.8,66.0 1066.7,66.4 1070.5,68.3 1074.4,70.8 1078.3,72.7 1082.2,72.8 1086.1,73.6 1090.0,76.6 1093.9,72.6 1097.8,76.4 1101.6,73.1 1105.5,69.1 1109.4,70.7 1113.3,68.9 1117.2,70.1 1121.1,73.1 1125.0,74.4 1128.9,77.6 1132.7,79.9 1136.6,77.0 1140.5,77.2 1144.4,79.7 1148.3,83.4 1152.2,80.8 1156.1,84.3 1159.9,85.9 1163.8,82.2 1167.7,78.1 1171.6,76.2 1175.5,80.2 1179.4,76.6 1183.3,80.5 1187.2,76.5 1191.0,77.4 1194.9,77.3 1198.8,79.9 1202.7,77.7 1206.6,75.3 1210.5,76.8 1214.4,80.3 1218.3,82.2 1222.1,81.5 1226.0,78.0 1229.9,79.8 1233.8,79.7 1237.7,79.9 1241.6,78.7 1245.5,75.7 1249.4,72.8 1253.2,74.0 1257.1,76.6 1261.0,79.4 1264.9,78.6 1268.8,74.3 1272.7,71.8 1276.6,75.2 1280.5,72.4 1284.3,76.3 1288.2,78.9 1292.1,78.0 1296.0,79.0" style="stroke: var(--blue-60); stroke-width: 2" />
+              </svg>
+              <div class="kit-legend chart-legend"><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--blue-20)"></span>Reviews</span><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--blue-60)"></span>GRI™</span><label class="rp-form-control-label rp-text-caption"><input type="checkbox" class="rp-checkbox" /> Previous period</label></div>
+            </div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-compact" id="indexesTable">
+                <thead><tr><th class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show every index in the chart" /></th><th>Index</th><th class="rp-table-numeric">Score</th><th class="rp-table-numeric">%</th><th class="rp-table-numeric">Goal</th><th class="rp-table-numeric">Reviews</th><th class="rp-table-numeric">%</th><th class="rp-table-numeric">Mentions</th><th>Sentiment</th></tr></thead>
+                <tbody>
+                  <tr class="rp-table-row-selected">
+                    <td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show GRI™ in the chart" checked /></td>
+                    <td>GRI™</td><td class="rp-table-numeric">88.1%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-1.7</span></td><td class="rp-table-numeric">77.7%</td>
+                    <td class="rp-table-numeric">157</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+70</span></td><td class="rp-table-numeric">71%</td><td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="71% positive"><div class="rp-volume-bar-value" style="width: 71%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show Value in the chart" /></td>
+                    <td>Value</td><td class="rp-table-numeric">84.6%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-0.8</span></td><td class="rp-table-numeric">80.0%</td>
+                    <td class="rp-table-numeric">41</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+12</span></td><td class="rp-table-numeric">64%</td><td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="64% positive"><div class="rp-volume-bar-value" style="width: 64%"></div><div class="rp-volume-bar-value" style="width: 8%; background: var(--orange-main)"></div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show Service in the chart" /></td>
+                    <td>Service</td><td class="rp-table-numeric">91.3%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1.2</span></td><td class="rp-table-numeric">85.0%</td>
+                    <td class="rp-table-numeric">63</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+21</span></td><td class="rp-table-numeric">82%</td><td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="82% positive"><div class="rp-volume-bar-value" style="width: 82%"></div><div class="rp-volume-bar-value" style="width: 5%; background: var(--orange-main)"></div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show Room in the chart" /></td>
+                    <td>Room</td><td class="rp-table-numeric">86.0%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.4</span></td><td class="rp-table-numeric">82.0%</td>
+                    <td class="rp-table-numeric">52</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+17</span></td><td class="rp-table-numeric">70%</td><td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="70% positive"><div class="rp-volume-bar-value" style="width: 70%"></div><div class="rp-volume-bar-value" style="width: 9%; background: var(--orange-main)"></div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show Location in the chart" /></td>
+                    <td>Location</td><td class="rp-table-numeric">95.1%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.6</span></td><td class="rp-table-numeric">90.0%</td>
+                    <td class="rp-table-numeric">38</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+9</span></td><td class="rp-table-numeric">91%</td><td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="91% positive"><div class="rp-volume-bar-value" style="width: 91%"></div><div class="rp-volume-bar-value" style="width: 4%; background: var(--orange-main)"></div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Show Cleanliness in the chart" /></td>
+                    <td>Cleanliness</td><td class="rp-table-numeric">89.4%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-0.3</span></td><td class="rp-table-numeric">85.0%</td>
+                    <td class="rp-table-numeric">44</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+15</span></td><td class="rp-table-numeric">79%</td><td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="79% positive"><div class="rp-volume-bar-value" style="width: 79%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="indexesTable" data-rp-total="6">
+              <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+              <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+              <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">5</span></button>
+              <div class="rp-menu" role="listbox">
+                <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">5</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">10</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+              </div>
+            </div></div>
+              <span class="rp-table-pagination-range">1-5 of 6</span>
+              <div class="rp-table-pagination-actions">
+                <button type="button" class="rp-icon-button" data-rp-page="first" aria-label="First page"><span class="rp-icon rp-icon-rewind"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
+              </div>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Categories Negatively Affecting your GRI™</h2></div></div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-compact" id="categoriesTable">
+                <thead><tr><th>Categories</th><th class="rp-table-numeric">Freq. M.</th><th class="rp-table-numeric">%</th><th class="rp-table-numeric rp-table-sorted" aria-sort="ascending"><button type="button" class="rp-table-sort">GRI™ impact<span class="rp-icon rp-icon-arrow-up"></span></button></th><th class="rp-table-numeric">%</th><th>Top concepts</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-hotel"></span><span>Establishment</span></a></td>
+                    <td class="rp-table-numeric">22</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-2.1"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 100%"></div></div><span class="rp-text-error">-2.1</span></div></td>
+                    <td class="rp-table-numeric">0.0</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">advertising</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-stay-experience"></span><span>Stay Experience</span></a></td>
+                    <td class="rp-table-numeric">13</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+6</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-1.7"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 81%"></div></div><span class="rp-text-error">-1.7</span></div></td>
+                    <td class="rp-table-numeric">1.2</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">guest</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-bed"></span><span>Room Features</span></a></td>
+                    <td class="rp-table-numeric">8</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+2</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-1.6"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 76%"></div></div><span class="rp-text-error">-1.6</span></div></td>
+                    <td class="rp-table-numeric">0.4</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">air conditioning</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-room"></span><span>Room</span></a></td>
+                    <td class="rp-table-numeric">10</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+3</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-1.4"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 67%"></div></div><span class="rp-text-error">-1.4</span></div></td>
+                    <td class="rp-table-numeric">0.7</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">window</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-financial"></span><span>Value</span></a></td>
+                    <td class="rp-table-numeric">8</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-1.3"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 62%"></div></div><span class="rp-text-error">-1.3</span></div></td>
+                    <td class="rp-table-numeric">0.0</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">payment</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-cleanliness"></span><span>Cleanliness</span></a></td>
+                    <td class="rp-table-numeric">6</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+2</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-1.1"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 52%"></div></div><span class="rp-text-error">-1.1</span></div></td>
+                    <td class="rp-table-numeric">0.3</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">bathroom</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-reception"></span><span>Reception</span></a></td>
+                    <td class="rp-table-numeric">7</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-1</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-0.9"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 43%"></div></div><span class="rp-text-error">-0.9</span></div></td>
+                    <td class="rp-table-numeric">0.5</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">waiting time</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-food"></span><span>Food and Drinks</span></a></td>
+                    <td class="rp-table-numeric">5</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-0.8"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 38%"></div></div><span class="rp-text-error">-0.8</span></div></td>
+                    <td class="rp-table-numeric">0.2</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">breakfast</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-location"></span><span>Location</span></a></td>
+                    <td class="rp-table-numeric">4</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-secondary">0</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-0.6"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 29%"></div></div><span class="rp-text-error">-0.6</span></div></td>
+                    <td class="rp-table-numeric">0.1</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">parking</span></td>
+                  </tr>
+                  <tr>
+                    <td><a class="rp-link rp-text-error category-link" href="#"><span class="rp-icon rp-icon-wi-fi"></span><span>Internet</span></a></td>
+                    <td class="rp-table-numeric">3</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1</span></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="-0.4"><div class="impact"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value impact-value" style="width: 19%"></div></div><span class="rp-text-error">-0.4</span></div></td>
+                    <td class="rp-table-numeric">0.2</td><td><span class="rp-chip rp-chip-size-small rp-chip-error">wifi</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="categoriesTable" data-rp-total="31">
+              <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+              <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+              <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">5</span></button>
+              <div class="rp-menu" role="listbox">
+                <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">5</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">10</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+              </div>
+            </div></div>
+              <span class="rp-table-pagination-range">1-5 of 31</span>
+              <div class="rp-table-pagination-actions">
+                <button type="button" class="rp-icon-button" data-rp-page="first" aria-label="First page"><span class="rp-icon rp-icon-rewind"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
+              </div>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">GRI™ Key Drivers</h2></div></div>
+            <div class="rp-tile-content word-cloud" role="img" aria-label="Key drivers: Google, Spanish, Expedia, Breakfast, English, Trip.com, Couples, Business">
+              <span style="font-size: 14px; color: var(--green-30)">English</span>
+              <span style="font-size: 26px; color: var(--green-40)">Expedia</span>
+              <span style="font-size: 52px; color: var(--green-main)">Google</span>
+              <span style="font-size: 28px; color: var(--green-50)">Spanish</span>
+              <span style="font-size: 13px; color: var(--neutral-50)">Trip.com</span>
+              <span style="font-size: 12px; color: var(--green-30)">Couples</span>
+              <span style="font-size: 12px; color: var(--neutral-50)">Business</span>
+              <span style="font-size: 16px; color: var(--green-40)">Breakfast</span>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Trends</h2></div></div>
+            <div class="rp-tile-table kit-grid trends" style="--kit-columns: 2">
+              <table class="rp-table rp-table-compact">
+                <thead><tr><th class="trend-delta"><span class="rp-text-no-wrap" style="display: none">Change</span></th><th>Trending up</th><th class="rp-table-numeric">GRI™</th></tr></thead>
+                <tbody>
+                  <tr><td class="trend-delta"><span class="rp-table-delta rp-text-success">+3.2</span></td><td>English</td><td class="rp-table-numeric">87.1%</td></tr>
+                  <tr><td class="trend-delta"><span class="rp-table-delta rp-text-success">+1.3</span></td><td>Google</td><td class="rp-table-numeric">85.5%</td></tr>
+                  <tr><td class="trend-delta"><span class="rp-table-delta rp-text-success">+0.4</span></td><td>Spanish</td><td class="rp-table-numeric">85.5%</td></tr>
+                </tbody>
+              </table>
+              <table class="rp-table rp-table-compact">
+                <thead><tr><th class="trend-delta"><span class="rp-text-no-wrap" style="display: none">Change</span></th><th>Trending down</th><th class="rp-table-numeric">GRI™</th></tr></thead>
+                <tbody>
+                  <tr><td class="trend-delta"><span class="rp-table-delta rp-text-error">-1.4</span></td><td>Trip.com</td><td class="rp-table-numeric">95.2%</td></tr>
+                  <tr><td class="trend-delta"><span class="rp-table-delta rp-text-error">-1.3</span></td><td>Expedia</td><td class="rp-table-numeric">87.5%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Competition</h2></div></div>
+            <div class="rp-tile-content">
+              <div class="kit-grid" style="--kit-columns: 3">
+                <div class="kit-kpi"><span class="kit-kpi-label">Ranking</span><span class="kit-kpi-value">11 / 15</span></div>
+                <div class="kit-kpi"><span class="kit-kpi-label">Competitor GRI™</span><span class="kit-kpi-value">89.1%</span><span class="kit-kpi-label"><span class="kit-kpi-delta-up">+0.4</span></span></div>
+                <div class="kit-kpi">
+                  <span class="kit-kpi-label">GRI™</span>
+                  <div class="kit-row competition-gri"><span class="kit-kpi-value">98.8%</span><div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-success"></span><span class="rp-text-caption">Goal 88.0%<br />by 31 Dec 2026</span></div></div>
+                  <span class="kit-kpi-label"><span class="kit-kpi-delta-up">+1.5</span></span>
+                  <div class="segments" role="img" aria-label="Score distribution"><span style="background: var(--red-main)"></span><span style="background: var(--orange-main)"></span><span style="background: var(--yellow-main)"></span><span style="background: var(--green-40)"></span><span style="background: var(--green-main)"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-compact" id="competitionTable">
+                <thead><tr><th>Establishment</th><th class="rp-table-numeric rp-table-sorted" aria-sort="descending"><button type="button" class="rp-table-sort">GRI™<span class="rp-icon rp-icon-arrow-down"></span></button></th><th class="rp-table-numeric">%</th><th class="rp-table-numeric"><button type="button" class="rp-table-sort">Reviews<span class="rp-icon rp-icon-sort-by"></span></button></th><th class="rp-table-numeric">%</th><th>Sentiment</th><th class="rp-table-numeric"><button type="button" class="rp-table-sort">Competitive Quality Index™<span class="rp-icon rp-icon-sort-by"></span></button></th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>6. Riviera Grand Hotel</td><td class="rp-table-numeric">90.1%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.5</span></td><td class="rp-table-numeric">605</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+24</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="84% positive"><div class="rp-volume-bar-value" style="width: 84%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="105.5"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 94%; background: var(--green-main)"></div></div><span class="rp-text-success">105.5%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>7. Azure Bay Hotel</td><td class="rp-table-numeric">89.9%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.2</span></td><td class="rp-table-numeric">127</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+37</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="80% positive"><div class="rp-volume-bar-value" style="width: 80%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="100.9"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 90%; background: var(--green-main)"></div></div><span class="rp-text-success">100.9%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>8. Palm Court Hotel</td><td class="rp-table-numeric">89.6%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1.4</span></td><td class="rp-table-numeric">343</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+15</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="81% positive"><div class="rp-volume-bar-value" style="width: 81%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="102.7"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 92%; background: var(--green-main)"></div></div><span class="rp-text-success">102.7%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>9. Sunset Beach Resort</td><td class="rp-table-numeric">89.1%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.9</span></td><td class="rp-table-numeric">187</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+42</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="78% positive"><div class="rp-volume-bar-value" style="width: 78%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="106.0"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 95%; background: var(--green-main)"></div></div><span class="rp-text-success">106.0%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>10. Harbor View Suites</td><td class="rp-table-numeric">88.9%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-0.4</span></td><td class="rp-table-numeric">213</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+33</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="77% positive"><div class="rp-volume-bar-value" style="width: 77%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="100.4"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 90%; background: var(--green-main)"></div></div><span class="rp-text-success">100.4%</span></div></td>
+                  </tr>
+                  <tr class="rp-text-bold" aria-current="true">
+                    <td>11. Grand Marina Resort &amp; Spa (Default)</td><td class="rp-table-numeric">88.1%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-1.7</span></td><td class="rp-table-numeric">157</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+70</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="71% positive"><div class="rp-volume-bar-value" style="width: 71%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="100.0"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 90%; background: var(--green-main)"></div></div><span class="rp-text-secondary">100.0%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>12. Seaside Palace</td><td class="rp-table-numeric">84.3%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-0.6</span></td><td class="rp-table-numeric">135</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+18</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="66% positive"><div class="rp-volume-bar-value" style="width: 66%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="95.5"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 85%; background: var(--red-main)"></div></div><span class="rp-text-error">95.5%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>13. Cliff Edge Resort</td><td class="rp-table-numeric">81.7%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-2.1</span></td><td class="rp-table-numeric">540</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+125</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="62% positive"><div class="rp-volume-bar-value" style="width: 62%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="92.7"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 83%; background: var(--red-main)"></div></div><span class="rp-text-error">92.7%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>14. Coral Coast Hotel</td><td class="rp-table-numeric">79.9%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-1.1</span></td><td class="rp-table-numeric">33</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+4</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="58% positive"><div class="rp-volume-bar-value" style="width: 58%"></div><div class="rp-volume-bar-value" style="width: 6%; background: var(--orange-main)"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="90.7"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 81%; background: var(--red-main)"></div></div><span class="rp-text-error">90.7%</span></div></td>
+                  </tr>
+                  <tr>
+                    <td>15. Old Town Suites</td><td class="rp-table-numeric">0%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-secondary">0</span></td><td class="rp-table-numeric">0</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-secondary">0</span></td>
+                    <td class="mentions-cell"><div class="rp-volume-bar" role="img" aria-label="0% positive"><div class="rp-volume-bar-value" style="width: 0%"></div></div></td>
+                    <td class="rp-table-numeric" data-rp-sort-value="0.0"><div class="cqi"><div class="rp-progress-bar-track"><div class="rp-progress-bar-value" style="width: 0%; background: var(--red-main)"></div></div><span class="rp-text-secondary">—</span></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="competitionTable" data-rp-total="15">
+              <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+              <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+              <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">10</span></button>
+              <div class="rp-menu" role="listbox">
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">5</button>
+                <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">10</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+              </div>
+            </div></div>
+              <span class="rp-table-pagination-range">1-10 of 15</span>
+              <div class="rp-table-pagination-actions">
+                <button type="button" class="rp-icon-button" data-rp-page="first" aria-label="First page"><span class="rp-icon rp-icon-rewind"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
+              </div>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Group Ranking</h2><p class="rp-tile-title-secondary">Coastal Hotels Group</p></div></div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-compact">
+                <thead><tr><th>Establishment</th><th class="rp-table-numeric">GRI™</th><th class="rp-table-numeric">%</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Seaside Palace</td><td class="rp-table-numeric">92.4%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.8</span></td></tr>
+                  <tr class="rp-text-bold" aria-current="true"><td>2. Grand Marina Resort &amp; Spa</td><td class="rp-table-numeric">88.1%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-1.7</span></td></tr>
+                  <tr><td>3. Azure Bay Hotel</td><td class="rp-table-numeric">87.6%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+0.3</span></td></tr>
+                  <tr><td>4. Harbor View Suites</td><td class="rp-table-numeric">86.2%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-success">+1.1</span></td></tr>
+                  <tr><td>5. Cliff Edge Resort</td><td class="rp-table-numeric">84.9%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-text-error">-0.5</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="rp-menu" id="downloadMenu" role="menu" aria-label="Download report" data-rp-align-right>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-pdf"></span> PDF</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-report-download"></span> Excel</button>
+  </div>
+  <div class="rp-menu" id="fabMenu" role="menu" aria-label="Create" data-rp-align-right>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-open="caseDialog"><span class="rp-icon rp-icon-case"></span> Create case</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Note added to the dashboard"><span class="rp-icon rp-icon-notes"></span> Add note</button>
+  </div>
+  <div class="rp-dialog-overlay" id="scheduleDialog">
+    <div class="rp-dialog rp-dialog-max-width-md" role="dialog" aria-modal="true" aria-labelledby="scheduleDialog-title">
+      <div class="rp-dialog-title">
+        <h2 class="rp-dialog-title-label" id="scheduleDialog-title">Schedule Report</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-dialog-content" data-rp-form>
+        <div class="kit-form" style="--kit-columns: 2; padding-top: var(--spacing-1)">
+          <div class="kit-form-full">
+            <div class="rp-text-field rp-text-field-full-width">
+              <label class="rp-field-label rp-field-label-required">Report name</label>
+              <div class="rp-field-box"><input class="rp-field-input" type="text" value="Reviews Dashboard" aria-label="Report name" /></div>
+            </div>
+          </div>
+          <div class="rp-select rp-select-full-width" data-rp-placeholder="Select">
+            <span class="rp-field-label rp-field-label-required">Frequency</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Frequency"><span class="rp-select-value">Weekly</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Daily</button>
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Weekly</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Monthly</button>
+            </div>
+          </div>
+          <div class="rp-select rp-select-full-width" data-rp-placeholder="Select">
+            <span class="rp-field-label">Format</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Format"><span class="rp-select-value">PDF</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">PDF</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Excel</button>
+            </div>
+          </div>
+          <div class="kit-form-full">
+            <div class="rp-select rp-select-full-width rp-select-multiple" data-rp-placeholder="Select">
+              <span class="rp-field-label">Recipients</span>
+              <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Recipients"><span class="rp-select-value">Alex Rivera</span></button>
+              <div class="rp-menu" role="listbox" aria-multiselectable="true">
+                <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true"><span class="rp-checkbox-glyph"></span>Alex Rivera</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Sam Torres</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Front desk team</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Housekeeping team</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rp-dialog-actions">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-close>Cancel</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small" data-rp-validate="Report scheduled">Schedule report</button>
+      </div>
+    </div>
+  </div>
+  <div class="rp-dialog-overlay" id="caseDialog">
+    <div class="rp-dialog rp-dialog-max-width-md" role="dialog" aria-modal="true" aria-labelledby="caseDialog-title">
+      <div class="rp-dialog-title">
+        <h2 class="rp-dialog-title-label" id="caseDialog-title">Create Case</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-dialog-content" data-rp-form>
+        <div class="kit-form" style="--kit-columns: 2; padding-top: var(--spacing-1)">
+          <div class="kit-form-full">
+            <div class="rp-text-field rp-text-field-full-width">
+              <label class="rp-field-label rp-field-label-required">Case title</label>
+              <div class="rp-field-box"><input class="rp-field-input" type="text" placeholder="Noise from the pool area" aria-label="Case title" /></div>
+            </div>
+          </div>
+          <div class="rp-select rp-select-full-width" data-rp-placeholder="Select">
+            <span class="rp-field-label rp-field-label-required">Department</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Department"><span class="rp-select-value rp-select-placeholder">Select</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Reception</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Housekeeping</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Maintenance</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Food and Drinks</button>
+            </div>
+          </div>
+          <div class="rp-select rp-select-full-width" data-rp-placeholder="Select">
+            <span class="rp-field-label">Assign to</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Assign to"><span class="rp-select-value">Sam Torres</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Alex Rivera</button>
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Sam Torres</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rp-dialog-actions">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-close>Cancel</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small" data-rp-validate="Case created and assigned">Create case</button>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="rp-floating-button" data-rp-menu="fabMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Create" data-rp-tooltip="Create" data-rp-tooltip-placement="left"><span class="rp-icon rp-icon-add"></span></button>
+  <script src="shared.js"></script>
+</body>
+</html>

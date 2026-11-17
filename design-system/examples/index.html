@@ -113,6 +113,7 @@
           <div class="sc-row"><span class="sc-label">MainButton · small</span><button type="button" class="rp-main-button rp-main-button-size-small">Save</button><button type="button" class="rp-main-button rp-main-button-size-small"><span class="rp-icon rp-icon-add"></span><span>Add user</span></button><button type="button" class="rp-main-button rp-main-button-size-small rp-main-button-danger">Delete</button></div>
           <div class="sc-row"><span class="sc-label">DefaultButton</span><button type="button" class="rp-default-button">Cancel</button><button type="button" class="rp-default-button rp-default-button-primary">Change photo</button><button type="button" class="rp-default-button rp-default-button-danger">Remove</button><button type="button" class="rp-default-button rp-default-button-size-small"><span class="rp-icon rp-icon-actions"></span><span>Actions</span></button><button type="button" class="rp-default-button rp-default-button-size-small" disabled>Cancel</button></div>
           <div class="sc-row"><span class="sc-label">GhostButton</span><button type="button" class="rp-ghost-button"><span class="rp-icon rp-icon-filter"></span><span>Filters</span></button><button type="button" class="rp-ghost-button">Assign role</button><button type="button" class="rp-ghost-button rp-ghost-button-inherit">Skip</button><button type="button" class="rp-ghost-button rp-ghost-button-danger">Delete</button><button type="button" class="rp-ghost-button rp-ghost-button-size-medium">Show more</button></div>
+        <div class="sc-row"><span class="sc-label">MainButton variant: accent · tertiary · accentBrand</span><button type="button" class="rp-main-button rp-main-button-accent rp-main-button-size-small">Accent</button><button type="button" class="rp-main-button rp-main-button-tertiary rp-main-button-size-small">Tertiary</button><button type="button" class="rp-main-button rp-main-button-accent-brand rp-main-button-size-small"><span class="rp-icon rp-icon-ai"></span>Generate Insights</button></div>
         </div>
       </section>
       <section class="sc-section" id="sec-icon-button">
@@ -228,6 +229,19 @@
           </div></div>
         </div>
       </section>
+      <section class="sc-section" id="sec-slider">
+        <div class="sc-head"><h2 class="rp-text-h6">Slider</h2><code class="sc-react">Slider</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><div class="rp-slider"><span class="rp-slider-label">Minimum score</span><div class="rp-slider-row"><span>0</span><input type="range" class="rp-slider-input" min="0" max="100" value="70" aria-label="Minimum score" /><span data-rp-slider-value="{v}%">70%</span></div></div>
+          <div class="rp-slider rp-slider-disabled"><span class="rp-slider-label">Weight</span><div class="rp-slider-row"><span>0</span><input type="range" class="rp-slider-input" min="0" max="10" value="4" disabled aria-label="Weight" /><span>10</span></div></div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-uploader">
+        <div class="sc-head"><h2 class="rp-text-h6">Uploader</h2><code class="sc-react">Uploader</code></div>
+        <div class="sc-body">
+          <div class="rp-uploader"><div class="rp-uploader-zone"><input type="file" aria-label="Upload file" multiple /><span class="rp-ghost-button rp-ghost-button-size-medium"><span class="rp-icon rp-icon-upload"></span>Upload file</span><div class="rp-uploader-text"><span class="rp-uploader-hint">Or drag and drop files here to upload</span><span class="rp-uploader-help">You can upload your file (JPG/PNG/GIF) up to 20MB.</span></div></div></div>
+        </div>
+      </section>
       <section class="sc-section" id="sec-selection-controls">
         <div class="sc-head"><h2 class="rp-text-h6">Checkbox, radio, switch</h2><code class="sc-react">Checkbox · Radio · Switch · FormControlLabel</code></div>
         <div class="sc-body">
@@ -239,7 +253,7 @@
       <section class="sc-section" id="sec-chip">
         <div class="sc-head"><h2 class="rp-text-h6">Chip</h2><code class="sc-react">Chip</code></div>
         <div class="sc-body">
-          <div class="sc-row"><span class="sc-label">Medium (default)</span><span class="rp-chip">Default</span><span class="rp-chip rp-chip-brand">New</span><span class="rp-chip rp-chip-secondary">Room</span><span class="rp-chip rp-chip-confirmation">Active</span><span class="rp-chip rp-chip-info">Replied</span><span class="rp-chip rp-chip-warning">Pending</span><span class="rp-chip rp-chip-error">Failed</span><span class="rp-chip rp-chip-deactivated">Inactive</span></div>
+          <div class="sc-row"><span class="sc-label">Medium (default)</span><span class="rp-chip">Default</span><span class="rp-chip rp-chip-brand">New</span><span class="rp-chip rp-chip-secondary">Room</span><span class="rp-chip rp-chip-confirmation">Active</span><span class="rp-chip rp-chip-info">Replied</span><span class="rp-chip rp-chip-warning">Pending</span><span class="rp-chip rp-chip-error">Failed</span><span class="rp-chip rp-chip-deactivated">Inactive</span><span class="rp-chip rp-chip-neon">AI</span><span class="rp-chip rp-chip-size-small rp-chip-topic-positive">breakfast</span><span class="rp-chip rp-chip-size-small rp-chip-topic-negative">parking</span></div>
           <div class="sc-row"><span class="sc-label">Small (tables)</span><span class="rp-chip rp-chip-size-small">Default</span><span class="rp-chip rp-chip-size-small rp-chip-brand">New</span><span class="rp-chip rp-chip-size-small rp-chip-secondary">Room</span><span class="rp-chip rp-chip-size-small rp-chip-confirmation">Active</span><span class="rp-chip rp-chip-size-small rp-chip-info">Replied</span><span class="rp-chip rp-chip-size-small rp-chip-warning">Pending</span><span class="rp-chip rp-chip-size-small rp-chip-error">Failed</span><span class="rp-chip rp-chip-size-small rp-chip-deactivated">Inactive</span></div>
           <div class="sc-row"><span class="sc-label">Large · squared · clickable · deletable</span><span class="rp-chip rp-chip-size-large">Large</span><span class="rp-chip rp-chip-squared rp-chip-info">Squared</span><button type="button" class="rp-chip rp-chip-clickable rp-chip-secondary">Clickable</button><span class="rp-chip rp-chip-secondary"><span class="rp-icon rp-icon-service"></span> Service <button type="button" class="rp-chip-delete" aria-label="Remove Service"><span class="rp-icon rp-icon-close"></span></button></span><span class="rp-chip rp-chip-disabled">Disabled</span></div>
         </div>
@@ -266,6 +280,13 @@
           <div class="rp-alert" role="status"><span class="rp-icon rp-icon-warning"></span><div class="rp-alert-content"><strong class="rp-alert-title">Response rate is below goal</strong>Reply to the 12 pending reviews to reach 80%.</div><div class="rp-alert-actions"><button type="button" class="rp-ghost-button">View reviews</button></div></div>
           <div style="height: var(--spacing-1)"></div>
           <div class="rp-alert rp-alert-error" role="alert"><span class="rp-icon rp-icon-error"></span><div class="rp-alert-content">Google is disconnected. Connect it again to reply to reviews.</div><button type="button" class="rp-icon-button rp-alert-close" aria-label="Close alert"><span class="rp-icon rp-icon-close"></span></button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-disclaimer">
+        <div class="sc-head"><h2 class="rp-text-h6">Disclaimer</h2><code class="sc-react">Disclaimer</code></div>
+        <div class="sc-body">
+          <div class="rp-disclaimer" role="note"><span class="rp-icon rp-icon-ai"></span>Actionable Insight priorities are determined by an AI model and may not reflect all factors. Please validate the data before taking action.</div>
+          <div class="rp-disclaimer rp-disclaimer-compact" role="note"><span class="rp-icon rp-icon-ai"></span>Compact: no bottom margin, 8px sides</div>
         </div>
       </section>
       <section class="sc-section" id="sec-snackbar">
@@ -390,7 +411,20 @@
               <button type="button" class="rp-menu-item rp-menu-item-danger" role="menuitem"><span class="rp-icon rp-icon-delete"></span> Delete user</button>
             </div>
             <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-menu="scMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-actions"></span><span>Open a menu</span></button>
+            <div class="rp-menu rp-popover open" style="position: static; width: 280px" role="dialog" aria-label="Example popover">
+              <div class="rp-list-subheader">Most frequent</div>
+              <button type="button" class="rp-menu-item" role="option">Grand Marina Resort &amp; Spa</button>
+              <div class="rp-list-subheader">3 Groups</div>
+              <button type="button" class="rp-menu-item" role="option">Coastal Hotels Group</button>
+            </div>
           </div>
+          <p class="rp-text-caption rp-text-secondary" style="margin-top: var(--spacing-1)">Popover · ListSubheader: rich content under a trigger, like the top bar establishment selector.</p>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-timeline">
+        <div class="sc-head"><h2 class="rp-text-h6">Timeline</h2><code class="sc-react">Timeline</code></div>
+        <div class="sc-body">
+          <div class="rp-timeline"><div class="rp-timeline-stage rp-timeline-stage-completed"><h3 class="rp-timeline-title">Before arrival</h3><div class="rp-timeline-events"><div class="rp-timeline-event rp-timeline-event-completed"><span class="rp-timeline-marker"><span class="rp-timeline-badge"><span class="rp-icon rp-icon-check"></span></span></span><p class="rp-timeline-event-title">Booked</p><p class="rp-timeline-event-text">12 Mar · Booking.com</p></div><div class="rp-timeline-event rp-timeline-event-completed"><span class="rp-timeline-marker"><span class="rp-timeline-badge"><span class="rp-icon rp-icon-check"></span></span></span><p class="rp-timeline-event-title">Pre-arrival email</p><p class="rp-timeline-event-text">20 Mar · Opened</p></div></div></div><div class="rp-timeline-stage"><h3 class="rp-timeline-title">During the stay</h3><div class="rp-timeline-events"><div class="rp-timeline-event rp-timeline-event-ongoing"><span class="rp-timeline-marker"><span class="rp-timeline-badge"><span class="rp-icon rp-icon-calendar"></span></span></span><p class="rp-timeline-event-title">In house</p><p class="rp-timeline-event-text">24 – 28 Mar · Room 412</p></div></div></div><div class="rp-timeline-stage"><h3 class="rp-timeline-title">After the stay</h3><div class="rp-timeline-events"><div class="rp-timeline-event"><span class="rp-timeline-marker"><span class="rp-timeline-badge"><span class="rp-icon rp-icon-calendar"></span></span></span><p class="rp-timeline-event-title">Post-stay survey</p><p class="rp-timeline-event-text">Sent after checkout</p></div></div></div></div>
         </div>
       </section>
       <section class="sc-section" id="sec-dialog-drawer">

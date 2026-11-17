@@ -1,0 +1,513 @@
+{
+ "_about": "Figma UI App library (file ubE7R2jeqiwS8BZ4a5vwHw) component sets -> kit markup. Used by .kiro/scripts/figma-outline.py to turn any Figma frame built with the library into kit classes. Variant rules: \"@cls\" replaces the base class, \"+cls\" adds a class, \"{base}-x\" adds a modifier of the current base, \"attr:x\" adds an HTML attribute, \"=\" means no change. Missing = the library has it and the kit does not (see design-system/figma/README.md).",
+ "sets": {
+  "Button": {
+   "kit": "rp-main-button",
+   "tag": "button",
+   "doc": "rp-buttons.md",
+   "variants": {
+    "Variant=Outlined": "@rp-default-button",
+    "Variant=Ghost": "@rp-ghost-button",
+    "Variant=Filled": "=",
+    "Style=Primary": "=",
+    "Style=Secondary": "{base}-secondary",
+    "Style=Danger": "{base}-danger",
+    "Style=Disabled": "attr:disabled",
+    "Size=Large": "=",
+    "Size=Small": "{base}-size-small"
+   },
+   "notes": "Outlined Primary = rp-default-button-primary, Outlined Secondary = rp-default-button. Ghost: kit default is Figma Small; Figma Large = rp-ghost-button-size-medium; Secondary ghost = rp-ghost-button-inherit with a grey parent. A leading icon is the first .rp-icon (32px large, 24px small)."
+  },
+  "IconButton": {
+   "kit": "rp-icon-button",
+   "tag": "button",
+   "doc": "rp-buttons.md",
+   "variants": {
+    "State=Disabled": "attr:disabled",
+    "State=Active": "attr:aria-expanded=\"true\""
+   },
+   "notes": "32px icon; needs aria-label"
+  },
+  "IconButton_Squared": {
+   "kit": "rp-icon-button rp-icon-button-squared",
+   "tag": "button",
+   "doc": "rp-buttons.md",
+   "variants": {
+    "State=Disabled": "attr:disabled"
+   }
+  },
+  "FAB": {
+   "kit": "rp-floating-button",
+   "tag": "button",
+   "doc": "rp-buttons.md"
+  },
+  "Toggle Button_New": {
+   "kit": "rp-toggle-button-group",
+   "doc": "rp-buttons.md",
+   "variants": {
+    "Size=Small": "+rp-toggle-button-size-small"
+   },
+   "notes": "Children: Toggle-Btn-*-Option -> rp-toggle-button (Style=Active -> rp-toggle-button-selected)"
+  },
+  "Toggle-Btn-Icon-Option_New": {
+   "kit": "rp-toggle-button",
+   "tag": "button",
+   "variants": {
+    "Style=Active": "+rp-toggle-button-selected"
+   }
+  },
+  "Toggle-Btn-Icon-Text-Option_New": {
+   "kit": "rp-toggle-button",
+   "tag": "button",
+   "variants": {
+    "Style=Active": "+rp-toggle-button-selected"
+   }
+  },
+  "Toggle-Btn-Option-Bg_New": {
+   "kit": "rp-toggle-button",
+   "tag": "button",
+   "variants": {
+    "State=Active": "+rp-toggle-button-selected"
+   }
+  },
+  "Chip": {
+   "kit": "rp-chip",
+   "tag": "span",
+   "doc": "rp-chip.md",
+   "variants": {
+    "Style=Primary": "=",
+    "Style=Outlined": "+rp-chip-secondary",
+    "Style=Success": "+rp-chip-confirmation",
+    "Style=Warning": "+rp-chip-warning",
+    "Style=Error": "+rp-chip-error",
+    "Style=Info": "+rp-chip-info",
+    "Style=Neutral": "+rp-chip-deactivated",
+    "Style=Brand": "+rp-chip-brand",
+    "Style=Disabled": "+rp-chip-disabled",
+    "Size=Medium": "=",
+    "Size=Small": "+rp-chip-size-small",
+    "Size=Large": "+rp-chip-size-large",
+    "Style=Neon": "+rp-chip-neon",
+    "Style=TopicPositive": "+rp-chip-topic-positive",
+    "Style=TopicNegative": "+rp-chip-topic-negative"
+   },
+   "notes": "Figma Style=Brand (light blue #AED0FF) differs from the product Chip color=\"brand\" (RPP70, rp-chip-brand): use rp-chip-brand."
+  },
+  "Chip/New": {
+   "kit": "rp-chip rp-chip-brand rp-chip-size-small rp-chip-squared",
+   "tag": "span",
+   "doc": "rp-chip.md"
+  },
+  "Badge": {
+   "kit": "rp-badge",
+   "tag": "span",
+   "doc": "rp-badge-avatar.md",
+   "variants": {
+    "Type=Dot": "+rp-badge-dot",
+    "Size=Small": "+rp-badge-size-small",
+    "Size=Large": "+rp-badge-size-large",
+    "Size=Medium": "="
+   },
+   "notes": "The number goes in .rp-badge-content; on its own use rp-badge-inline"
+  },
+  "Badge-Container": {
+   "kit": "rp-badge",
+   "tag": "span",
+   "doc": "rp-badge-avatar.md"
+  },
+  "Avatar": {
+   "kit": "rp-avatar",
+   "tag": "span",
+   "doc": "rp-badge-avatar.md",
+   "variants": {
+    "Size=Large": "+rp-avatar-size-50",
+    "Size=Medium": "=",
+    "Size=Small": "+rp-avatar-size-24"
+   },
+   "notes": "Style=Photo: an <img> inside; Style=TopNav: the top bar avatar (white square, RPP70 initials)"
+  },
+  "Alert": {
+   "kit": "rp-alert",
+   "tag": "div",
+   "doc": "rp-alert.md",
+   "variants": {
+    "Feedback=Success": "+rp-alert-confirmation",
+    "Feedback=Warning": "=",
+    "Feedback=Error": "+rp-alert-error",
+    "Feedback=Info": "+rp-alert-info",
+    "Lines=CTAs bellow": "+rp-alert-multiline",
+    "Lines=Inline CTA": "="
+   }
+  },
+  "Snackbar": {
+   "kit": "rp-snackbar",
+   "tag": "div",
+   "doc": "rp-snackbar-tooltip.md",
+   "variants": {
+    "Feedback=Success": "+rp-snackbar-confirmation",
+    "Feedback=Error": "+rp-snackbar-error",
+    "Feedback=Warning": "+rp-snackbar-warning",
+    "Feedback=Info": "="
+   },
+   "notes": "Pages show snackbars with data-rp-snackbar=\"Message\" on the trigger"
+  },
+  "Toast": {
+   "kit": "rp-snackbar",
+   "tag": "div",
+   "doc": "rp-snackbar-tooltip.md"
+  },
+  "Tooltip/Default": {
+   "kit": "data-rp-tooltip",
+   "doc": "rp-snackbar-tooltip.md",
+   "notes": "Not markup: add data-rp-tooltip=\"Text\" to the element it describes"
+  },
+  "Tabs-Desktop": {
+   "kit": "rp-tabs",
+   "tag": "div",
+   "doc": "rp-tabs.md",
+   "notes": "Medium = default; Small: rp-tab-size-small on each tab"
+  },
+  "Tab-item-Desktop": {
+   "kit": "rp-tab",
+   "tag": "button",
+   "doc": "rp-tabs.md",
+   "variants": {
+    "State=Selected": "+rp-tab-selected",
+    "Size=Small": "+rp-tab-size-small",
+    "Size=Large": "+rp-tab-size-large",
+    "Size=Medium": "="
+   }
+  },
+  "NewField": {
+   "kit": "rp-text-field",
+   "tag": "div",
+   "doc": "rp-fields.md",
+   "variants": {
+    "Size=Small": "{base}-size-small",
+    "State=Error": "{base}-error",
+    "State=Warning": "{base}-warning",
+    "State=Disabled": "{base}-disabled",
+    "Style=Ghost": "Missing"
+   },
+   "notes": "With a chevron it is a Select (rp-select); with a calendar it is a DatePicker (rp-date-picker)"
+  },
+  "Field/Large/Outlined/Default": {
+   "kit": "rp-text-field",
+   "tag": "div",
+   "doc": "rp-fields.md"
+  },
+  "Field/Small/Outlined/Default": {
+   "kit": "rp-text-field rp-text-field-size-small",
+   "tag": "div",
+   "doc": "rp-fields.md"
+  },
+  "Searcher": {
+   "kit": "rp-search",
+   "tag": "div",
+   "doc": "rp-fields.md",
+   "variants": {
+    "Size=Small": "+rp-search-size-small"
+   }
+  },
+  "TextArea": {
+   "kit": "rp-text-area",
+   "tag": "div",
+   "doc": "rp-fields.md"
+  },
+  "Autocomplete": {
+   "kit": "rp-select",
+   "tag": "div",
+   "doc": "rp-fields.md",
+   "notes": "A select whose menu starts with .rp-select-search"
+  },
+  "Checkbox": {
+   "kit": "rp-checkbox",
+   "tag": "input",
+   "doc": "rp-selection-controls.md",
+   "variants": {
+    "Radio=True": "@rp-radio",
+    "Selected=True": "attr:checked",
+    "Selected=Partial": "attr:data-rp-indeterminate",
+    "State=Disabled": "attr:disabled",
+    "State=Error": "+rp-checkbox-error"
+   }
+  },
+  "Switch": {
+   "kit": "rp-switch",
+   "tag": "button",
+   "doc": "rp-selection-controls.md",
+   "variants": {
+    "Active=On": "+rp-switch-checked",
+    "Size=Small": "+rp-switch-size-small",
+    "State=Disabled": "attr:disabled"
+   }
+  },
+  "SwitchText": {
+   "kit": "rp-form-control-label",
+   "tag": "label",
+   "doc": "rp-selection-controls.md"
+  },
+  "Menu": {
+   "kit": "rp-menu",
+   "tag": "div",
+   "doc": "rp-menu.md",
+   "notes": "Kind=Check: rows with a checkbox (multiple select)"
+  },
+  "Item-Dropdown": {
+   "kit": "rp-menu-item",
+   "tag": "button",
+   "doc": "rp-menu.md",
+   "variants": {
+    "State=Selected": "+rp-menu-item-selected",
+    "State=Danger": "+rp-menu-item-danger",
+    "State=Disabled": "+rp-menu-item-disabled",
+    "Content=Search": "@rp-menu-search"
+   },
+   "notes": "Figma's atom draws the value bold; menus in the library and the product use regular 14/22"
+  },
+  "Breadcrumbs": {
+   "kit": "rp-breadcrumbs",
+   "tag": "nav",
+   "doc": "rp-breadcrumbs-stepper.md"
+  },
+  "bc-item": {
+   "kit": "rp-breadcrumb-link",
+   "tag": "a",
+   "doc": "rp-breadcrumbs-stepper.md",
+   "variants": {
+    "State=Current": "@rp-breadcrumb-text"
+   }
+  },
+  "Paginator": {
+   "kit": "rp-table-pagination",
+   "tag": "div",
+   "doc": "rp-table.md"
+  },
+  "Footer": {
+   "kit": "rp-table-pagination",
+   "tag": "div",
+   "doc": "rp-table.md"
+  },
+  "Toolbar": {
+   "kit": "rp-toolbar",
+   "tag": "div",
+   "doc": "rp-table.md"
+  },
+  "Cell": {
+   "kit": "rp-table td",
+   "doc": "rp-table.md",
+   "notes": "Cell-Type=Default-Right / Change: numbers right aligned (rp-table-numeric)"
+  },
+  "Row Content": {
+   "kit": "rp-table td content",
+   "doc": "rp-table.md"
+  },
+  "Header Content": {
+   "kit": "rp-table th",
+   "doc": "rp-table.md",
+   "notes": "State=Active = the sorted column (rp-table-sorted)"
+  },
+  "Header Type": {
+   "kit": "rp-table th",
+   "doc": "rp-table.md"
+  },
+  "Row-Background": {
+   "kit": "rp-table tr",
+   "doc": "rp-table.md",
+   "notes": "State=Selected = rp-table-row-selected"
+  },
+  "Volume-Bar_new": {
+   "kit": "rp-volume-bar",
+   "tag": "div",
+   "doc": "rp-table.md",
+   "variants": {
+    "Style=01": "+rp-volume-bar-neutral"
+   }
+  },
+  "Divider-Line": {
+   "kit": "rp-divider",
+   "tag": "hr",
+   "doc": "rp-tile.md",
+   "variants": {
+    "Orientation=Vertical": "+rp-divider-vertical"
+   }
+  },
+  "Accordion": {
+   "kit": "rp-accordion",
+   "tag": "div",
+   "doc": "rp-accordion.md",
+   "variants": {
+    "Open=True": "+rp-accordion-expanded"
+   }
+  },
+  "More-less": {
+   "kit": "rp-link",
+   "tag": "button",
+   "doc": "rp-typography.md",
+   "notes": "Read more / Show less link with a 24px plus or minus icon after the label"
+  },
+  "Tile": {
+   "kit": "rp-tile",
+   "tag": "section",
+   "doc": "rp-tile.md"
+  },
+  "TileState": {
+   "kit": "rp-tile",
+   "tag": "section",
+   "doc": "rp-tile.md"
+  },
+  "Card": {
+   "kit": "rp-tile",
+   "tag": "section",
+   "doc": "rp-tile.md",
+   "notes": "A tile with an alert on top, a title row with actions, a description and a Show sections footer"
+  },
+  "Dialog": {
+   "kit": "rp-dialog",
+   "tag": "div",
+   "doc": "rp-dialog-drawer.md"
+  },
+  "SidebarDrawer": {
+   "kit": "rp-drawer",
+   "tag": "div",
+   "doc": "rp-dialog-drawer.md"
+  },
+  "SidebarPanel": {
+   "kit": "rp-drawer",
+   "tag": "div",
+   "doc": "rp-dialog-drawer.md"
+  },
+  "PopOver": {
+   "kit": "rp-popover",
+   "tag": "div",
+   "doc": "rp-menu.md"
+  },
+  "Progress Bar": {
+   "kit": "rp-progress-bar",
+   "tag": "div",
+   "doc": "rp-placeholder.md",
+   "variants": {
+    "Type=Steps": "Missing"
+   }
+  },
+  "Process": {
+   "kit": "rp-stepper",
+   "tag": "div",
+   "doc": "rp-breadcrumbs-stepper.md"
+  },
+  "Perkins": {
+   "kit": "rp-placeholder",
+   "tag": "div",
+   "doc": "rp-placeholder.md"
+  },
+  "Message-Tile": {
+   "kit": "rp-placeholder",
+   "tag": "div",
+   "doc": "rp-placeholder.md"
+  },
+  "Message-Page": {
+   "kit": "rp-placeholder",
+   "tag": "div",
+   "doc": "rp-placeholder.md"
+  },
+  "DateRange-Calendar": {
+   "kit": "rp-top-bar-date-popover",
+   "doc": "rp-app-shell.md",
+   "notes": "Built by shared.js from data-rp-top-bar=\"date\""
+  },
+  "TopNav": {
+   "kit": "rp-top-bar",
+   "tag": "header",
+   "doc": "rp-app-shell.md",
+   "variants": {
+    "Device=Corporate": "+rp-top-bar-corporate",
+    "Device=Desktop": "=",
+    "Device=Mobile": "Missing"
+   }
+  },
+  "SideNav/Desktop": {
+   "kit": "rp-side-bar + rp-side-bar-panel",
+   "doc": "rp-app-shell.md"
+  },
+  "sideBarDesktop": {
+   "kit": "rp-side-bar",
+   "tag": "nav",
+   "doc": "rp-app-shell.md",
+   "variants": {
+    "Type=Expanded": "+rp-side-bar-expanded"
+   }
+  },
+  "panel": {
+   "kit": "rp-side-bar-panel",
+   "tag": "aside",
+   "doc": "rp-app-shell.md"
+  },
+  "selectorEstablishment": {
+   "kit": "rp-top-bar-establishment",
+   "tag": "button",
+   "doc": "rp-app-shell.md"
+  },
+  "selectorDate": {
+   "kit": "rp-top-bar-date-range",
+   "tag": "button",
+   "doc": "rp-app-shell.md"
+  },
+  "MenuSelector": {
+   "kit": "rp-top-bar-establishment-popover",
+   "doc": "rp-app-shell.md",
+   "notes": "Built by shared.js"
+  },
+  "headerPageContainer": {
+   "kit": "page header",
+   "doc": "rp-app-shell.md",
+   "notes": "Breadcrumbs, rp-page-title and a kit-toolbar with the page actions"
+  },
+  "Slider": {
+   "kit": "Missing"
+  },
+  "Timeline": {
+   "kit": "Missing"
+  },
+  "Uploader": {
+   "kit": "Missing"
+  },
+  "DayPicker-Calendar": {
+   "kit": "Missing"
+  }
+ },
+ "atoms": {
+  "_about": "Atoms the library builds components from. When a frame holds one of these as its first, absolutely positioned child, the frame is a detached copy of the component: build the component, not the frame.",
+  "ButState-Primary": "rp-main-button",
+  "ButState-Secondary": "rp-main-button rp-main-button-secondary",
+  "ButState-Danger": "rp-main-button rp-main-button-danger",
+  "ButState-PrimaryOut": "rp-default-button rp-default-button-primary",
+  "ButState-SecondaryOut": "rp-default-button",
+  "ButState-Ghost": "rp-ghost-button",
+  "ButState-SecondaryGhost": "rp-ghost-button rp-ghost-button-inherit",
+  "IconBState-Primary": "rp-icon-button",
+  "FABState": "rp-floating-button",
+  "FieldState": "rp-text-field / rp-select (the outline of a field)",
+  "FieldSmall-content": "rp-*-size-small field content (icon, value, chevron)",
+  "Field-content": "field content (icon, value, chevron)",
+  "Label-text": "rp-field-label",
+  "Helper-text": "rp-field-helper",
+  "ChipState-Primary": "rp-chip",
+  "ChipState-Outlined": "rp-chip rp-chip-secondary",
+  "ChipState-Success": "rp-chip rp-chip-confirmation",
+  "ChipState-Error": "rp-chip rp-chip-error",
+  "ChipState-Warning": "rp-chip rp-chip-warning",
+  "ChipState-Info": "rp-chip rp-chip-info",
+  "ChipState-Neutral": "rp-chip rp-chip-deactivated",
+  "ChipState-Neon": "rp-chip rp-chip-neon",
+  "TileState": "rp-tile",
+  "AlertState": "rp-alert",
+  "AvatarState": "rp-avatar",
+  "BadState": "rp-badge-content",
+  "SelectorState": "top bar selector state (rp-top-bar-button)",
+  "Item-Icon": "rp-side-bar-item",
+  "Item-Text": "rp-side-bar-panel-item",
+  "Row-Background": "rp-table row state",
+  "Cell-State": "rp-table cell state",
+  "Divider-Line": "rp-divider"
+ }
+}

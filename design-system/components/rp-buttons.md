@@ -10,6 +10,9 @@
 | `rp-main-button-size-small` | size="small" |
 | `rp-main-button-full-width` | fullWidth |
 | `rp-main-button-disabled` | disabled |
+| `rp-main-button-accent` | variant="accent" (Energetic Green) |
+| `rp-main-button-tertiary` | variant="tertiary" (Midnight #172554) |
+| `rp-main-button-accent-brand` | variant="accentBrand" (RPP70; Generate Insights: its icon is neon, iconColor="neon") |
 
 Text = label prop. A leading .rp-icon = icon prop.
 
@@ -40,6 +43,7 @@ Text = label prop. A leading .rp-icon = icon prop.
 | `rp-icon-button-size-small` | size="small" |
 | `rp-icon-button-primary` | color="primary" |
 | `rp-icon-button-disabled` | disabled |
+| `rp-icon-button-squared` | no prop: Figma IconButton_Squared (same 32px button, square hover) |
 
 Always set aria-label: it is the only name a screen reader gets.
 
@@ -103,3 +107,6 @@ One per page at most, for the page's transversal action. It opens its actions as
 - An icon goes before the text, only for well-known actions (Add, Filters, Export, Download). Never on the main action of a dialog.
 - Destructive actions use `-danger` and open a confirmation dialog first.
 - No shadows on buttons.
+
+## MainButton variants
+`variant="accent"` = `rp-main-button-accent` (Energetic Green, dark label), `variant="tertiary"` = `rp-main-button-tertiary` (Midnight), `variant="accentBrand"` = `rp-main-button-accent-brand` (RPP70). The AI call to action (Generate Insights) is `rp-main-button rp-main-button-accent-brand rp-main-button-size-small` with an `rp-icon-ai` icon, drawn in neon.

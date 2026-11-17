@@ -14,6 +14,14 @@
 | `rp-alert-title` | bold first line |
 | `rp-alert-actions` | AlertActions |
 | `rp-alert-close` | onClose button |
+
+**`rp-disclaimer`** = `Disclaimer` · `@reviewpro/ui-components/Disclaimer` · Figma: — · no class = `variant="default" icon=<AI size={18} />`
+
+| Class | Code |
+|---|---|
+| `rp-disclaimer-compact` | variant="compact" |
+
+label = the text after the icon. On a dashboard it sits first in rp-content and runs edge to edge (Reviews dashboard: the Actionable Insights AI disclaimer).
 <!-- MAP:END -->
 
 An inline message on the page or in a tile. `Alert` default is `variant="warning"`.
@@ -42,3 +50,12 @@ Inside a tile, above its title: wrap it in `<div class="rp-tile-alert">` (TileAl
 ## Rules
 - What happened and what to do, 1–2 sentences. Never "Something went wrong".
 - Use a snackbar, not an alert, to confirm an action the user just did.
+
+## Disclaimer
+`Disclaimer` (`@reviewpro/ui-components/Disclaimer`): a white bar with a light shadow, a blue AI icon and a caption. It is not an alert: no colour, no actions. The Reviews dashboard shows the compact one first in the content area, edge to edge, under the top bar (the Actionable Insights notice).
+```html
+<main class="rp-content">
+  <div class="rp-disclaimer rp-disclaimer-compact" role="note"><span class="rp-icon rp-icon-ai"></span>Actionable Insight priorities are determined by an AI model and may not reflect all factors. Please validate the data before taking action.</div>
+  <div class="rp-content-wrapper">…</div>
+</main>
+```

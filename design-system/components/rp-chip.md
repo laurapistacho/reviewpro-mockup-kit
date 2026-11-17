@@ -18,6 +18,9 @@
 | `rp-chip-clickable` | clickable (onClick) |
 | `rp-chip-disabled` | disabled |
 | `rp-chip-full-width` | fullWidth |
+| `rp-chip-neon` | no React colour: Figma Chip Style=Neon (the AI header tints color="info" with the neon ramp) |
+| `rp-chip-topic-positive` | no React colour: Figma Chip Style=TopicPositive |
+| `rp-chip-topic-negative` | no React colour: Figma Chip Style=TopicNegative |
 | `rp-chip-delete` | onDelete button |
 <!-- MAP:END -->
 
@@ -48,3 +51,6 @@ Status and short labels. `Chip` default is `color="primary"` (filled blue) and `
 ## Rules
 - A chip always has text: color alone never carries the status.
 - Text in sentence case, 1–2 words.
+
+## Neon and topic chips
+Figma has three chip styles with no React colour yet: `rp-chip-neon` (Energetic Green tint, AI surfaces), `rp-chip-topic-positive` and `rp-chip-topic-negative` (pale tint, coloured label: semantic topics). The AI tile quota chip in the product is an info chip tinted with the neon ramp (`--neon-20` fill, `--neon-30` border, `--neon-90` label): see `mockups/reviews-dashboard`.

@@ -14,9 +14,12 @@ Shell + breadcrumbs + page title + a `kit-stack` of tiles. Use it when nothing e
 - Add / edit in a right drawer (`rp-drawer-width-medium`), delete in an xs dialog.
 
 ## Pattern 2: Settings hub (`02-settings-hub.html`)
-- Breadcrumb only, no page title. One tile per area with a 32px icon in the title.
-- `kit-link-grid` (3 columns): link title (blue, semibold) + one-line description. "New" = small brand chip after the title.
-
+The new Settings page (ui-settings-app `AccountSettingsNext`, in production):
+- Account-view top bar (`rp-top-bar-corporate`, DRPP100) with the user name; the Settings rail item is current. Its panel (closed on load, Figma SideNav Settings) lists All Settings, a divider, then the sections, each linking to `02-settings-hub.html#<section>` (`#organisation` opens that section).
+- `rp-content kit-settings-hub` with `data-rp-settings`: a 230px `kit-settings-nav` (Settings heading, All Settings, divider, one item per section, ReviewPro logo) and a white `kit-settings-content`.
+- A full-width `rp-search` with `data-rp-settings-search`, a divider, then one `kit-settings-section` per area: icon + h6 title, then a `kit-settings-grid` of `kit-setting-card` (blue bold title link, "New" = small squared brand chip, grey description).
+- shared.js does the rest: search filters the cards and highlights the match, shows "N results" with one chip per section (a chip filters to that section) and a count badge on each nav item; sections without results go grey; no match shows "No settings found". A nav item shows only its section; All Settings shows them all. Opening a rail section folds the nav panel.
+- Sections and items come from production (`settingItems.jsx`): Your Profile, Account Administration, Organisation, Surveys, Case Management, Live FAQ, Messaging, Guests, Integrations, Legal & Privacy. Keep their order; remove the ones the account does not have.
 ## Pattern 3: Dashboard (`03-dashboard.html`)
 - Page title "{Product} Dashboard", toolbar with selectors on the left and an "Actions" default button (menu: Download report, Schedule report) on the right.
 - Row of 4 KPI tiles, then a 2:1 grid (chart tile + list tile), then a table tile.

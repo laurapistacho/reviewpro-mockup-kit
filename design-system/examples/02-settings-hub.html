@@ -11,21 +11,16 @@
   <link rel="stylesheet" href="../foundation/rp-icons.css" />
 </head>
 <body>
-  <header class="rp-top-bar">
+  <header class="rp-top-bar rp-top-bar-corporate">
     <div class="rp-top-bar-left">
       <img class="rp-top-bar-logo" src="../brand/establishment-logo.png" alt="" />
-      <button type="button" class="rp-top-bar-button rp-top-bar-establishment" data-rp-menu="establishmentMenu" aria-haspopup="menu" aria-expanded="false">
-        <span data-rp-menu-label>Grand Marina Resort &amp; Spa</span><span class="rp-icon rp-icon-size-32 rp-icon-down"></span>
-      </button>
-      <button type="button" class="rp-top-bar-button rp-top-bar-date-range" data-rp-menu="dateMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Date range">
-        <span class="rp-icon rp-icon-size-32 rp-icon-calendar"></span>
-        <span class="rp-top-bar-date-text"><strong data-rp-menu-label>1 Jan 2026 - 31 Mar 2026</strong><span>vs 1 Oct 2025 - 31 Dec 2025</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down"></span>
-      </button>
+      <span class="rp-top-bar-establishment-text"><strong>Alex Rivera</strong></span>
     </div>
     <div class="rp-top-bar-right">
-      <button type="button" class="rp-icon-button rp-badge rp-badge-dot" data-rp-menu="notificationsMenu" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-notification"></span><span class="rp-badge-content"></span></button>
-      <button type="button" class="rp-icon-button" data-rp-menu="helpMenu" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
-      <button type="button" class="rp-icon-button" data-rp-menu="userMenu" aria-label="Account"><span class="rp-avatar rp-avatar-round">AR</span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="notifications" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-badge rp-badge-error rp-badge-size-small"><span class="rp-icon rp-icon-alert"></span><span class="rp-badge-content">4</span></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="help" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="apps" aria-label="App Launcher" data-rp-tooltip="App Launcher" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-size-32 rp-icon-shiji-menu"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="account" aria-label="Account menu, Alex Rivera" data-rp-user-name="Alex Rivera" data-rp-user-email="alex.rivera@coastalhotels.com"><span class="rp-avatar">AR</span></button>
     </div>
   </header>
   <div class="rp-shell-body">
@@ -38,176 +33,177 @@
       <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
-      <button type="button" class="rp-side-bar-item" data-rp-section="socialmedia" aria-label="Social Media" data-rp-tooltip="Social Media" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-share"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
       <a class="rp-side-bar-item" href="#" data-rp-section="analytics" aria-label="Analytics" data-rp-tooltip="Analytics" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-analytics"></span></a>
       <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
-      <button type="button" class="rp-side-bar-item" data-rp-section="livefaq" aria-label="LiveFAQ" data-rp-tooltip="LiveFAQ" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-live-faq"></span></button>
       <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right" aria-controls="panel-settings" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-settings-outlined"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
     </nav>
     <aside class="rp-side-bar-panel" id="panel-settings" aria-label="Settings pages">
       <div class="rp-side-bar-panel-header">Settings</div>
       <ul class="rp-side-bar-panel-list">
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Your Profile</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Organisation</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Surveys</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Case Management</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Live FAQ</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Messaging</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Guests</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Integrations</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Legal</span></a></li>
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="02-settings-hub.html" aria-current="page"><span>All Settings</span></a></li>
+        <li class="rp-side-bar-panel-divider" role="separator"></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#yourProfile"><span>Your Profile</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#accountAdministration"><span>Account Administration</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#organisation"><span>Organisation</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#surveys"><span>Surveys</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#caseManagement"><span>Case Management</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#liveFAQ"><span>Live FAQ</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#messaging"><span>Messaging</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#guests"><span>Guests</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#integrations"><span>Integrations</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#legalAndPrivacy"><span>Legal &amp; Privacy</span></a></li>
       </ul>
       <img class="rp-side-bar-panel-logo" src="../brand/reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
     </aside>
-    <main class="rp-content">
-      <div class="rp-content-wrapper">
-        <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><span class="rp-breadcrumb-text" aria-current="page">Settings</span></nav>
-        <div class="kit-stack">
-          <section class="rp-tile">
-            <div class="rp-tile-title"><span class="rp-icon rp-icon-size-32 rp-icon-profile"></span><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Your Profile</h2></div></div>
-            <div class="rp-tile-content">
-              <div class="kit-link-grid">
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Personal Information</a>
-                  <div class="kit-row" style="gap: var(--spacing-1); align-items: flex-start">
-                    <span class="rp-avatar">AR</span>
-                    <div class="kit-link-card-text"><strong class="rp-text-semibold" style="color: var(--text-primary)">Alex Rivera</strong><br />alex.rivera@coastalhotels.com<br />Europe/Madrid<br />English</div>
-                  </div>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Notifications Channel</a>
-                  <p class="kit-link-card-text">Choose which content you receive and on which channel</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Language &amp; Translations</a>
-                  <p class="kit-link-card-text">Select your language and turn translations on or off</p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="rp-tile">
-            <div class="rp-tile-title"><span class="rp-icon rp-icon-size-32 rp-icon-account-administration"></span><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Account Administration</h2></div></div>
-            <div class="rp-tile-content">
-              <div class="kit-link-grid">
-                <div class="kit-link-card">
-                  <div class="kit-link-card-head"><a class="kit-link-card-title" href="#">Response Templates &amp; Signatures</a><span class="rp-chip rp-chip-size-small rp-chip-brand">New</span></div>
-                  <p class="kit-link-card-text">Create predetermined guest responses and custom signatures to reuse in your reviews and surveys</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Email Design Templates</a>
-                  <p class="kit-link-card-text">Design email layouts to reuse in all your email communications</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">GC Email Design Templates</a>
-                  <p class="kit-link-card-text">Design email layouts to reuse in the email communications of Guest Communications</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Semantic Categories</a>
-                  <p class="kit-link-card-text">Create and edit your own groups of concepts for semantic analysis</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Publish Reviews &amp; Quality Seal</a>
-                  <p class="kit-link-card-text">Publish the ReviewPro Quality Seal and your guest reviews on your website</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">PMS &amp; External IDs Mapping</a>
-                  <p class="kit-link-card-text">Map PMS and other external IDs to your establishments</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Review Source Credentials</a>
-                  <p class="kit-link-card-text">Connect review sources to reply to online reviews from ReviewPro</p>
-                </div>
-                <div class="kit-link-card">
-                  <div class="kit-link-card-head"><a class="kit-link-card-title" href="#">AI Management Response</a><span class="rp-chip rp-chip-size-small rp-chip-brand">New</span></div>
-                  <p class="kit-link-card-text">Generate replies to reviews with your AI assistant</p>
-                </div>
-                <div class="kit-link-card">
-                  <div class="kit-link-card-head"><a class="kit-link-card-title" href="#">Personal Identifiable Information (PII)</a><span class="rp-chip rp-chip-size-small rp-chip-brand">New</span></div>
-                  <p class="kit-link-card-text">Anonymize or delete guest personal data and block specific contacts</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Email Domains</a>
-                  <p class="kit-link-card-text">Customize the web address of all your email communications</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">SFTP Users</a>
-                  <p class="kit-link-card-text">Create and manage the users who upload your guest lists and survey files</p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="rp-tile">
-            <div class="rp-tile-title"><span class="rp-icon rp-icon-size-32 rp-icon-organization"></span><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Organisation</h2></div></div>
-            <div class="rp-tile-content">
-              <div class="kit-link-grid">
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Users</a>
-                  <p class="kit-link-card-text">Invite people and manage what they can see and do</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Groups</a>
-                  <p class="kit-link-card-text">Group establishments to compare and report on them together</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Establishments</a>
-                  <p class="kit-link-card-text">Edit the details, logo and time zone of each establishment</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Roles &amp; Permissions</a>
-                  <p class="kit-link-card-text">Choose what each role can see and change</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Departments</a>
-                  <p class="kit-link-card-text">Name the departments used in surveys, cases and semantic analysis</p>
-                </div>
-                <div class="kit-link-card">
-                  <a class="kit-link-card-title" href="#">Goals</a>
-                  <p class="kit-link-card-text">Set score goals for each establishment and index</p>
-                </div>
-              </div>
-            </div>
-          </section>
+    <main class="rp-content kit-settings-hub" data-rp-settings>
+      <nav class="kit-settings-nav" aria-label="Settings">
+        <div class="kit-settings-nav-heading">Settings</div>
+        <ul class="kit-settings-nav-list">
+          <li><button type="button" class="kit-settings-nav-item kit-settings-nav-item-active" data-rp-settings-nav="all" aria-current="page"><span>All Settings</span></button></li>
+        </ul>
+        <div class="kit-settings-nav-divider"></div>
+        <ul class="kit-settings-nav-list">
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="yourProfile"><span>Your Profile</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="accountAdministration"><span>Account Administration</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="organisation"><span>Organisation</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="surveys"><span>Surveys</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="caseManagement"><span>Case Management</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="liveFAQ"><span>Live FAQ</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="messaging"><span>Messaging</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="guests"><span>Guests</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="integrations"><span>Integrations</span></button></li>
+          <li><button type="button" class="kit-settings-nav-item" data-rp-settings-nav="legalAndPrivacy"><span>Legal &amp; Privacy</span></button></li>
+        </ul>
+        <img class="kit-settings-nav-logo" src="../brand/reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
+      </nav>
+      <div class="kit-settings-content">
+        <div class="kit-settings-search">
+          <div class="rp-search rp-search-full-width"><div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search" aria-label="Search settings" data-rp-settings-search /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search"><span class="rp-icon rp-icon-close"></span></button></div></div>
         </div>
+        <hr class="rp-divider" />
+        <div class="kit-settings-results" data-rp-settings-results aria-live="polite" hidden></div>
+        <div class="kit-settings-empty" data-rp-settings-empty hidden>
+          <span class="rp-icon rp-icon-size-80 rp-icon-not-found"></span>
+          <p class="rp-text-body1"><strong>No settings found</strong></p>
+          <p class="rp-text-body2 rp-text-secondary">Try a different search term or browse using the navigation.</p>
+        </div>
+          <section class="kit-settings-section" data-rp-settings-section="yourProfile" aria-labelledby="set-yourProfile">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-profile"></span><h2 class="rp-text-h6" id="set-yourProfile">Your Profile</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="06-edit-form.html">Personal Information</a></div><div class="kit-setting-card-person"><span class="rp-avatar rp-avatar-size-24 rp-avatar-round">AR</span><span><strong>Alex Rivera</strong><br />alex.rivera@coastalhotels.com</span></div></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Notifications Channel</a></div><p class="kit-setting-card-text">Select type of content and channel where you want to receive notifications.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Language &amp; Translations</a></div><p class="kit-setting-card-text">Select your language and enable/disable translations</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="accountAdministration" aria-labelledby="set-accountAdministration">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-account-administration"></span><h2 class="rp-text-h6" id="set-accountAdministration">Account Administration</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="05-tabs-tile.html">Response Templates &amp; Signatures</a></div><p class="kit-setting-card-text">Create predetermined Guest Responses and custom Signatures to reuse in your Reviews and Surveys.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Email Design Templates</a></div><p class="kit-setting-card-text">Design emails layouts to be reused in all your email communications</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">GC Email Design Templates</a></div><p class="kit-setting-card-text">Design emails layouts to be reused in all your email communications configured via Guest Communications</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Semantic Categories</a></div><p class="kit-setting-card-text">Create and edit your own group of concepts for semantic</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Publish Reviews &amp; Quality Seal</a></div><p class="kit-setting-card-text">Publish ReviewPro Reputation Quality Seal and your guests’ Reviews on your website.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">PMS &amp; External IDs Mapping</a></div><p class="kit-setting-card-text">Map PMS and other External IDs to your establishments.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Review Source Credentials</a></div><p class="kit-setting-card-text">Connect third-party sources to reply directly to online reviews.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Personal Identifiable Information (PII)</a></div><p class="kit-setting-card-text">Anonymize or delete guests PII and blocklist specific contacts</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Email Domains</a></div><p class="kit-setting-card-text">Customize the web address for all your email communications</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">SFTP Users</a></div><p class="kit-setting-card-text">Create and manage the users who will upload your guest list and survey files.</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="organisation" aria-labelledby="set-organisation">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-organization"></span><h2 class="rp-text-h6" id="set-organisation">Organisation</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Establishment Groups</a></div><p class="kit-setting-card-text">Manage your establishments and groups</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Manage Establishments</a></div><p class="kit-setting-card-text">Add and edit your establishments</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Short Names</a></div><p class="kit-setting-card-text">Change your property names to shorten them</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Departments</a></div><p class="kit-setting-card-text">Create and edit your departments and subdepartments.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="01-settings-list.html">Users</a></div><p class="kit-setting-card-text">Create and manage your users and assign them to workgroups</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Workgroups</a></div><p class="kit-setting-card-text">Create and manage your workgroups</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Product Level Access</a></div><p class="kit-setting-card-text">Manage product-level access control for workgroups</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Brand Competitors</a></div><p class="kit-setting-card-text">Add and manage Brand Competitors</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Competitors</a></div><p class="kit-setting-card-text">Add and manage competitors for each establishment</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Manager Plus Permissions</a></div><p class="kit-setting-card-text">Set the authorities for all manager plus users</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="surveys" aria-labelledby="set-surveys">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-survey"></span><h2 class="rp-text-h6" id="set-surveys">Surveys</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Survey Settings</a></div><p class="kit-setting-card-text">Create and configure your surveys and guest list.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Survey Design Builder</a></div><p class="kit-setting-card-text">Create your custom designs to be used in all your Surveys</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Labels</a></div><p class="kit-setting-card-text">Manage the visibility of your survey questions by applying labels to your establishments.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Outlets</a></div><p class="kit-setting-card-text">Create Groups of Outlets and match them with your establishments</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="caseManagement" aria-labelledby="set-caseManagement">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-case"></span><h2 class="rp-text-h6" id="set-caseManagement">Case Management</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Case Settings</a></div><p class="kit-setting-card-text">Create and edit your own status, root causes, actions types and resolutions.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Case Notifications</a></div><p class="kit-setting-card-text">Select when and who would receive case notifications</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Automation Rules</a></div><p class="kit-setting-card-text">Define and edit your own automation rules to trigger cases and set your workflows</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Quick Cases</a></div><p class="kit-setting-card-text">Create cases templates to speed up your cases resolutions.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Live Requests</a></div><p class="kit-setting-card-text">Set Internal cases and Guest requests in all pages of ReviewPro Reputation according to Establishments</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Third Party Mapping</a></div><p class="kit-setting-card-text">Manage cases creation on an external tool/URL</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="liveFAQ" aria-labelledby="set-liveFAQ">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-live-faq"></span><h2 class="rp-text-h6" id="set-liveFAQ">Live FAQ</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Establishment Profile</a></div><p class="kit-setting-card-text">Services and Facilities of your establishments.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Knowledge Base</a></div><p class="kit-setting-card-text">Manage the articles about your products and services which will be used by the chatbot to respond to guest requests.</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="messaging" aria-labelledby="set-messaging">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-messaging"></span><h2 class="rp-text-h6" id="set-messaging">Messaging</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Guest Hubs</a></div><p class="kit-setting-card-text">Set up your guest hubs through which guests will reach you.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Quick replies</a></div><p class="kit-setting-card-text">Edit and configure categories and articles</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Network Requirements</a></div><p class="kit-setting-card-text">Check network requirements to efficiently configure Guest Hubs</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Chatbot</a></div><p class="kit-setting-card-text">Personalize and manage your chatbot</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Whatsapp Business Account</a></div><p class="kit-setting-card-text">Link your namespace to apply templates across Guest hubs</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">WeChat Outbound</a></div><p class="kit-setting-card-text">Enable WeChat to use templates for outbound communications</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Conversation Tags</a></div><p class="kit-setting-card-text">Create customized tags to tag conversations with your guests</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">SMS Templates</a></div><p class="kit-setting-card-text">Create templates for your communications via SMS</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Flagged Conversations</a></div><p class="kit-setting-card-text">Create customized reasons for flagging and unflagging messages and/or chats</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Tencent Templates</a><span class="rp-chip rp-chip-size-small rp-chip-brand rp-chip-squared">New</span></div><p class="kit-setting-card-text">Manage templates for Tencent Cloud Accounts regions to send outbound messages by Guest Hubs</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="guests" aria-labelledby="set-guests">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-guest"></span><h2 class="rp-text-h6" id="set-guests">Guests</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Stay List Settings</a></div><p class="kit-setting-card-text">Set up your Stay lists and map the files that will be used to reach out to your guests.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Communication Rules</a></div><p class="kit-setting-card-text">Define and edit your own rules to trigger outbound communication with your guests</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Campaigns and Profile Tags</a><span class="rp-chip rp-chip-size-small rp-chip-brand rp-chip-squared">New</span></div><p class="kit-setting-card-text">Build your campaign from scratch and easily visualize all your profile tags.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Activity List Settings</a><span class="rp-chip rp-chip-size-small rp-chip-brand rp-chip-squared">New</span></div><p class="kit-setting-card-text">Set up your Activity lists and map the files that will be used to reach out to your guests.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Webhooks</a></div><p class="kit-setting-card-text">Set up your Webhooks configuration to use in Communication Rules and for External tools</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Design Templates</a></div><p class="kit-setting-card-text">Design your layouts to be reused in all your Experience Manager forms.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Experience Headers</a></div><p class="kit-setting-card-text">Design your Headers to be used by the Experience Manager.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Digital Stay Apps</a></div><p class="kit-setting-card-text">Create Digital Stay apps tailored to meet diverse client requirements.</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="integrations" aria-labelledby="set-integrations">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-integrations"></span><h2 class="rp-text-h6" id="set-integrations">Integrations</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Property Management Systems &amp; SFTP File Mapping</a></div><p class="kit-setting-card-text">Run your hotel more effectively by connecting your Property Management System</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Case Management Tools</a></div><p class="kit-setting-card-text">Run your hotel more effectively by connecting your Case Management Tools</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Upselling Tools</a></div><p class="kit-setting-card-text">Run your hotel more effectively by connecting your Upselling Tools</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Booking Engines</a></div><p class="kit-setting-card-text">Run your hotel more effectively by connecting your Booking Engines</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Digital Keys</a></div><p class="kit-setting-card-text">Set up Digital Key integrations to be used by the guests.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Communication And Messaging</a></div><p class="kit-setting-card-text">Run your hotel more effectively by connecting our communications tools with your Property Management System</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">AI Response Activation</a><span class="rp-chip rp-chip-size-small rp-chip-brand rp-chip-squared">New</span></div><p class="kit-setting-card-text">Connect hotels to AI-powered response generation.</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Astral Payment Integration</a></div><p class="kit-setting-card-text">Configure credentials for the Direct Astral Configuration</p></div>
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Biometric Document Scanning</a><span class="rp-chip rp-chip-size-small rp-chip-brand rp-chip-squared">New</span></div><p class="kit-setting-card-text">Configure the required credentials for biometric document scanning.</p></div>
+            </div>
+          </section>
+          <section class="kit-settings-section" data-rp-settings-section="legalAndPrivacy" aria-labelledby="set-legalAndPrivacy">
+            <div class="kit-settings-section-header"><span class="rp-icon rp-icon-security"></span><h2 class="rp-text-h6" id="set-legalAndPrivacy">Legal &amp; Privacy</h2></div>
+            <div class="kit-settings-grid">
+              <div class="kit-setting-card"><div class="kit-setting-card-title"><a href="#">Legal &amp; Privacy</a><span class="rp-chip rp-chip-size-small rp-chip-brand rp-chip-squared">New</span></div><p class="kit-setting-card-text">Here you will find the applicable policies and terms that govern your use of ReviewPro Reputation and how we handle your data.</p></div>
+            </div>
+          </section>
       </div>
     </main>
-  </div>
-
-  <!-- Top bar menus -->
-  <div class="rp-menu" id="establishmentMenu" role="menu" aria-label="Establishments" data-rp-selectable>
-    <div class="rp-menu-search"><span class="rp-icon rp-icon-size-20 rp-icon-search"></span><input type="search" placeholder="Search establishments" aria-label="Search establishments" /></div>
-    <div class="rp-menu-group-label">Establishments</div>
-    <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem">Grand Marina Resort &amp; Spa</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Azure Bay Hotel</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Seaside Palace</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Harbor View Suites</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Cliff Edge Resort</button>
-    <div class="rp-menu-group-label">Groups</div>
-    <button type="button" class="rp-menu-item" role="menuitem">Coastal Hotels Group</button>
-  </div>
-  <div class="rp-menu" id="dateMenu" role="menu" aria-label="Date range" data-rp-selectable>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Mar 2026 - 31 Mar 2026">Last month</button>
-    <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem" data-rp-value="1 Jan 2026 - 31 Mar 2026">Last 3 months</button>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Oct 2025 - 31 Mar 2026">Last 6 months</button>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Jan 2026 - 31 Mar 2026">Year to date</button>
-  </div>
-  <div class="rp-menu" id="notificationsMenu" role="menu" aria-label="Notifications" data-rp-align-right>
-    <div class="rp-menu-group-label">Notifications</div>
-    <button type="button" class="rp-menu-item" role="menuitem">New 2-star review on Google<span class="rp-menu-item-secondary">2 h</span></button>
-    <button type="button" class="rp-menu-item" role="menuitem">Monthly report is ready<span class="rp-menu-item-secondary">1 d</span></button>
-    <button type="button" class="rp-menu-item" role="menuitem">Case assigned to you<span class="rp-menu-item-secondary">3 d</span></button>
-  </div>
-  <div class="rp-menu" id="helpMenu" role="menu" aria-label="Help" data-rp-align-right>
-    <button type="button" class="rp-menu-item" role="menuitem">Help Center</button>
-    <button type="button" class="rp-menu-item" role="menuitem">What's new</button>
-    <button type="button" class="rp-menu-item" role="menuitem">About ReviewPro</button>
-  </div>
-  <div class="rp-menu" id="userMenu" role="menu" aria-label="Account" data-rp-align-right>
-    <div class="rp-menu-header"><strong>Alex Rivera</strong><span class="rp-text-caption rp-text-secondary">alex.rivera@coastalhotels.com</span></div>
-    <button type="button" class="rp-menu-item" role="menuitem">Change language</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Change password</button>
-    <div class="rp-menu-divider"></div>
-    <button type="button" class="rp-menu-item" role="menuitem">Log out</button>
   </div>
 
   <script src="../foundation/shared.js"></script>

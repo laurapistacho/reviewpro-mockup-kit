@@ -6,6 +6,7 @@
 | Class | Code |
 |---|---|
 | `rp-volume-bar-value` | the positive share (width %) |
+| `rp-volume-bar-neutral` | Figma Volume-Bar Style=01 (share on a grey range) |
 
 **`rp-table`** = `Table` · `@reviewpro/ui-components/Table` · Figma: Cell · Row Content · Row-Background · Header Content
 

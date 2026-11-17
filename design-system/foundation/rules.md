@@ -15,10 +15,12 @@ Read before writing any HTML. Non-negotiable.
 | 8 | **Every interactive element works**: menus open, kebab actions do something (dialog, drawer, snackbar or navigation), filters filter, pagination pages, save validates. |
 | 9 | **Icon-only buttons have `aria-label`**; actions are `<button>`, navigation is `<a href>`. |
 | 10 | **No raw hex colors and no invented z-index** in pages: tokens and the ladder in the skill. |
-| 11 | **No state switchers or demo toolbars.** Empty, error and loading states appear through a real interaction. |
+| 11 | **No state switchers or demo toolbars.** Empty, error and loading states appear through a real interaction. The only exception is the Current UI / Modernised switch that `make-v2.py` adds. |
 | 12 | **Realistic hospitality data**: 8–12 rows, the standard placeholder names below. Never "Item 1" or lorem ipsum. |
 | 13 | **Sizes inside containers are small**: buttons, fields, chips in tiles, toolbars, tables, dialogs and drawers use the `-size-small` variants (40px / 24px chips). |
 | 14 | **One main button per area** (tile, dialog, drawer), on the right, after Cancel. |
+| 15 | **One primary page action.** Page header actions are ghost buttons: the main one primary (`rp-ghost-button`, e.g. Download report on a dashboard), the others secondary (`rp-ghost-button rp-ghost-button-inherit` inside a `rp-text-secondary` group). Never turn the primary one grey. |
+| 16 | **Two top bars.** Establishment view (a property or a group is selected) = `rp-top-bar`, RPP70 blue. Account view (no property: settings, profile, account-level pages; Figma TopNav Corporate) = `rp-top-bar rp-top-bar-corporate`, DRPP100 midnight, with the user or account name instead of the selectors. A QA screenshot is green: build blue. |
 
 ## Standard sample data
 | Field | Value |
@@ -38,7 +40,8 @@ Never copy real customer names from screenshots into a mockup.
 ## Copying a screenshot
 - **QA screenshots have a green top bar.** Green marks the QA environment; the product is blue. Always build the blue production bar (plain `rp-top-bar`, brand RPP70 `#014CB7`) and never add `rp-top-bar-qa`, unless the designer asks to show the QA environment. The checker warns when a page uses it.
 - Everything else in a QA screenshot is the product: copy it.
-- **Rail icons:** the side bar shows only the sections the account has. Keep exactly the icons the screenshot shows, in its order, plus any dot (`rp-badge rp-badge-dot` around the icon) and the items pinned to the bottom (see `components/rp-app-shell.md`).
+- **Rail icons:** the side bar shows only the sections the account has. Keep exactly the icons the screenshot shows, in its order, plus any dot (`rp-badge rp-badge-dot` around the icon) and the Knowledge Hub button at the bottom when the screenshot has it (see `components/rp-app-shell.md`).
+- **Top bar:** keep the production top bar of the starter (bell with count, help, app launcher, initials). Change only the establishment, the dates and the count to what the screenshot shows.
 - If the screenshot shows the section panel open, open it in the page with `open` on `rp-side-bar-panel`; otherwise leave it closed.
 
 ## Writing

@@ -20,6 +20,25 @@
 | `rp-step-active` | activeStep = this step |
 | `rp-step-completed` | Step completed |
 | `rp-step-error` | StepLabel error |
+
+**`rp-timeline`** = `Timeline` · `(Figma Timeline: no code component found)` · Figma: Timeline (5312:3875)
+
+| Class | Code |
+|---|---|
+| `rp-timeline-stage` | one stage (Figma _Timeline Container) |
+| `rp-timeline-stage-completed` | Container State=Completed (grey) |
+| `rp-timeline-title` | stage title |
+| `rp-timeline-events` | events of the stage |
+| `rp-timeline-event` | one event (172px) |
+| `rp-timeline-marker` | badge + line |
+| `rp-timeline-badge` | 24px badge with a 16px icon |
+| `rp-timeline-event-title` | event title |
+| `rp-timeline-event-text` | event text |
+| `rp-timeline-event-completed` | Event State=Completed (green) |
+| `rp-timeline-event-ongoing` | Event State=Ongoing (RPP70) |
+| `rp-timeline-event-cancelled` | Event State=Cancelled (red); no class = Future (grey) |
+
+A row of stages; the last event has no line.
 <!-- MAP:END -->
 
 ## Breadcrumbs
@@ -37,3 +56,13 @@ First line of the content area (new navigation: body2 size). Section link(s), th
 </div>
 ```
 Wizard buttons: "Back" (default button) and "Next"; the last step uses the action verb ("Create survey"). See `09-wizard.html` for the step logic.
+
+## Timeline
+Figma Timeline: a row of stages (blue tint; `rp-timeline-stage-completed` = grey), each with a title and 172px events. An event is a 24px badge on a line, a bold title and a short text. Badge colour by state: `rp-timeline-event-completed` (green), `rp-timeline-event-ongoing` (RPP70), `rp-timeline-event-cancelled` (red), none = future (grey).
+```html
+<div class="rp-timeline">
+  <div class="rp-timeline-stage rp-timeline-stage-completed"><h3 class="rp-timeline-title">Before arrival</h3><div class="rp-timeline-events">
+    <div class="rp-timeline-event rp-timeline-event-completed"><span class="rp-timeline-marker"><span class="rp-timeline-badge"><span class="rp-icon rp-icon-check"></span></span></span><p class="rp-timeline-event-title">Booked</p><p class="rp-timeline-event-text">12 Mar · Booking.com</p></div>
+  </div></div>
+</div>
+```

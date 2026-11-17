@@ -1,0 +1,409 @@
+{
+ "_about": "Figma fidelity checks: Figma UI App (ubE7R2jeqiwS8BZ4a5vwHw) component variant -> kit markup. Run python3 .kiro/scripts/figma-check.py. Reference PNGs in ref/ (scale 1).",
+ "file": "ubE7R2jeqiwS8BZ4a5vwHw",
+ "checks": [
+  {
+   "id": "button/large-primary-filled",
+   "node": "76:9778",
+   "kit": "<button class=\"rp-main-button\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/small-primary-filled",
+   "node": "76:9786",
+   "kit": "<button class=\"rp-main-button rp-main-button-size-small\"><span class=\"rp-icon rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-secondary-filled",
+   "node": "76:9818",
+   "kit": "<button class=\"rp-main-button rp-main-button-secondary\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-danger-filled",
+   "node": "78:9923",
+   "kit": "<button class=\"rp-main-button rp-main-button-danger\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-disabled-filled",
+   "node": "1:29573",
+   "kit": "<button class=\"rp-main-button rp-main-button-disabled\" disabled><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-primary-outlined",
+   "node": "79:9963",
+   "kit": "<button class=\"rp-default-button rp-default-button-primary\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/small-primary-outlined",
+   "node": "79:9971",
+   "kit": "<button class=\"rp-default-button rp-default-button-primary rp-default-button-size-small\"><span class=\"rp-icon rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-secondary-outlined",
+   "node": "79:10026",
+   "kit": "<button class=\"rp-default-button\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-danger-outlined",
+   "node": "15:2548",
+   "kit": "<button class=\"rp-default-button rp-default-button-danger\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-primary-ghost",
+   "node": "1:29376",
+   "kit": "<button class=\"rp-ghost-button rp-ghost-button-size-medium\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/small-primary-ghost",
+   "node": "77:9897",
+   "kit": "<button class=\"rp-ghost-button\"><span class=\"rp-icon rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "button/large-secondary-ghost",
+   "node": "5460:97",
+   "kit": "<button class=\"rp-ghost-button rp-ghost-button-inherit rp-ghost-button-size-medium\" style=\"color:#636363\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span>Value</button>"
+  },
+  {
+   "id": "icon-button/default",
+   "node": "84:215",
+   "kit": "<button class=\"rp-icon-button\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span></button>"
+  },
+  {
+   "id": "icon-button/squared",
+   "node": "10088:101458",
+   "kit": "<button class=\"rp-icon-button rp-icon-button-squared\"><span class=\"rp-icon rp-icon-size-32 rp-icon-star\"></span></button>"
+  },
+  {
+   "id": "chip/medium-primary",
+   "node": "127:905",
+   "kit": "<span class=\"rp-chip\"><span class=\"rp-icon rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-down-big\"></span></span>",
+   "known": true,
+   "note": "Figma library inconsistency: only this variant puts 8px between icon and label; the other variants and Chip.tsx use 4px"
+  },
+  {
+   "id": "chip/medium-outlined",
+   "node": "127:3822",
+   "kit": "<span class=\"rp-chip rp-chip-secondary rp-chip-squared\"><span class=\"rp-icon rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-down-big\"></span></span>",
+   "known": true,
+   "note": "Figma library inconsistency: this variant has 4px corners; the other variants and the product use pills"
+  },
+  {
+   "id": "chip/medium-success",
+   "node": "790:1557",
+   "kit": "<span class=\"rp-chip rp-chip-confirmation rp-chip-squared\"><span class=\"rp-icon rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-down-big\"></span></span>",
+   "known": true,
+   "note": "Figma library inconsistency: this variant has 4px corners; the other variants and the product use pills"
+  },
+  {
+   "id": "chip/small-primary",
+   "node": "22:3190",
+   "kit": "<span class=\"rp-chip rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-outlined",
+   "node": "22:3355",
+   "kit": "<span class=\"rp-chip rp-chip-secondary rp-chip-size-small rp-chip-squared\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "known": true,
+   "note": "Figma library inconsistency: this variant has 4px corners; the other variants and the product use pills"
+  },
+  {
+   "id": "chip/small-success",
+   "node": "790:1563",
+   "kit": "<span class=\"rp-chip rp-chip-confirmation rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-warning",
+   "node": "790:2854",
+   "kit": "<span class=\"rp-chip rp-chip-warning rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-error",
+   "node": "790:2878",
+   "kit": "<span class=\"rp-chip rp-chip-error rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-info",
+   "node": "790:2907",
+   "kit": "<span class=\"rp-chip rp-chip-info rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-neutral",
+   "node": "790:2932",
+   "kit": "<span class=\"rp-chip rp-chip-deactivated rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/medium-neon",
+   "node": "790:2926",
+   "kit": "<span class=\"rp-chip rp-chip-neon\"><span class=\"rp-icon rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "14px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-neon",
+   "node": "10050:57067",
+   "kit": "<span class=\"rp-chip rp-chip-neon rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 8,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/medium-topic-negative",
+   "node": "10829:41258",
+   "kit": "<span class=\"rp-chip rp-chip-topic-negative\"><span class=\"rp-icon rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "14px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-topic-negative",
+   "node": "10829:41266",
+   "kit": "<span class=\"rp-chip rp-chip-topic-negative rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/medium-topic-positive",
+   "node": "10829:41282",
+   "kit": "<span class=\"rp-chip rp-chip-topic-positive\"><span class=\"rp-icon rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "14px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "chip/small-topic-positive",
+   "node": "10829:41290",
+   "kit": "<span class=\"rp-chip rp-chip-topic-positive rp-chip-size-small\"><span class=\"rp-icon rp-icon-size-16 rp-icon-star\"></span>Value<span class=\"rp-icon rp-icon-size-16 rp-icon-down-big\"></span></span>",
+   "threshold": 7,
+   "note": "12px semibold label on a fill: anti-aliasing"
+  },
+  {
+   "id": "avatar/large",
+   "node": "15:1609",
+   "kit": "<span class=\"rp-avatar rp-avatar-size-50\">HS</span>",
+   "threshold": 7,
+   "note": "text anti-aliasing"
+  },
+  {
+   "id": "avatar/medium",
+   "node": "15:1613",
+   "kit": "<span class=\"rp-avatar\">HS</span>",
+   "threshold": 6,
+   "note": "text anti-aliasing"
+  },
+  {
+   "id": "avatar/small",
+   "node": "15:1617",
+   "kit": "<span class=\"rp-avatar rp-avatar-size-24\">HS</span>",
+   "region": "0,0,24,24",
+   "threshold": 8,
+   "known": true,
+   "note": "Figma exports the 24px avatar at 25px"
+  },
+  {
+   "id": "checkbox/unchecked",
+   "node": "533:25528",
+   "kit": "<input type=\"checkbox\" class=\"rp-checkbox\" aria-label=\"x\" />"
+  },
+  {
+   "id": "checkbox/checked",
+   "node": "533:25749",
+   "kit": "<input type=\"checkbox\" class=\"rp-checkbox\" checked aria-label=\"x\" />"
+  },
+  {
+   "id": "checkbox/partial",
+   "node": "5990:17174",
+   "kit": "<input type=\"checkbox\" class=\"rp-checkbox\" aria-label=\"x\" /><script>document.querySelector(\"input\").indeterminate=true</script>"
+  },
+  {
+   "id": "radio/unchecked",
+   "node": "533:25845",
+   "kit": "<input type=\"radio\" class=\"rp-radio\" aria-label=\"x\" />"
+  },
+  {
+   "id": "radio/checked",
+   "node": "533:25849",
+   "kit": "<input type=\"radio\" class=\"rp-radio\" checked aria-label=\"x\" />"
+  },
+  {
+   "id": "switch/medium-on",
+   "node": "4596:12766",
+   "kit": "<button class=\"rp-switch rp-switch-checked\" role=\"switch\" aria-checked=\"true\" aria-label=\"x\"></button>",
+   "box": "display:flex"
+  },
+  {
+   "id": "switch/medium-off",
+   "node": "4596:12751",
+   "kit": "<button class=\"rp-switch\" role=\"switch\" aria-checked=\"false\" aria-label=\"x\"></button>",
+   "box": "display:flex"
+  },
+  {
+   "id": "switch/small-on",
+   "node": "4596:12796",
+   "kit": "<button class=\"rp-switch rp-switch-size-small rp-switch-checked\" role=\"switch\" aria-checked=\"true\" aria-label=\"x\"></button>",
+   "box": "display:flex",
+   "threshold": 5,
+   "note": "check glyph anti-aliasing"
+  },
+  {
+   "id": "switch/small-off",
+   "node": "4596:12781",
+   "kit": "<button class=\"rp-switch rp-switch-size-small\" role=\"switch\" aria-checked=\"false\" aria-label=\"x\"></button>",
+   "box": "display:flex"
+  },
+  {
+   "id": "badge/medium-digit",
+   "node": "105:5636",
+   "kit": "<span class=\"rp-badge rp-badge-inline\"><span class=\"rp-badge-content\">3</span></span>",
+   "threshold": 6,
+   "note": "badge on its own, 24px + 1px white ring"
+  },
+  {
+   "id": "tooltip/default",
+   "node": "123:811",
+   "kit": "<div class=\"rp-tooltip\" style=\"position:static;display:inline-flex;align-items:center;gap:4px\"><span class=\"rp-icon rp-icon-size-16 rp-icon-info\"></span>This is a very cool toast</div>",
+   "bg": "#FFFFFF",
+   "at": "4,0",
+   "threshold": 10,
+   "note": "12px text sits 1px higher in Chrome than in Figma"
+  },
+  {
+   "id": "alert/info-inline",
+   "node": "23:1065",
+   "kit": "<div class=\"rp-alert rp-alert-info\" role=\"status\"><span class=\"rp-icon rp-icon-info\"></span><div class=\"rp-alert-content\">This is a very cool Alert</div><div class=\"rp-alert-actions\"><button class=\"rp-ghost-button\">Swap</button><button class=\"rp-icon-button\" aria-label=\"Close\"><span class=\"rp-icon rp-icon-close\"></span></button></div></div>",
+   "box": "width:764px",
+   "threshold": 7,
+   "note": "the Swap slot is a Figma placeholder"
+  },
+  {
+   "id": "alert/success-inline",
+   "node": "23:934",
+   "kit": "<div class=\"rp-alert rp-alert-confirmation\" role=\"status\"><span class=\"rp-icon rp-icon-info\"></span><div class=\"rp-alert-content\">This is a very cool Alert</div><div class=\"rp-alert-actions\"><button class=\"rp-ghost-button\">Swap</button><button class=\"rp-icon-button\" aria-label=\"Close\"><span class=\"rp-icon rp-icon-close\"></span></button></div></div>",
+   "box": "width:764px",
+   "threshold": 7,
+   "note": "the Swap slot is a Figma placeholder"
+  },
+  {
+   "id": "alert/warning-inline",
+   "node": "23:978",
+   "kit": "<div class=\"rp-alert rp-alert-warning\" role=\"status\"><span class=\"rp-icon rp-icon-info\"></span><div class=\"rp-alert-content\">This is a very cool Alert</div><div class=\"rp-alert-actions\"><button class=\"rp-ghost-button\">Swap</button><button class=\"rp-icon-button\" aria-label=\"Close\"><span class=\"rp-icon rp-icon-close\"></span></button></div></div>",
+   "box": "width:764px",
+   "threshold": 7,
+   "note": "the Swap slot is a Figma placeholder"
+  },
+  {
+   "id": "alert/error-inline",
+   "node": "23:1022",
+   "kit": "<div class=\"rp-alert rp-alert-error\" role=\"status\"><span class=\"rp-icon rp-icon-info\"></span><div class=\"rp-alert-content\">This is a very cool Alert</div><div class=\"rp-alert-actions\"><button class=\"rp-ghost-button\">Swap</button><button class=\"rp-icon-button\" aria-label=\"Close\"><span class=\"rp-icon rp-icon-close\"></span></button></div></div>",
+   "box": "width:764px",
+   "threshold": 7,
+   "note": "the Swap slot is a Figma placeholder"
+  },
+  {
+   "id": "tabs/medium",
+   "node": "190:602",
+   "kit": "<div class=\"rp-tabs\" role=\"tablist\"><button class=\"rp-tab rp-tab-selected\" role=\"tab\">Tab Label</button><button class=\"rp-tab\" role=\"tab\">Tab Label</button><button class=\"rp-tab\" role=\"tab\">Tab Label</button><button class=\"rp-tab\" role=\"tab\">Tab Label</button><button class=\"rp-tab\" role=\"tab\">Tab Label</button><button class=\"rp-tab\" role=\"tab\">Tab Label</button></div>",
+   "box": "width:962px"
+  },
+  {
+   "id": "tabs/small",
+   "node": "196:1268",
+   "kit": "<div class=\"rp-tabs\" role=\"tablist\"><button class=\"rp-tab rp-tab-size-small rp-tab-selected\" role=\"tab\">Tab Label</button><button class=\"rp-tab rp-tab-size-small\" role=\"tab\">Tab Label</button><button class=\"rp-tab rp-tab-size-small\" role=\"tab\">Tab Label</button><button class=\"rp-tab rp-tab-size-small\" role=\"tab\">Tab Label</button><button class=\"rp-tab rp-tab-size-small\" role=\"tab\">Tab Label</button><button class=\"rp-tab rp-tab-size-small\" role=\"tab\">Tab Label</button></div>",
+   "box": "width:962px"
+  },
+  {
+   "id": "field/large-default",
+   "node": "10687:22596",
+   "kit": "<div style=\"padding-top:8px\"><div class=\"rp-select\" style=\"width:100%\"><span class=\"rp-field-label\">Label</span><button type=\"button\" class=\"rp-field-box rp-select-trigger\"><span class=\"rp-icon rp-icon-clock\"></span><span class=\"rp-select-value\">Input</span></button></div></div>",
+   "box": "width:325px"
+  },
+  {
+   "id": "field/large-filled",
+   "node": "10687:22632",
+   "kit": "<div style=\"padding-top:8px\"><div class=\"rp-select\" style=\"width:100%\"><span class=\"rp-field-label\">Label</span><button type=\"button\" class=\"rp-field-box rp-select-trigger\"><span class=\"rp-icon rp-icon-clock\"></span><span class=\"rp-select-value\">Input</span></button></div></div>",
+   "box": "width:325px"
+  },
+  {
+   "id": "field/large-error",
+   "node": "10687:22658",
+   "kit": "<div style=\"padding-top:8px\"><div class=\"rp-select rp-select-error\" style=\"width:100%\"><span class=\"rp-field-label\">Label</span><button type=\"button\" class=\"rp-field-box rp-select-trigger\"><span class=\"rp-icon rp-icon-clock\"></span><span class=\"rp-select-value\">Input</span></button></div></div>",
+   "box": "width:325px"
+  },
+  {
+   "id": "field/large-disabled",
+   "node": "10687:22670",
+   "kit": "<div style=\"padding-top:8px\"><div class=\"rp-select rp-select-disabled\" style=\"width:100%\"><span class=\"rp-field-label\">Label</span><button type=\"button\" class=\"rp-field-box rp-select-trigger\"><span class=\"rp-icon rp-icon-clock\"></span><span class=\"rp-select-value\">Input</span></button></div></div>",
+   "box": "width:325px"
+  },
+  {
+   "id": "field/small-default",
+   "node": "10687:22682",
+   "kit": "<div style=\"padding-top:8px\"><div class=\"rp-select rp-select-size-small\" style=\"width:100%\"><span class=\"rp-field-label\">Label</span><button type=\"button\" class=\"rp-field-box rp-select-trigger\"><span class=\"rp-icon rp-icon-clock\"></span><span class=\"rp-select-value\">Input</span></button></div></div>",
+   "box": "width:325px"
+  },
+  {
+   "id": "search/large-default",
+   "node": "8583:68886",
+   "kit": "<div class=\"rp-search\" style=\"width:100%\"><div class=\"rp-field-box\"><span class=\"rp-icon rp-icon-search\"></span><input class=\"rp-field-input\" type=\"search\" placeholder=\"Search\" /></div></div>",
+   "box": "width:736px"
+  },
+  {
+   "id": "menu/text-with-search",
+   "node": "523:20322",
+   "kit": "<div class=\"rp-menu open\" style=\"position:static;min-width:0;width:196px\"><div class=\"rp-menu-search\"><span class=\"rp-icon rp-icon-search\"></span><input type=\"search\" placeholder=\"Search\" aria-label=\"Search\" /></div><button class=\"rp-menu-item\"><span class=\"rp-icon rp-icon-languages\"></span>Value</button><button class=\"rp-menu-item\"><span class=\"rp-icon rp-icon-languages\"></span>Value</button><button class=\"rp-menu-item\"><span class=\"rp-icon rp-icon-languages\"></span>Value</button><button class=\"rp-menu-item\"><span class=\"rp-icon rp-icon-languages\"></span>Value</button><button class=\"rp-menu-item\"><span class=\"rp-icon rp-icon-languages\"></span>Value</button><button class=\"rp-menu-item\"><span class=\"rp-icon rp-icon-languages\"></span>Value</button></div>",
+   "at": "4,0",
+   "threshold": 4
+  },
+  {
+   "id": "breadcrumbs/default",
+   "node": "9:7010",
+   "kit": "<nav class=\"rp-breadcrumbs\"><a class=\"rp-breadcrumb-link\" href=\"#\"><span class=\"rp-icon rp-icon-size-32 rp-icon-settings-outlined\"></span>Breadcrumb</a><span class=\"rp-breadcrumb-separator\">/</span><a class=\"rp-breadcrumb-link\" href=\"#\">Breadcrumb</a><span class=\"rp-breadcrumb-separator\">/</span><a class=\"rp-breadcrumb-link\" href=\"#\">Breadcrumb</a><span class=\"rp-breadcrumb-separator\">/</span><a class=\"rp-breadcrumb-link\" href=\"#\">Breadcrumb</a><span class=\"rp-breadcrumb-separator\">/</span><a class=\"rp-breadcrumb-link\" href=\"#\">Breadcrumb</a><span class=\"rp-breadcrumb-separator\">/</span><span class=\"rp-breadcrumb-text\">Breadcrumb</span></nav>",
+   "region": "0,0,330,32",
+   "threshold": 11,
+   "note": "text widths drift by under 1px per item"
+  },
+  {
+   "id": "paginator/fast-forward",
+   "node": "27:6875",
+   "kit": "<div class=\"rp-table-pagination\" style=\"width:404px;padding:0;border:0;min-height:0;justify-content:space-between\"><div class=\"rp-table-pagination-rows\"><span>Rows per page:</span><div class=\"rp-select rp-select-inline\"><button type=\"button\" class=\"rp-field-box rp-select-trigger\"><span class=\"rp-select-value\">25</span></button></div></div><span class=\"rp-table-pagination-range\">1-5 of 25</span><div class=\"rp-table-pagination-actions\"><button class=\"rp-icon-button\" disabled aria-label=\"First\"><span class=\"rp-icon rp-icon-size-32 rp-icon-rewind\"></span></button><button class=\"rp-icon-button\" disabled aria-label=\"Previous\"><span class=\"rp-icon rp-icon-size-32 rp-icon-left\"></span></button><button class=\"rp-icon-button\" aria-label=\"Next\"><span class=\"rp-icon rp-icon-size-32 rp-icon-right\"></span></button><button class=\"rp-icon-button\" aria-label=\"Last\"><span class=\"rp-icon rp-icon-size-32 rp-icon-fast-forward\"></span></button></div></div>",
+   "threshold": 7,
+   "note": "range text drifts under 1px"
+  },
+  {
+   "id": "volume-bar/neutral",
+   "node": "10534:109",
+   "kit": "<div class=\"rp-volume-bar rp-volume-bar-neutral\" style=\"width:200px\"><div class=\"rp-volume-bar-value\" style=\"width:50%\"></div></div>",
+   "note": "Figma Volume-Bar Style=01: positive share on a grey range"
+  },
+  {
+   "id": "slider/default",
+   "node": "27:6922",
+   "kit": "<div class=\"rp-slider\"><span class=\"rp-slider-label\">Slider label</span><div class=\"rp-slider-row\"><span>0</span><input type=\"range\" class=\"rp-slider-input\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"x\" /><span>Value</span></div></div>",
+   "threshold": 6,
+   "note": "native range input vs the Figma drawing"
+  },
+  {
+   "id": "uploader/empty",
+   "node": "2148:38845",
+   "kit": "<div class=\"rp-uploader\"><div class=\"rp-uploader-zone\"><input type=\"file\" aria-label=\"x\" /><span class=\"rp-ghost-button rp-ghost-button-size-medium\"><span class=\"rp-icon rp-icon-size-32 rp-icon-upload\"></span>Upload file</span><div class=\"rp-uploader-text\"><span class=\"rp-uploader-hint\">Or drag and drop files here to upload</span><span class=\"rp-uploader-help\">You can upload your file (JPG/PNG/GIF) up to 20MB.</span></div></div></div>",
+   "box": "width:960px",
+   "threshold": 4
+  },
+  {
+   "id": "timeline/future",
+   "node": "5312:3875",
+   "kit": "<div class=\"rp-timeline\"><div class=\"rp-timeline-stage\"><h3 class=\"rp-timeline-title\">Timeline title</h3><div class=\"rp-timeline-events\"><div class=\"rp-timeline-event\"><span class=\"rp-timeline-marker\"><span class=\"rp-timeline-badge\"><span class=\"rp-icon rp-icon-calendar\"></span></span></span><p class=\"rp-timeline-event-title\">Section title</p><p class=\"rp-timeline-event-text\">One morning, when Gregor Samsa woke from troubled dreams</p></div></div></div><div class=\"rp-timeline-stage\"><h3 class=\"rp-timeline-title\">Timeline title</h3><div class=\"rp-timeline-events\"><div class=\"rp-timeline-event\"><span class=\"rp-timeline-marker\"><span class=\"rp-timeline-badge\"><span class=\"rp-icon rp-icon-calendar\"></span></span></span><p class=\"rp-timeline-event-title\">Section title</p><p class=\"rp-timeline-event-text\">One morning, when Gregor Samsa woke from troubled dreams</p></div></div></div><div class=\"rp-timeline-stage\"><h3 class=\"rp-timeline-title\">Timeline title</h3><div class=\"rp-timeline-events\"><div class=\"rp-timeline-event\"><span class=\"rp-timeline-marker\"><span class=\"rp-timeline-badge\"><span class=\"rp-icon rp-icon-calendar\"></span></span></span><p class=\"rp-timeline-event-title\">Section title</p><p class=\"rp-timeline-event-text\">One morning, when Gregor Samsa woke from troubled dreams</p></div></div></div><div class=\"rp-timeline-stage\"><h3 class=\"rp-timeline-title\">Timeline title</h3><div class=\"rp-timeline-events\"><div class=\"rp-timeline-event\"><span class=\"rp-timeline-marker\"><span class=\"rp-timeline-badge\"><span class=\"rp-icon rp-icon-calendar\"></span></span></span><p class=\"rp-timeline-event-title\">Section title</p><p class=\"rp-timeline-event-text\">One morning, when Gregor Samsa woke from troubled dreams</p></div></div></div><div class=\"rp-timeline-stage\"><h3 class=\"rp-timeline-title\">Timeline title</h3><div class=\"rp-timeline-events\"><div class=\"rp-timeline-event\"><span class=\"rp-timeline-marker\"><span class=\"rp-timeline-badge\"><span class=\"rp-icon rp-icon-calendar\"></span></span></span><p class=\"rp-timeline-event-title\">Section title</p><p class=\"rp-timeline-event-text\">One morning, when Gregor Samsa woke from troubled dreams</p></div></div></div></div>",
+   "box": "width:1068px",
+   "threshold": 9,
+   "snap": false,
+   "note": "three-line event text: Chrome and Figma place the lines up to 2px apart"
+  }
+ ]
+}

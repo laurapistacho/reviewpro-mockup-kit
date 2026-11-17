@@ -32,8 +32,8 @@ Self-contained design system for building on-brand HTML mockups without dependen
 |------|-------|
 | Components and props | `frontend-workspace/libs/ui-components/src/*` |
 | Theme (palette, spacing, radius, shadows, z-index) | `frontend-workspace/libs/js-browser/src/themes/ui-app.ts` |
-| Navigation (top bar, side bar, panel) | `libs/ui-components/src/compositions/Navigation` (story, TopBar.mdx, SideBar.mdx) |
-| Icons | `libs/ui-components/src/icons/*.tsx` (`build-icons.py`) |
+| Navigation (top bar, side bar, panel) | Behaviour and labels: `libs/reviewpro-ui/src/canvas` (MainBarNext, SidebarNav, ProductNavigatorNext, DateGroupComparison, AppLauncher). Sizes, colours and states: Figma UI App `ubE7R2jeqiwS8BZ4a5vwHw`, Navigation page 7144:36598 |
+| Icons | Figma Pictograms and Icons (`sG8E7rdnYt59mgmYDMr7PY`, exported to `foundation/icons-figma/`), then `libs/ui-components/src/icons/*.tsx` for the rest (`build-icons.py`) |
 | Figma-verified sizes (tables, buttons, fields, chips, switch) | `ai-tools-design-test/mockup-kit` (pixel diffs against the Tables page) |
 | Usage guidance | `ai-tools-design-test/design-docs/` |
 

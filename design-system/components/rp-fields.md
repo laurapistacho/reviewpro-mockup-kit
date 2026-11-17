@@ -60,6 +60,35 @@
 | `rp-date-picker-error` | error |
 | `rp-date-picker-disabled` | disabled |
 | `rp-date-picker-full-width` | fullWidth |
+
+**`rp-slider`** = `Slider` · `@reviewpro/ui-components/Slider (not found in code: Figma only)` · Figma: Slider (196:1601)
+
+| Class | Code |
+|---|---|
+| `rp-slider-disabled` | disabled |
+| `rp-slider-label` | label |
+| `rp-slider-row` | start value, input, end value |
+| `rp-slider-input` | <input type="range"> |
+
+Start and end values go either side of the input; data-rp-slider-value on the end value shows the current value ({v}).
+
+**`rp-uploader`** = `Uploader` · `@reviewpro/ui-components/Uploader (check the code: Figma Uploader)` · Figma: Uploader (2148:38845)
+
+| Class | Code |
+|---|---|
+| `rp-uploader-error` | error (helper text below) |
+| `rp-uploader-disabled` | disabled |
+| `rp-uploader-dragover` | state while a file is dragged over (shared.js) |
+| `rp-uploader-zone` | dashed drop zone (holds the hidden <input type="file">) |
+| `rp-uploader-text` | hint + help |
+| `rp-uploader-hint` | Or drag and drop… |
+| `rp-uploader-help` | file types and size |
+| `rp-uploader-files` | chosen files (shared.js) |
+| `rp-uploader-file` | one file row |
+| `rp-uploader-file-name` | name |
+| `rp-uploader-file-size` | size |
+
+The Upload file action is an rp-ghost-button rp-ghost-button-size-medium with rp-icon-upload.
 <!-- MAP:END -->
 
 All fields share the field tokens of the code (`getFieldTokens`): one outlined box, a floating label on its top border, helper text below.
@@ -125,3 +154,17 @@ All fields share the field tokens of the code (`getFieldTokens`): one outlined b
 - Width comes from the layout (`kit-form` columns or `-full-width`), never from inline widths inside forms. Toolbar fields may set a width with `style="width: 220px"`.
 - Never a native `<select>`.
 - Error messages: one sentence, sentence case, no period ("Email is required").
+
+## Slider
+Figma Slider: label, start value, the range input, end value. `data-rp-slider-value="{v}%"` on the end value shows the current value; shared.js fills the track.
+```html
+<div class="rp-slider"><span class="rp-slider-label">Minimum score</span>
+  <div class="rp-slider-row"><span>0</span><input type="range" class="rp-slider-input" min="0" max="100" value="70" aria-label="Minimum score" /><span data-rp-slider-value="{v}%">70%</span></div></div>
+```
+## Uploader
+Figma Uploader: a dashed drop zone with an Upload file ghost button, a hint and the accepted files. The hidden file input covers the zone; shared.js lists the chosen files (names only, nothing is uploaded). `rp-uploader-error` + an `rp-field-helper` below for an error; `rp-uploader-disabled`.
+```html
+<div class="rp-uploader"><div class="rp-uploader-zone"><input type="file" aria-label="Upload file" />
+  <span class="rp-ghost-button rp-ghost-button-size-medium"><span class="rp-icon rp-icon-upload"></span>Upload file</span>
+  <div class="rp-uploader-text"><span class="rp-uploader-hint">Or drag and drop files here to upload</span><span class="rp-uploader-help">You can upload your file (JPG/PNG/GIF) up to 20MB.</span></div></div></div>
+```

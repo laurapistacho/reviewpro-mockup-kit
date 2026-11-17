@@ -24,6 +24,9 @@ No modifier class means the default prop. `kit-` classes are page layout (no com
 | `rp-main-button-size-small` | size="small" |
 | `rp-main-button-full-width` | fullWidth |
 | `rp-main-button-disabled` | disabled |
+| `rp-main-button-accent` | variant="accent" (Energetic Green) |
+| `rp-main-button-tertiary` | variant="tertiary" (Midnight #172554) |
+| `rp-main-button-accent-brand` | variant="accentBrand" (RPP70; Generate Insights: its icon is neon, iconColor="neon") |
 
 Text = label prop. A leading .rp-icon = icon prop.
 
@@ -54,6 +57,7 @@ Text = label prop. A leading .rp-icon = icon prop.
 | `rp-icon-button-size-small` | size="small" |
 | `rp-icon-button-primary` | color="primary" |
 | `rp-icon-button-disabled` | disabled |
+| `rp-icon-button-squared` | no prop: Figma IconButton_Squared (same 32px button, square hover) |
 
 Always set aria-label: it is the only name a screen reader gets.
 
@@ -164,6 +168,35 @@ Native <input type="checkbox">: checked = checked, indeterminate = partial.
 | `rp-switch-size-small` | size="small" |
 | `rp-switch-disabled` | disabled |
 
+**`rp-slider`** = `Slider` · `@reviewpro/ui-components/Slider (not found in code: Figma only)` · Figma: Slider (196:1601)
+
+| Class | Code |
+|---|---|
+| `rp-slider-disabled` | disabled |
+| `rp-slider-label` | label |
+| `rp-slider-row` | start value, input, end value |
+| `rp-slider-input` | <input type="range"> |
+
+Start and end values go either side of the input; data-rp-slider-value on the end value shows the current value ({v}).
+
+**`rp-uploader`** = `Uploader` · `@reviewpro/ui-components/Uploader (check the code: Figma Uploader)` · Figma: Uploader (2148:38845)
+
+| Class | Code |
+|---|---|
+| `rp-uploader-error` | error (helper text below) |
+| `rp-uploader-disabled` | disabled |
+| `rp-uploader-dragover` | state while a file is dragged over (shared.js) |
+| `rp-uploader-zone` | dashed drop zone (holds the hidden <input type="file">) |
+| `rp-uploader-text` | hint + help |
+| `rp-uploader-hint` | Or drag and drop… |
+| `rp-uploader-help` | file types and size |
+| `rp-uploader-files` | chosen files (shared.js) |
+| `rp-uploader-file` | one file row |
+| `rp-uploader-file-name` | name |
+| `rp-uploader-file-size` | size |
+
+The Upload file action is an rp-ghost-button rp-ghost-button-size-medium with rp-icon-upload.
+
 ## Status
 
 **`rp-chip`** = `Chip` · `@reviewpro/ui-components/Chip` · Figma: Chip · no class = `color="primary" size="medium"`
@@ -183,6 +216,9 @@ Native <input type="checkbox">: checked = checked, indeterminate = partial.
 | `rp-chip-clickable` | clickable (onClick) |
 | `rp-chip-disabled` | disabled |
 | `rp-chip-full-width` | fullWidth |
+| `rp-chip-neon` | no React colour: Figma Chip Style=Neon (the AI header tints color="info" with the neon ramp) |
+| `rp-chip-topic-positive` | no React colour: Figma Chip Style=TopicPositive |
+| `rp-chip-topic-negative` | no React colour: Figma Chip Style=TopicNegative |
 | `rp-chip-delete` | onDelete button |
 
 **`rp-badge`** = `Badge` · `@reviewpro/ui-components/Badge` · Figma: Badge · no class = `color="informative" size="medium" variant="standard"`
@@ -243,6 +279,7 @@ Write data-rp-tooltip="Text" on the element (title prop); shared.js draws it.
 | `rp-avatar-size-40` | size={40} |
 | `rp-avatar-size-48` | size={48} |
 | `rp-avatar-size-64` | size={64} |
+| `rp-avatar-size-50` | size={50} (Figma Avatar Large) |
 
 **`rp-loader`** = `Loader / CircularProgress` · `@reviewpro/ui-components/Loader` · Figma: Loader
 
@@ -272,6 +309,14 @@ Write data-rp-tooltip="Text" on the element (title prop); shared.js draws it.
 
 **`rp-skeleton`** = `Skeleton (MUI)` · `@mui/material/Skeleton` · Figma: Skeleton
 
+**`rp-disclaimer`** = `Disclaimer` · `@reviewpro/ui-components/Disclaimer` · Figma: — · no class = `variant="default" icon=<AI size={18} />`
+
+| Class | Code |
+|---|---|
+| `rp-disclaimer-compact` | variant="compact" |
+
+label = the text after the icon. On a dashboard it sits first in rp-content and runs edge to edge (Reviews dashboard: the Actionable Insights AI disclaimer).
+
 ## Data
 
 **`rp-volume-bar`** = `— (no code component found; closest: DistributionBar)` · Figma: Volume-Bar_new
@@ -279,6 +324,7 @@ Write data-rp-tooltip="Text" on the element (title prop); shared.js draws it.
 | Class | Code |
 |---|---|
 | `rp-volume-bar-value` | the positive share (width %) |
+| `rp-volume-bar-neutral` | Figma Volume-Bar Style=01 (share on a grey range) |
 
 **`rp-table`** = `Table` · `@reviewpro/ui-components/Table` · Figma: Cell · Row Content · Row-Background · Header Content
 
@@ -323,6 +369,25 @@ Write data-rp-tooltip="Text" on the element (title prop); shared.js draws it.
 | `rp-table-pagination-rows` | labelRowsPerPage + rowsPerPage select |
 | `rp-table-pagination-range` | labelDisplayedRows |
 | `rp-table-pagination-actions` | first / previous / next / last (variant="fastForward") |
+
+**`rp-timeline`** = `Timeline` · `(Figma Timeline: no code component found)` · Figma: Timeline (5312:3875)
+
+| Class | Code |
+|---|---|
+| `rp-timeline-stage` | one stage (Figma _Timeline Container) |
+| `rp-timeline-stage-completed` | Container State=Completed (grey) |
+| `rp-timeline-title` | stage title |
+| `rp-timeline-events` | events of the stage |
+| `rp-timeline-event` | one event (172px) |
+| `rp-timeline-marker` | badge + line |
+| `rp-timeline-badge` | 24px badge with a 16px icon |
+| `rp-timeline-event-title` | event title |
+| `rp-timeline-event-text` | event text |
+| `rp-timeline-event-completed` | Event State=Completed (green) |
+| `rp-timeline-event-ongoing` | Event State=Ongoing (RPP70) |
+| `rp-timeline-event-cancelled` | Event State=Cancelled (red); no class = Future (grey) |
+
+A row of stages; the last event has no line.
 
 ## Layout
 
@@ -426,6 +491,10 @@ Write data-rp-tooltip="Text" on the element (title prop); shared.js draws it.
 | `rp-menu-fixed` | positioned at its trigger (runtime) |
 | `rp-menu-item-focused` | keyboard focus (runtime) |
 
+**`rp-popover`** = `Popover` · `@reviewpro/ui-components/Popover` · Figma: Popover
+
+**`rp-list-subheader`** = `ListSubheader` · `@reviewpro/ui-components/ListSubheader` · Figma: List subheader
+
 **`rp-dialog-overlay`** = `Dialog` · `@reviewpro/ui-components/Dialog` · Figma: Dialog · no class = `maxWidth="sm"`
 
 | Class | Code |
@@ -464,33 +533,80 @@ Write data-rp-tooltip="Text" on the element (title prop); shared.js draws it.
 
 ## App shell
 
-**`rp-top-bar`** = `TopBar (compositions/Navigation)` · `Storybook: compositions/Navigation, TopBar.mdx` · Figma: Top Bar (W9rz6usKJpzlp9Jpgav18e · 4600:23771)
+**`rp-top-bar`** = `MainBarNext (reviewpro-ui canvas)` · `libs/reviewpro-ui/src/canvas/components/MainBarNext.jsx` · Figma: Top Bar (W9rz6usKJpzlp9Jpgav18e · 4600:23771)
 
 | Class | Code |
 |---|---|
-| `rp-top-bar-left` | context (establishment, date range) |
-| `rp-top-bar-right` | global actions |
-| `rp-top-bar-logo` | establishment logo 32px |
-| `rp-top-bar-button` | EstablishmentButton / DateRangeButton |
-| `rp-top-bar-establishment` | establishment selector |
-| `rp-top-bar-date-range` | date range selector |
-| `rp-top-bar-date-text` | date range + comparison lines |
-| `rp-top-bar-qa` | environment="QA" (green bar): only to show QA on purpose; mockups of QA screenshots use the blue bar |
+| `rp-top-bar-left` | NavbarLeft: logo, establishment, date range |
+| `rp-top-bar-right` | NavbarRight: messages, help, app launcher, account |
+| `rp-top-bar-logo` | LogoImg (height 40) |
+| `rp-top-bar-button` | EstablishmentButton / DatePickerButton (hover black 20%, open 40%) |
+| `rp-top-bar-establishment` | EstablishmentButton (opens ProductNavigatorNext) |
+| `rp-top-bar-establishment-text` | EstablishmentLabelContainer: name (body2 bold) + subtitle (caption, e.g. Establishment view) |
+| `rp-top-bar-date-range` | DatePickerButton (opens DateGroupComparison) |
+| `rp-top-bar-date-text` | title + compareTitle (vs. …) |
+| `rp-top-bar-establishment-popover` | ProductNavigatorNext in a Popover (400 × 480) — runtime |
+| `rp-top-bar-establishment-search` | SearchWrapper (TextField small, Search icon) |
+| `rp-top-bar-establishment-list` | List of ListSubheader + MenuItem rows |
+| `rp-top-bar-establishment-count` | (N) products of a group, textSecondary |
+| `rp-top-bar-establishment-pin` | Pin IconButton: set as default (shown on hover; primary when pinned) |
+| `rp-top-bar-establishment-empty` | No products found |
+| `rp-top-bar-date-popover` | DateGroupComparison Popover layout (360px, padding 16) — runtime |
+| `rp-top-bar-date-title` | Select a Date Period |
+| `rp-top-bar-date-row` | datePickerRowContainer: From - To |
+| `rp-top-bar-date-separator` | datePickerMinusContainer ( - ) |
+| `rp-top-bar-messages-title` | UnreadRoster StyledDrawerTitle (h5 All Messages + Close) |
+| `rp-top-bar-messages-actions` | UnreadRoster actions (SortBy menu: Newest, Priority, Oldest) |
+| `rp-top-bar-messages-list` | UnreadRoster content |
+| `rp-top-bar-messages-group` | date group label (background.secondary) |
+| `rp-top-bar-message` | FeedRow (ui-gmh-engine) |
+| `rp-top-bar-message-avatar` | FeedRow avatarContainer |
+| `rp-top-bar-message-unread` | Badge variant=dot inline (unread) |
+| `rp-top-bar-message-picture` | Avatar 48 round |
+| `rp-top-bar-message-channel` | channel icon (messaging-platforms) |
+| `rp-top-bar-message-body` | FeedRow infoContainer |
+| `rp-top-bar-message-head` | nameContainer |
+| `rp-top-bar-message-name` | guest name (bold) · guest hub |
+| `rp-top-bar-message-hub` | guestChannelName (body2 textSecondary) |
+| `rp-top-bar-message-time` | commentTime (caption) |
+| `rp-top-bar-message-text` | hotel name | last message |
+| `rp-top-bar-apps-popover` | AppLauncher Popover (445px, radius 24) — runtime |
+| `rp-top-bar-apps-block` | productsBlock |
+| `rp-top-bar-apps-title` | Explore all Shiji Products |
+| `rp-top-bar-apps-grid` | productsList (4 columns) |
+| `rp-top-bar-apps-item` | productItem |
+| `rp-top-bar-apps-demo` | getDemoBlock (Let’s talk) |
+| `rp-top-bar-account-menu` | user Menu (300px) — runtime |
+| `rp-top-bar-account-back` | BackButton (language view) |
+| `rp-top-bar-account-caption` | Select language (caption) |
+| `rp-top-bar-about-logo` | AboutNext logo (reviewpro-reputation-vertical, 75px) |
+| `rp-top-bar-qa` | isQAEnvironment (green bar): only to show QA on purpose; mockups of QA screenshots use the blue bar |
+| `rp-top-bar-settings` | old name of rp-top-bar-corporate (account view, DRPP100) |
+| `rp-top-bar-message-read` | read FeedRow (no unread dot) |
+| `rp-top-bar-corporate` | account view: no product shown (MainBarNext isProductName=false), DRPP100; Figma TopNav Device=Corporate |
 
-**`rp-side-bar`** = `SideBar (compositions/Navigation)` · `Storybook: compositions/Navigation, SideBar.mdx` · Figma: Side Bar
+**`rp-side-bar`** = `SidebarNav (reviewpro-ui canvas)` · `libs/reviewpro-ui/src/canvas/components/SidebarNav.jsx` · Figma: Side Bar
 
 | Class | Code |
 |---|---|
-| `rp-side-bar-item` | SidebarIconButton (48px touch target, 32px status square) |
+| `rp-side-bar-item` | Item-Icon (Figma): 48px cell, 32px state square (hover N-10, active B-20, pressed blue 10%), 24px icon; 48px row when expanded |
 | `rp-side-bar-spacer` | pushes the next items to the bottom |
-| `rp-side-bar-panel` | section pages panel (Panel, 198px per Sidebar.mdx; closed on load) |
-| `rp-side-bar-panel-header` | PanelHeader |
+| `rp-side-bar-knowledge-hub` | Knowledge Hub button (KnowledgeHubWrapper) |
+| `rp-side-bar-knowledge-hub-glyph` | KnowledgeHubGlyph: RPP70 square, Learning icon in white |
+| `rp-side-bar-toggle` | SidebarToggle: right edge handle, Expand / Collapse navigation — runtime |
+| `rp-side-bar-item-label` | section label when expanded (body2) — runtime |
+| `rp-side-bar-item-chip` | New chip when expanded (Chip brand small squared) — runtime |
+| `rp-side-bar-panel` | panel Device=Desktop (220px; closed on load) |
+| `rp-side-bar-panel-header` | Item-Title (padding 12px 16px, 16/24 bold) |
 | `rp-side-bar-panel-list` | PanelList |
-| `rp-side-bar-panel-item` | PanelListItem |
-| `rp-side-bar-panel-logo` | ReviewPro logo |
+| `rp-side-bar-panel-item` | Item-Text (40px, padding 8px 16px, 14/22) |
+| `rp-side-bar-panel-actions` | PanelListItemActions (chips, pin) |
+| `rp-side-bar-panel-divider` | Divider between panel items (Settings: after All Settings) |
+| `rp-side-bar-panel-pin` | Pin IconButton: set the page as default — runtime |
+| `rp-side-bar-panel-logo` | reviewpro-reputation-sidebar-logo (LogoWrapper, mb 24) |
 | `rp-side-bar-item-active` | isActive |
-| `rp-side-bar-item-contained` | filled brand square: the lightbulb button QA shows at the rail bottom (not in ui-components) |
 | `rp-side-bar-panel-item-active` | isActive |
+| `rp-side-bar-expanded` | Type=Expanded (267px rail with labels) — runtime |
 
 **`rp-content`** = `ContentArea (compositions/Navigation)` · `Storybook: compositions/Navigation` · Figma: Content
 
@@ -532,6 +648,27 @@ rp-icon-{name} classes and rp-icon-size-* live in rp-icons.css (generated).
 
 | Class | Use |
 |---|---|
+| `kit-settings-hub` | Settings hub layout on rp-content (ui-settings-app AccountSettingsNext): no padding, white |
+| `kit-settings-nav` | SettingsNavPanel (230px, sticky; folds while a section panel of the rail is open) |
+| `kit-settings-nav-heading` | SettingsNavPanel heading (Settings) |
+| `kit-settings-nav-list` | SettingsNavPanel list |
+| `kit-settings-nav-item` | SettingsNavPanel item (All Settings or a section; count badge while searching) |
+| `kit-settings-nav-item-active` | selected section |
+| `kit-settings-nav-item-no-match` | section without results while searching |
+| `kit-settings-nav-divider` | divider under All Settings |
+| `kit-settings-nav-logo` | ReviewPro logo at the bottom of the nav panel |
+| `kit-settings-content` | content panel (white) |
+| `kit-settings-search` | SettingsSearch bar (Search, full width) |
+| `kit-settings-results` | SettingsSearch results row: N results + section chips |
+| `kit-settings-section` | SettingsSection (icon + h6 + grid of cards) |
+| `kit-settings-section-header` | SettingsSection header |
+| `kit-settings-grid` | card grid: auto-fill minmax(360px, 1fr), gap 24 |
+| `kit-setting-card` | SettingCard (hover blue_05) |
+| `kit-setting-card-title` | SettingCard title link (body1 bold) + New chip |
+| `kit-setting-card-text` | SettingCard description (body2 secondary) |
+| `kit-setting-card-person` | PersonalInfoCard: avatar, name, email |
+| `kit-settings-highlight` | HighlightText (yellow_20) on the search match |
+| `kit-settings-empty` | No settings found (NotFound icon 64) |
 | `kit-toolbar` | page toolbar under the title (DashboardToolbar in compositions/Navigation) |
 | `kit-toolbar-group` | a group inside kit-toolbar |
 | `kit-stack` | vertical stack of tiles, gap 16 (DashboardContent) |
@@ -555,6 +692,11 @@ rp-icon-{name} classes and rp-icon-size-* live in rp-icons.css (generated).
 | `kit-legend-mark` | legend color mark |
 | `kit-label-value` | label above a value (read-only detail) |
 | `kit-label-value-label` | the label |
+| `kit-version-switch` | Version switch pill (Current UI / Modernised, Light / Dark), built by shared.js from <link rel="alternate" data-rp-version> |
+| `kit-version-switch-label` | UI label |
+| `kit-version-switch-option` | one option |
+| `kit-version-switch-option-selected` | current option |
+| `kit-version-switch-divider` | divider before Light / Dark |
 
 ## Tokens
 

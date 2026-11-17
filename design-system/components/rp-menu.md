@@ -16,6 +16,10 @@
 | `rp-menu-item-danger` | destructive item (red) |
 | `rp-menu-fixed` | positioned at its trigger (runtime) |
 | `rp-menu-item-focused` | keyboard focus (runtime) |
+
+**`rp-popover`** = `Popover` · `@reviewpro/ui-components/Popover` · Figma: Popover
+
+**`rp-list-subheader`** = `ListSubheader` · `@reviewpro/ui-components/ListSubheader` · Figma: List subheader
 <!-- MAP:END -->
 
 One menu element per kind of action, shared by every trigger that points at it (`data-rp-menu="rowMenu"`). shared.js opens it below the trigger (above when there is no room), closes it on an item click, an outside click, Tab or Escape, and moves with arrow keys.

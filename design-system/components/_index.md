@@ -8,7 +8,7 @@ Read only the docs for the components you add or change. Each doc starts with it
 | `rp-tile.md` | Tile, TileTitle, TileContent, TileTable, TileActions, TileExpand | Every widget, form section and table container |
 | `rp-table.md` | Table, Toolbar, bulk bar, TablePagination, volume bar | Lists, results, rankings |
 | `rp-buttons.md` | MainButton, DefaultButton, GhostButton, IconButton, ToggleButton | Actions |
-| `rp-fields.md` | TextField, Select, Search, TextArea, DatePicker | Forms, filters |
+| `rp-fields.md` | TextField, Select, Search, TextArea, DatePicker, Slider, Uploader | Forms, filters, files |
 | `rp-selection-controls.md` | Checkbox, Radio, Switch, FormControlLabel | Choices, on / off |
 | `rp-chip.md` | Chip | Status, tags, "New" |
 | `rp-badge-avatar.md` | Badge, Avatar | Counters, people |
@@ -16,10 +16,10 @@ Read only the docs for the components you add or change. Each doc starts with it
 | `rp-accordion.md` | Accordion, Divider | Expandable groups, separators |
 | `rp-menu.md` | Menu, MenuItem | Kebab, actions, top bar selectors |
 | `rp-dialog-drawer.md` | Dialog, Drawer | Confirmations, forms, filters, detail views |
-| `rp-alert.md` | Alert | Inline messages |
+| `rp-alert.md` | Alert, Disclaimer | Inline messages, the AI notice |
 | `rp-snackbar-tooltip.md` | Snackbar / Toast, Tooltip | Action feedback, icon names |
 | `rp-placeholder.md` | Placeholder, Loader, Skeleton, ProgressBar | Empty, error and loading states, scores |
-| `rp-breadcrumbs-stepper.md` | Breadcrumbs, Stepper | Location, wizards |
+| `rp-breadcrumbs-stepper.md` | Breadcrumbs, Stepper, Timeline | Location, wizards, journeys |
 | `rp-typography.md` | Typography, Link, icons, writing rules | Text and copy |
 
 Full class → React table: `../HANDOFF.md`. Every icon: `../foundation/icons-full-reference.md`.

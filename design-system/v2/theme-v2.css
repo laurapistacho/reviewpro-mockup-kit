@@ -1,0 +1,251 @@
+/*
+ * ReviewPro UI V2 · "Day & Night" — a proposal, NOT the current UI App library.
+ * Loaded after shared.css + rp-icons.css in a page's -v2 copy (made by .kiro/scripts/make-v2.py).
+ * Source: the Shiji Brand Kit (Midnight #172554, Reviewpro Blue #0030FF, Daylight blues, Energetic Green #0AFFAB,
+ * alert red #DC2626), Laura's design review of 17 Nov 2026 and her font analysis (DE-2337). Rules: design-system/v2/README.md.
+ * Hard rules: no gradients; buttons rounded (10px), never pills; Energetic Green only for the AI call to action;
+ * Shiji Day Sans only for display text (page title, hero numbers); the top bar colour follows the view.
+ * Order: brand tokens, kit tokens remapped (day), components, charts, night (dark mode).
+ */
+
+/* Shiji Day Sans (Aeonik), display only: the page title and single hero numbers, 20px and up (DE-2337 option B).
+   Never tables, fields, navigation, chart labels or guest content. Served from the Shiji website CDN like the brand
+   presentation kit; it falls back to Noto Sans. The product licence for display use is still to be confirmed. */
+@font-face { font-family: "Shiji Day Sans"; src: url("https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67da8139199c44005d0f1b8f_ShijiDaySansAeonik-Medium.woff2") format("woff2"); font-weight: 500 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Shiji Day Sans"; src: url("https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67da8139199c44005d0f1b9d_ShijiDaySansAeonik-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* ═══ 1. Brand palette + opacity ramps (compose any alpha with rgba(var(--v2-*-rgb), a)) ═══ */
+:root {
+  --v2-midnight: #172554; --v2-twilight: #1E3A8A; --v2-blue: #0030FF; --v2-blue-3: #3B82F6; --v2-meridian: #60A5FA;
+  --v2-blue-5: #D5ECFF; --v2-daylight: #E8F5FF; --v2-daylight-60: #F1F9FF; --v2-daylight-30: #F8FCFF; --v2-night: #0C1024;
+  --v2-green: #0AFFAB; --v2-alert: #DC2626; --v2-alert-dark: #F87171;
+  --v2-sunrise: #8D3791; --v2-sunset-yellow: #FFB851; --v2-sunset-orange: #FF8056; --v2-sunset-purple: #7443A7;
+
+  --v2-blue-rgb: 0, 48, 255; --v2-ink-rgb: 23, 37, 84; --v2-green-rgb: 10, 255, 171; --v2-red-rgb: 220, 38, 38;
+  --v2-yellow-rgb: 255, 184, 81; --v2-white-rgb: 255, 255, 255;
+  --v2-blue-a04: rgba(var(--v2-blue-rgb), .04); --v2-blue-a08: rgba(var(--v2-blue-rgb), .08); --v2-blue-a12: rgba(var(--v2-blue-rgb), .12);
+  --v2-blue-a16: rgba(var(--v2-blue-rgb), .16); --v2-blue-a24: rgba(var(--v2-blue-rgb), .24); --v2-blue-a40: rgba(var(--v2-blue-rgb), .40);
+  --v2-ink-a04: rgba(var(--v2-ink-rgb), .04); --v2-ink-a06: rgba(var(--v2-ink-rgb), .06); --v2-ink-a08: rgba(var(--v2-ink-rgb), .08);
+  --v2-ink-a12: rgba(var(--v2-ink-rgb), .12); --v2-ink-a16: rgba(var(--v2-ink-rgb), .16); --v2-ink-a24: rgba(var(--v2-ink-rgb), .24);
+  --v2-ink-a40: rgba(var(--v2-ink-rgb), .40); --v2-ink-a64: rgba(var(--v2-ink-rgb), .64);
+  --v2-green-a16: rgba(var(--v2-green-rgb), .16); --v2-green-a24: rgba(var(--v2-green-rgb), .24);
+  --v2-red-a10: rgba(var(--v2-red-rgb), .10); --v2-red-a16: rgba(var(--v2-red-rgb), .16);
+  --v2-yellow-a24: rgba(var(--v2-yellow-rgb), .24); --v2-yellow-a40: rgba(var(--v2-yellow-rgb), .40);
+  --v2-white-a08: rgba(var(--v2-white-rgb), .08); --v2-white-a12: rgba(var(--v2-white-rgb), .12); --v2-white-a20: rgba(var(--v2-white-rgb), .20);
+
+  /* chart palette: brand blues first, Energetic Green as the highlight, sunset accents for categories */
+  --v2-chart-1: #0030FF; --v2-chart-2: #60A5FA; --v2-chart-3: #0AFFAB; --v2-chart-4: #7443A7; --v2-chart-5: #FF8056;
+  --v2-chart-6: #FFB851; --v2-chart-7: #8D3791; --v2-chart-8: #1E3A8A;
+  --v2-chart-grid: var(--v2-ink-a08); --v2-chart-track: var(--v2-ink-a06);
+  --v2-font-display: "Shiji Day Sans", "Noto Sans", system-ui, sans-serif;
+  /* top bar by view (MainBarNext): establishment view = the product blue, account (corporate) view = Midnight */
+  --v2-topbar-establishment: #014CB7; --v2-topbar-corporate: #172554;
+}
+
+/* ═══ 2. Kit tokens remapped (Day) ═══ */
+html[data-rp-version="v2"] {
+  /* blues: Reviewpro Blue 2 is the action colour; solid tints of it for the places that need opaque colour */
+  --blue-05: #F2F5FF; --blue-10: #E6EBFF; --blue-20: #CCD6FF; --blue-30: #99ACFF; --blue-40: #6683FF; --blue-50: #3359FF;
+  --blue-main: #0030FF; --blue-60: #0030FF; --blue-70: #0028D9; --blue-80: #0021B3; --blue-90: #001A8C;
+  --blue-darkblue: var(--v2-midnight); --blue-darkblue-200: #0F1A40;
+  --brand-rpp70: #0030FF; --brand-rpp80: #0028D9; --brand-drpp100: var(--v2-midnight);
+  /* slate neutrals (greys tinted with Midnight) */
+  --neutral-05: #F6F7FA; --neutral-08: #EFF1F5; --neutral-10: #E5E8EF; --neutral-20: #D3D8E3; --neutral-30: #B8C0D1;
+  --neutral-40: #98A2B9; --neutral-50: #7A859F; --neutral-60: #5D6887; --neutral-main: #6B7593; --neutral-70: #4A5473;
+  --neutral-80: #343D5C; --neutral-90: #222A47; --neutral-darkneutral: #1B2240;
+  /* status: success from Energetic Green, error from the brand alert red, warning from Sunset Yellow */
+  --green-10: #E8FFF7; --green-20: #CFFFF0; --green-30: #9DF5D7; --green-40: #4DE8B5; --green-50: #00CC88; --green-main: #00B67A;
+  --green-60: #007A52; --green-70: #005C3D; --green-80: #003D29; --green-90: #002619;
+  --red-10: #FEE2E2; --red-20: #FECACA; --red-30: #FCA5A5; --red-40: #F87171; --red-50: #EF4444; --red-main: #DC2626;
+  --red-60: #B91C1C; --red-70: #991B1B; --red-80: #7F1D1D; --red-90: #450A0A;
+  --yellow-10: #FFF5E6; --yellow-20: #FFEACC; --yellow-30: #FFDBA8; --yellow-40: #FFCD85; --yellow-50: #FFC26B; --yellow-main: #FFB851;
+  --yellow-60: #B26A00; --yellow-70: #8A5200; --yellow-80: #603900; --yellow-90: #3D2400;
+  --orange-main: #FF8056; --orange-60: #C2410C;
+  /* text and surfaces */
+  --text-primary: var(--v2-midnight); --text-secondary: #5D6887; --text-active: #0030FF; --text-disabled: #98A2B9;
+  --text-hint: #7A859F; --text-error: #B91C1C; --text-success: #007A52;
+  --background-default: #F5F8FC; --background-paper: #FFFFFF; --background-secondary: #EFF2F8; --background-edit: var(--v2-daylight-60);
+  --background-info: #E6EBFF; --background-warning: #FFEACC; --background-error: #FEE2E2; --background-confirmation: #CFFFF0;
+  --divider: var(--v2-ink-a08); --overlay-hover: var(--v2-ink-a04); --backdrop: rgba(12, 16, 36, .48);
+  /* shape and depth: rounder, softer, lighter shadows */
+  --radius-xs: 6px; --radius-s: 10px; --radius-m: 14px; --radius-l: 20px;
+  --shadow-xs: 0 1px 2px rgba(23, 37, 84, .06);
+  --shadow-s: 0 1px 2px rgba(23, 37, 84, .05), 0 4px 16px rgba(23, 37, 84, .05);
+  --shadow-m: 0 4px 12px rgba(23, 37, 84, .10), 0 12px 32px rgba(23, 37, 84, .08);
+  --shadow-l: 0 12px 40px rgba(23, 37, 84, .16);
+  --field-glow: 0 0 0 4px var(--v2-blue-a16);
+  --top-bar-hover: var(--v2-white-a08); --top-bar-open: var(--v2-white-a12); --top-bar-pressed: var(--v2-white-a20);
+  --nav-pressed: var(--v2-blue-a12); --side-bar-toggle: #0030FF;
+}
+html[data-rp-version="v2"] :is(.rp-text-field, .rp-select, .rp-search, .rp-text-area, .rp-date-picker) { --rp-surface: var(--background-paper); }
+
+/* checkbox and radio glyphs in V2 colours (generated from the kit glyphs) */
+html[data-rp-version="v2"] {
+  --rp-checkbox-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%235D6887' fill-rule='evenodd' d='M17.1 0H.9C.4 0 0 .4 0 .9v16.2c0 .5.4.9.9.9h16.2c.5 0 .9-.4.9-.9V.9c0-.5-.4-.9-.9-.9Zm-.9 16.2H1.8V1.8h14.4Z'/%3E%3C/svg%3E");
+  --rp-checkbox-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%230030FF' fill-rule='evenodd' d='M.9 0h16.2c.5 0 .9.4.9.9v16.2c0 .5-.4.9-.9.9H.9c-.5 0-.9-.4-.9-.9V.9C0 .4.4 0 .9 0Zm13.52 4.5c-.24 0-.47.1-.64.27L7.08 11.48 4.26 8.65a.93.93 0 0 0-1.28 1.32l3.46 3.46c.17.17.4.27.64.27s.47-.1.64-.27l7.34-7.34a.93.93 0 0 0-.64-1.6Z'/%3E%3C/svg%3E");
+  --rp-checkbox-partial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%230030FF' fill-rule='evenodd' d='M17.1 0c.5 0 .9.4.9.9v16.2c0 .5-.4.9-.9.9H.9c-.5 0-.9-.4-.9-.9V.9C0 .4.4 0 .9 0ZM4.37 8.1c-.42 0-.77.4-.77.9s.35.9.77.9h9.26c.42 0 .77-.4.77-.9s-.35-.9-.77-.9Z'/%3E%3C/svg%3E");
+  --rp-radio-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%235D6887' fill-rule='evenodd' d='M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Zm0 16.2c-3.98 0-7.2-3.22-7.2-7.2S5.02 1.8 9 1.8s7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2Z'/%3E%3C/svg%3E");
+  --rp-radio-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='4.5' fill='%230030FF'/%3E%3Cpath fill='%230030FF' fill-rule='evenodd' d='M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Zm0 16.2c-3.98 0-7.2-3.22-7.2-7.2S5.02 1.8 9 1.8s7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2Z'/%3E%3C/svg%3E");
+}
+
+/* ═══ 3. Components ═══ */
+html[data-rp-version="v2"] body { -webkit-font-smoothing: antialiased; }
+/* Top bar: the colour tells the view. Establishment view (a property or group) = product blue; account view = Midnight */
+html[data-rp-version="v2"] .rp-top-bar { --v2-topbar-bg: var(--v2-topbar-establishment); background: var(--v2-topbar-bg); border-bottom-color: transparent; }
+html[data-rp-version="v2"] .rp-top-bar-corporate, html[data-rp-version="v2"] .rp-top-bar-settings { --v2-topbar-bg: var(--v2-topbar-corporate); }
+html[data-rp-version="v2"] .rp-top-bar .rp-avatar { background: #FFFFFF; color: var(--v2-topbar-bg); border-radius: 8px; }
+html[data-rp-version="v2"] .rp-top-bar .rp-badge-content { box-shadow: 0 0 0 2px var(--v2-topbar-bg); }
+/* App launcher: solid Midnight (no gradient image) */
+html[data-rp-version="v2"] .rp-top-bar-apps-popover { background: var(--v2-midnight); }
+/* Side bar: soft rounded selections; Knowledge Hub in the action blue */
+html[data-rp-version="v2"] .rp-side-bar { border-right-color: var(--divider); }
+html[data-rp-version="v2"] .rp-side-bar-item { border-radius: 10px; color: var(--neutral-60); }
+html[data-rp-version="v2"] .rp-side-bar-item:hover { background: var(--v2-ink-a06); }
+html[data-rp-version="v2"] .rp-side-bar-item-active, html[data-rp-version="v2"] .rp-side-bar-item-active:hover { background: var(--v2-blue-a08); color: var(--text-active); }
+html[data-rp-version="v2"] .rp-side-bar-knowledge-hub-glyph { border-radius: 10px; }
+html[data-rp-version="v2"] .rp-side-bar-panel { border-right-color: var(--divider); }
+html[data-rp-version="v2"] .rp-side-bar-panel-list { padding: 0 8px; gap: 2px; }
+html[data-rp-version="v2"] .rp-side-bar-panel-item { border-radius: 8px; }
+html[data-rp-version="v2"] .rp-side-bar-panel-item:hover { background: var(--v2-ink-a06); }
+html[data-rp-version="v2"] .rp-side-bar-panel-item-active, html[data-rp-version="v2"] .rp-side-bar-panel-item-active:hover { background: var(--v2-blue-a08); color: var(--text-active); font-weight: 600; }
+/* Page: more air; the page title is the one display text (with the hero numbers) */
+html[data-rp-version="v2"] .rp-content { padding: 24px 32px; }
+html[data-rp-version="v2"] :is(.rp-page-title, .rp-content h1) { font-family: var(--v2-font-display); font-size: 28px; line-height: 36px; font-weight: 700; letter-spacing: 0; }
+html[data-rp-version="v2"] .kit-kpi-value { font-family: var(--v2-font-display); font-weight: 500; font-variant-numeric: tabular-nums; }
+html[data-rp-version="v2"] .rp-breadcrumb-link { color: var(--text-secondary); }
+html[data-rp-version="v2"] .rp-breadcrumb-link:hover { color: var(--text-active); }
+/* Tiles: cards with 16px corners, no hard border, soft shadow, 24px gutters; a tile with only its title row gets even padding */
+html[data-rp-version="v2"] .rp-tile { border-color: transparent; border-radius: 16px; box-shadow: var(--shadow-s); }
+html[data-rp-version="v2"] .rp-tile-title { margin: 20px 24px 8px; }
+html[data-rp-version="v2"] .rp-tile > .rp-tile-title:only-child { margin: 20px 24px; }
+html[data-rp-version="v2"] .rp-tile-title-label { font-size: 18px; line-height: 26px; font-weight: 600; letter-spacing: 0; }
+html[data-rp-version="v2"] .rp-tile-content { margin: 16px 0 24px; padding: 0 24px; }
+html[data-rp-version="v2"] .rp-tile-actions { margin: 16px 24px 24px; }
+html[data-rp-version="v2"] .rp-tile-table:last-child { border-radius: 0 0 16px 16px; }
+html[data-rp-version="v2"] .kit-stack { gap: 24px; }
+/* Buttons: 10px corners (--radius-s), never pills; flat with a soft lift and a focus ring. The hierarchy never changes:
+   one primary action per area, the page's main action stays a primary ghost button */
+html[data-rp-version="v2"] .rp-main-button:hover, html[data-rp-version="v2"] .rp-main-button:active { box-shadow: 0 4px 12px var(--v2-blue-a24); }
+html[data-rp-version="v2"] .rp-main-button-secondary:hover, html[data-rp-version="v2"] .rp-main-button-secondary:active { box-shadow: 0 4px 12px var(--v2-ink-a24); }
+html[data-rp-version="v2"] .rp-main-button-accent:hover, html[data-rp-version="v2"] .rp-main-button-accent:active { background: var(--neon-40); box-shadow: 0 4px 12px var(--v2-green-a24); }
+html[data-rp-version="v2"] .rp-default-button { border-width: 1px; border-color: var(--v2-ink-a16); color: var(--text-primary); background: var(--background-paper); }
+html[data-rp-version="v2"] .rp-default-button:hover { background: var(--v2-ink-a04); border-color: var(--v2-ink-a24); }
+html[data-rp-version="v2"] .rp-default-button-primary { border-color: var(--v2-blue-a40); color: var(--text-active); }
+html[data-rp-version="v2"] .rp-default-button-primary:hover { background: var(--v2-blue-a04); }
+html[data-rp-version="v2"] .rp-ghost-button:hover { background: var(--v2-blue-a08); }
+html[data-rp-version="v2"] .rp-ghost-button-inherit:hover { background: var(--v2-ink-a06); }
+html[data-rp-version="v2"] :is(.rp-main-button, .rp-default-button, .rp-ghost-button, .rp-icon-button):focus-visible { outline: none; box-shadow: 0 0 0 4px var(--v2-blue-a24); }
+/* Fields: paper fill, lighter outline, blue focus ring */
+html[data-rp-version="v2"] .rp-field-box { border-color: var(--v2-ink-a16); background: var(--background-paper); }
+html[data-rp-version="v2"] :not(.rp-text-field-error, .rp-select-error, .rp-text-area-error, .rp-date-picker-error, .rp-text-field-disabled, .rp-select-disabled, .rp-search-disabled, .rp-text-area-disabled, .rp-date-picker-disabled) > .rp-field-box:hover:not(:focus-within) { border-color: var(--v2-ink-a40); box-shadow: none; }
+html[data-rp-version="v2"] .rp-field-box:focus-within, html[data-rp-version="v2"] .rp-select.open > .rp-field-box { border: 1px solid var(--blue-main); padding: 0 15px; box-shadow: var(--field-glow); }
+html[data-rp-version="v2"] .rp-field-label { color: var(--text-secondary); }
+/* Chips: soft tints, no outline */
+html[data-rp-version="v2"] .rp-chip { border-color: transparent; }
+html[data-rp-version="v2"] .rp-chip-confirmation { background: var(--v2-green-a24); color: var(--green-70); }
+html[data-rp-version="v2"] .rp-chip-error { background: var(--v2-red-a10); color: var(--red-60); }
+html[data-rp-version="v2"] .rp-chip-warning { background: var(--v2-yellow-a40); color: var(--yellow-70); }
+html[data-rp-version="v2"] .rp-chip-info { background: var(--v2-blue-a08); color: var(--text-active); }
+html[data-rp-version="v2"] .rp-chip-deactivated { background: var(--v2-ink-a08); color: var(--neutral-70); }
+html[data-rp-version="v2"] .rp-chip-secondary { border: 1px solid var(--v2-blue-a40); color: var(--text-active); }
+/* Alert: tinted card with a rounded accent instead of a hard bar */
+html[data-rp-version="v2"] .rp-alert { border-radius: 12px; }
+html[data-rp-version="v2"] .rp-alert::before { top: 8px; bottom: 8px; left: 6px; width: 3px; border-radius: 3px; }
+html[data-rp-version="v2"] .rp-alert-info { background: var(--v2-blue-a08); }
+html[data-rp-version="v2"] .rp-alert-confirmation { background: var(--v2-green-a16); }
+html[data-rp-version="v2"] .rp-alert-error { background: var(--v2-red-a10); }
+html[data-rp-version="v2"] .rp-alert:not(.rp-alert-info, .rp-alert-confirmation, .rp-alert-error) { background: var(--v2-yellow-a24); }
+/* AI disclaimer: a flat bar on paper with a hairline, no shadow */
+html[data-rp-version="v2"] .rp-disclaimer { box-shadow: none; border-bottom: 1px solid var(--divider); background: var(--background-paper); color: var(--text-secondary); }
+html[data-rp-version="v2"] .rp-disclaimer > .rp-icon:first-child { color: var(--text-active); }
+html[data-rp-version="v2"] .rp-content > .rp-disclaimer:first-child { margin: -24px -32px 24px; padding: 0 32px; }
+/* Tabs: 3px rounded indicator */
+html[data-rp-version="v2"] .rp-tabs { border-bottom-color: var(--divider); }
+html[data-rp-version="v2"] .rp-tab-selected::after { height: 3px; border-radius: 3px 3px 0 0; }
+/* Table: quieter header, hover rows, no heavy lines */
+html[data-rp-version="v2"] .rp-table th { color: var(--text-secondary); font-weight: 600; text-transform: none; background: var(--background-paper); }
+html[data-rp-version="v2"] .rp-table tbody tr:hover > td { background: var(--v2-ink-a04); }
+html[data-rp-version="v2"] .rp-table .rp-table-row-selected > td { background: var(--v2-blue-a04); }
+html[data-rp-version="v2"] .rp-table th.rp-table-sorted { background: var(--v2-blue-a04); box-shadow: inset 0 -2px 0 var(--blue-main); }
+html[data-rp-version="v2"] .rp-table-pagination { border-top-color: var(--divider); }
+/* Menus, popovers, dialogs: rounder and lifted */
+html[data-rp-version="v2"] .rp-menu, html[data-rp-version="v2"] .rp-popover { border-radius: 12px; box-shadow: var(--shadow-m); }
+html[data-rp-version="v2"] .rp-menu-item { margin: 0 6px; width: calc(100% - 12px); border-radius: 8px; }
+html[data-rp-version="v2"] .rp-dialog { border-radius: 20px; }
+html[data-rp-version="v2"] .rp-tooltip { border-radius: 8px; background: var(--v2-midnight); }
+html[data-rp-version="v2"] .rp-snackbar { border-radius: 12px; background: var(--v2-midnight); }
+/* Progress and volume bars: thicker, rounded */
+html[data-rp-version="v2"] .rp-progress-bar-track { height: 10px; border-radius: 999px; background: var(--v2-chart-track); overflow: hidden; }
+html[data-rp-version="v2"] .rp-progress-bar-value { border-radius: 999px; }
+html[data-rp-version="v2"] .rp-volume-bar { height: 10px; overflow: hidden; border-radius: 999px; }
+
+/* ═══ 4. Charts (inline SVG in the pages): thicker strokes, round caps, brand palette ═══ */
+html[data-rp-version="v2"] svg circle[pathLength], html[data-rp-version="v2"] svg circle[r] { stroke-linecap: round; }
+html[data-rp-version="v2"] .summary-donut circle { stroke-width: 13 !important; }
+html[data-rp-version="v2"] .summary-donut circle:not([pathLength]) { stroke: var(--v2-chart-track) !important; }
+html[data-rp-version="v2"] .kit-chart polyline, html[data-rp-version="v2"] .kit-chart path[fill="none"] { stroke-width: 3 !important; stroke-linejoin: round; stroke-linecap: round; }
+html[data-rp-version="v2"] .kit-chart line { stroke: var(--v2-chart-grid) !important; stroke-dasharray: 4 4; }
+html[data-rp-version="v2"] .kit-chart rect { rx: 3px; }
+
+/* ═══ 5. Night (dark mode): html[data-rp-theme="dark"], set by the version switch.
+       Neutral greys (no blue cast), lighter surfaces for elevation instead of shadows, a calm blue accent,
+       softened status colours, Energetic Green kept for the AI call to action only ═══ */
+html[data-rp-version="v2"][data-rp-theme="dark"] {
+  color-scheme: dark;
+  --v2-topbar-establishment: #1F3A70; --v2-topbar-corporate: #1C1F2B;
+  /* accent: a calm periwinkle for text and selections; a muted blue for filled controls (white text 5:1) */
+  --blue-05: rgba(138, 166, 242, .06); --blue-10: rgba(138, 166, 242, .10); --blue-20: rgba(138, 166, 242, .16); --blue-30: rgba(138, 166, 242, .24);
+  --blue-40: #A9BDF5; --blue-50: #8AA6F2; --blue-main: #3D6AD6; --blue-60: #8AA6F2; --blue-70: #3563D1; --blue-80: #4A76E0; --blue-90: #2F5CC7;
+  --blue-darkblue: #2C2F36; --blue-darkblue-200: #363A42;
+  --brand-rpp70: #3D6AD6; --brand-rpp80: #4A76E0; --brand-drpp100: #1C1F2B;
+  /* neutral greys */
+  --neutral-05: #1A1B1E; --neutral-08: #1F2024; --neutral-10: #26282D; --neutral-20: #303238; --neutral-30: #3D4047; --neutral-40: #5A5E66;
+  --neutral-50: #7B808A; --neutral-60: #A2A6AE; --neutral-main: #8B9099; --neutral-70: #C1C4CA; --neutral-80: #DADCE0; --neutral-90: #ECEDEF;
+  --neutral-darkneutral: #ECEDEF;
+  /* status, softened for dark surfaces */
+  --green-10: rgba(63, 203, 142, .10); --green-20: rgba(63, 203, 142, .16); --green-30: rgba(63, 203, 142, .26); --green-40: #5ED6A3;
+  --green-50: #4CD097; --green-main: #3FCB8E; --green-60: #6FDDB0; --green-70: #8FE6C2;
+  --red-10: rgba(240, 120, 120, .12); --red-20: rgba(240, 120, 120, .18); --red-30: rgba(240, 120, 120, .28); --red-40: #F49A9A;
+  --red-50: #F28585; --red-main: #F07878; --red-60: #F5A3A3; --red-70: #F8BDBD;
+  --yellow-10: rgba(228, 179, 99, .10); --yellow-20: rgba(228, 179, 99, .16); --yellow-30: rgba(228, 179, 99, .26); --yellow-40: #ECC583;
+  --yellow-main: #E4B363; --yellow-60: #ECC583; --yellow-70: #F2D6A5;
+  --orange-main: #E8955F;
+  --neon-20: #15382F; --neon-30: rgba(10, 255, 171, .32); --neon-40: #3BFFB8; --neon-90: #5EE8B5;
+  /* text and surfaces: page, card, raised */
+  --text-primary: #ECEDEF; --text-secondary: #A2A6AE; --text-active: #8AA6F2; --text-disabled: #5F636B;
+  --text-hint: #7B808A; --text-error: #F5A3A3; --text-success: #6FDDB0; --text-inverse: #FFFFFF;
+  --background-default: #0F1012; --background-paper: #17181B; --background-secondary: #1C1D21; --background-edit: #1D2129;
+  --background-info: rgba(138, 166, 242, .12); --background-warning: rgba(228, 179, 99, .14); --background-error: rgba(240, 120, 120, .14); --background-confirmation: rgba(63, 203, 142, .14);
+  --divider: rgba(236, 237, 239, .08); --overlay-hover: rgba(236, 237, 239, .04); --backdrop: rgba(0, 0, 0, .6);
+  --shadow-xs: 0 0 0 1px rgba(236, 237, 239, .05);
+  --shadow-s: 0 0 0 1px rgba(236, 237, 239, .05);
+  --shadow-m: 0 0 0 1px rgba(236, 237, 239, .07), 0 12px 32px rgba(0, 0, 0, .5);
+  --shadow-l: 0 0 0 1px rgba(236, 237, 239, .07), 0 16px 48px rgba(0, 0, 0, .6);
+  --field-glow: 0 0 0 4px rgba(138, 166, 242, .20);
+  --v2-chart-1: #8AA6F2; --v2-chart-grid: rgba(236, 237, 239, .07); --v2-chart-track: rgba(236, 237, 239, .07);
+  --v2-ink-a04: rgba(236, 237, 239, .04); --v2-ink-a06: rgba(236, 237, 239, .06); --v2-ink-a08: rgba(236, 237, 239, .08);
+  --v2-ink-a12: rgba(236, 237, 239, .12); --v2-ink-a16: rgba(236, 237, 239, .16); --v2-ink-a24: rgba(236, 237, 239, .24); --v2-ink-a40: rgba(236, 237, 239, .40);
+  --v2-blue-a04: rgba(138, 166, 242, .06); --v2-blue-a08: rgba(138, 166, 242, .12); --v2-blue-a12: rgba(138, 166, 242, .16);
+  --v2-blue-a16: rgba(138, 166, 242, .20); --v2-blue-a24: rgba(138, 166, 242, .28); --v2-blue-a40: rgba(138, 166, 242, .44);
+  --v2-green-a16: rgba(63, 203, 142, .14); --v2-green-a24: rgba(63, 203, 142, .20);
+  --v2-red-a10: rgba(240, 120, 120, .12); --v2-red-a16: rgba(240, 120, 120, .18);
+  --v2-yellow-a24: rgba(228, 179, 99, .16); --v2-yellow-a40: rgba(228, 179, 99, .22);
+}
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-side-bar, html[data-rp-version="v2"][data-rp-theme="dark"] .rp-side-bar-panel { background: #141518; border-right-color: rgba(236, 237, 239, .06); }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-side-bar-panel-logo { filter: brightness(0) invert(1); opacity: .72; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-top-bar .rp-avatar { background: #ECEDEF; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-top-bar-apps-popover { background: #1E2024; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-main-button { color: #FFFFFF; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-main-button-accent { color: #0F1012; }
+/* raised surfaces: menus, popovers, dialogs and drawers sit one step lighter; everything inside uses that surface */
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-menu, .rp-popover, .rp-dialog, .rp-drawer) { --background-paper: #1E2024; --rp-surface: #1E2024; background: #1E2024; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-tooltip, html[data-rp-version="v2"][data-rp-theme="dark"] .rp-snackbar { background: #ECEDEF; color: #17181B; }
+html[data-rp-version="v2"][data-rp-theme="dark"] img[src*="establishment-logo"] { background: #FFFFFF; }
+/* checkbox and radio glyphs for the night theme */
+html[data-rp-version="v2"][data-rp-theme="dark"] {
+  --rp-checkbox-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%238B9099' fill-rule='evenodd' d='M17.1 0H.9C.4 0 0 .4 0 .9v16.2c0 .5.4.9.9.9h16.2c.5 0 .9-.4.9-.9V.9c0-.5-.4-.9-.9-.9Zm-.9 16.2H1.8V1.8h14.4Z'/%3E%3C/svg%3E");
+  --rp-checkbox-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%238AA6F2' fill-rule='evenodd' d='M.9 0h16.2c.5 0 .9.4.9.9v16.2c0 .5-.4.9-.9.9H.9c-.5 0-.9-.4-.9-.9V.9C0 .4.4 0 .9 0Zm13.52 4.5c-.24 0-.47.1-.64.27L7.08 11.48 4.26 8.65a.93.93 0 0 0-1.28 1.32l3.46 3.46c.17.17.4.27.64.27s.47-.1.64-.27l7.34-7.34a.93.93 0 0 0-.64-1.6Z'/%3E%3C/svg%3E");
+  --rp-checkbox-partial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%238AA6F2' fill-rule='evenodd' d='M17.1 0c.5 0 .9.4.9.9v16.2c0 .5-.4.9-.9.9H.9c-.5 0-.9-.4-.9-.9V.9C0 .4.4 0 .9 0ZM4.37 8.1c-.42 0-.77.4-.77.9s.35.9.77.9h9.26c.42 0 .77-.4.77-.9s-.35-.9-.77-.9Z'/%3E%3C/svg%3E");
+  --rp-radio-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%238B9099' fill-rule='evenodd' d='M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Zm0 16.2c-3.98 0-7.2-3.22-7.2-7.2S5.02 1.8 9 1.8s7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2Z'/%3E%3C/svg%3E");
+  --rp-radio-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='4.5' fill='%238AA6F2'/%3E%3Cpath fill='%238AA6F2' fill-rule='evenodd' d='M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Zm0 16.2c-3.98 0-7.2-3.22-7.2-7.2S5.02 1.8 9 1.8s7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2Z'/%3E%3C/svg%3E");
+}

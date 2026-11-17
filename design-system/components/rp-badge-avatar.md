@@ -25,6 +25,7 @@
 | `rp-avatar-size-40` | size={40} |
 | `rp-avatar-size-48` | size={48} |
 | `rp-avatar-size-64` | size={64} |
+| `rp-avatar-size-50` | size={50} (Figma Avatar Large) |
 <!-- MAP:END -->
 
 ## Badge

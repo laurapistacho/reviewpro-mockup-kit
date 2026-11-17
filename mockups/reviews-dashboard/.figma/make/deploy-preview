@@ -1,0 +1,6 @@
+#!/bin/sh
+# Preview deployment — same as production for static sites.
+set -eu
+rm -rf dist
+mkdir -p dist
+cp -a *.html *.css *.js *.woff *.woff2 *.svg *.png dist/ 2>/dev/null || true

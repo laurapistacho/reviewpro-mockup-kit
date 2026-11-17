@@ -7,7 +7,7 @@ Open `index.html` in a browser. That's it.
 
 ## Stack
 - **HTML**: semantic markup with ReviewPro design system classes (`@reviewpro/ui-components` names)
-- **CSS**: `shared.css` (tokens, components, app shell) + `rp-icons.css` (production icons)
+- **CSS**: `shared.css` (tokens, components, app shell) + `rp-icons.css` (ReviewPro icons, drawn from Figma)
 - **JS**: `shared.js` (selects, menus, dialogs, drawers, snackbars, tabs, tables, validation)
 - **Font**: Noto Sans (Google Fonts)
 

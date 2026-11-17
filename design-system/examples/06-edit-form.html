@@ -14,21 +14,16 @@
   </style>
 </head>
 <body>
-  <header class="rp-top-bar">
+  <header class="rp-top-bar rp-top-bar-corporate">
     <div class="rp-top-bar-left">
       <img class="rp-top-bar-logo" src="../brand/establishment-logo.png" alt="" />
-      <button type="button" class="rp-top-bar-button rp-top-bar-establishment" data-rp-menu="establishmentMenu" aria-haspopup="menu" aria-expanded="false">
-        <span data-rp-menu-label>Grand Marina Resort &amp; Spa</span><span class="rp-icon rp-icon-size-32 rp-icon-down"></span>
-      </button>
-      <button type="button" class="rp-top-bar-button rp-top-bar-date-range" data-rp-menu="dateMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Date range">
-        <span class="rp-icon rp-icon-size-32 rp-icon-calendar"></span>
-        <span class="rp-top-bar-date-text"><strong data-rp-menu-label>1 Jan 2026 - 31 Mar 2026</strong><span>vs 1 Oct 2025 - 31 Dec 2025</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down"></span>
-      </button>
+      <span class="rp-top-bar-establishment-text"><strong>Alex Rivera</strong></span>
     </div>
     <div class="rp-top-bar-right">
-      <button type="button" class="rp-icon-button rp-badge rp-badge-dot" data-rp-menu="notificationsMenu" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-notification"></span><span class="rp-badge-content"></span></button>
-      <button type="button" class="rp-icon-button" data-rp-menu="helpMenu" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
-      <button type="button" class="rp-icon-button" data-rp-menu="userMenu" aria-label="Account"><span class="rp-avatar rp-avatar-round">AR</span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="notifications" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-badge rp-badge-error rp-badge-size-small"><span class="rp-icon rp-icon-alert"></span><span class="rp-badge-content">4</span></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="help" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="apps" aria-label="App Launcher" data-rp-tooltip="App Launcher" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-size-32 rp-icon-shiji-menu"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="account" aria-label="Account menu, Alex Rivera" data-rp-user-name="Alex Rivera" data-rp-user-email="alex.rivera@coastalhotels.com"><span class="rp-avatar">AR</span></button>
     </div>
   </header>
   <div class="rp-shell-body">
@@ -41,25 +36,27 @@
       <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
-      <button type="button" class="rp-side-bar-item" data-rp-section="socialmedia" aria-label="Social Media" data-rp-tooltip="Social Media" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-share"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
       <a class="rp-side-bar-item" href="#" data-rp-section="analytics" aria-label="Analytics" data-rp-tooltip="Analytics" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-analytics"></span></a>
       <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
-      <button type="button" class="rp-side-bar-item" data-rp-section="livefaq" aria-label="LiveFAQ" data-rp-tooltip="LiveFAQ" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-live-faq"></span></button>
       <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right" aria-controls="panel-settings" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-settings-outlined"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
     </nav>
     <aside class="rp-side-bar-panel" id="panel-settings" aria-label="Settings pages">
       <div class="rp-side-bar-panel-header">Settings</div>
       <ul class="rp-side-bar-panel-list">
-        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="#" aria-current="page"><span>Your Profile</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Organisation</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Surveys</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Case Management</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Live FAQ</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Messaging</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Guests</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Integrations</span></a></li>
-        <li><a class="rp-side-bar-panel-item" href="#"><span>Legal</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html"><span>All Settings</span></a></li>
+        <li class="rp-side-bar-panel-divider" role="separator"></li>
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="02-settings-hub.html#yourProfile" aria-current="page"><span>Your Profile</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#accountAdministration"><span>Account Administration</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#organisation"><span>Organisation</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#surveys"><span>Surveys</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#caseManagement"><span>Case Management</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#liveFAQ"><span>Live FAQ</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#messaging"><span>Messaging</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#guests"><span>Guests</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#integrations"><span>Integrations</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#legalAndPrivacy"><span>Legal &amp; Privacy</span></a></li>
       </ul>
       <img class="rp-side-bar-panel-logo" src="../brand/reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
     </aside>
@@ -163,43 +160,6 @@
         </div>
       </div>
     </main>
-  </div>
-
-  <!-- Top bar menus -->
-  <div class="rp-menu" id="establishmentMenu" role="menu" aria-label="Establishments" data-rp-selectable>
-    <div class="rp-menu-search"><span class="rp-icon rp-icon-size-20 rp-icon-search"></span><input type="search" placeholder="Search establishments" aria-label="Search establishments" /></div>
-    <div class="rp-menu-group-label">Establishments</div>
-    <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem">Grand Marina Resort &amp; Spa</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Azure Bay Hotel</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Seaside Palace</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Harbor View Suites</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Cliff Edge Resort</button>
-    <div class="rp-menu-group-label">Groups</div>
-    <button type="button" class="rp-menu-item" role="menuitem">Coastal Hotels Group</button>
-  </div>
-  <div class="rp-menu" id="dateMenu" role="menu" aria-label="Date range" data-rp-selectable>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Mar 2026 - 31 Mar 2026">Last month</button>
-    <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem" data-rp-value="1 Jan 2026 - 31 Mar 2026">Last 3 months</button>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Oct 2025 - 31 Mar 2026">Last 6 months</button>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Jan 2026 - 31 Mar 2026">Year to date</button>
-  </div>
-  <div class="rp-menu" id="notificationsMenu" role="menu" aria-label="Notifications" data-rp-align-right>
-    <div class="rp-menu-group-label">Notifications</div>
-    <button type="button" class="rp-menu-item" role="menuitem">New 2-star review on Google<span class="rp-menu-item-secondary">2 h</span></button>
-    <button type="button" class="rp-menu-item" role="menuitem">Monthly report is ready<span class="rp-menu-item-secondary">1 d</span></button>
-    <button type="button" class="rp-menu-item" role="menuitem">Case assigned to you<span class="rp-menu-item-secondary">3 d</span></button>
-  </div>
-  <div class="rp-menu" id="helpMenu" role="menu" aria-label="Help" data-rp-align-right>
-    <button type="button" class="rp-menu-item" role="menuitem">Help Center</button>
-    <button type="button" class="rp-menu-item" role="menuitem">What's new</button>
-    <button type="button" class="rp-menu-item" role="menuitem">About ReviewPro</button>
-  </div>
-  <div class="rp-menu" id="userMenu" role="menu" aria-label="Account" data-rp-align-right>
-    <div class="rp-menu-header"><strong>Alex Rivera</strong><span class="rp-text-caption rp-text-secondary">alex.rivera@coastalhotels.com</span></div>
-    <button type="button" class="rp-menu-item" role="menuitem">Change language</button>
-    <button type="button" class="rp-menu-item" role="menuitem">Change password</button>
-    <div class="rp-menu-divider"></div>
-    <button type="button" class="rp-menu-item" role="menuitem">Log out</button>
   </div>
 
   <script src="../foundation/shared.js"></script>

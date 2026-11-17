@@ -1,0 +1,3 @@
+#!/bin/sh
+# No dependencies — static HTML/CSS/JS project.
+exit 0
