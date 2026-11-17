@@ -1,0 +1,45 @@
+# Mockup Brand Conformance Contract — ReviewPro UI App
+#
+# Consumed by check-mockup-conformance.py (product framework). Markers are real values from
+# foundation/shared.css and the starters. The kit's own checker (.kiro/scripts/check-mockup.py) is stricter.
+#
+# ReviewPro admin mockups use Noto Sans, the production icons as CSS masks (rp-icons.css), and the
+# new navigation: top bar in brand RPP70 (#014CB7), white icon rail, section panel.
+org: reviewpro
+applies_to:
+  - initiative
+  - org-product
+check_emoji: true
+required_markers:
+  - id: noto-sans
+    label: "Noto Sans typography"
+    any_of: ["Noto+Sans", "Noto Sans"]
+  - id: shared-css
+    label: "Kit stylesheet linked as a local sibling"
+    any_of: ["href=\"shared.css\"", "href=\"../foundation/shared.css\""]
+  - id: rp-icons
+    label: "ReviewPro icon classes"
+    any_of: ["rp-icons.css"]
+  - id: app-shell
+    label: "ReviewPro app shell (top bar)"
+    any_of: ["rp-top-bar"]
+forbidden_markers:
+  - id: relative-asset-path
+    label: "Relative ../ path to assets (assets must be local siblings in a mockup)"
+    none_of: ["url('../", "src='../"]
+  - id: cdn-chart-libs
+    label: "External chart library (charts are inline SVG)"
+    none_of: ["chart.js", "cdn.jsdelivr.net/npm/chart", "d3js.org", "cdnjs.cloudflare.com/ajax/libs/Chart", "highcharts.com"]
+  - id: external-icon-libs
+    label: "External icon library (use rp-icon classes)"
+    none_of: ["fonts.googleapis.com/icon?family=Material+Icons", "cdnjs.cloudflare.com/ajax/libs/font-awesome", "unpkg.com/lucide"]
+recommended_markers:
+  - id: brand-blue
+    label: "Brand RPP70 used by the top bar"
+    any_of: ["rp-top-bar", "--brand-rpp70"]
+  - id: tiles
+    label: "Content in tiles"
+    any_of: ["rp-tile"]
+  - id: uses-component-classes
+    label: "Uses real ReviewPro component classes"
+    any_of: ["rp-table", "rp-main-button", "rp-chip", "rp-select", "rp-tabs"]

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReviewPro Mockup Kit · Kiro Mockup Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design-system/foundation/shared.css" />
+  <link rel="stylesheet" href="design-system/foundation/rp-icons.css" />
+  <style>
+    /* Kit website (published with .kiro/scripts/build-site.py). Documentation layout, not a product screen. */
+    body { display: flex; height: 100vh; overflow: hidden; background: var(--background-default); }
+    .site-nav { display: flex; flex: none; flex-direction: column; width: 240px; padding: var(--spacing-3) var(--spacing-2); border-right: 1px solid var(--divider); background: var(--background-paper); }
+    .site-logo { display: flex; flex-direction: column; gap: var(--spacing-1); padding: 0 var(--spacing-1) var(--spacing-3); }
+    .site-logo img { width: 120px; height: auto; }
+    .site-logo span { color: var(--text-secondary); font-size: 12px; letter-spacing: 0.08em; text-transform: lowercase; }
+    .site-nav .rp-side-bar-panel-item { height: 40px; padding: 8px 12px; font-size: 14px; border: 0; background: none; width: 100%; text-align: left; }
+    .site-nav .rp-side-bar-panel-item-active { background: var(--blue-20); }
+    .site-nav-footer { margin-top: auto; padding: 0 var(--spacing-1); color: var(--text-secondary); font-size: 12px; line-height: 18px; }
+    .site-main { position: relative; flex: 1; min-width: 0; }
+    .site-panel { position: absolute; inset: 0; display: none; overflow-y: auto; }
+    .site-panel.active { display: block; }
+    .site-panel-frame { overflow: hidden; }
+    .site-panel-frame.active { display: flex; flex-direction: column; }
+    .site-content { max-width: 880px; padding: var(--spacing-5) var(--spacing-4) var(--spacing-6); }
+    .site-content h1 { margin-bottom: var(--spacing-1-5); }
+    .site-content h2 { margin: var(--spacing-4) 0 var(--spacing-1-5); }
+    .site-content p, .site-content li { color: var(--text-primary); font-size: 16px; line-height: 26px; }
+    .site-content p + p { margin-top: var(--spacing-1-5); }
+    .site-content ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-3); list-style: disc; }
+    .site-content li + li { margin-top: var(--spacing-1); }
+    .site-content ul + p { margin-top: var(--spacing-1-5); }
+    .site-content code { padding: 1px 6px; border-radius: var(--radius-xs); background: var(--neutral-08); font-size: 13px; }
+    .site-lead { max-width: 720px; color: var(--text-secondary) !important; font-size: 18px !important; line-height: 28px !important; }
+    .site-download { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2); margin: var(--spacing-3) 0 var(--spacing-1); }
+    .site-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--spacing-2); }
+    .site-step { display: flex; flex-direction: column; gap: 4px; padding: var(--spacing-2); }
+    .site-step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin-bottom: var(--spacing-1); border-radius: 50%; background: var(--blue-main); color: var(--text-inverse); font-weight: 700; }
+    .site-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-2); }
+    .site-next { margin-top: var(--spacing-4); }
+    .site-frame { flex: 1; width: 100%; border: 0; }
+    .site-viewer-bar { display: flex; align-items: center; gap: var(--spacing-2); height: 56px; padding: 0 var(--spacing-2); border-bottom: 1px solid var(--divider); background: var(--background-paper); }
+    .site-viewer-title { flex: 1; font-weight: 600; }
+    .pattern-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--spacing-2); margin-top: var(--spacing-3); }
+    .pattern-card { display: flex; align-items: center; gap: var(--spacing-1-5); padding: var(--spacing-2); border: 1px solid var(--neutral-10); border-radius: var(--radius-xs); background: var(--background-paper); box-shadow: var(--shadow-s); color: var(--text-primary); cursor: pointer; }
+    .pattern-card:hover { border-color: var(--blue-40); }
+    .pattern-num { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 24px; border-radius: 12px; background: var(--blue-05); color: var(--text-active); font-size: 12px; font-weight: 700; }
+    .pattern-name { font-weight: 600; }
+    @media (max-width: 979px) { .site-nav { width: 200px; } .site-steps, .site-two { grid-template-columns: minmax(0, 1fr); } }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Kit website">
+    <div class="site-logo">
+      <img src="design-system/brand/reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
+      <span>kiro mockup designer</span>
+    </div>
+    <ul class="rp-side-bar-panel-list">
+      <li><button type="button" class="rp-side-bar-panel-item rp-side-bar-panel-item-active" data-site-panel="install">Install</button></li>
+      <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="about">What Is This</button></li>
+      <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="designsystem">Design System</button></li>
+      <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="patterns">Pattern Pages</button></li>
+      <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="examples">Examples</button></li>
+    </ul>
+    <p class="site-nav-footer">ReviewPro UI App · @reviewpro/ui-components names · Figma UI App file</p>
+  </nav>
+
+  <main class="site-main">
+    <!-- ══ Install ══ -->
+    <section class="site-panel active" id="panel-install" aria-labelledby="install-title">
+      <div class="site-content">
+        <h1 class="rp-text-h4" id="install-title">ReviewPro Mockup Kit</h1>
+        <p class="site-lead">A simplified HTML + CSS design system for building ReviewPro prototypes with AI. Describe a screen to Kiro, or drop in a screenshot, and get a fully interactive, self-contained HTML mockup. No build tools, no frameworks.</p>
+        <div class="site-download">
+          <a class="rp-main-button" href="download/kiro-mockup-designer.zip" download><span class="rp-icon rp-icon-download"></span><span>Download kit</span></a>
+          <span class="rp-text-secondary">ZIP archive with the design system, templates, the Kiro skill and examples</span>
+        </div>
+
+        <h2 class="rp-text-h6">Quick Start</h2>
+        <div class="site-steps">
+          <div class="rp-tile site-step"><span class="site-step-num">1</span><strong>Download</strong><span class="rp-text-secondary">Unzip to any folder</span></div>
+          <div class="rp-tile site-step"><span class="site-step-num">2</span><strong>Open in Kiro</strong><span class="rp-text-secondary">File → Open Folder, then Trust</span></div>
+          <div class="rp-tile site-step"><span class="site-step-num">3</span><strong>Describe</strong><span class="rp-text-secondary">Tell Kiro what to build</span></div>
+        </div>
+        <p style="margin-top: var(--spacing-2)">The skill activates automatically. Describe any ReviewPro admin screen and Kiro generates interactive HTML you can open in a browser. On macOS nothing else is needed; Windows needs <code>python</code> on the PATH.</p>
+
+        <h2 class="rp-text-h6">How to Use</h2>
+        <p>You can work with Kiro in several ways:</p>
+        <ul>
+          <li>Add a screenshot or a Figma frame: Kiro recreates it as interactive HTML</li>
+          <li>Describe the feature or interaction you want to prototype</li>
+          <li>Combine both: paste a screenshot and explain what should change</li>
+        </ul>
+        <p>Kiro creates a self-contained folder in <code>mockups/</code>. Open any HTML file in a browser, click <strong>Edit</strong> (bottom left) to fine-tune it like in Figma, or import the folder into Figma Make as a code prototype.</p>
+
+        <h2 class="rp-text-h6">For Maintainers</h2>
+        <p>The kit is plain files: <code>design-system/</code> is the source, <code>templates/</code> holds the copies each mockup gets. Read the <code>contributing</code> steering file, run <code>python3 .kiro/scripts/check-mockup.py --all</code> before you share a change, and rebuild this website and the download with <code>python3 .kiro/scripts/build-site.py</code>.</p>
+        <p>There is no auto-update: to update, download the new zip and replace <code>design-system/</code> and <code>templates/</code>. Your <code>mockups/</code> folder stays as it is.</p>
+
+        <div class="site-next"><button type="button" class="rp-ghost-button rp-ghost-button-size-medium" data-site-go="about"><span>What is this kit exactly?</span><span class="rp-icon rp-icon-right"></span></button></div>
+      </div>
+    </section>
+
+    <!-- ══ About ══ -->
+    <section class="site-panel" id="panel-about" aria-labelledby="about-title">
+      <div class="site-content">
+        <h1 class="rp-text-h4" id="about-title">What Is This</h1>
+        <p class="site-lead">A lightweight HTML + CSS design system that lives entirely in your project folder. You describe a ReviewPro screen to Kiro and it generates an interactive, self-contained prototype: no build tools, no frameworks, no npm.</p>
+        <div class="site-two" style="margin-top: var(--spacing-3)">
+          <section class="rp-tile">
+            <div class="rp-tile-title"><span class="rp-icon rp-icon-size-32 rp-icon-check rp-text-success"></span><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">What It Is</h2></div></div>
+            <div class="rp-tile-content">
+              <ul>
+                <li>A simplified design system for rapid prototyping with AI</li>
+                <li>One CSS file (<code>shared.css</code>), the production icons (<code>rp-icons.css</code>) and one JS file (<code>shared.js</code>)</li>
+                <li>Class names that match <code>@reviewpro/ui-components</code>: <code>rp-main-button</code> is <code>&lt;MainButton&gt;</code></li>
+                <li>The new navigation: blue top bar, icon rail, section panel</li>
+                <li>Open the HTML in any browser: works offline, no server needed</li>
+              </ul>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><span class="rp-icon rp-icon-size-32 rp-icon-close rp-text-error"></span><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">What It Is Not</h2></div></div>
+            <div class="rp-tile-content">
+              <ul>
+                <li>Not the production design system (<code>@reviewpro/ui-components</code>)</li>
+                <li>Not connected to Storybook, React or the real frontend</li>
+                <li>Not meant for production code: it is for UX exploration and quick validation</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <h2 class="rp-text-h6">How It Works</h2>
+        <p>Download the kit, open the folder in Kiro and describe what you want to prototype. Kiro picks the closest of ten page patterns, reads the component docs it needs, and builds pages from real components: tiles, tables, fields, menus, dialogs and drawers that already click, filter, sort, paginate and validate. A checker catches invented components, missing assets and dead buttons before you see the result.</p>
+        <p>Developers read a mockup as React: <code>design-system/HANDOFF.md</code> maps every class to its component and prop.</p>
+        <h2 class="rp-text-h6">When to Use It</h2>
+        <ul>
+          <li>Exploring a new feature before committing to full design</li>
+          <li>Showing an idea to product managers, engineers or customers with a clickable prototype</li>
+          <li>Recreating a production screen from a screenshot to try a change on it</li>
+          <li>Creating a Figma code prototype from a conversation with AI</li>
+        </ul>
+        <div class="site-next"><button type="button" class="rp-ghost-button rp-ghost-button-size-medium" data-site-go="designsystem"><span>Browse the design system</span><span class="rp-icon rp-icon-right"></span></button></div>
+      </div>
+    </section>
+
+    <!-- ══ Design system ══ -->
+    <section class="site-panel site-panel-frame" id="panel-designsystem" aria-label="Design system">
+      <iframe class="site-frame" id="dsFrame" title="Component showcase" data-src="design-system/examples/index.html"></iframe>
+    </section>
+
+    <!-- ══ Patterns ══ -->
+    <section class="site-panel" id="panel-patterns" aria-labelledby="patterns-title">
+      <div class="site-content" id="patternsList" style="max-width: none">
+        <h1 class="rp-text-h4" id="patterns-title">Pattern Pages</h1>
+        <p class="site-lead">The starter pages Kiro copies into a new mockup. Each one is a working ReviewPro screen.</p>
+        <div class="pattern-grid">
+          <!-- AUTO-GENERATED:PATTERNS-START -->
+        <a class="pattern-card" onclick="openPattern('00-blank-page.html', 'Blank Page'); return false;" href="design-system/examples/00-blank-page.html">
+          <span class="pattern-num">00</span><span class="pattern-name">Blank Page</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('01-settings-list.html', 'Settings List'); return false;" href="design-system/examples/01-settings-list.html">
+          <span class="pattern-num">01</span><span class="pattern-name">Settings List</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('02-settings-hub.html', 'Settings Hub'); return false;" href="design-system/examples/02-settings-hub.html">
+          <span class="pattern-num">02</span><span class="pattern-name">Settings Hub</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('03-dashboard.html', 'Dashboard'); return false;" href="design-system/examples/03-dashboard.html">
+          <span class="pattern-num">03</span><span class="pattern-name">Dashboard</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('04-results-table.html', 'Results Table'); return false;" href="design-system/examples/04-results-table.html">
+          <span class="pattern-num">04</span><span class="pattern-name">Results Table</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('05-tabs-tile.html', 'Tabs in a Tile'); return false;" href="design-system/examples/05-tabs-tile.html">
+          <span class="pattern-num">05</span><span class="pattern-name">Tabs in a Tile</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('06-edit-form.html', 'Edit Form'); return false;" href="design-system/examples/06-edit-form.html">
+          <span class="pattern-num">06</span><span class="pattern-name">Edit Form</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('07-tracking-inbox.html', 'Tracking Inbox'); return false;" href="design-system/examples/07-tracking-inbox.html">
+          <span class="pattern-num">07</span><span class="pattern-name">Tracking Inbox</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('08-dialog-form.html', 'Dialog Form'); return false;" href="design-system/examples/08-dialog-form.html">
+          <span class="pattern-num">08</span><span class="pattern-name">Dialog Form</span>
+        </a>
+        <a class="pattern-card" onclick="openPattern('09-wizard.html', 'Wizard'); return false;" href="design-system/examples/09-wizard.html">
+          <span class="pattern-num">09</span><span class="pattern-name">Wizard</span>
+        </a>
+          <!-- AUTO-GENERATED:PATTERNS-END -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Examples ══ -->
+    <section class="site-panel" id="panel-examples" aria-labelledby="examples-title">
+      <div class="site-content" style="max-width: none">
+        <h1 class="rp-text-h4" id="examples-title">Examples</h1>
+        <p class="site-lead">Mockups made with the kit. To try Tweak mode, download the kit and open a mockup from its folder: the Edit button (bottom left) appears when the page runs on your computer.</p>
+        <div class="pattern-grid" id="examplesList">
+          <a class="pattern-card" href="mockups/example-review-alerts/index.html" data-site-viewer="mockups/example-review-alerts/index.html" data-site-title="Review alerts"><span class="pattern-num">EX</span><span class="pattern-name">Review alerts (list, create dialog, linked inbox)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Viewer (patterns and examples) ══ -->
+    <section class="site-panel site-panel-frame" id="panel-viewer" aria-label="Preview">
+      <div class="site-viewer-bar">
+        <button type="button" class="rp-default-button rp-default-button-size-small" id="viewerBack"><span class="rp-icon rp-icon-left"></span><span>Back</span></button>
+        <span class="site-viewer-title" id="viewerTitle"></span>
+        <a class="rp-ghost-button" id="viewerOpen" href="#" target="_blank" rel="noopener"><span>Open in a new tab</span><span class="rp-icon rp-icon-external-link"></span></a>
+      </div>
+      <iframe class="site-frame" id="viewerFrame" title="Preview"></iframe>
+    </section>
+  </main>
+
+  <script>
+    /* Website navigation: panels, deep links (#install, #patterns, #pattern/03-dashboard.html) */
+    (function () {
+      var back = 'patterns';
+      function show(id) {
+        document.querySelectorAll('.site-panel').forEach(function (p) { p.classList.toggle('active', p.id === 'panel-' + id); });
+        document.querySelectorAll('[data-site-panel]').forEach(function (b) { b.classList.toggle('rp-side-bar-panel-item-active', b.getAttribute('data-site-panel') === id); });
+        if (id === 'designsystem') { var f = document.getElementById('dsFrame'); if (!f.getAttribute('src')) f.src = f.getAttribute('data-src'); }
+        if (id !== 'viewer') document.getElementById('viewerFrame').src = 'about:blank';
+        if (id !== 'viewer') history.replaceState(null, '', '#' + id);
+      }
+      function view(url, title, from) {
+        back = from;
+        document.getElementById('viewerTitle').textContent = title;
+        document.getElementById('viewerOpen').href = url;
+        document.getElementById('viewerFrame').src = url;
+        show('viewer');
+        var nav = document.querySelector('[data-site-panel="' + from + '"]');
+        if (nav) nav.classList.add('rp-side-bar-panel-item-active');
+        history.replaceState(null, '', '#' + (from === 'patterns' ? 'pattern/' : 'example/') + url.split('/').slice(-2).join('/'));
+      }
+      /* generate-index.py writes pattern cards with onclick="openPattern(file, name)" */
+      window.openPattern = function (file, name) { view('design-system/examples/' + file, name, 'patterns'); };
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-site-panel], [data-site-go]');
+        if (b) { show(b.getAttribute('data-site-panel') || b.getAttribute('data-site-go')); return; }
+        var ex = e.target.closest('[data-site-viewer]');
+        if (ex) { e.preventDefault(); view(ex.getAttribute('data-site-viewer'), ex.getAttribute('data-site-title'), 'examples'); }
+      });
+      document.getElementById('viewerBack').addEventListener('click', function () { show(back); });
+      var h = location.hash.slice(1);
+      if (h.indexOf('pattern/') === 0) { var file = h.slice(8).split('/').pop(), card = document.querySelector('.pattern-card[href$="' + file + '"]'); window.openPattern(file, card ? card.querySelector('.pattern-name').textContent : file); }
+      else if (h.indexOf('example/') === 0) { var ex = document.querySelector('[data-site-viewer*="' + h.slice(8) + '"]'); if (ex) ex.click(); }
+      else if (document.getElementById('panel-' + h)) show(h);
+    })();
+  </script>
+</body>
+</html>

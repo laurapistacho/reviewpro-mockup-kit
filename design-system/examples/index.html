@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System · ReviewPro mockup kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../foundation/shared.css" />
+  <link rel="stylesheet" href="../foundation/rp-icons.css" />
+  <style>
+    /* Showcase page layout (kit documentation, not a product screen) */
+    body { background: var(--background-default); }
+    .sc { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100vh; }
+    .sc-nav { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: var(--spacing-2) var(--spacing-1); border-right: 1px solid var(--divider); background: var(--background-paper); }
+    .sc-nav-title { display: block; padding: var(--spacing-1); font-weight: 700; }
+    .sc-nav-item { display: block; padding: 6px var(--spacing-1); border-radius: var(--radius-s); color: var(--text-primary); font-size: 13px; }
+    .sc-nav-item:hover { background: var(--neutral-10); }
+    .sc-main { padding: var(--spacing-3); display: flex; flex-direction: column; gap: var(--spacing-3); }
+    .sc-section { padding: var(--spacing-3); border-radius: var(--radius-xs); background: var(--background-paper); box-shadow: var(--shadow-s); }
+    .sc-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--spacing-2); margin-bottom: var(--spacing-2); }
+    .sc-react { color: var(--text-secondary); font-size: 12px; }
+    .sc-note { margin: -8px 0 var(--spacing-2); }
+    .sc-body { display: flex; flex-direction: column; gap: var(--spacing-2); }
+    .sc-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2); }
+    .sc-label { flex-basis: 100%; color: var(--text-secondary); font-size: 12px; }
+    .sc-palette { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
+    .sc-swatch { display: flex; flex-direction: column; gap: 2px; width: 108px; font-size: 11px; }
+    .sc-swatch-color { height: 40px; border-radius: var(--radius-xs); border: 1px solid var(--divider); }
+    .sc-type { display: flex; align-items: baseline; justify-content: space-between; gap: var(--spacing-2); padding: var(--spacing-1) 0; border-bottom: 1px solid var(--divider); }
+    .sc-type code, .sc-space code, .sc-icon code { color: var(--text-secondary); font-size: 11px; }
+    .sc-space { display: flex; align-items: center; gap: var(--spacing-1); }
+    .sc-space span { height: 16px; background: var(--blue-20); }
+    .sc-shadow { width: 120px; height: 64px; padding: var(--spacing-1); border-radius: var(--radius-xs); background: var(--background-paper); }
+    .sc-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--spacing-1); }
+    .sc-icon { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: var(--spacing-1); border-radius: var(--radius-s); text-align: center; }
+    .sc-icon:hover { background: var(--neutral-05); }
+  </style>
+</head>
+<body>
+  <div class="sc">
+    <nav class="sc-nav" aria-label="Components">
+      <span class="sc-nav-title">ReviewPro DS</span>
+      <a class="sc-nav-item" href="#sec-colors">Colors</a>
+      <a class="sc-nav-item" href="#sec-typography">Typography</a>
+      <a class="sc-nav-item" href="#sec-spacing">Spacing, radius, shadows</a>
+      <a class="sc-nav-item" href="#sec-buttons">Buttons</a>
+      <a class="sc-nav-item" href="#sec-icon-button">Icon button, floating button</a>
+      <a class="sc-nav-item" href="#sec-toggle-button">Toggle button</a>
+      <a class="sc-nav-item" href="#sec-text-field">Text field</a>
+      <a class="sc-nav-item" href="#sec-select">Select</a>
+      <a class="sc-nav-item" href="#sec-search">Search</a>
+      <a class="sc-nav-item" href="#sec-text-area">Text area</a>
+      <a class="sc-nav-item" href="#sec-selection-controls">Checkbox, radio, switch</a>
+      <a class="sc-nav-item" href="#sec-chip">Chip</a>
+      <a class="sc-nav-item" href="#sec-badge">Badge</a>
+      <a class="sc-nav-item" href="#sec-avatar">Avatar</a>
+      <a class="sc-nav-item" href="#sec-alert">Alert</a>
+      <a class="sc-nav-item" href="#sec-snackbar">Snackbar</a>
+      <a class="sc-nav-item" href="#sec-tooltip">Tooltip</a>
+      <a class="sc-nav-item" href="#sec-placeholder">Placeholder, loader, skeleton, progress</a>
+      <a class="sc-nav-item" href="#sec-tile">Tile</a>
+      <a class="sc-nav-item" href="#sec-tabs">Tabs</a>
+      <a class="sc-nav-item" href="#sec-accordion">Accordion, divider</a>
+      <a class="sc-nav-item" href="#sec-table">Table, toolbar, pagination, volume bar</a>
+      <a class="sc-nav-item" href="#sec-menu">Menu</a>
+      <a class="sc-nav-item" href="#sec-dialog-drawer">Dialog, drawer</a>
+      <a class="sc-nav-item" href="#sec-navigation">Breadcrumbs, stepper</a>
+      <a class="sc-nav-item" href="#sec-icons">Icons</a>
+    </nav>
+    <main class="sc-main">
+      <div><h1 class="rp-text-h4">Design System</h1><p class="rp-text-secondary">Every component and variant of the kit. Class names follow @reviewpro/ui-components; see HANDOFF.md for the props.</p></div>
+      <section class="sc-section" id="sec-colors">
+        <div class="sc-head"><h2 class="rp-text-h6">Colors</h2><code class="sc-react">theme.palette</code></div>
+        <p class="rp-text-secondary sc-note">Token --{hue}-{shade} = theme.palette.{hue}.{hue}_{shade}. Semantic tokens follow the Figma variables.</p>
+        <div class="sc-body">
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-05)"></span><code>--blue-05</code><span class="rp-text-caption rp-text-secondary">#EBF2F8</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-10)"></span><code>--blue-10</code><span class="rp-text-caption rp-text-secondary">#D9E5EE</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-20)"></span><code>--blue-20</code><span class="rp-text-caption rp-text-secondary">#BFD3E3</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-30)"></span><code>--blue-30</code><span class="rp-text-caption rp-text-secondary">#9FBDD5</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-40)"></span><code>--blue-40</code><span class="rp-text-caption rp-text-secondary">#7FA7C7</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-50)"></span><code>--blue-50</code><span class="rp-text-caption rp-text-secondary">#5F91B9</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-60)"></span><code>--blue-60</code><span class="rp-text-caption rp-text-secondary">#35678F</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-70)"></span><code>--blue-70</code><span class="rp-text-caption rp-text-secondary">#2A5272</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-80)"></span><code>--blue-80</code><span class="rp-text-caption rp-text-secondary">#203E56</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-90)"></span><code>--blue-90</code><span class="rp-text-caption rp-text-secondary">#003350</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-main)"></span><code>--blue-main</code><span class="rp-text-caption rp-text-secondary">#3F7BAB</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-darkblue)"></span><code>--blue-darkblue</code><span class="rp-text-caption rp-text-secondary">#152939</span></div></div>
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-05)"></span><code>--neutral-05</code><span class="rp-text-caption rp-text-secondary">#F8F8F8</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-08)"></span><code>--neutral-08</code><span class="rp-text-caption rp-text-secondary">#F1F1F1</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-10)"></span><code>--neutral-10</code><span class="rp-text-caption rp-text-secondary">#E4E4E4</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-20)"></span><code>--neutral-20</code><span class="rp-text-caption rp-text-secondary">#D2D2D2</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-30)"></span><code>--neutral-30</code><span class="rp-text-caption rp-text-secondary">#BBBBBB</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-40)"></span><code>--neutral-40</code><span class="rp-text-caption rp-text-secondary">#A4A4A4</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-50)"></span><code>--neutral-50</code><span class="rp-text-caption rp-text-secondary">#8E8E8E</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-60)"></span><code>--neutral-60</code><span class="rp-text-caption rp-text-secondary">#636363</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-70)"></span><code>--neutral-70</code><span class="rp-text-caption rp-text-secondary">#4F4F4F</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-80)"></span><code>--neutral-80</code><span class="rp-text-caption rp-text-secondary">#3C3C3C</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-90)"></span><code>--neutral-90</code><span class="rp-text-caption rp-text-secondary">#282828</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--neutral-main)"></span><code>--neutral-main</code><span class="rp-text-caption rp-text-secondary">#777777</span></div></div>
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-10)"></span><code>--green-10</code><span class="rp-text-caption rp-text-secondary">#D0E4D6</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-20)"></span><code>--green-20</code><span class="rp-text-caption rp-text-secondary">#B1D2BB</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-30)"></span><code>--green-30</code><span class="rp-text-caption rp-text-secondary">#8ABC9A</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-40)"></span><code>--green-40</code><span class="rp-text-caption rp-text-secondary">#63A678</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-50)"></span><code>--green-50</code><span class="rp-text-caption rp-text-secondary">#3C8F56</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-60)"></span><code>--green-60</code><span class="rp-text-caption rp-text-secondary">#12652B</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-70)"></span><code>--green-70</code><span class="rp-text-caption rp-text-secondary">#0E5123</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--green-main)"></span><code>--green-main</code><span class="rp-text-caption rp-text-secondary">#157934</span></div></div>
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-10)"></span><code>--red-10</code><span class="rp-text-caption rp-text-secondary">#F6CCCE</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-20)"></span><code>--red-20</code><span class="rp-text-caption rp-text-secondary">#F0AAAE</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-30)"></span><code>--red-30</code><span class="rp-text-caption rp-text-secondary">#E98086</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-40)"></span><code>--red-40</code><span class="rp-text-caption rp-text-secondary">#E2555D</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-50)"></span><code>--red-50</code><span class="rp-text-caption rp-text-secondary">#DA2A34</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-60)"></span><code>--red-60</code><span class="rp-text-caption rp-text-secondary">#B0000A</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-70)"></span><code>--red-70</code><span class="rp-text-caption rp-text-secondary">#8D0008</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--red-main)"></span><code>--red-main</code><span class="rp-text-caption rp-text-secondary">#D3000C</span></div></div>
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-10)"></span><code>--yellow-10</code><span class="rp-text-caption rp-text-secondary">#FBEDD6</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-20)"></span><code>--yellow-20</code><span class="rp-text-caption rp-text-secondary">#F8E1BA</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-30)"></span><code>--yellow-30</code><span class="rp-text-caption rp-text-secondary">#F4D398</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-40)"></span><code>--yellow-40</code><span class="rp-text-caption rp-text-secondary">#F0C476</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-50)"></span><code>--yellow-50</code><span class="rp-text-caption rp-text-secondary">#EDB553</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-60)"></span><code>--yellow-60</code><span class="rp-text-caption rp-text-secondary">#C28A29</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-70)"></span><code>--yellow-70</code><span class="rp-text-caption rp-text-secondary">#9B6F21</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--yellow-main)"></span><code>--yellow-main</code><span class="rp-text-caption rp-text-secondary">#E9A631</span></div></div>
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-10)"></span><code>--orange-10</code><span class="rp-text-caption rp-text-secondary">#F6DFCC</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-20)"></span><code>--orange-20</code><span class="rp-text-caption rp-text-secondary">#F0CAAA</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-30)"></span><code>--orange-30</code><span class="rp-text-caption rp-text-secondary">#E9AF80</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-40)"></span><code>--orange-40</code><span class="rp-text-caption rp-text-secondary">#E29455</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-50)"></span><code>--orange-50</code><span class="rp-text-caption rp-text-secondary">#DA7A2A</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-60)"></span><code>--orange-60</code><span class="rp-text-caption rp-text-secondary">#B04F00</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-70)"></span><code>--orange-70</code><span class="rp-text-caption rp-text-secondary">#8D3F00</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--orange-main)"></span><code>--orange-main</code><span class="rp-text-caption rp-text-secondary">#D35F00</span></div></div>
+          <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--brand-rpp70)"></span><code>--brand-rpp70</code><span class="rp-text-caption rp-text-secondary">#014CB7</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--brand-rpp80)"></span><code>--brand-rpp80</code><span class="rp-text-caption rp-text-secondary">#02519B</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--brand-rpp90)"></span><code>--brand-rpp90</code><span class="rp-text-caption rp-text-secondary">#1E3A8A</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--text-primary)"></span><code>--text-primary</code><span class="rp-text-caption rp-text-secondary">#111111</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--text-secondary)"></span><code>--text-secondary</code><span class="rp-text-caption rp-text-secondary">#636363</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--text-active)"></span><code>--text-active</code><span class="rp-text-caption rp-text-secondary">#35678F</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--text-error)"></span><code>--text-error</code><span class="rp-text-caption rp-text-secondary">#B0000A</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--text-success)"></span><code>--text-success</code><span class="rp-text-caption rp-text-secondary">#12652B</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--background-default)"></span><code>--background-default</code><span class="rp-text-caption rp-text-secondary">#F8F8F8</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--background-edit)"></span><code>--background-edit</code><span class="rp-text-caption rp-text-secondary">#D9E5EE</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--divider)"></span><code>--divider</code><span class="rp-text-caption rp-text-secondary">#E4E4E4</span></div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-typography">
+        <div class="sc-head"><h2 class="rp-text-h6">Typography</h2><code class="sc-react">Typography</code></div>
+        <p class="rp-text-secondary sc-note">Noto Sans 400 / 500 / 600 / 700. Title Case for titles and navigation, sentence case for everything else.</p>
+        <div class="sc-body">
+          <div class="sc-type"><span class="rp-text-h4">Review Dashboard</span><code>rp-text-h4</code></div>
+          <div class="sc-type"><span class="rp-text-h6">Manage Users</span><code>rp-text-h6</code></div>
+          <div class="sc-type"><span class="rp-text-subtitle1">No users found</span><code>rp-text-subtitle1</code></div>
+          <div class="sc-type"><span class="rp-text-subtitle2">Account administration</span><code>rp-text-subtitle2</code></div>
+          <div class="sc-type"><span class="rp-text-body1">Maya Chen · 4,120 reviews</span><code>rp-text-body1</code></div>
+          <div class="sc-type"><span class="rp-text-body2">People who can access the establishments</span><code>rp-text-body2</code></div>
+          <div class="sc-type"><span class="rp-text-caption">maya.chen@coastalhotels.com</span><code>rp-text-caption</code></div>
+          <div class="sc-type"><span class="rp-text-body2 rp-text-secondary">Secondary text</span><code>rp-text-body2 rp-text-secondary</code></div>
+          <div class="sc-type"><span class="rp-link">View all reviews</span><code>rp-link</code></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-spacing">
+        <div class="sc-head"><h2 class="rp-text-h6">Spacing, radius, shadows</h2><code class="sc-react">theme.spacing · theme.radius · theme.appShadows</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><div class="sc-space"><span style="width: var(--spacing-0-5)"></span><code>--spacing-0-5</code></div><div class="sc-space"><span style="width: var(--spacing-1)"></span><code>--spacing-1</code></div><div class="sc-space"><span style="width: var(--spacing-1-5)"></span><code>--spacing-1-5</code></div><div class="sc-space"><span style="width: var(--spacing-2)"></span><code>--spacing-2</code></div><div class="sc-space"><span style="width: var(--spacing-3)"></span><code>--spacing-3</code></div><div class="sc-space"><span style="width: var(--spacing-4)"></span><code>--spacing-4</code></div><div class="sc-space"><span style="width: var(--spacing-6)"></span><code>--spacing-6</code></div></div>
+          <div class="sc-row"><div class="sc-shadow" style="box-shadow: var(--shadow-xs)"><code>--shadow-xs</code></div><div class="sc-shadow" style="box-shadow: var(--shadow-s)"><code>--shadow-s</code></div><div class="sc-shadow" style="box-shadow: var(--shadow-m)"><code>--shadow-m</code></div><div class="sc-shadow" style="box-shadow: var(--shadow-l)"><code>--shadow-l</code></div><div class="sc-shadow" style="box-shadow: var(--shadow-xl)"><code>--shadow-xl</code></div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-buttons">
+        <div class="sc-head"><h2 class="rp-text-h6">Buttons</h2><code class="sc-react">MainButton · DefaultButton · GhostButton</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="sc-label">MainButton · medium</span><button type="button" class="rp-main-button">Save changes</button><button type="button" class="rp-main-button rp-main-button-secondary">Publish</button><button type="button" class="rp-main-button rp-main-button-danger">Delete user</button><button type="button" class="rp-main-button" disabled>Save changes</button></div>
+          <div class="sc-row"><span class="sc-label">MainButton · small</span><button type="button" class="rp-main-button rp-main-button-size-small">Save</button><button type="button" class="rp-main-button rp-main-button-size-small"><span class="rp-icon rp-icon-add"></span><span>Add user</span></button><button type="button" class="rp-main-button rp-main-button-size-small rp-main-button-danger">Delete</button></div>
+          <div class="sc-row"><span class="sc-label">DefaultButton</span><button type="button" class="rp-default-button">Cancel</button><button type="button" class="rp-default-button rp-default-button-primary">Change photo</button><button type="button" class="rp-default-button rp-default-button-danger">Remove</button><button type="button" class="rp-default-button rp-default-button-size-small"><span class="rp-icon rp-icon-actions"></span><span>Actions</span></button><button type="button" class="rp-default-button rp-default-button-size-small" disabled>Cancel</button></div>
+          <div class="sc-row"><span class="sc-label">GhostButton</span><button type="button" class="rp-ghost-button"><span class="rp-icon rp-icon-filter"></span><span>Filters</span></button><button type="button" class="rp-ghost-button">Assign role</button><button type="button" class="rp-ghost-button rp-ghost-button-inherit">Skip</button><button type="button" class="rp-ghost-button rp-ghost-button-danger">Delete</button><button type="button" class="rp-ghost-button rp-ghost-button-size-medium">Show more</button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-icon-button">
+        <div class="sc-head"><h2 class="rp-text-h6">Icon button, floating button</h2><code class="sc-react">IconButton · FloatingButton</code></div>
+        <p class="rp-text-secondary sc-note">IconButton (32 and 24px) and FloatingButton (56px, fixed bottom right in a page; static here)</p>
+        <div class="sc-body">
+          <div class="sc-row"><button type="button" class="rp-icon-button" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button><button type="button" class="rp-icon-button" aria-label="Edit"><span class="rp-icon rp-icon-edit"></span></button><button type="button" class="rp-icon-button rp-icon-button-primary" aria-label="Download"><span class="rp-icon rp-icon-download"></span></button><button type="button" class="rp-icon-button rp-icon-button-size-small" aria-label="Close"><span class="rp-icon rp-icon-close"></span></button><button type="button" class="rp-icon-button" aria-label="Delete" disabled><span class="rp-icon rp-icon-delete"></span></button><button type="button" class="rp-icon-button rp-badge rp-badge-dot" aria-label="Notifications"><span class="rp-icon rp-icon-notification"></span><span class="rp-badge-content"></span></button><button type="button" class="rp-floating-button" style="position: static" aria-label="Create" data-rp-menu="scMenu"><span class="rp-icon rp-icon-add"></span></button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-toggle-button">
+        <div class="sc-head"><h2 class="rp-text-h6">Toggle button</h2><code class="sc-react">ToggleButtonGroup · ToggleButton</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><div class="rp-toggle-button-group" role="group" aria-label="Measure"><button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Volume</button><button type="button" class="rp-toggle-button" aria-pressed="false">Rating</button><button type="button" class="rp-toggle-button" aria-pressed="false">Sentiment</button></div><div class="rp-toggle-button-group" role="group" aria-label="Layout"><button type="button" class="rp-toggle-button rp-toggle-button-size-small rp-toggle-button-selected" aria-label="List" aria-pressed="true"><span class="rp-icon rp-icon-list"></span></button><button type="button" class="rp-toggle-button rp-toggle-button-size-small" aria-label="Grid" aria-pressed="false"><span class="rp-icon rp-icon-layout-compact"></span></button></div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-text-field">
+        <div class="sc-head"><h2 class="rp-text-h6">Text field</h2><code class="sc-react">TextField · DatePicker</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="sc-label">Default · required · small</span><div class="rp-text-field">
+            <label class="rp-field-label">Name</label>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" value="Grand Marina Resort &amp; Spa" aria-label="Name" /></div>
+          </div><div class="rp-text-field">
+            <label class="rp-field-label rp-field-label-required">Email</label>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" placeholder="name@hotel.com" aria-label="Email" /></div>
+          </div><div class="rp-text-field rp-text-field-size-small">
+            <label class="rp-field-label">Phone</label>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" placeholder="+34 600 000 000" aria-label="Phone" /></div>
+          </div></div>
+          <div class="sc-row"><span class="sc-label">Error · warning · disabled</span><div class="rp-text-field rp-text-field-error">
+            <label class="rp-field-label">Email</label>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" value="alex.rivera@coastalhotels" aria-label="Email" /></div>
+            <span class="rp-field-helper">Email must include a domain</span>
+          </div><div class="rp-text-field rp-text-field-warning">
+            <label class="rp-field-label">Threshold</label>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" value="6.0" aria-label="Threshold" /></div>
+            <span class="rp-field-helper">Ratings go from 1 to 5</span>
+          </div><div class="rp-text-field rp-text-field-disabled">
+            <label class="rp-field-label">Code</label>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" value="HAMBU" aria-label="Code" /></div>
+          </div></div>
+          <div class="sc-row"><span class="sc-label">DatePicker</span><div class="rp-date-picker rp-date-picker-size-small">
+            <span class="rp-field-label">Stay date</span>
+            <button type="button" class="rp-field-box" data-rp-menu="scDateMenu" aria-label="Stay date"><span class="rp-icon rp-icon-calendar"></span><span data-rp-menu-label>01/03/2026 - 31/03/2026</span></button>
+          </div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-select">
+        <div class="sc-head"><h2 class="rp-text-h6">Select</h2><code class="sc-react">Select</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="sc-label">Single · small · placeholder</span><div class="rp-select" data-rp-placeholder="Select">
+            <span class="rp-field-label">Role</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Role"><span class="rp-select-value">Analyst</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Administrator</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Account Manager</button>
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Analyst</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Editor</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Viewer</button>
+            </div>
+          </div><div class="rp-select rp-select-size-small" data-rp-placeholder="Select">
+            <span class="rp-field-label">Status</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Status"><span class="rp-select-value">All</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Active</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Inactive</button>
+            </div>
+          </div><div class="rp-select" data-rp-placeholder="Select">
+            <span class="rp-field-label rp-field-label-required">Language</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Language"><span class="rp-select-value rp-select-placeholder">Select</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">English</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">Spanish</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">German</button>
+            </div>
+          </div></div>
+          <div class="sc-row"><span class="sc-label">Multiple · inline</span><div class="rp-select rp-select-multiple" data-rp-all-text="All establishments" data-rp-placeholder="Select">
+            <span class="rp-field-label">Establishments</span>
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Establishments"><span class="rp-select-value">Grand Marina Resort &amp; Spa, Azure Bay Hotel</span></button>
+            <div class="rp-menu" role="listbox" aria-multiselectable="true">
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true"><span class="rp-checkbox-glyph"></span>Grand Marina Resort &amp; Spa</button>
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true"><span class="rp-checkbox-glyph"></span>Azure Bay Hotel</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Seaside Palace</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Harbor View Suites</button>
+            </div>
+          </div><div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">10</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">5</button>
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">10</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+            </div>
+          </div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-search">
+        <div class="sc-head"><h2 class="rp-text-h6">Search</h2><code class="sc-react">Search</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><div class="rp-search" style="width: 320px">
+            <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search by name or email" aria-label="Search" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search"><span class="rp-icon rp-icon-close"></span></button></div>
+          </div><div class="rp-search rp-search-size-small" style="width: 280px">
+            <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search reviews" aria-label="Search" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search"><span class="rp-icon rp-icon-close"></span></button></div>
+          </div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-text-area">
+        <div class="sc-head"><h2 class="rp-text-h6">Text area</h2><code class="sc-react">TextArea</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><div class="rp-text-area" data-rp-max="500" style="width: 420px">
+            <label class="rp-field-label">Your reply</label>
+            <div class="rp-field-box"><textarea class="rp-field-input" rows="3" aria-label="Your reply">Thank you for staying with us, Jordan.</textarea></div>
+            <span class="rp-field-helper rp-text-area-counter"><span>Published with your signature</span><span class="rp-text-area-count">38/500</span></span>
+          </div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-selection-controls">
+        <div class="sc-head"><h2 class="rp-text-h6">Checkbox, radio, switch</h2><code class="sc-react">Checkbox · Radio · Switch · FormControlLabel</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="sc-label">Checkbox</span><label class="rp-form-control-label"><input type="checkbox" class="rp-checkbox" checked /> Email</label><label class="rp-form-control-label"><input type="checkbox" class="rp-checkbox" /> Mobile app</label><label class="rp-form-control-label"><input type="checkbox" class="rp-checkbox" disabled /> SMS</label></div>
+          <div class="sc-row"><span class="sc-label">Radio in a form group (row · column)</span><div class="rp-form-group rp-form-group-row" role="radiogroup" aria-label="Date format"><label class="rp-form-control-label"><input type="radio" class="rp-radio" name="scr" checked /> DD/MM/YYYY</label><label class="rp-form-control-label"><input type="radio" class="rp-radio" name="scr" /> MM/DD/YYYY</label></div><div class="rp-form-group" role="radiogroup" aria-label="Channel"><label class="rp-form-control-label"><input type="radio" class="rp-radio" name="scc" checked /> Email</label><label class="rp-form-control-label"><input type="radio" class="rp-radio" name="scc" /> SMS</label></div></div>
+          <div class="sc-row"><span class="sc-label">Switch · medium · small · disabled</span><button type="button" class="rp-switch rp-switch-checked" role="switch" aria-checked="true" aria-label="Active"></button><button type="button" class="rp-switch" role="switch" aria-checked="false" aria-label="Active"></button><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Active"></button><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Active"></button><button type="button" class="rp-switch rp-switch-checked" role="switch" aria-checked="true" aria-label="Locked" disabled></button><label class="rp-form-control-label"><button type="button" class="rp-switch rp-switch-checked" role="switch" aria-checked="true" aria-label="Send a reminder"></button> Send a reminder after 3 days</label></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-chip">
+        <div class="sc-head"><h2 class="rp-text-h6">Chip</h2><code class="sc-react">Chip</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="sc-label">Medium (default)</span><span class="rp-chip">Default</span><span class="rp-chip rp-chip-brand">New</span><span class="rp-chip rp-chip-secondary">Room</span><span class="rp-chip rp-chip-confirmation">Active</span><span class="rp-chip rp-chip-info">Replied</span><span class="rp-chip rp-chip-warning">Pending</span><span class="rp-chip rp-chip-error">Failed</span><span class="rp-chip rp-chip-deactivated">Inactive</span></div>
+          <div class="sc-row"><span class="sc-label">Small (tables)</span><span class="rp-chip rp-chip-size-small">Default</span><span class="rp-chip rp-chip-size-small rp-chip-brand">New</span><span class="rp-chip rp-chip-size-small rp-chip-secondary">Room</span><span class="rp-chip rp-chip-size-small rp-chip-confirmation">Active</span><span class="rp-chip rp-chip-size-small rp-chip-info">Replied</span><span class="rp-chip rp-chip-size-small rp-chip-warning">Pending</span><span class="rp-chip rp-chip-size-small rp-chip-error">Failed</span><span class="rp-chip rp-chip-size-small rp-chip-deactivated">Inactive</span></div>
+          <div class="sc-row"><span class="sc-label">Large · squared · clickable · deletable</span><span class="rp-chip rp-chip-size-large">Large</span><span class="rp-chip rp-chip-squared rp-chip-info">Squared</span><button type="button" class="rp-chip rp-chip-clickable rp-chip-secondary">Clickable</button><span class="rp-chip rp-chip-secondary"><span class="rp-icon rp-icon-service"></span> Service <button type="button" class="rp-chip-delete" aria-label="Remove Service"><span class="rp-icon rp-icon-close"></span></button></span><span class="rp-chip rp-chip-disabled">Disabled</span></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-badge">
+        <div class="sc-head"><h2 class="rp-text-h6">Badge</h2><code class="sc-react">Badge</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="rp-badge"><span class="rp-icon rp-icon-messaging"></span><span class="rp-badge-content">3</span></span><span class="rp-badge rp-badge-size-small rp-badge-error"><span class="rp-icon rp-icon-notification"></span><span class="rp-badge-content">12</span></span><span class="rp-badge rp-badge-dot rp-badge-error"><span class="rp-icon rp-icon-notification"></span><span class="rp-badge-content"></span></span><span class="rp-badge rp-badge-inline rp-badge-size-small rp-badge-neutral"><span class="rp-badge-content">24</span></span></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-avatar">
+        <div class="sc-head"><h2 class="rp-text-h6">Avatar</h2><code class="sc-react">Avatar</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><span class="rp-avatar rp-avatar-size-24">MC</span><span class="rp-avatar">MC</span><span class="rp-avatar rp-avatar-size-40">OB</span><span class="rp-avatar rp-avatar-round rp-avatar-size-48">SR</span><span class="rp-avatar rp-avatar-round rp-avatar-size-64">AR</span></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-alert">
+        <div class="sc-head"><h2 class="rp-text-h6">Alert</h2><code class="sc-react">Alert</code></div>
+        <div class="sc-body">
+          <div class="rp-alert rp-alert-confirmation" role="status"><span class="rp-icon rp-icon-check"></span><div class="rp-alert-content">The survey is ready. Guests get it after checkout.</div></div>
+          <div style="height: var(--spacing-1)"></div>
+          <div class="rp-alert rp-alert-info" role="status"><span class="rp-icon rp-icon-info"></span><div class="rp-alert-content">When you change your email, we send a confirmation link to the new address.</div></div>
+          <div style="height: var(--spacing-1)"></div>
+          <div class="rp-alert" role="status"><span class="rp-icon rp-icon-warning"></span><div class="rp-alert-content"><strong class="rp-alert-title">Response rate is below goal</strong>Reply to the 12 pending reviews to reach 80%.</div><div class="rp-alert-actions"><button type="button" class="rp-ghost-button">View reviews</button></div></div>
+          <div style="height: var(--spacing-1)"></div>
+          <div class="rp-alert rp-alert-error" role="alert"><span class="rp-icon rp-icon-error"></span><div class="rp-alert-content">Google is disconnected. Connect it again to reply to reviews.</div><button type="button" class="rp-icon-button rp-alert-close" aria-label="Close alert"><span class="rp-icon rp-icon-close"></span></button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-snackbar">
+        <div class="sc-head"><h2 class="rp-text-h6">Snackbar</h2><code class="sc-react">Snackbar · Toast — rpSnackbar(message, variant)</code></div>
+        <p class="rp-text-secondary sc-note">Snackbars are made by shared.js; pages never write the markup.</p>
+        <div class="sc-body">
+          <div class="sc-row"><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Changes saved">Confirmation</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Export started" data-rp-snackbar-variant="info">Info</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Two reviews could not be translated" data-rp-snackbar-variant="warning">Warning</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Failed to save changes" data-rp-snackbar-variant="error">Error</button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-tooltip">
+        <div class="sc-head"><h2 class="rp-text-h6">Tooltip</h2><code class="sc-react">Tooltip — data-rp-tooltip</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><button type="button" class="rp-icon-button" aria-label="Edit signature" data-rp-tooltip="Edit signature"><span class="rp-icon rp-icon-edit"></span></button><button type="button" class="rp-icon-button" aria-label="Help" data-rp-tooltip="Opens the Help Center" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-question-mark"></span></button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-placeholder">
+        <div class="sc-head"><h2 class="rp-text-h6">Placeholder, loader, skeleton, progress</h2><code class="sc-react">Placeholder · Loader · ProgressBar</code></div>
+        <div class="sc-body">
+          <div class="rp-tile"><div class="rp-placeholder rp-placeholder-show"><span class="rp-icon rp-icon-size-80 rp-icon-not-found"></span><div class="rp-placeholder-content"><span class="rp-placeholder-title">No users found</span><span>Try another name or email, or clear the filters</span></div><button type="button" class="rp-default-button rp-default-button-size-small">Clear filters</button></div></div>
+          <div class="sc-row"><span class="rp-loader rp-loader-size-24" role="status" aria-label="Loading"></span><span class="rp-loader" role="status" aria-label="Loading"></span><div style="width: 240px" class="kit-stack"><span class="rp-skeleton" style="width: 80%"></span><span class="rp-skeleton" style="width: 60%"></span></div><div class="rp-progress-bar" style="width: 280px"><div class="rp-progress-bar-label"><span>Service</span><span>91.2%</span></div><div class="rp-progress-bar-track" role="progressbar" aria-label="Service" aria-valuenow="91" aria-valuemin="0" aria-valuemax="100"><div class="rp-progress-bar-value" style="width: 91.2%"></div></div></div><div class="rp-progress-bar rp-progress-bar-size-small" style="width: 200px"><div class="rp-progress-bar-track" role="progressbar" aria-label="Upload" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><div class="rp-progress-bar-value" style="width: 40%"></div></div></div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-tile">
+        <div class="sc-head"><h2 class="rp-text-h6">Tile</h2><code class="sc-react">Tile · TileTitle · TileContent · TileActions · TileExpand · TileAlert</code></div>
+        <div class="sc-body">
+          <div class="kit-grid" style="--kit-columns: 2">
+            <section class="rp-tile">
+              <div class="rp-tile-title"><span class="rp-icon rp-icon-size-32 rp-icon-profile"></span><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Your Profile</h3><p class="rp-tile-title-secondary">TileTitle with icon and secondary text</p></div><div class="rp-tile-title-actions"><button type="button" class="rp-ghost-button">Edit</button></div></div>
+              <div class="rp-tile-content">TileContent: padded content.</div>
+              <div class="rp-tile-actions"><button type="button" class="rp-default-button rp-default-button-size-small">Cancel</button><button type="button" class="rp-main-button rp-main-button-size-small">Save changes</button></div>
+            </section>
+            <section class="rp-tile">
+              <div class="rp-tile-alert"><div class="rp-alert rp-alert-info"><span class="rp-icon rp-icon-info"></span><div class="rp-alert-content">TileAlert above the title</div></div></div>
+              <div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Reviews by Source</h3></div></div>
+              <div class="rp-tile-content">Expandable content below.</div>
+              <div class="rp-tile-expand-content"><div class="rp-tile-content">More content, shown when expanded.</div></div>
+              <button type="button" class="rp-tile-expand" aria-expanded="false" data-rp-label-expanded="Show less"><span class="rp-tile-expand-label">Show more</span><span class="rp-icon rp-icon-down"></span></button>
+            </section>
+            <section class="rp-tile rp-tile-edit"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Edit variant</h3></div></div><div class="rp-tile-content">variant="edit"</div></section>
+            <section class="rp-tile rp-tile-secondary"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Secondary variant</h3></div></div><div class="rp-tile-content">variant="secondary"</div></section>
+            <section class="rp-tile rp-tile-outlined"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Outlined variant</h3></div></div><div class="rp-tile-content">variant="outlined"</div></section>
+            <section class="rp-tile rp-tile-error"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Error variant</h3></div></div><div class="rp-tile-content">variant="error"</div></section>
+            <section class="rp-tile rp-tile-deactivated"><div class="rp-tile-title rp-tile-title-no-wrap"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Deactivated tile with a long title that does not wrap</h3></div></div><div class="rp-tile-content">deactivated</div></section>
+          </div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-tabs">
+        <div class="sc-head"><h2 class="rp-text-h6">Tabs</h2><code class="sc-react">Tabs · Tab</code></div>
+        <div class="sc-body">
+          <div class="rp-tile">
+            <div class="rp-tabs rp-tile-tabs" role="tablist" aria-label="Type"><button type="button" class="rp-tab rp-tab-selected" role="tab" aria-selected="true" aria-controls="scTab1">Hotel</button><button type="button" class="rp-tab" role="tab" aria-selected="false" aria-controls="scTab2">Restaurants <span class="rp-tab-counter">4</span></button><button type="button" class="rp-tab" role="tab" aria-selected="false" disabled>Spa</button></div>
+            <div class="rp-tab-panel rp-tile-content" id="scTab1" role="tabpanel">variant="fullWidth" (default): tabs share the width</div>
+            <div class="rp-tab-panel rp-tile-content" id="scTab2" role="tabpanel" hidden>Restaurants panel</div>
+          </div>
+          <div style="height: var(--spacing-2)"></div>
+          <div class="rp-tabs rp-tabs-standard" role="tablist" aria-label="Period"><button type="button" class="rp-tab rp-tab-size-small rp-tab-selected" role="tab" aria-selected="true">Overview</button><button type="button" class="rp-tab rp-tab-size-small" role="tab" aria-selected="false">Departments</button><button type="button" class="rp-tab rp-tab-size-small" role="tab" aria-selected="false">Keywords</button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-accordion">
+        <div class="sc-head"><h2 class="rp-text-h6">Accordion, divider</h2><code class="sc-react">Accordion · AccordionSummary · AccordionDetails · Divider</code></div>
+        <div class="sc-body">
+          <div class="rp-accordion rp-accordion-expanded"><button type="button" class="rp-accordion-summary" aria-expanded="true"><span class="rp-accordion-title">Applied filters</span></button><div class="rp-accordion-details">Source: Google, Booking.com · Language: English</div></div>
+          <div class="rp-accordion"><button type="button" class="rp-accordion-summary" aria-expanded="false"><span class="rp-accordion-title">Saved views</span></button><div class="rp-accordion-details">Last 30 days · Negative reviews</div></div>
+          <div style="height: var(--spacing-2)"></div>
+          <div class="rp-tile"><div class="rp-accordion rp-accordion-secondary rp-accordion-show-dividers"><button type="button" class="rp-accordion-summary" aria-expanded="false"><span class="rp-accordion-title">Secondary with dividers</span></button><div class="rp-accordion-details">Details</div></div><div class="rp-accordion rp-accordion-secondary rp-accordion-show-dividers"><button type="button" class="rp-accordion-summary" aria-expanded="false"><span class="rp-accordion-title">Second item</span></button><div class="rp-accordion-details">Details</div></div><div class="rp-accordion rp-accordion-disabled rp-accordion-secondary"><button type="button" class="rp-accordion-summary" aria-expanded="false" disabled><span class="rp-accordion-title">Disabled</span></button></div></div>
+          <div class="sc-row" style="margin-top: var(--spacing-2)"><hr class="rp-divider" style="width: 200px" /><span class="rp-divider rp-divider-vertical"></span><hr class="rp-divider rp-divider-primary" style="width: 120px" /><hr class="rp-divider rp-divider-secondary" style="width: 120px" /><hr class="rp-divider rp-divider-active" style="width: 120px" /></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-table">
+        <div class="sc-head"><h2 class="rp-text-h6">Table, toolbar, pagination, volume bar</h2><code class="sc-react">Table · Toolbar · TablePagination</code></div>
+        <div class="sc-body">
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Manage Users</h3></div></div>
+            <div class="rp-toolbar"><div class="rp-toolbar-left"><div class="rp-search rp-search-size-small" data-rp-filter="scTable" style="width: 280px">
+            <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search by name or email" aria-label="Search" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search"><span class="rp-icon rp-icon-close"></span></button></div>
+          </div></div><div class="rp-toolbar-right"><button type="button" class="rp-ghost-button"><span class="rp-icon rp-icon-filter"></span><span>Filters</span></button></div></div>
+            <div class="rp-toolbar-bulk" data-rp-table="scTable"><span class="rp-toolbar-bulk-count" data-rp-label="{n} selected">1 selected</span><button type="button" class="rp-ghost-button">Assign role</button><span class="rp-toolbar-bulk-divider"></span><button type="button" class="rp-ghost-button rp-ghost-button-danger">Delete</button></div>
+            <div class="rp-table-scroll">
+              <table class="rp-table" id="scTable">
+                <thead><tr><th class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select all" /></th><th><button type="button" class="rp-table-sort">User name<span class="rp-icon rp-icon-sort-by"></span></button><span class="rp-table-head-secondary">Email</span></th><th class="rp-table-sorted" aria-sort="ascending"><button type="button" class="rp-table-sort">Role<span class="rp-icon rp-icon-arrow-up"></span></button></th><th class="rp-table-numeric">T. Sens.</th><th>Positive share</th><th>Status</th><th class="rp-table-cell-actions"></th></tr></thead>
+                <tbody>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Maya Chen" /></td><td><div class="rp-table-person"><span class="rp-avatar">MC</span><div class="rp-table-person-text"><span class="rp-table-person-primary">Maya Chen</span><span class="rp-table-person-secondary">maya.chen@coastalhotels.com</span></div></div></td><td>Administrator</td><td class="rp-table-numeric"><span class="rp-table-number">113</span> <span class="rp-table-delta">+3.00</span></td><td><div class="rp-volume-bar"><div class="rp-volume-bar-value" style="width: 86%"></div></div></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">Active</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="scMenu" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr class="rp-table-row-selected"><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Oliver Brooks" checked /></td><td><div class="rp-table-person"><span class="rp-avatar">OB</span><div class="rp-table-person-text"><span class="rp-table-person-primary">Oliver Brooks</span><span class="rp-table-person-secondary">oliver.brooks@coastalhotels.com</span></div></div></td><td>Department Supervisor</td><td class="rp-table-numeric"><span class="rp-table-number">44</span> <span class="rp-table-delta">-10.00</span></td><td><div class="rp-volume-bar"><div class="rp-volume-bar-value" style="width: 72%"></div></div></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">Active</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="scMenu" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Sofia Rivera" /></td><td><div class="rp-table-person"><span class="rp-avatar">SR</span><div class="rp-table-person-text"><span class="rp-table-person-primary">Sofia Rivera</span><span class="rp-table-person-secondary">sofia.rivera@coastalhotels.com</span></div></div></td><td>Account Manager</td><td class="rp-table-numeric"><span class="rp-table-number">27</span> <span class="rp-table-delta">+6.00</span></td><td><div class="rp-volume-bar"><div class="rp-volume-bar-value" style="width: 64%"></div></div></td><td><span class="rp-chip rp-chip-size-small rp-chip-deactivated">Inactive</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="scMenu" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Ethan Patel" /></td><td><div class="rp-table-person"><span class="rp-avatar">EP</span><div class="rp-table-person-text"><span class="rp-table-person-primary">Ethan Patel</span><span class="rp-table-person-secondary">ethan.patel@coastalhotels.com</span></div></div></td><td>Analyst</td><td class="rp-table-numeric"><span class="rp-table-number">32</span> <span class="rp-table-delta">+4.00</span></td><td><div class="rp-volume-bar"><div class="rp-volume-bar-value" style="width: 91%"></div></div></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">Active</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="scMenu" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr class="rp-table-row-total"><td></td><td>Total</td><td></td><td class="rp-table-numeric">216</td><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="scTable" data-rp-total="4">
+            <span class="rp-table-pagination-summary" data-rp-count-for="scTable" data-rp-label="{n} results" data-rp-label-one="{n} result">Table summary</span>
+            <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+            <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+            <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">5</span></button>
+            <div class="rp-menu" role="listbox">
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">5</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">10</button>
+              <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+            </div>
+          </div></div>
+            <span class="rp-table-pagination-range">1-4 of 4</span>
+            <div class="rp-table-pagination-actions">
+              <button type="button" class="rp-icon-button" data-rp-page="first" aria-label="First page"><span class="rp-icon rp-icon-rewind"></span></button>
+              <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+              <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+              <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
+            </div>
+          </div>
+          </section>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-menu">
+        <div class="sc-head"><h2 class="rp-text-h6">Menu</h2><code class="sc-react">Menu · MenuItem</code></div>
+        <div class="sc-body">
+          <div class="sc-row">
+            <div class="rp-menu open" style="position: static" role="menu" aria-label="Example menu">
+              <div class="rp-menu-group-label">Actions</div>
+              <button type="button" class="rp-menu-item" role="menuitem"><span class="rp-icon rp-icon-edit"></span> Edit user</button>
+              <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem"><span class="rp-icon rp-icon-check"></span> Selected item</button>
+              <button type="button" class="rp-menu-item" role="menuitem" disabled><span class="rp-icon rp-icon-copy"></span> Disabled item</button>
+              <div class="rp-menu-divider"></div>
+              <button type="button" class="rp-menu-item rp-menu-item-danger" role="menuitem"><span class="rp-icon rp-icon-delete"></span> Delete user</button>
+            </div>
+            <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-menu="scMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-actions"></span><span>Open a menu</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-dialog-drawer">
+        <div class="sc-head"><h2 class="rp-text-h6">Dialog, drawer</h2><code class="sc-react">Dialog · Drawer</code></div>
+        <div class="sc-body">
+          <div class="sc-row"><button type="button" class="rp-main-button rp-main-button-size-small" data-rp-open="scDialog">Open dialog</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-open="scConfirm">Open confirmation</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-open="scDrawer">Open drawer</button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-navigation">
+        <div class="sc-head"><h2 class="rp-text-h6">Breadcrumbs, stepper</h2><code class="sc-react">Breadcrumbs · Stepper</code></div>
+        <div class="sc-body">
+          <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><a class="rp-breadcrumb-link" href="#">Settings</a><span class="rp-breadcrumb-separator">/</span><a class="rp-breadcrumb-link" href="#">Organisation</a><span class="rp-breadcrumb-separator">/</span><span class="rp-breadcrumb-text">Users</span></nav>
+          <div style="height: var(--spacing-3)"></div>
+          <div class="rp-stepper" aria-label="Steps"><div class="rp-step rp-step-completed"><span class="rp-step-icon">1</span><span>Details</span></div><span class="rp-step-connector"></span><div class="rp-step rp-step-active"><span class="rp-step-icon">2</span><span>Questions</span></div><span class="rp-step-connector"></span><div class="rp-step"><span class="rp-step-icon">3</span><span>Delivery</span></div><span class="rp-step-connector"></span><div class="rp-step rp-step-error"><span class="rp-step-icon">4</span><span>Review</span></div></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-icons">
+        <div class="sc-head"><h2 class="rp-text-h6">Icons</h2><code class="sc-react">icons/* (rp-icons.css)</code></div>
+        <div class="sc-body">
+          <div class="sc-icons"><div class="sc-icon"><span class="rp-icon rp-icon-add"></span><code>add</code></div><div class="sc-icon"><span class="rp-icon rp-icon-actions"></span><code>actions</code></div><div class="sc-icon"><span class="rp-icon rp-icon-edit"></span><code>edit</code></div><div class="sc-icon"><span class="rp-icon rp-icon-delete"></span><code>delete</code></div><div class="sc-icon"><span class="rp-icon rp-icon-close"></span><code>close</code></div><div class="sc-icon"><span class="rp-icon rp-icon-check"></span><code>check</code></div><div class="sc-icon"><span class="rp-icon rp-icon-search"></span><code>search</code></div><div class="sc-icon"><span class="rp-icon rp-icon-filter"></span><code>filter</code></div><div class="sc-icon"><span class="rp-icon rp-icon-download"></span><code>download</code></div><div class="sc-icon"><span class="rp-icon rp-icon-upload"></span><code>upload</code></div><div class="sc-icon"><span class="rp-icon rp-icon-calendar"></span><code>calendar</code></div><div class="sc-icon"><span class="rp-icon rp-icon-clock"></span><code>clock</code></div><div class="sc-icon"><span class="rp-icon rp-icon-notification"></span><code>notification</code></div><div class="sc-icon"><span class="rp-icon rp-icon-question-mark"></span><code>question-mark</code></div><div class="sc-icon"><span class="rp-icon rp-icon-info"></span><code>info</code></div><div class="sc-icon"><span class="rp-icon rp-icon-warning"></span><code>warning</code></div><div class="sc-icon"><span class="rp-icon rp-icon-error"></span><code>error</code></div><div class="sc-icon"><span class="rp-icon rp-icon-settings-outlined"></span><code>settings-outlined</code></div><div class="sc-icon"><span class="rp-icon rp-icon-user"></span><code>user</code></div><div class="sc-icon"><span class="rp-icon rp-icon-add-user"></span><code>add-user</code></div><div class="sc-icon"><span class="rp-icon rp-icon-email"></span><code>email</code></div><div class="sc-icon"><span class="rp-icon rp-icon-phone"></span><code>phone</code></div><div class="sc-icon"><span class="rp-icon rp-icon-link"></span><code>link</code></div><div class="sc-icon"><span class="rp-icon rp-icon-copy"></span><code>copy</code></div><div class="sc-icon"><span class="rp-icon rp-icon-print"></span><code>print</code></div><div class="sc-icon"><span class="rp-icon rp-icon-show"></span><code>show</code></div><div class="sc-icon"><span class="rp-icon rp-icon-hide"></span><code>hide</code></div><div class="sc-icon"><span class="rp-icon rp-icon-sort-by"></span><code>sort-by</code></div><div class="sc-icon"><span class="rp-icon rp-icon-arrow-up"></span><code>arrow-up</code></div><div class="sc-icon"><span class="rp-icon rp-icon-arrow-down"></span><code>arrow-down</code></div><div class="sc-icon"><span class="rp-icon rp-icon-down"></span><code>down</code></div><div class="sc-icon"><span class="rp-icon rp-icon-up"></span><code>up</code></div><div class="sc-icon"><span class="rp-icon rp-icon-left"></span><code>left</code></div><div class="sc-icon"><span class="rp-icon rp-icon-right"></span><code>right</code></div><div class="sc-icon"><span class="rp-icon rp-icon-rewind"></span><code>rewind</code></div><div class="sc-icon"><span class="rp-icon rp-icon-fast-forward"></span><code>fast-forward</code></div><div class="sc-icon"><span class="rp-icon rp-icon-menu"></span><code>menu</code></div><div class="sc-icon"><span class="rp-icon rp-icon-pin"></span><code>pin</code></div><div class="sc-icon"><span class="rp-icon rp-icon-star"></span><code>star</code></div><div class="sc-icon"><span class="rp-icon rp-icon-languages"></span><code>languages</code></div><div class="sc-icon"><span class="rp-icon rp-icon-messaging"></span><code>messaging</code></div><div class="sc-icon"><span class="rp-icon rp-icon-reviews"></span><code>reviews</code></div><div class="sc-icon"><span class="rp-icon rp-icon-survey"></span><code>survey</code></div><div class="sc-icon"><span class="rp-icon rp-icon-semantic"></span><code>semantic</code></div><div class="sc-icon"><span class="rp-icon rp-icon-case"></span><code>case</code></div><div class="sc-icon"><span class="rp-icon rp-icon-guest"></span><code>guest</code></div><div class="sc-icon"><span class="rp-icon rp-icon-share"></span><code>share</code></div><div class="sc-icon"><span class="rp-icon rp-icon-analytics"></span><code>analytics</code></div><div class="sc-icon"><span class="rp-icon rp-icon-manage"></span><code>manage</code></div><div class="sc-icon"><span class="rp-icon rp-icon-dashboard"></span><code>dashboard</code></div><div class="sc-icon"><span class="rp-icon rp-icon-home"></span><code>home</code></div><div class="sc-icon"><span class="rp-icon rp-icon-live-faq"></span><code>live-faq</code></div><div class="sc-icon"><span class="rp-icon rp-icon-revenue-optimizer"></span><code>revenue-optimizer</code></div><div class="sc-icon"><span class="rp-icon rp-icon-ai"></span><code>ai</code></div><div class="sc-icon"><span class="rp-icon rp-icon-google"></span><code>google</code></div><div class="sc-icon"><span class="rp-icon rp-icon-booking"></span><code>booking</code></div><div class="sc-icon"><span class="rp-icon rp-icon-whatsapp"></span><code>whatsapp</code></div><div class="sc-icon"><span class="rp-icon rp-icon-facebook"></span><code>facebook</code></div></div>
+          <p class="rp-text-secondary">All 573 icons with their React imports: <a class="rp-link" href="../foundation/icons-full-reference.md">icons-full-reference.md</a>. Sizes: rp-icon-size-12 · 16 · 20 · (24) · 32 · 48 · 80.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="rp-dialog-overlay" id="scDialog">
+    <div class="rp-dialog rp-dialog-max-width-md" role="dialog" aria-modal="true" aria-labelledby="scDialog-title">
+      <div class="rp-dialog-title">
+        <h2 class="rp-dialog-title-label" id="scDialog-title">Create Alert</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-dialog-content" data-rp-form>
+        <div class="kit-form" style="--kit-columns: 2; padding-top: var(--spacing-1)">
+          <div class="kit-form-full"><div class="rp-text-field rp-text-field-full-width">
+          <label class="rp-field-label rp-field-label-required">Alert name</label>
+          <div class="rp-field-box"><input class="rp-field-input" type="text" placeholder="Low rating on Google" aria-label="Alert name" /></div>
+        </div></div>
+          <div class="rp-select rp-select-full-width" data-rp-placeholder="Select">
+          <span class="rp-field-label">Trigger</span>
+          <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Trigger"><span class="rp-select-value">Rating below</span></button>
+          <div class="rp-menu" role="listbox">
+            <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Rating below</button>
+            <button type="button" class="rp-menu-item" role="option" aria-selected="false">GRI™ below</button>
+          </div>
+        </div>
+          <div class="rp-text-field rp-text-field-full-width">
+          <label class="rp-field-label">Threshold</label>
+          <div class="rp-field-box"><input class="rp-field-input" type="text" value="3.0" aria-label="Threshold" /></div>
+        </div>
+        </div>
+      </div>
+      <div class="rp-dialog-actions">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-close>Cancel</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small" data-rp-validate="Alert created">Create alert</button>
+      </div>
+    </div>
+  </div>
+  <div class="rp-dialog-overlay" id="scConfirm">
+    <div class="rp-dialog rp-dialog-max-width-xs" role="dialog" aria-modal="true" aria-labelledby="scConfirm-title">
+      <div class="rp-dialog-title">
+        <h2 class="rp-dialog-title-label" id="scConfirm-title">Delete this alert?</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-dialog-content" data-rp-form>
+        <p>Recipients stop getting this alert. You cannot undo this action.</p>
+      </div>
+      <div class="rp-dialog-actions">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-close>Cancel</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small rp-main-button-danger" data-rp-close data-rp-snackbar="Alert deleted">Delete alert</button>
+      </div>
+    </div>
+  </div>
+  <div class="rp-drawer-overlay" id="scDrawer">
+    <aside class="rp-drawer rp-drawer-anchor-right" role="dialog" aria-modal="true" aria-labelledby="scDrawer-title">
+      <div class="rp-drawer-title">
+        <h2 class="rp-drawer-title-label" id="scDrawer-title">Filters</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-drawer-content" data-rp-form>
+        <div class="kit-stack" style="padding-top: var(--spacing-2)"><div class="rp-select rp-select-full-width rp-select-multiple" data-rp-placeholder="Select">
+          <span class="rp-field-label">Roles</span>
+          <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Roles"><span class="rp-select-value rp-select-placeholder">Select</span></button>
+          <div class="rp-menu" role="listbox" aria-multiselectable="true">
+            <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Administrator</button>
+            <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Analyst</button>
+            <button type="button" class="rp-menu-item" role="option" aria-selected="false"><span class="rp-checkbox-glyph"></span>Viewer</button>
+          </div>
+        </div>
+        <div class="rp-select rp-select-full-width" data-rp-placeholder="Select">
+          <span class="rp-field-label">Establishment</span>
+          <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Establishment"><span class="rp-select-value rp-select-placeholder">Select</span></button>
+          <div class="rp-menu" role="listbox">
+            <button type="button" class="rp-menu-item" role="option" aria-selected="false">Grand Marina Resort &amp; Spa</button>
+            <button type="button" class="rp-menu-item" role="option" aria-selected="false">Azure Bay Hotel</button>
+          </div>
+        </div></div>
+      </div>
+      <div class="rp-drawer-footer">
+        <button type="button" class="rp-ghost-button" data-rp-close>Clear filters</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small" data-rp-close data-rp-snackbar="Filters applied">Apply</button>
+      </div>
+    </aside>
+  </div>
+  <div class="rp-menu" id="scMenu" role="menu" aria-label="Actions"><button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-download"></span> Download report</button><button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report scheduled"><span class="rp-icon rp-icon-report-schedule"></span> Schedule report</button></div>
+  <div class="rp-menu" id="scDateMenu" role="menu" aria-label="Dates" data-rp-selectable><button type="button" class="rp-menu-item" role="menuitem" data-rp-value="01/02/2026 - 28/02/2026">Last month</button><button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem" data-rp-value="01/03/2026 - 31/03/2026">This month</button></div>
+  <script src="../foundation/shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Results · ReviewPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../foundation/shared.css" />
+  <link rel="stylesheet" href="../foundation/rp-icons.css" />
+</head>
+<body>
+  <header class="rp-top-bar">
+    <div class="rp-top-bar-left">
+      <img class="rp-top-bar-logo" src="../brand/establishment-logo.png" alt="" />
+      <button type="button" class="rp-top-bar-button rp-top-bar-establishment" data-rp-menu="establishmentMenu" aria-haspopup="menu" aria-expanded="false">
+        <span data-rp-menu-label>Grand Marina Resort &amp; Spa</span><span class="rp-icon rp-icon-size-32 rp-icon-down"></span>
+      </button>
+      <button type="button" class="rp-top-bar-button rp-top-bar-date-range" data-rp-menu="dateMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Date range">
+        <span class="rp-icon rp-icon-size-32 rp-icon-calendar"></span>
+        <span class="rp-top-bar-date-text"><strong data-rp-menu-label>1 Jan 2026 - 31 Mar 2026</strong><span>vs 1 Oct 2025 - 31 Dec 2025</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down"></span>
+      </button>
+    </div>
+    <div class="rp-top-bar-right">
+      <button type="button" class="rp-icon-button rp-badge rp-badge-dot" data-rp-menu="notificationsMenu" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-notification"></span><span class="rp-badge-content"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-menu="helpMenu" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-menu="userMenu" aria-label="Account"><span class="rp-avatar rp-avatar-round">AR</span></button>
+    </div>
+  </header>
+  <div class="rp-shell-body">
+    <nav class="rp-side-bar" aria-label="Main navigation">
+      <a class="rp-side-bar-item" href="#" data-rp-section="dashboard" aria-label="Dynamic Dashboard" data-rp-tooltip="Dynamic Dashboard" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-dashboard"></span></a>
+      <a class="rp-side-bar-item" href="#" data-rp-section="home" aria-label="My Page" data-rp-tooltip="My Page" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-home"></span></a>
+      <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="reviews" aria-label="Reviews" data-rp-tooltip="Reviews" data-rp-tooltip-placement="right" aria-controls="panel-reviews" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-reviews"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="surveys" aria-label="Surveys" data-rp-tooltip="Surveys" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-survey"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="semantic" aria-label="Semantic" data-rp-tooltip="Semantic" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-semantic"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="socialmedia" aria-label="Social Media" data-rp-tooltip="Social Media" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-share"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
+      <a class="rp-side-bar-item" href="#" data-rp-section="analytics" aria-label="Analytics" data-rp-tooltip="Analytics" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-analytics"></span></a>
+      <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="livefaq" aria-label="LiveFAQ" data-rp-tooltip="LiveFAQ" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-live-faq"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-settings-outlined"></span></button>
+    </nav>
+    <aside class="rp-side-bar-panel" id="panel-reviews" aria-label="Reviews pages">
+      <div class="rp-side-bar-panel-header">Reviews</div>
+      <ul class="rp-side-bar-panel-list">
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Dashboard</span></a></li>
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="#" aria-current="page"><span>Results</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Tracking</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Competition</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Management Response</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Internal Ranking</span></a></li>
+      </ul>
+      <img class="rp-side-bar-panel-logo" src="../brand/reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
+    </aside>
+    <main class="rp-content">
+      <div class="rp-content-wrapper">
+        <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><a class="rp-breadcrumb-link" href="#">Reviews</a><span class="rp-breadcrumb-separator">/</span><span class="rp-breadcrumb-text" aria-current="page">Results</span></nav>
+        <h1 class="rp-page-title">Review Results</h1>
+        <div class="kit-toolbar">
+          <div class="kit-toolbar-group">
+            <div class="rp-toggle-button-group" role="group" aria-label="Show">
+              <button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Volume</button>
+              <button type="button" class="rp-toggle-button" aria-pressed="false">Rating</button>
+            </div>
+            <div class="rp-select rp-select-size-small" style="width: 200px" data-rp-placeholder="Select">
+              <span class="rp-field-label">Group by</span>
+              <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Group by"><span class="rp-select-value">Language</span></button>
+              <div class="rp-menu" role="listbox">
+                <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Language</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">Source</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">Country</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">Room type</button>
+              </div>
+            </div>
+          </div>
+          <div class="kit-toolbar-group">
+            <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Results downloaded"><span class="rp-icon rp-icon-download"></span><span>Download</span></button>
+          </div>
+        </div>
+        <div class="kit-stack">
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Results by Language</h2><p class="rp-tile-title-secondary">1 Jan 2026 - 31 Mar 2026 · 11,617 reviews</p></div></div>
+            <div class="rp-tile-table">
+              <table class="rp-table" id="languagesTable">
+                <thead>
+                  <tr>
+                    <th><button type="button" class="rp-table-sort">Language<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric rp-table-sorted" aria-sort="descending"><button type="button" class="rp-table-sort">Reviews<span class="rp-icon rp-icon-arrow-down"></span></button></th>
+                    <th>Positive share</th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Positive<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Negative<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Average rating<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>English</td><td class="rp-table-numeric">4,120</td><td><div class="rp-volume-bar" role="img" aria-label="84% positive"><div class="rp-volume-bar-value" style="width: 84%"></div></div></td><td class="rp-table-numeric">3,460</td><td class="rp-table-numeric">660</td><td class="rp-table-numeric">4.4</td></tr>
+                  <tr><td>Spanish</td><td class="rp-table-numeric">2,875</td><td><div class="rp-volume-bar" role="img" aria-label="81% positive"><div class="rp-volume-bar-value" style="width: 81%"></div></div></td><td class="rp-table-numeric">2,329</td><td class="rp-table-numeric">546</td><td class="rp-table-numeric">4.3</td></tr>
+                  <tr><td>German</td><td class="rp-table-numeric">1,310</td><td><div class="rp-volume-bar" role="img" aria-label="78% positive"><div class="rp-volume-bar-value" style="width: 78%"></div></div></td><td class="rp-table-numeric">1,022</td><td class="rp-table-numeric">288</td><td class="rp-table-numeric">4.2</td></tr>
+                  <tr><td>French</td><td class="rp-table-numeric">1,104</td><td><div class="rp-volume-bar" role="img" aria-label="80% positive"><div class="rp-volume-bar-value" style="width: 80%"></div></div></td><td class="rp-table-numeric">883</td><td class="rp-table-numeric">221</td><td class="rp-table-numeric">4.3</td></tr>
+                  <tr><td>Italian</td><td class="rp-table-numeric">806</td><td><div class="rp-volume-bar" role="img" aria-label="83% positive"><div class="rp-volume-bar-value" style="width: 83%"></div></div></td><td class="rp-table-numeric">669</td><td class="rp-table-numeric">137</td><td class="rp-table-numeric">4.4</td></tr>
+                  <tr><td>Dutch</td><td class="rp-table-numeric">512</td><td><div class="rp-volume-bar" role="img" aria-label="76% positive"><div class="rp-volume-bar-value" style="width: 76%"></div></div></td><td class="rp-table-numeric">389</td><td class="rp-table-numeric">123</td><td class="rp-table-numeric">4.1</td></tr>
+                  <tr><td>Portuguese</td><td class="rp-table-numeric">388</td><td><div class="rp-volume-bar" role="img" aria-label="82% positive"><div class="rp-volume-bar-value" style="width: 82%"></div></div></td><td class="rp-table-numeric">318</td><td class="rp-table-numeric">70</td><td class="rp-table-numeric">4.3</td></tr>
+                  <tr><td>Russian</td><td class="rp-table-numeric">241</td><td><div class="rp-volume-bar" role="img" aria-label="74% positive"><div class="rp-volume-bar-value" style="width: 74%"></div></div></td><td class="rp-table-numeric">178</td><td class="rp-table-numeric">63</td><td class="rp-table-numeric">4.0</td></tr>
+                  <tr class="rp-table-row-total"><td>Total</td><td class="rp-table-numeric">11,617</td><td><div class="rp-volume-bar" role="img" aria-label="81% positive"><div class="rp-volume-bar-value" style="width: 81%"></div></div></td><td class="rp-table-numeric">9,463</td><td class="rp-table-numeric">2,154</td><td class="rp-table-numeric">4.3</td></tr>
+                </tbody>
+                <tbody class="rp-tile-expand-content">
+                  <tr><td>Chinese</td><td class="rp-table-numeric">164</td><td><div class="rp-volume-bar" role="img" aria-label="79% positive"><div class="rp-volume-bar-value" style="width: 79%"></div></div></td><td class="rp-table-numeric">130</td><td class="rp-table-numeric">34</td><td class="rp-table-numeric">4.2</td></tr>
+                  <tr><td>Japanese</td><td class="rp-table-numeric">97</td><td><div class="rp-volume-bar" role="img" aria-label="88% positive"><div class="rp-volume-bar-value" style="width: 88%"></div></div></td><td class="rp-table-numeric">85</td><td class="rp-table-numeric">12</td><td class="rp-table-numeric">4.6</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <button type="button" class="rp-tile-expand" aria-expanded="false" data-rp-label-expanded="Show fewer languages"><span class="rp-tile-expand-label">Show all languages</span><span class="rp-icon rp-icon-down"></span></button>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Top bar menus -->
+  <div class="rp-menu" id="establishmentMenu" role="menu" aria-label="Establishments" data-rp-selectable>
+    <div class="rp-menu-search"><span class="rp-icon rp-icon-size-20 rp-icon-search"></span><input type="search" placeholder="Search establishments" aria-label="Search establishments" /></div>
+    <div class="rp-menu-group-label">Establishments</div>
+    <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem">Grand Marina Resort &amp; Spa</button>
+    <button type="button" class="rp-menu-item" role="menuitem">Azure Bay Hotel</button>
+    <button type="button" class="rp-menu-item" role="menuitem">Seaside Palace</button>
+    <button type="button" class="rp-menu-item" role="menuitem">Harbor View Suites</button>
+    <button type="button" class="rp-menu-item" role="menuitem">Cliff Edge Resort</button>
+    <div class="rp-menu-group-label">Groups</div>
+    <button type="button" class="rp-menu-item" role="menuitem">Coastal Hotels Group</button>
+  </div>
+  <div class="rp-menu" id="dateMenu" role="menu" aria-label="Date range" data-rp-selectable>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Mar 2026 - 31 Mar 2026">Last month</button>
+    <button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem" data-rp-value="1 Jan 2026 - 31 Mar 2026">Last 3 months</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Oct 2025 - 31 Mar 2026">Last 6 months</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-value="1 Jan 2026 - 31 Mar 2026">Year to date</button>
+  </div>
+  <div class="rp-menu" id="notificationsMenu" role="menu" aria-label="Notifications" data-rp-align-right>
+    <div class="rp-menu-group-label">Notifications</div>
+    <button type="button" class="rp-menu-item" role="menuitem">New 2-star review on Google<span class="rp-menu-item-secondary">2 h</span></button>
+    <button type="button" class="rp-menu-item" role="menuitem">Monthly report is ready<span class="rp-menu-item-secondary">1 d</span></button>
+    <button type="button" class="rp-menu-item" role="menuitem">Case assigned to you<span class="rp-menu-item-secondary">3 d</span></button>
+  </div>
+  <div class="rp-menu" id="helpMenu" role="menu" aria-label="Help" data-rp-align-right>
+    <button type="button" class="rp-menu-item" role="menuitem">Help Center</button>
+    <button type="button" class="rp-menu-item" role="menuitem">What's new</button>
+    <button type="button" class="rp-menu-item" role="menuitem">About ReviewPro</button>
+  </div>
+  <div class="rp-menu" id="userMenu" role="menu" aria-label="Account" data-rp-align-right>
+    <div class="rp-menu-header"><strong>Alex Rivera</strong><span class="rp-text-caption rp-text-secondary">alex.rivera@coastalhotels.com</span></div>
+    <button type="button" class="rp-menu-item" role="menuitem">Change language</button>
+    <button type="button" class="rp-menu-item" role="menuitem">Change password</button>
+    <div class="rp-menu-divider"></div>
+    <button type="button" class="rp-menu-item" role="menuitem">Log out</button>
+  </div>
+
+  <script src="../foundation/shared.js"></script>
+</body>
+</html>
