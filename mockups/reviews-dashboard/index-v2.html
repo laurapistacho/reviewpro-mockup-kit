@@ -11,8 +11,9 @@
   <link rel="stylesheet" href="rp-icons.css" />
   <link rel="stylesheet" href="theme-v2.css" />
   <style>
-    .page-header { margin-top: 0; }
-    .index-select { margin: var(--spacing-1-5) 0 var(--spacing-2); }
+    /* PageHeader (shared.css): title row, divider, 24px, then the Index select. The product hides the divider only when
+       there is no index selector (Dashboard.jsx hideDivider) */
+    .index-select { margin: 0 0 var(--spacing-2); }
     .summary-item { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-1); text-align: center; }
     .summary-donut { width: 150px; height: 150px; }
     .summary-goal { display: flex; align-items: center; gap: var(--spacing-1); min-height: 40px; text-align: left; }
@@ -40,10 +41,15 @@
        hero numbers in the display font with tabular figures (DE-2337). Page title: theme-v2.css */
     .insights-title .rp-chip.insights-chip { background: var(--neon-20); border-color: var(--neon-30); color: var(--neon-90); }
     .summary-donut text:first-of-type { font-family: var(--v2-font-display); font-weight: 500; font-variant-numeric: tabular-nums; }
+    /* V2 accessibility (WCAG 1.4.1): what each donut colour means is written next to it; goals say on track or off track
+       in words; the word cloud uses text colours with 4.5:1 and a legend */
+    .v2-donut-legend { justify-content: center; min-height: 40px; margin-top: 0; }
+    .v2-goal-status { font-weight: 600; }
   </style>
   <link rel="alternate" data-rp-version="current" href="index.html" title="Current UI">
 </head>
 <body>
+  <a class="v2-skip-link" href="#main-content">Skip to main content</a>
   <header class="rp-top-bar">
     <div class="rp-top-bar-left">
       <img class="rp-top-bar-logo" src="establishment-logo.png" alt="" />
@@ -76,6 +82,7 @@
       <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
       <button type="button" class="rp-side-bar-item" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-settings-outlined"></span></button>
       <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
+      <button type="button" class="rp-side-bar-item v2-side-bar-expand" data-rp-side-bar-toggle aria-expanded="false" aria-label="Expand navigation" data-rp-tooltip="Expand navigation" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-right-big"></span></button>
     </nav>
     <aside class="rp-side-bar-panel" id="panel-reviews" aria-label="Reviews pages">
       <div class="rp-side-bar-panel-header">Reviews</div>
@@ -89,16 +96,17 @@
       </ul>
       <img class="rp-side-bar-panel-logo" src="reviewpro-reputation-logo.svg" alt="ReviewPro Reputation" />
     </aside>
-    <main class="rp-content">
+    <main id="main-content" tabindex="-1" class="rp-content">
       <div class="rp-disclaimer rp-disclaimer-compact" role="note"><span class="rp-icon rp-icon-ai"></span>Actionable Insight priorities are determined by an AI model and may not reflect all factors. Please validate the data before taking action.</div>
       <div class="rp-content-wrapper">
-        <div class="kit-toolbar page-header">
-          <h1 class="rp-text-h6 rp-text-bold">Reviews Dashboard</h1>
-          <div class="kit-toolbar-group rp-text-secondary">
+        <div class="rp-page-header">
+          <h1 class="rp-page-header-title">Reviews Dashboard</h1>
+          <div class="rp-page-header-actions">
             <button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-open="scheduleDialog"><span class="rp-icon rp-icon-report-schedule"></span><span>Schedule report</span></button>
             <button type="button" class="rp-ghost-button" data-rp-menu="downloadMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-download"></span><span>Download report</span></button>
           </div>
         </div>
+        <hr class="rp-divider rp-page-header-divider" />
         <div class="index-select">
           <div class="rp-select rp-select-size-small" style="width: 200px" data-rp-placeholder="Select">
             <span class="rp-field-label">Index</span>
@@ -123,11 +131,11 @@
                     <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">88.1%</text>
                     <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">-1.7</text>
                   </svg>
-                  <div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-success"></span><span class="rp-text-caption">Goal 77.7%<br />by 31 Dec 2026</span></div>
+                  <div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-success"></span><span class="rp-text-caption"><span class="v2-goal-status rp-text-success">On track</span> · Goal 77.7%<br />by 31 Dec 2026</span></div>
                 </div>
                 <div class="summary-item">
                   <span class="rp-text-secondary">Reviews</span>
-                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Reviews: 157">
+                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Reviews: 157, 82% positive, 9% neutral, 9% negative">
                     <circle cx="70" cy="70" r="60" style="fill: none; stroke: var(--neutral-10); stroke-width: 7" />
                     <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="82.0 100" stroke-dashoffset="-0.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--green-main); stroke-width: 7" />
                     <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="9.0 100" stroke-dashoffset="-82.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--orange-main); stroke-width: 7" />
@@ -135,18 +143,18 @@
                     <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">157</text>
                     <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">+70</text>
                   </svg>
-                  <div class="summary-goal"></div>
+                  <div class="kit-legend v2-donut-legend"><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--green-main)"></span>Positive 82%</span><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--orange-main)"></span>Neutral 9%</span><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--red-main)"></span>Negative 9%</span></div>
                 </div>
                 <div class="summary-item">
                   <span class="rp-text-secondary">Semantic Analysis</span>
-                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Semantic analysis: 71.2%">
+                  <svg class="summary-donut" viewBox="0 0 140 140" role="img" aria-label="Semantic analysis: 71.2% positive, 28.8% negative">
                     <circle cx="70" cy="70" r="60" style="fill: none; stroke: var(--neutral-10); stroke-width: 7" />
                     <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="71.2 100" stroke-dashoffset="-0.0" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--green-main); stroke-width: 7" />
                     <circle cx="70" cy="70" r="60" pathLength="100" stroke-dasharray="28.8 100" stroke-dashoffset="-71.2" transform="rotate(-90 70 70)" style="fill: none; stroke: var(--red-main); stroke-width: 7" />
                     <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">71.2%</text>
                     <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">-2.0</text>
                   </svg>
-                  <div class="summary-goal"></div>
+                  <div class="kit-legend v2-donut-legend"><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--green-main)"></span>Positive 71.2%</span><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--red-main)"></span>Negative 28.8%</span></div>
                 </div>
                 <div class="summary-item">
                   <span class="rp-text-secondary">Management Response</span>
@@ -156,7 +164,7 @@
                     <text x="70" y="76" text-anchor="middle" style="fill: var(--text-primary); font-size: 30px">0%</text>
                     <text x="70" y="99" text-anchor="middle" style="fill: var(--text-secondary); font-size: 12px">0</text>
                   </svg>
-                  <div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-error"></span><span class="rp-text-caption">Goal 77.8%<br />by 18 Nov 2026</span></div>
+                  <div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-error"></span><span class="rp-text-caption"><span class="v2-goal-status rp-text-error">Off track</span> · Goal 77.8%<br />by 18 Nov 2026</span></div>
                 </div>
               </div>
             </div>
@@ -338,16 +346,17 @@
           </section>
           <section class="rp-tile">
             <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">GRI™ Key Drivers</h2></div></div>
-            <div class="rp-tile-content word-cloud" role="img" aria-label="Key drivers: Google, Spanish, Expedia, Breakfast, English, Trip.com, Couples, Business">
-              <span style="font-size: 14px; color: var(--green-30)">English</span>
-              <span style="font-size: 26px; color: var(--green-40)">Expedia</span>
-              <span style="font-size: 52px; color: var(--green-main)">Google</span>
-              <span style="font-size: 28px; color: var(--green-50)">Spanish</span>
-              <span style="font-size: 13px; color: var(--neutral-50)">Trip.com</span>
-              <span style="font-size: 12px; color: var(--green-30)">Couples</span>
-              <span style="font-size: 12px; color: var(--neutral-50)">Business</span>
-              <span style="font-size: 16px; color: var(--green-40)">Breakfast</span>
+            <div class="rp-tile-content word-cloud" role="img" aria-label="Key drivers. Positive: Google, Spanish, Expedia, Breakfast, English, Couples. Neutral: Trip.com, Business">
+              <span style="font-size: 14px; color: var(--text-success)">English</span>
+              <span style="font-size: 26px; color: var(--text-success)">Expedia</span>
+              <span style="font-size: 52px; color: var(--text-success)">Google</span>
+              <span style="font-size: 28px; color: var(--text-success)">Spanish</span>
+              <span style="font-size: 13px; color: var(--text-secondary)">Trip.com</span>
+              <span style="font-size: 12px; color: var(--text-success)">Couples</span>
+              <span style="font-size: 12px; color: var(--text-secondary)">Business</span>
+              <span style="font-size: 16px; color: var(--text-success)">Breakfast</span>
             </div>
+            <div class="kit-legend chart-legend" style="padding-bottom: var(--spacing-3)"><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--text-success)"></span>Positive</span><span class="kit-legend-item"><span class="kit-legend-mark" style="background: var(--text-secondary)"></span>Neutral</span><span class="kit-legend-item rp-text-secondary">Size: number of mentions</span></div>
           </section>
           <section class="rp-tile">
             <div class="rp-tile-title"><div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Trends</h2></div></div>
@@ -377,7 +386,7 @@
                 <div class="kit-kpi"><span class="kit-kpi-label">Competitor GRI™</span><span class="kit-kpi-value">89.1%</span><span class="kit-kpi-label"><span class="kit-kpi-delta-up">+0.4</span></span></div>
                 <div class="kit-kpi">
                   <span class="kit-kpi-label">GRI™</span>
-                  <div class="kit-row competition-gri"><span class="kit-kpi-value">98.8%</span><div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-success"></span><span class="rp-text-caption">Goal 88.0%<br />by 31 Dec 2026</span></div></div>
+                  <div class="kit-row competition-gri"><span class="kit-kpi-value">98.8%</span><div class="summary-goal"><span class="rp-icon rp-icon-goal rp-text-success"></span><span class="rp-text-caption"><span class="v2-goal-status rp-text-success">On track</span> · Goal 88.0%<br />by 31 Dec 2026</span></div></div>
                   <span class="kit-kpi-label"><span class="kit-kpi-delta-up">+1.5</span></span>
                   <div class="segments" role="img" aria-label="Score distribution"><span style="background: var(--red-main)"></span><span style="background: var(--orange-main)"></span><span style="background: var(--yellow-main)"></span><span style="background: var(--green-40)"></span><span style="background: var(--green-main)"></span></div>
                 </div>
@@ -580,5 +589,6 @@
   </div>
   <button type="button" class="rp-floating-button" data-rp-menu="fabMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Create" data-rp-tooltip="Create" data-rp-tooltip-placement="left"><span class="rp-icon rp-icon-add"></span></button>
   <script src="shared.js"></script>
+  <script src="motion-v2.js"></script>
 </body>
 </html>

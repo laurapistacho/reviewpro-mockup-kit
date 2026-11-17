@@ -428,6 +428,18 @@ A row of stages; the last event has no line.
 | `rp-accordion-title` | AccordionSummary text |
 | `rp-accordion-details` | AccordionDetails |
 
+**`rp-page-header`** = `PageHeader` · `@reviewpro/ui-components/PageHeader` · Figma: headerPageContainer (Page Headers · 8325:4164) · no class = `title mode with the divider`
+
+| Class | Code |
+|---|---|
+| `rp-page-header-text` | label container: PageHeaderBreadcrumbs above the title |
+| `rp-page-header-title` | title (Typography variant="h6" + <strong>), the page h1 |
+| `rp-page-header-actions` | PageHeaderActions: ghost buttons, one primary (rules.md 15), neutral_60 |
+| `rp-page-header-divider` | the Divider under the header (24px to the filters); leave it out and set data-rp-hide-divider on rp-page-header for hideDivider |
+| `rp-page-header-tabs` | PageHeaderTabs slot (Figma Type=Tabs): no title, the row border is the divider |
+
+Dashboards and list pages built on PageHeader (e.g. the Reviews Dashboard). The h4 rp-page-title is the older page title.
+
 **`rp-divider`** = `Divider` · `@reviewpro/ui-components/Divider` · Figma: Divider-Line
 
 | Class | Code |
@@ -697,6 +709,7 @@ rp-icon-{name} classes and rp-icon-size-* live in rp-icons.css (generated).
 | `kit-version-switch-option` | one option |
 | `kit-version-switch-option-selected` | current option |
 | `kit-version-switch-divider` | divider before Light / Dark |
+| `kit-version-switch-tag` | "Concept" tag on the Modernised option: V2 is a design concept, not the UI App library |
 
 ## Tokens
 

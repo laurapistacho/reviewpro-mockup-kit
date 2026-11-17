@@ -38,4 +38,4 @@ Copy: the object and a past participle, sentence case, no period ("Alert created
 <button type="button" class="rp-icon-button" aria-label="Edit signature" data-rp-tooltip="Edit signature"><span class="rp-icon rp-icon-edit"></span></button>
 <button … data-rp-tooltip="Settings" data-rp-tooltip-placement="right">
 ```
-Placement: top (default), right, bottom, left. Tooltips name icon-only controls or explain a number; they never hold information the user needs to finish the task.
+Placement: top (default), right, bottom, left. Tooltips name icon-only controls or explain a number; they never hold information the user needs to finish the task. They show on hover and on keyboard focus, stay while the focus scrolls the page, and Escape closes them (WCAG 1.4.13). The icon-only control still needs its own `aria-label`.

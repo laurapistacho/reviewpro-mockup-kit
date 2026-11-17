@@ -843,6 +843,21 @@ img { display: block; max-width: 100%; }
 .rp-content-wrapper { width: 100%; margin: 0 auto; }
 .rp-content-wrapper-constrained { width: 80%; max-width: 1660px; }
 .rp-page-title { margin-top: 4px; font-size: 34px; line-height: 40px; font-weight: 500; }
+/* ═══ PAGE HEADER (PageHeader · PageHeaderActions · PageHeaderTabs; Figma headerPageContainer 8325:4164) ═══
+   Title mode: the page h1 (Typography h6 + strong) and the page actions in one row, then the divider and 24px to the
+   filters. The product leaves the divider out only when nothing follows the header (hideDivider): then there is no
+   rp-page-header-divider and rp-page-header carries data-rp-hide-divider. Tabs mode (Figma Type=Tabs): the row border
+   is the divider and the tabs hug their labels. Actions: ghost buttons, one primary (rules.md 15), in neutral_60. */
+.rp-page-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 40px; padding: 8px 0; }
+.rp-page-header-text { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0; }
+.rp-page-header-title { margin: 0; font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: 0.0015em; }
+.rp-page-header-actions { display: flex; flex: none; align-items: center; gap: 8px; color: var(--neutral-60); }
+.rp-page-header-divider { margin: 0 0 24px; }
+.rp-page-header-tabs { align-items: flex-end; min-height: 0; margin-bottom: 24px; padding: 0; border-bottom: 1px solid var(--neutral-10); }
+.rp-page-header-tabs .rp-tabs { gap: 16px; border-bottom: 0; }
+.rp-page-header-tabs .rp-tab { flex: none; padding: 8px 24px; }
+.rp-page-header + .kit-stack { margin-top: 16px; }
+.rp-page-header-divider + .kit-toolbar { margin-top: 0; padding-top: 0; }
 
 /* ═══ POPOVER (Popover) and LIST SUBHEADER (ListSubheader) — a menu-positioned surface for rich content ═══ */
 .rp-popover { padding: 0; max-height: none; overflow: visible; }
@@ -1032,6 +1047,13 @@ img { display: block; max-width: 100%; }
 .kit-version-switch-option:hover { background: rgba(255, 255, 255, 0.1); color: #FFFFFF; }
 .kit-version-switch-option-selected, .kit-version-switch-option-selected:hover { background: #FFFFFF; color: #0C1024; cursor: default; }
 .kit-version-switch-divider { width: 1px; height: 20px; margin: 0 6px; background: rgba(255, 255, 255, 0.2); }
+.kit-version-switch-tag { display: inline-block; margin-left: 6px; padding: 0 6px; border: 1px solid currentColor; border-radius: 4px; font-size: 10px; line-height: 16px; letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 1px; }
+.kit-version-switch-option:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+@media (max-width: 480px) {
+  .kit-version-switch { left: 8px; right: 8px; flex-wrap: wrap; justify-content: center; border-radius: 16px; transform: none; }
+  .kit-version-switch-label { display: none; }
+  .kit-version-switch-option { padding: 6px 10px; }
+}
 @media print { .kit-version-switch { display: none; } }
 /* ═══ TYPOGRAPHY (Typography variant / color) — after the components so a text class wins ═══ */
 .rp-text-h4 { font-size: 34px; line-height: 40px; font-weight: 500; letter-spacing: 0; }
@@ -1087,12 +1109,13 @@ img { display: block; max-width: 100%; }
 @media (max-width: 979px) {
   .rp-side-bar-panel.open { position: fixed; left: var(--side-bar-width); box-shadow: var(--shadow-xl); }
   .rp-top-bar-date-range .rp-top-bar-date-text span { display: none; }
-  .kit-link-grid, .kit-grid { --kit-columns: 1; }
+  .kit-link-grid, .kit-grid { grid-template-columns: minmax(0, 1fr) !important; }   /* also when a page sets the columns inline */
   .rp-content-wrapper-constrained { width: 100%; }
 }
 @media (max-width: 767px) {
   .rp-side-bar { display: none; }
   .rp-top-bar-date-range { display: none; }
   .kit-form { --kit-columns: 1; }
+  .rp-page-header-actions { display: none; }   /* PageHeader: <Hidden smDown>{actions}</Hidden> */
 }
 @media print { .rp-top-bar, .rp-side-bar, .rp-side-bar-panel { position: static; } }

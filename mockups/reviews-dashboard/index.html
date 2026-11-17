@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="shared.css" />
   <link rel="stylesheet" href="rp-icons.css" />
   <style>
-    .page-header { margin-top: 0; }
-    .index-select { margin: var(--spacing-1-5) 0 var(--spacing-2); }
+    /* PageHeader (shared.css): title row, divider, 24px, then the Index select. The product hides the divider only when
+       there is no index selector (Dashboard.jsx hideDivider) */
+    .index-select { margin: 0 0 var(--spacing-2); }
     .summary-item { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-1); text-align: center; }
     .summary-donut { width: 150px; height: 150px; }
     .summary-goal { display: flex; align-items: center; gap: var(--spacing-1); min-height: 40px; text-align: left; }
@@ -86,13 +87,14 @@
     <main class="rp-content">
       <div class="rp-disclaimer rp-disclaimer-compact" role="note"><span class="rp-icon rp-icon-ai"></span>Actionable Insight priorities are determined by an AI model and may not reflect all factors. Please validate the data before taking action.</div>
       <div class="rp-content-wrapper">
-        <div class="kit-toolbar page-header">
-          <h1 class="rp-text-h6 rp-text-bold">Reviews Dashboard</h1>
-          <div class="kit-toolbar-group rp-text-secondary">
+        <div class="rp-page-header">
+          <h1 class="rp-page-header-title">Reviews Dashboard</h1>
+          <div class="rp-page-header-actions">
             <button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-open="scheduleDialog"><span class="rp-icon rp-icon-report-schedule"></span><span>Schedule Report</span></button>
             <button type="button" class="rp-ghost-button" data-rp-menu="downloadMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-download"></span><span>Download Report</span></button>
           </div>
         </div>
+        <hr class="rp-divider rp-page-header-divider" />
         <div class="index-select">
           <div class="rp-select rp-select-size-small" style="width: 200px" data-rp-placeholder="Select">
             <span class="rp-field-label">Index</span>

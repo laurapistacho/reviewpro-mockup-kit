@@ -458,9 +458,9 @@
    "notes": "Built by shared.js"
   },
   "headerPageContainer": {
-   "kit": "page header",
+   "kit": "rp-page-header",
    "doc": "rp-app-shell.md",
-   "notes": "Breadcrumbs, rp-page-title and a kit-toolbar with the page actions"
+   "notes": "Desktop Default: rp-page-header (title + rp-page-header-actions), hr.rp-divider.rp-page-header-divider, then the filters row (kit-toolbar). Type=Tabs: rp-page-header rp-page-header-tabs. Breadcrumbs go in rp-page-header-text above the title."
   },
   "Slider": {
    "kit": "Missing"

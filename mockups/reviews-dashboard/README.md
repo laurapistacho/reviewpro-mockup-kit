@@ -15,6 +15,7 @@ Open `index.html` in a browser. That's it.
 - `index.html`: entry point; other `*.html`: more screens of the mockup
 - `shared.css`, `rp-icons.css`, `shared.js`: copies of the kit runtime (do not edit here)
 - `reviewpro-reputation-logo.svg`, `establishment-logo.png`: logos of the app shell
+- `index-v2.html` with `theme-v2.css` and `motion-v2.js`: the Modernised (V2) proposal, made by `make-v2.py` (switch at the bottom of the page; its charts draw themselves once)
 - Tweak mode: click **Edit** in the bottom left corner, add `#edit` to the URL or press Alt+Shift+E for a Figma-like editor that saves into the HTML file (Chrome/Edge). It loads from the kit (`design-system/foundation/tweak/`), so it is not part of this folder or of Figma Make uploads.
 
 ## Figma Make

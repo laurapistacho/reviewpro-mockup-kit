@@ -48,6 +48,13 @@
     .pattern-card:hover { border-color: var(--blue-40); }
     .pattern-num { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 24px; border-radius: 12px; background: var(--blue-05); color: var(--text-active); font-size: 12px; font-weight: 700; }
     .pattern-name { font-weight: 600; }
+    .ds-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2); padding: var(--spacing-1-5) var(--spacing-2); border-bottom: 1px solid var(--divider); background: var(--background-paper); }
+    .ds-bar-title { font-weight: 700; }
+    .ds-notice { margin: 0; border-radius: 0; }
+    .ds-notice[hidden] { display: none; }
+    .v2-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--spacing-2); margin-top: var(--spacing-2); }
+    .v2-cards .rp-tile-content p { font-size: 14px; line-height: 22px; }
+    .site-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-1-5); margin-top: var(--spacing-3); }
     @media (max-width: 979px) { .site-nav { width: 200px; } .site-steps, .site-two { grid-template-columns: minmax(0, 1fr); } }
   </style>
 </head>
@@ -61,6 +68,7 @@
       <li><button type="button" class="rp-side-bar-panel-item rp-side-bar-panel-item-active" data-site-panel="install">Install</button></li>
       <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="about">What Is This</button></li>
       <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="designsystem">Design System</button></li>
+      <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="modernised">Modernised (V2)</button></li>
       <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="patterns">Pattern Pages</button></li>
       <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="examples">Examples</button></li>
     </ul>
@@ -148,7 +156,46 @@
 
     <!-- ══ Design system ══ -->
     <section class="site-panel site-panel-frame" id="panel-designsystem" aria-label="Design system">
+      <div class="ds-bar">
+        <span class="ds-bar-title" id="dsTitle">Design System</span>
+        <div class="rp-toggle-button-group" role="group" aria-labelledby="dsTitle">
+          <button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true" data-ds-version="current">Current UI (library)</button>
+          <button type="button" class="rp-toggle-button" aria-pressed="false" data-ds-version="v2">Modernised V2 (concept)</button>
+        </div>
+        <button type="button" class="rp-ghost-button" data-site-go="modernised"><span>What is V2?</span><span class="rp-icon rp-icon-right"></span></button>
+      </div>
+      <div class="rp-alert rp-alert-warning ds-notice" id="dsNotice" role="status" hidden><span class="rp-icon rp-icon-warning"></span><div class="rp-alert-content"><strong>A design concept, not the UI App library.</strong> The Modernised version is an idea from the Design team to explore and discuss. Don't use it for product mockups, specs or development unless you work in Design. Light and Dark: the switch at the bottom of the page.</div></div>
       <iframe class="site-frame" id="dsFrame" title="Component showcase" data-src="design-system/examples/index.html"></iframe>
+    </section>
+
+    <!-- ══ Modernised (V2) ══ -->
+    <section class="site-panel" id="panel-modernised" aria-labelledby="v2-title">
+      <div class="site-content">
+        <h1 class="rp-text-h4" id="v2-title">Modernised (V2)</h1>
+        <p class="site-lead">A design concept for a modernised ReviewPro UI: the Shiji brand colours, softer cards, calmer charts, a dark mode, restrained motion and full accessibility. It is shown next to the current UI so the two can be compared screen by screen.</p>
+        <div class="rp-alert rp-alert-warning" role="note" style="margin-top: var(--spacing-3)"><span class="rp-icon rp-icon-warning"></span><div class="rp-alert-content"><strong>For the Design team.</strong> V2 is an idea and a concept, not the UI App library and not a decision to build. If you are not in Design, build and specify from the Current UI, and read V2 screens as proposals. Every V2 page shows a <strong>Concept</strong> tag in the switch at the bottom.</div></div>
+        <h2 class="rp-text-h6">What It Changes</h2>
+        <div class="v2-cards">
+          <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Brand and Colour</h3></div></div><div class="rp-tile-content"><p>Reviewpro Blue for actions, Midnight text, tints by opacity, no gradients. Energetic Green only for the AI call to action.</p></div></section>
+          <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Shape and Type</h3></div></div><div class="rp-tile-content"><p>Cards with 16px corners and soft shadows, buttons with 10px corners. Shiji Day Sans only for the page title and hero numbers.</p></div></section>
+          <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Navigation</h3></div></div><div class="rp-tile-content"><p>The top bar colour still tells establishment from account view, in Light and Dark. Softer side bar with a hover response.</p></div></section>
+          <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Charts and Motion</h3></div></div><div class="rp-tile-content"><p>Thicker lines, legends with values, an accessible palette. Charts draw once; buttons and menus respond, nothing loops.</p></div></section>
+          <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Dark Mode</h3></div></div><div class="rp-tile-content"><p>Neutral greys with a calm blue accent and softened status colours. Every V2 screen works in both themes.</p></div></section>
+          <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Accessibility</h3></div></div><div class="rp-tile-content"><p>WCAG 2.2 AA, the level of EN 301 549 v4.1.1: contrast, one visible focus ring, full keyboard use, nothing told by colour alone, 400% zoom.</p></div></section>
+        </div>
+        <h2 class="rp-text-h6">How to See It</h2>
+        <ul>
+          <li>Design System: choose <strong>Modernised V2 (concept)</strong> above the component list.</li>
+          <li>Examples: the Reviews dashboard has both versions; use the switch at the bottom (Current UI | Modernised, Light | Dark, or Alt+Shift+V).</li>
+        </ul>
+        <h2 class="rp-text-h6">How It Is Made</h2>
+        <p>Designers ask Kiro for the modernised version of a finished mockup (skill <code>reviewpro-ui-modernise</code>). It makes a separate <code>-v2</code> copy and follows the numbered V2 rules from the design reviews, so every designer gets the same result. Two checks must pass before a V2 page is shared: <code>check-mockup.py</code> (the V2 rules) and <code>a11y-check.py</code> (WCAG 2.2 AA in Light and Dark, with real keyboard presses).</p>
+        <p>The rules, the rejected ideas and the review log: <a class="rp-link" href="design-system/v2/README.md">design-system/v2/README.md</a>. What it would take to build, in parts and with the difficulty of each, is on the Design space in Confluence (User experience and interface) and in the kit as <code>design-system/v2/MODERNISATION-PLAN.md</code>.</p>
+        <div class="site-actions">
+          <button type="button" class="rp-main-button" id="openV2System"><span>Open the V2 Design System</span></button>
+          <a class="rp-default-button" href="mockups/reviews-dashboard/index-v2.html" data-site-viewer="mockups/reviews-dashboard/index-v2.html" data-site-title="Reviews dashboard (V2 concept)" data-site-from="modernised"><span>Open the Reviews dashboard in V2</span></a>
+        </div>
+      </div>
     </section>
 
     <!-- ══ Patterns ══ -->
@@ -243,13 +290,30 @@
         var b = e.target.closest('[data-site-panel], [data-site-go]');
         if (b) { show(b.getAttribute('data-site-panel') || b.getAttribute('data-site-go')); return; }
         var ex = e.target.closest('[data-site-viewer]');
-        if (ex) { e.preventDefault(); view(ex.getAttribute('data-site-viewer'), ex.getAttribute('data-site-title'), 'examples'); }
+        if (ex) { e.preventDefault(); view(ex.getAttribute('data-site-viewer'), ex.getAttribute('data-site-title'), ex.getAttribute('data-site-from') || 'examples'); }
       });
       document.getElementById('viewerBack').addEventListener('click', function () { show(back); });
-      var h = location.hash.slice(1);
-      if (h.indexOf('pattern/') === 0) { var file = h.slice(8).split('/').pop(), card = document.querySelector('.pattern-card[href$="' + file + '"]'); window.openPattern(file, card ? card.querySelector('.pattern-name').textContent : file); }
-      else if (h.indexOf('example/') === 0) { var ex = document.querySelector('[data-site-viewer*="' + h.slice(8) + '"]'); if (ex) ex.click(); }
-      else if (document.getElementById('panel-' + h)) show(h);
+      /* Design System: Current UI (library) | Modernised V2 (concept); the switch inside the frame changes it too */
+      var dsFrame = document.getElementById('dsFrame'), dsNotice = document.getElementById('dsNotice');
+      var DS = { current: 'design-system/examples/index.html', v2: 'design-system/examples/index-v2.html' };
+      function dsMark(v) {
+        document.querySelectorAll('[data-ds-version]').forEach(function (b) { var on = b.getAttribute('data-ds-version') === v; b.classList.toggle('rp-toggle-button-selected', on); b.setAttribute('aria-pressed', on); });
+        dsNotice.hidden = v !== 'v2';
+      }
+      function dsShow(v) { dsMark(v); dsFrame.src = DS[v]; }
+      document.querySelectorAll('[data-ds-version]').forEach(function (b) { b.addEventListener('click', function () { dsShow(b.getAttribute('data-ds-version')); }); });
+      dsFrame.addEventListener('load', function () {
+        try { dsMark(/index-v2\.html$/.test(dsFrame.contentWindow.location.pathname) ? 'v2' : 'current'); } catch (e) { /* a file:// frame cannot be read: keep the toggle */ }
+      });
+      document.getElementById('openV2System').addEventListener('click', function () { show('designsystem'); dsShow('v2'); });
+      function route() {
+        var h = location.hash.slice(1);
+        if (h.indexOf('pattern/') === 0) { var file = h.slice(8).split('/').pop(), card = document.querySelector('.pattern-card[href$="' + file + '"]'); window.openPattern(file, card ? card.querySelector('.pattern-name').textContent : file); }
+        else if (h.indexOf('example/') === 0) { var ex = document.querySelector('[data-site-viewer*="' + h.slice(8) + '"]'); if (ex) ex.click(); }
+        else if (document.getElementById('panel-' + h)) show(h);
+      }
+      route();
+      window.addEventListener('hashchange', route);   /* a pasted or edited link, back and forward */
     })();
   </script>
 </body>

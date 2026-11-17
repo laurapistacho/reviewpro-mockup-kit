@@ -126,7 +126,7 @@
     if (!closest(menu, '.rp-select')) place(menu, trigger);
     var search = menu.querySelector('input[type="search"], [data-rp-autofocus]');
     if (search) { search.value = ''; filterMenu(menu, ''); setTimeout(function () { search.focus(); }, 0); }
-    else if (viaKeyboard) { var it = items(menu)[0]; if (it) it.focus(); }
+    else if (viaKeyboard) { var it = items(menu)[0] || focusables(menu)[0]; if (it) it.focus(); }
   }
   function items(menu) { return $$('.rp-menu-item', menu).filter(function (i) { return !i.disabled && !i.hidden && i.offsetParent !== null; }); }
   function filterMenu(menu, q) {
@@ -333,6 +333,14 @@
     return true;
   }
   window.rpValidate = validate;
+  function markRequired(scope) {
+    $$('.rp-field-label-required', scope).map(fieldRoot).filter(Boolean).forEach(function (f) {
+      $$('input:not([type="hidden"]), textarea', f).forEach(function (c) { if (!c.hasAttribute('aria-required')) c.setAttribute('aria-required', 'true'); });
+      var tr = f.querySelector('.rp-select-trigger');
+      if (tr) { var n = tr.getAttribute('aria-label') || text(f.querySelector('.rp-field-label') || f); if (!/required/i.test(n)) tr.setAttribute('aria-label', n.replace(/\s*\*$/, '') + ', required'); }
+    });
+  }
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { markRequired(doc); }); else markRequired(doc);
 
   /* ═══ SIDE BAR — rail items open their section panel (aria-controls); sections without a panel in the page
      get the production section list (compositions/Navigation constants) as a runtime panel ═══ */
@@ -402,8 +410,11 @@
     if (on === null) on = !!rail._rpExpanded;
     else if (!temporary) rail._rpExpanded = on;
     rail.classList.toggle('rp-side-bar-expanded', on);
-    var h = rail.querySelector('.rp-side-bar-toggle');
-    if (h) { var l = on ? 'Collapse navigation' : 'Expand navigation'; h.setAttribute('aria-label', l); h.setAttribute('data-rp-tooltip', l); h.setAttribute('aria-expanded', on); }
+    var l = on ? 'Collapse navigation' : 'Expand navigation';
+    $$('.rp-side-bar-toggle, [data-rp-side-bar-toggle]', rail).forEach(function (h) {
+      h.setAttribute('aria-label', l); h.setAttribute('data-rp-tooltip', l); h.setAttribute('aria-expanded', on);
+      var lab = h.querySelector('.rp-side-bar-item-label'); if (lab) lab.textContent = l;
+    });
   }
   function decorateRail(rail) {
     if (rail._rpDecorated) return;
@@ -437,10 +448,10 @@
     });
   }
   doc.addEventListener('click', function (e) {
-    var b = closest(e.target, '.rp-side-bar-panel-pin, .rp-side-bar-toggle');
-    if (!b || closest(e.target, '#dl-tweak-host')) return;
+    var b = closest(e.target, '.rp-side-bar-panel-pin, .rp-side-bar-toggle, [data-rp-side-bar-toggle]');
+    if (!b || closest(e.target, '#dl-tweak-host') || doc.documentElement.classList.contains('dl-tweaking')) return;
     e.preventDefault(); e.stopPropagation(); hideTip();
-    if (b.classList.contains('rp-side-bar-toggle')) { var rail = closest(b, '.rp-side-bar'); closeSections(); railExpanded(rail, !rail._rpExpanded); return; }
+    if (!b.classList.contains('rp-side-bar-panel-pin')) { var rail = closest(b, '.rp-side-bar') || doc.querySelector('.rp-side-bar'); closeSections(); railExpanded(rail, !rail._rpExpanded); return; }
     var on = b.getAttribute('aria-pressed') !== 'true';
     $$('.rp-side-bar-panel-pin').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); x.setAttribute('aria-label', 'Set as default'); x.setAttribute('data-rp-tooltip', 'Set as default'); });
     if (on) { b.setAttribute('aria-pressed', 'true'); b.setAttribute('aria-label', 'Remove default'); b.setAttribute('data-rp-tooltip', 'Remove default'); }
@@ -486,7 +497,10 @@
   doc.addEventListener('mouseover', function (e) { var el = closest(e.target, '[data-rp-tooltip]'); if (el && el !== tipFor) showTip(el); else if (!el && tipFor) hideTip(); });
   doc.addEventListener('focusin', function (e) { var el = closest(e.target, '[data-rp-tooltip]'); if (el) showTip(el); });
   doc.addEventListener('focusout', hideTip);
-  window.addEventListener('scroll', function () { hideTip(); $$('.rp-menu.open.rp-menu-fixed').forEach(function (m) { if (m._trigger) place(m, m._trigger); }); }, true);
+  window.addEventListener('scroll', function () {
+    if (tipFor && tipFor === doc.activeElement) showTip(tipFor); else hideTip();
+    $$('.rp-menu.open.rp-menu-fixed').forEach(function (m) { if (m._trigger) place(m, m._trigger); });
+  }, true);
 
   /* ═══ CLICK DELEGATION ═══ */
   doc.addEventListener('click', function (e) {
@@ -1157,7 +1171,10 @@
     bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'UI version');
     var html = '<span class="kit-version-switch-label">UI</span>';
     opts.forEach(function (o) {
-      html += '<a class="kit-version-switch-option' + (o.v === mine ? ' kit-version-switch-option-selected" aria-current="page' : '') + '" href="' + o.href + '" data-rp-version-go>' + o.title + '</a>';
+      /* V2 is a design concept, never the library: the switch says so on every page */
+      var concept = o.v === 'v2' ? ' <span class="kit-version-switch-tag">Concept</span>' : '';
+      html += '<a class="kit-version-switch-option' + (o.v === mine ? ' kit-version-switch-option-selected" aria-current="page' : '') + '" href="' + o.href + '" data-rp-version-go' +
+        (o.v === 'v2' ? ' title="A design concept for discussion, not the UI App library"' : '') + '>' + o.title + concept + '</a>';
     });
     if (mine === 'v2') {
       var dark = root.getAttribute('data-rp-theme') === 'dark';

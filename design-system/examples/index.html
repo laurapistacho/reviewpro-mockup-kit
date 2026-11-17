@@ -36,7 +36,9 @@
     .sc-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--spacing-1); }
     .sc-icon { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: var(--spacing-1); border-radius: var(--radius-s); text-align: center; }
     .sc-icon:hover { background: var(--neutral-05); }
+    @media (max-width: 767px) { .sc { grid-template-columns: minmax(0, 1fr); } .sc-nav { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--divider); } .sc-main { padding: var(--spacing-2); } .sc-swatch { width: 96px; } }
   </style>
+  <link rel="alternate" data-rp-version="v2" href="index-v2.html" title="Modernised">
 </head>
 <body>
   <div class="sc">
@@ -66,6 +68,7 @@
       <a class="sc-nav-item" href="#sec-table">Table, toolbar, pagination, volume bar</a>
       <a class="sc-nav-item" href="#sec-menu">Menu</a>
       <a class="sc-nav-item" href="#sec-dialog-drawer">Dialog, drawer</a>
+      <a class="sc-nav-item" href="#sec-page-header">Page header</a>
       <a class="sc-nav-item" href="#sec-navigation">Breadcrumbs, stepper</a>
       <a class="sc-nav-item" href="#sec-icons">Icons</a>
     </nav>
@@ -412,10 +415,12 @@
             </div>
             <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-menu="scMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-actions"></span><span>Open a menu</span></button>
             <div class="rp-menu rp-popover open" style="position: static; width: 280px" role="dialog" aria-label="Example popover">
-              <div class="rp-list-subheader">Most frequent</div>
-              <button type="button" class="rp-menu-item" role="option">Grand Marina Resort &amp; Spa</button>
-              <div class="rp-list-subheader">3 Groups</div>
-              <button type="button" class="rp-menu-item" role="option">Coastal Hotels Group</button>
+              <div role="listbox" aria-label="Establishments">
+                <div class="rp-list-subheader">Most frequent</div>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="true">Grand Marina Resort &amp; Spa</button>
+                <div class="rp-list-subheader">3 Groups</div>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">Coastal Hotels Group</button>
+              </div>
             </div>
           </div>
           <p class="rp-text-caption rp-text-secondary" style="margin-top: var(--spacing-1)">Popover · ListSubheader: rich content under a trigger, like the top bar establishment selector.</p>
@@ -431,6 +436,36 @@
         <div class="sc-head"><h2 class="rp-text-h6">Dialog, drawer</h2><code class="sc-react">Dialog · Drawer</code></div>
         <div class="sc-body">
           <div class="sc-row"><button type="button" class="rp-main-button rp-main-button-size-small" data-rp-open="scDialog">Open dialog</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-open="scConfirm">Open confirmation</button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-open="scDrawer">Open drawer</button></div>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-page-header">
+        <div class="sc-head"><h2 class="rp-text-h6">Page header</h2><code class="sc-react">PageHeader · PageHeaderActions · PageHeaderTabs</code></div>
+        <p class="rp-text-secondary sc-note">The page title and the page actions in one row, then the divider and 24px to the filters. Actions are ghost buttons with one primary. Tabs mode: the row border is the divider.</p>
+        <div class="sc-body">
+          <span class="sc-label">Title mode (Figma Desktop Default)</span>
+          <div>
+            <div class="rp-page-header">
+              <span class="rp-page-header-title" role="heading" aria-level="3">Dashboard</span>
+              <div class="rp-page-header-actions">
+                <button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-snackbar="Report scheduled"><span class="rp-icon rp-icon-report-schedule"></span><span>Schedule report</span></button>
+                <button type="button" class="rp-ghost-button" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-download"></span><span>Download report</span></button>
+              </div>
+            </div>
+            <hr class="rp-divider rp-page-header-divider" />
+            <div class="rp-select rp-select-size-small" style="width: 220px" data-rp-placeholder="Select">
+              <span class="rp-field-label">Surveys</span>
+              <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Surveys"><span class="rp-select-value">Check out (Barcelona)</span></button>
+              <div class="rp-menu" role="listbox">
+                <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">Check out (Barcelona)</button>
+                <button type="button" class="rp-menu-item" role="option" aria-selected="false">Check in (Barcelona)</button>
+              </div>
+            </div>
+          </div>
+          <span class="sc-label">Tabs mode (Figma Type=Tabs)</span>
+          <div class="rp-page-header rp-page-header-tabs">
+            <div class="rp-tabs rp-tabs-standard" role="tablist" aria-label="Views"><button type="button" class="rp-tab rp-tab-selected" role="tab" aria-selected="true">Overview</button><button type="button" class="rp-tab" role="tab" aria-selected="false">Details</button></div>
+            <div class="rp-page-header-actions"><button type="button" class="rp-ghost-button" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-download"></span><span>Download report</span></button></div>
+          </div>
         </div>
       </section>
       <section class="sc-section" id="sec-navigation">

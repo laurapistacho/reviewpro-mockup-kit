@@ -404,6 +404,13 @@
    "threshold": 9,
    "snap": false,
    "note": "three-line event text: Chrome and Figma place the lines up to 2px apart"
+  },
+  {
+   "id": "page-header/desktop-default",
+   "node": "8002:44935",
+   "kit": "<div style=\"width:1200px\"><div class=\"rp-page-header\" style=\"padding:0\"><h1 class=\"rp-page-header-title\">Dashboard</h1><div class=\"rp-page-header-actions\"><button type=\"button\" class=\"rp-ghost-button rp-ghost-button-inherit\"><span class=\"rp-icon rp-icon-report-schedule\"></span><span>Schedule Report</span></button><button type=\"button\" class=\"rp-ghost-button\"><span class=\"rp-icon rp-icon-download\"></span><span>Download Report</span></button><span style=\"display:flex;padding:0 8px;border-left:1px solid var(--neutral-10)\"><button type=\"button\" class=\"rp-icon-button rp-icon-button-size-small\" aria-label=\"More\"><span class=\"rp-icon rp-icon-actions\"></span></button></span></div></div><hr class=\"rp-divider rp-page-header-divider\" style=\"margin-top:8px\" /></div>",
+   "region": "0,0,1200,49",
+   "note": "title row and divider; the filters row below is page content (kit-toolbar)"
   }
  ]
 }

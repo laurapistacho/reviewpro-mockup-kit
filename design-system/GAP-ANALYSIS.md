@@ -30,6 +30,8 @@ mockup-kit stays where it is (nothing deleted): its `node_modules` provide the C
 | Library components missing | Mockups using them could not be built | Slider, Uploader, Timeline added; the rest listed in section 3 |
 | A bug: the establishment selector was always rendered, invisible but present, at the bottom of every page | Full-page screenshots showed it under the last tile | Fixed (`display` only when open) |
 | No separation between "as it is" and "ideal" UI | Improvements would leak into faithful mockups | `reviewpro-ui-modernise` skill, `v2/theme-v2.css`, `make-v2.py` and the version switch |
+| No accessibility check | Mockups could ship keyboard traps, unnamed controls or low contrast unnoticed; V2 could not prove WCAG 2.2 AA | `a11y-check.py` (Chrome, real keyboard, Light and Dark), V2 rule V2-22, the library findings listed as product backlog in `v2/MODERNISATION-PLAN.md` |
+| V2 rules only in people's heads | Two designers would modernise the same screen differently | `v2/README.md` § The rules (numbered), § Rejected ideas, § Review log; the V2 checks in `check-mockup.py` |
 | Documentation spread across the kit | Hard to know where to start | `README.md` rewritten as the entry point; `figma/README.md`, `v2/README.md` and this file |
 
 ## 3. Library coverage

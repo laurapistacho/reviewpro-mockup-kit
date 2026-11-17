@@ -5,7 +5,10 @@
  * alert red #DC2626), Laura's design review of 17 Nov 2026 and her font analysis (DE-2337). Rules: design-system/v2/README.md.
  * Hard rules: no gradients; buttons rounded (10px), never pills; Energetic Green only for the AI call to action;
  * Shiji Day Sans only for display text (page title, hero numbers); the top bar colour follows the view.
- * Order: brand tokens, kit tokens remapped (day), components, charts, night (dark mode).
+ * Accessibility: WCAG 2.2 AA in Light and Dark (text 4.5:1, large text and UI parts 3:1, one solid focus ring, nothing told
+ * by colour alone, no motion with reduced motion). Checked with .kiro/scripts/a11y-check.py.
+ * Order: brand tokens, kit tokens remapped (day), components, charts, night (dark mode), motion.
+ * Motion: § 6 here (hover, press, menus, dialogs, drawers) and motion-v2.js (charts draw themselves once).
  */
 
 /* Shiji Day Sans (Aeonik), display only: the page title and single hero numbers, 20px and up (DE-2337 option B).
@@ -33,9 +36,10 @@
   --v2-yellow-a24: rgba(var(--v2-yellow-rgb), .24); --v2-yellow-a40: rgba(var(--v2-yellow-rgb), .40);
   --v2-white-a08: rgba(var(--v2-white-rgb), .08); --v2-white-a12: rgba(var(--v2-white-rgb), .12); --v2-white-a20: rgba(var(--v2-white-rgb), .20);
 
-  /* chart palette: brand blues first, Energetic Green as the highlight, sunset accents for categories */
-  --v2-chart-1: #0030FF; --v2-chart-2: #60A5FA; --v2-chart-3: #0AFFAB; --v2-chart-4: #7443A7; --v2-chart-5: #FF8056;
-  --v2-chart-6: #FFB851; --v2-chart-7: #8D3791; --v2-chart-8: #1E3A8A;
+  /* chart palette for series and categories: brand colours darkened where needed so every one has 3:1 or more on a card
+     (WCAG 1.4.11); Energetic Green is never a chart colour (it is for the AI call to action only) */
+  --v2-chart-1: #0030FF; --v2-chart-2: #C2410C; --v2-chart-3: #7443A7; --v2-chart-4: #00805A; --v2-chart-5: #8D3791;
+  --v2-chart-6: #B26A00; --v2-chart-7: #1E3A8A; --v2-chart-8: #5D6887;
   --v2-chart-grid: var(--v2-ink-a08); --v2-chart-track: var(--v2-ink-a06);
   --v2-font-display: "Shiji Day Sans", "Noto Sans", system-ui, sans-serif;
   /* top bar by view (MainBarNext): establishment view = the product blue, account (corporate) view = Midnight */
@@ -51,19 +55,19 @@ html[data-rp-version="v2"] {
   --brand-rpp70: #0030FF; --brand-rpp80: #0028D9; --brand-drpp100: var(--v2-midnight);
   /* slate neutrals (greys tinted with Midnight) */
   --neutral-05: #F6F7FA; --neutral-08: #EFF1F5; --neutral-10: #E5E8EF; --neutral-20: #D3D8E3; --neutral-30: #B8C0D1;
-  --neutral-40: #98A2B9; --neutral-50: #7A859F; --neutral-60: #5D6887; --neutral-main: #6B7593; --neutral-70: #4A5473;
+  --neutral-40: #98A2B9; --neutral-50: #7A859F; --neutral-60: #5D6887; --neutral-main: #646F8C; --neutral-70: #4A5473;
   --neutral-80: #343D5C; --neutral-90: #222A47; --neutral-darkneutral: #1B2240;
   /* status: success from Energetic Green, error from the brand alert red, warning from Sunset Yellow */
-  --green-10: #E8FFF7; --green-20: #CFFFF0; --green-30: #9DF5D7; --green-40: #4DE8B5; --green-50: #00CC88; --green-main: #00B67A;
+  --green-10: #E8FFF7; --green-20: #CFFFF0; --green-30: #9DF5D7; --green-40: #4DE8B5; --green-50: #00CC88; --green-main: #00A06B;
   --green-60: #007A52; --green-70: #005C3D; --green-80: #003D29; --green-90: #002619;
   --red-10: #FEE2E2; --red-20: #FECACA; --red-30: #FCA5A5; --red-40: #F87171; --red-50: #EF4444; --red-main: #DC2626;
   --red-60: #B91C1C; --red-70: #991B1B; --red-80: #7F1D1D; --red-90: #450A0A;
   --yellow-10: #FFF5E6; --yellow-20: #FFEACC; --yellow-30: #FFDBA8; --yellow-40: #FFCD85; --yellow-50: #FFC26B; --yellow-main: #FFB851;
-  --yellow-60: #B26A00; --yellow-70: #8A5200; --yellow-80: #603900; --yellow-90: #3D2400;
-  --orange-main: #FF8056; --orange-60: #C2410C;
+  --yellow-60: #9A5B00; --yellow-70: #8A5200; --yellow-80: #603900; --yellow-90: #3D2400;
+  --orange-main: #E8652F; --orange-60: #C2410C;
   /* text and surfaces */
   --text-primary: var(--v2-midnight); --text-secondary: #5D6887; --text-active: #0030FF; --text-disabled: #98A2B9;
-  --text-hint: #7A859F; --text-error: #B91C1C; --text-success: #007A52;
+  --text-hint: #646F8C; --text-error: #B91C1C; --text-success: #007A52;
   --background-default: #F5F8FC; --background-paper: #FFFFFF; --background-secondary: #EFF2F8; --background-edit: var(--v2-daylight-60);
   --background-info: #E6EBFF; --background-warning: #FFEACC; --background-error: #FEE2E2; --background-confirmation: #CFFFF0;
   --divider: var(--v2-ink-a08); --overlay-hover: var(--v2-ink-a04); --backdrop: rgba(12, 16, 36, .48);
@@ -77,7 +81,6 @@ html[data-rp-version="v2"] {
   --top-bar-hover: var(--v2-white-a08); --top-bar-open: var(--v2-white-a12); --top-bar-pressed: var(--v2-white-a20);
   --nav-pressed: var(--v2-blue-a12); --side-bar-toggle: #0030FF;
 }
-html[data-rp-version="v2"] :is(.rp-text-field, .rp-select, .rp-search, .rp-text-area, .rp-date-picker) { --rp-surface: var(--background-paper); }
 
 /* checkbox and radio glyphs in V2 colours (generated from the kit glyphs) */
 html[data-rp-version="v2"] {
@@ -134,11 +137,12 @@ html[data-rp-version="v2"] .rp-default-button-primary { border-color: var(--v2-b
 html[data-rp-version="v2"] .rp-default-button-primary:hover { background: var(--v2-blue-a04); }
 html[data-rp-version="v2"] .rp-ghost-button:hover { background: var(--v2-blue-a08); }
 html[data-rp-version="v2"] .rp-ghost-button-inherit:hover { background: var(--v2-ink-a06); }
-html[data-rp-version="v2"] :is(.rp-main-button, .rp-default-button, .rp-ghost-button, .rp-icon-button):focus-visible { outline: none; box-shadow: 0 0 0 4px var(--v2-blue-a24); }
-/* Fields: paper fill, lighter outline, blue focus ring */
-html[data-rp-version="v2"] .rp-field-box { border-color: var(--v2-ink-a16); background: var(--background-paper); }
-html[data-rp-version="v2"] :not(.rp-text-field-error, .rp-select-error, .rp-text-area-error, .rp-date-picker-error, .rp-text-field-disabled, .rp-select-disabled, .rp-search-disabled, .rp-text-area-disabled, .rp-date-picker-disabled) > .rp-field-box:hover:not(:focus-within) { border-color: var(--v2-ink-a40); box-shadow: none; }
-html[data-rp-version="v2"] .rp-field-box:focus-within, html[data-rp-version="v2"] .rp-select.open > .rp-field-box { border: 1px solid var(--blue-main); padding: 0 15px; box-shadow: var(--field-glow); }
+/* Fields: outlined with no fill, like the library, so the label's notch takes the colour of the surface around the field
+   (a filled field on the grey canvas showed the label as a white patch above the outline). The outline keeps 3:1 on the
+   page and on cards (WCAG 1.4.11); focus is a 2px blue border with a soft glow */
+html[data-rp-version="v2"] .rp-field-box { border-color: var(--neutral-50); }
+html[data-rp-version="v2"] :not(.rp-text-field-error, .rp-select-error, .rp-text-area-error, .rp-date-picker-error, .rp-text-field-disabled, .rp-select-disabled, .rp-search-disabled, .rp-text-area-disabled, .rp-date-picker-disabled) > .rp-field-box:hover:not(:focus-within) { border-color: var(--neutral-70); box-shadow: none; }
+html[data-rp-version="v2"] .rp-field-box:focus-within, html[data-rp-version="v2"] .rp-select.open > .rp-field-box { border: 2px solid var(--blue-main); padding: 0 14px; box-shadow: var(--field-glow); }
 html[data-rp-version="v2"] .rp-field-label { color: var(--text-secondary); }
 /* Chips: soft tints, no outline */
 html[data-rp-version="v2"] .rp-chip { border-color: transparent; }
@@ -192,7 +196,8 @@ html[data-rp-version="v2"] .kit-chart rect { rx: 3px; }
        softened status colours, Energetic Green kept for the AI call to action only ═══ */
 html[data-rp-version="v2"][data-rp-theme="dark"] {
   color-scheme: dark;
-  --v2-topbar-establishment: #1F3A70; --v2-topbar-corporate: #1C1F2B;
+  /* top bar by view, one step darker than in Day and still two clearly different blues (white text 9:1 and 16:1) */
+  --v2-topbar-establishment: #11439A; --v2-topbar-corporate: #151D44;
   /* accent: a calm periwinkle for text and selections; a muted blue for filled controls (white text 5:1) */
   --blue-05: rgba(138, 166, 242, .06); --blue-10: rgba(138, 166, 242, .10); --blue-20: rgba(138, 166, 242, .16); --blue-30: rgba(138, 166, 242, .24);
   --blue-40: #A9BDF5; --blue-50: #8AA6F2; --blue-main: #3D6AD6; --blue-60: #8AA6F2; --blue-70: #3563D1; --blue-80: #4A76E0; --blue-90: #2F5CC7;
@@ -213,7 +218,7 @@ html[data-rp-version="v2"][data-rp-theme="dark"] {
   --neon-20: #15382F; --neon-30: rgba(10, 255, 171, .32); --neon-40: #3BFFB8; --neon-90: #5EE8B5;
   /* text and surfaces: page, card, raised */
   --text-primary: #ECEDEF; --text-secondary: #A2A6AE; --text-active: #8AA6F2; --text-disabled: #5F636B;
-  --text-hint: #7B808A; --text-error: #F5A3A3; --text-success: #6FDDB0; --text-inverse: #FFFFFF;
+  --text-hint: #8A8F99; --text-error: #F5A3A3; --text-success: #6FDDB0; --text-inverse: #FFFFFF;
   --background-default: #0F1012; --background-paper: #17181B; --background-secondary: #1C1D21; --background-edit: #1D2129;
   --background-info: rgba(138, 166, 242, .12); --background-warning: rgba(228, 179, 99, .14); --background-error: rgba(240, 120, 120, .14); --background-confirmation: rgba(63, 203, 142, .14);
   --divider: rgba(236, 237, 239, .08); --overlay-hover: rgba(236, 237, 239, .04); --backdrop: rgba(0, 0, 0, .6);
@@ -222,7 +227,9 @@ html[data-rp-version="v2"][data-rp-theme="dark"] {
   --shadow-m: 0 0 0 1px rgba(236, 237, 239, .07), 0 12px 32px rgba(0, 0, 0, .5);
   --shadow-l: 0 0 0 1px rgba(236, 237, 239, .07), 0 16px 48px rgba(0, 0, 0, .6);
   --field-glow: 0 0 0 4px rgba(138, 166, 242, .20);
-  --v2-chart-1: #8AA6F2; --v2-chart-grid: rgba(236, 237, 239, .07); --v2-chart-track: rgba(236, 237, 239, .07);
+  --v2-chart-1: #8AA6F2; --v2-chart-2: #F2A06B; --v2-chart-3: #B79BE0; --v2-chart-4: #3FCB8E; --v2-chart-5: #E39BE6; --v2-chart-6: #E4B363;
+  --v2-chart-7: #93B4FF; --v2-chart-8: #A2A6AE; --v2-chart-grid: rgba(236, 237, 239, .07); --v2-chart-track: rgba(236, 237, 239, .07);
+  --v2-focus: #8AA6F2;
   --v2-ink-a04: rgba(236, 237, 239, .04); --v2-ink-a06: rgba(236, 237, 239, .06); --v2-ink-a08: rgba(236, 237, 239, .08);
   --v2-ink-a12: rgba(236, 237, 239, .12); --v2-ink-a16: rgba(236, 237, 239, .16); --v2-ink-a24: rgba(236, 237, 239, .24); --v2-ink-a40: rgba(236, 237, 239, .40);
   --v2-blue-a04: rgba(138, 166, 242, .06); --v2-blue-a08: rgba(138, 166, 242, .12); --v2-blue-a12: rgba(138, 166, 242, .16);
@@ -237,6 +244,8 @@ html[data-rp-version="v2"][data-rp-theme="dark"] .rp-top-bar .rp-avatar { backgr
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-top-bar-apps-popover { background: #1E2024; }
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-main-button { color: #FFFFFF; }
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-main-button-accent { color: #0F1012; }
+/* badges: white numbers keep 4.5:1 on a deeper red than the soft status red */
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-badge-error .rp-badge-content { background: #C93C3C; color: #FFFFFF; }
 /* raised surfaces: menus, popovers, dialogs and drawers sit one step lighter; everything inside uses that surface */
 html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-menu, .rp-popover, .rp-dialog, .rp-drawer) { --background-paper: #1E2024; --rp-surface: #1E2024; background: #1E2024; }
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-tooltip, html[data-rp-version="v2"][data-rp-theme="dark"] .rp-snackbar { background: #ECEDEF; color: #17181B; }
@@ -248,4 +257,134 @@ html[data-rp-version="v2"][data-rp-theme="dark"] {
   --rp-checkbox-partial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%238AA6F2' fill-rule='evenodd' d='M17.1 0c.5 0 .9.4.9.9v16.2c0 .5-.4.9-.9.9H.9c-.5 0-.9-.4-.9-.9V.9C0 .4.4 0 .9 0ZM4.37 8.1c-.42 0-.77.4-.77.9s.35.9.77.9h9.26c.42 0 .77-.4.77-.9s-.35-.9-.77-.9Z'/%3E%3C/svg%3E");
   --rp-radio-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%238B9099' fill-rule='evenodd' d='M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Zm0 16.2c-3.98 0-7.2-3.22-7.2-7.2S5.02 1.8 9 1.8s7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2Z'/%3E%3C/svg%3E");
   --rp-radio-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='4.5' fill='%238AA6F2'/%3E%3Cpath fill='%238AA6F2' fill-rule='evenodd' d='M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Zm0 16.2c-3.98 0-7.2-3.22-7.2-7.2S5.02 1.8 9 1.8s7.2 3.22 7.2 7.2-3.22 7.2-7.2 7.2Z'/%3E%3C/svg%3E");
+}
+
+/* ═══ 6. Motion: short, purposeful, never in the way (rules: design-system/v2/README.md "Motion").
+       Press and hover feedback, and overlays that open from where they come from. The charts are motion-v2.js.
+       Nothing moves with prefers-reduced-motion, and nothing while Tweak is editing (html.dl-tweaking) ═══ */
+:root {
+  --v2-ease-out: cubic-bezier(0.23, 1, 0.32, 1);     /* UI: starts fast, lands softly */
+  --v2-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);  /* side bar hover: a small overshoot */
+  --v2-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);  /* drawers */
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* press: buttons dip 3% and icon buttons 8% while pressed; hover shadows ease in; focus rings stay instant */
+  html[data-rp-version="v2"]:not(.dl-tweaking) :is(.rp-main-button, .rp-default-button, .rp-ghost-button) { transition: background-color .15s, border-color .15s, color .15s, box-shadow .2s var(--v2-ease-out), transform .16s var(--v2-ease-out); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) :is(.rp-main-button, .rp-default-button, .rp-ghost-button):focus-visible { transition: background-color .15s, border-color .15s, color .15s, transform .16s var(--v2-ease-out); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) :is(.rp-main-button, .rp-default-button, .rp-ghost-button):not(:disabled, [class*="-disabled"]):active { transform: scale(.97); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-icon-button { transition: transform .16s var(--v2-ease-out); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-icon-button:not(:disabled, [class*="-disabled"]):active { transform: scale(.92); }
+  /* side bar: each icon grows a little on hover (below) and dips while pressed; the "new" dot moves with its icon */
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-side-bar-item > :is(.rp-icon, .rp-badge, .rp-side-bar-knowledge-hub-glyph) { transition: transform .18s var(--v2-ease-out); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-side-bar-item:active > :is(.rp-icon, .rp-badge, .rp-side-bar-knowledge-hub-glyph) { transform: scale(.92); transition-duration: .1s; }
+  /* menus, selects and top bar popovers open from their trigger; dialogs grow from the centre; drawers slide in from their side */
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-menu.open { animation: v2-pop-in .18s var(--v2-ease-out); transform-origin: top center; }
+  html[data-rp-version="v2"]:not(.dl-tweaking) :is(.rp-dialog-overlay, .rp-drawer-overlay).open { animation: v2-fade-in .2s var(--v2-ease-out); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-dialog-overlay.open .rp-dialog { animation: v2-dialog-in .24s var(--v2-ease-out); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-drawer-overlay.open > .rp-drawer { animation: v2-drawer-in-left .3s var(--v2-ease-drawer); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-drawer-overlay.open > .rp-drawer-anchor-right { animation-name: v2-drawer-in-right; }
+  html[data-rp-version="v2"] :is(.rp-snackbar, .rp-snackbar-leave) { animation-timing-function: var(--v2-ease-out); }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-side-bar-item:hover:not(:active) > :is(.rp-icon, .rp-badge) { transform: translateY(-1px) scale(1.12); transition: transform .28s var(--v2-ease-pop); }
+  html[data-rp-version="v2"]:not(.dl-tweaking) .rp-side-bar-item:hover:not(:active) > .rp-side-bar-knowledge-hub-glyph { transform: scale(1.08); transition: transform .28s var(--v2-ease-pop); }
+}
+@keyframes v2-fade-in { from { opacity: 0; } }
+@keyframes v2-pop-in { from { opacity: 0; transform: translateY(-4px) scale(.98); } }
+@keyframes v2-dialog-in { from { transform: scale(.96); } }
+@keyframes v2-drawer-in-left { from { transform: translateX(-100%); } }
+@keyframes v2-drawer-in-right { from { transform: translateX(100%); } }
+/* loading: a skeleton pulses in one flat colour (the library's shimmer is a gradient, and V2 has none) three times, then
+   stays still: moving content stops within 5 seconds (WCAG 2.2.2) */
+html[data-rp-version="v2"] .rp-skeleton { background: var(--neutral-10); animation: v2-pulse 1.6s ease-in-out 3; }
+@media (prefers-reduced-motion: reduce) { html[data-rp-version="v2"] .rp-skeleton { animation: none; } }
+@keyframes v2-pulse { 50% { opacity: .5; } }
+
+/* ═══ 7. Accessibility (WCAG 2.2 AA, the level EN 301 549 v4.1.1 references; rules: design-system/v2/README.md "Accessibility").
+       Checked in Light and Dark with .kiro/scripts/a11y-check.py ═══ */
+/* Focus: one solid 2px ring on every control, 3:1 or more on every surface (1.4.11, 2.4.7). An outline, not a shadow, so it
+   stays in Windows high-contrast mode. White on the top bar and on dark surfaces; inside lists, tabs and cards it sits
+   inside the item. Fields show focus on their box (2px blue border, § 3). Sticky and fixed parts never cover the focused
+   control (2.4.11): the page scrolls it clear of the top bar and of the switch at the bottom. */
+html[data-rp-version="v2"] { --v2-focus: #0030FF; scroll-padding-top: calc(var(--top-bar-height) + 16px); scroll-padding-bottom: 96px; }
+html[data-rp-version="v2"][data-rp-theme="dark"] { --v2-focus: #8AA6F2; }
+html[data-rp-version="v2"] :focus-visible { outline: 2px solid var(--v2-focus); outline-offset: 2px; }
+html[data-rp-version="v2"] :is(.rp-main-button, .rp-default-button, .rp-ghost-button, .rp-icon-button):focus-visible { box-shadow: none; }
+html[data-rp-version="v2"] :is(.rp-menu-item, .rp-side-bar-panel-item, .rp-tab, .kit-settings-nav-item, .kit-setting-card, .rp-accordion-summary, .rp-list-item):focus-visible { outline-offset: -2px; }
+html[data-rp-version="v2"] :is(.rp-top-bar, .rp-top-bar-apps-popover, .rp-tooltip, .rp-snackbar, .kit-version-switch) :focus-visible,
+html[data-rp-version="v2"] .kit-version-switch-option:focus-visible { outline-color: #FFFFFF; }
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-tooltip, .rp-snackbar) :focus-visible { outline-color: #17181B; }
+html[data-rp-version="v2"] .rp-field-box:focus-visible, html[data-rp-version="v2"] .rp-field-box :focus-visible { outline: none; }
+/* Skip link (2.4.1): the first Tab stop of every V2 page with the app shell, hidden until it has focus; make-v2.py adds it */
+html[data-rp-version="v2"] .v2-skip-link {
+  position: fixed; top: 12px; left: 12px; z-index: 1700; padding: 8px 16px; border-radius: var(--radius-s); background: var(--background-paper);
+  color: var(--text-active); font-weight: 600; box-shadow: var(--shadow-m); text-decoration: none; transform: translateY(-200%);
+}
+html[data-rp-version="v2"] .v2-skip-link:focus { transform: none; }
+html[data-rp-version="v2"] main[tabindex="-1"]:focus { outline: none; }   /* the skip target is not a control */
+/* Expand navigation as a real 32px rail button (2.5.8): the edge handle alone is an 8px target; make-v2.py adds it */
+html[data-rp-version="v2"] .v2-side-bar-expand { margin: auto 0 8px; }
+html[data-rp-version="v2"] .rp-side-bar-knowledge-hub + .v2-side-bar-expand { margin-top: 4px; }
+html[data-rp-version="v2"] .rp-side-bar-knowledge-hub:has(+ .v2-side-bar-expand) { margin-bottom: 0; }
+html[data-rp-version="v2"] .v2-side-bar-expand[aria-expanded="true"] > .rp-icon { rotate: 180deg; }
+/* Charts: the edge of a filled area keeps 3:1 on the card (1.4.11); a series is never told by a light fill alone */
+html[data-rp-version="v2"] .kit-chart path:not([fill="none"]):not([style*="fill: none"]) { opacity: 1 !important; stroke: var(--blue-40); stroke-width: 1.5px; stroke-linejoin: round; }
+/* a comparison series (dashed, e.g. the competition average) is a slate line with 3:1 or more, not a light grey */
+html[data-rp-version="v2"] .kit-chart :is(polyline, path)[style*="dasharray"] { stroke: var(--neutral-60) !important; }
+html[data-rp-version="v2"] .kit-legend-mark[style*="--neutral-40"] { background: var(--neutral-60) !important; }
+/* Contrast fixes per component (WCAG 1.4.3 text 4.5:1, 1.4.11 parts 3:1), Light then Dark */
+html[data-rp-version="v2"] :is(.rp-ghost-button-danger, .rp-menu-item-danger), html[data-rp-version="v2"] .rp-menu-item-danger .rp-icon { color: var(--text-error); }
+html[data-rp-version="v2"] .rp-step-icon { background: var(--neutral-60); }
+html[data-rp-version="v2"] :is(.rp-step-active, .rp-step-completed) .rp-step-icon { background: var(--blue-main); }
+html[data-rp-version="v2"] .rp-step-error .rp-step-icon { background: var(--red-60); }
+html[data-rp-version="v2"] .rp-badge-confirmation .rp-badge-content { background: var(--green-60); }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-step-icon { background: #3D4047; }
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-step-active, .rp-step-completed) .rp-step-icon { background: #3D6AD6; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-step-error .rp-step-icon,
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-main-button-danger, .rp-main-button-danger:hover) { background: #C93C3C; color: #FFFFFF; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-badge-confirmation .rp-badge-content { background: #1A7A51; color: #FFFFFF; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-badge-neutral .rp-badge-content { background: #4A4E57; color: #FFFFFF; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-chip-topic-positive { background: rgba(63, 203, 142, .14); border-color: rgba(63, 203, 142, .32); color: #8FE6C2; }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-chip-topic-negative { background: rgba(240, 120, 120, .14); border-color: rgba(240, 120, 120, .32); color: #F8BDBD; }
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-toggle-button-selected, .rp-toggle-button-selected .rp-icon) { color: var(--text-active); }
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-tile-expand, .rp-top-bar-account-back, :focus-within > .rp-field-label, .open > .rp-field-label) { color: var(--text-active); }
+/* Windows high contrast: keep field borders and the selected states visible */
+@media (forced-colors: active) {
+  html[data-rp-version="v2"] .rp-field-box { border-color: CanvasText; }
+  html[data-rp-version="v2"] :is(.rp-side-bar-item-active, .rp-side-bar-panel-item-active, .rp-tab-selected, .rp-menu-item-selected) { outline: 2px solid Highlight; outline-offset: -2px; }
+}
+/* Small screens and 400% zoom (1.4.10): nothing is hidden. The page actions wrap under the title (the library hides them
+   below 768px), the rail stays as a 48px column and the date range keeps its calendar button */
+@media (max-width: 767px) {
+  html[data-rp-version="v2"] .rp-page-header { flex-wrap: wrap; }
+  html[data-rp-version="v2"] .rp-page-header-actions { display: flex; flex: 1 1 100%; flex-wrap: wrap; }
+  html[data-rp-version="v2"] .rp-side-bar { display: flex; }
+  html[data-rp-version="v2"] .rp-content { padding: 16px; }
+  html[data-rp-version="v2"] .rp-content > .rp-disclaimer:first-child { margin: -16px -16px 16px; padding: 8px 16px; }
+  /* top bar: the establishment name shortens, the date range keeps its calendar button, the icon buttons sit closer */
+  html[data-rp-version="v2"] .rp-top-bar { gap: 8px; padding-left: 8px; padding-right: 8px; }
+  html[data-rp-version="v2"] .rp-top-bar-left { flex: 1; min-width: 0; gap: 4px; }
+  html[data-rp-version="v2"] .rp-top-bar-right { gap: 0; }
+  html[data-rp-version="v2"] .rp-top-bar-establishment { min-width: 0; flex: 0 1 auto; }
+  html[data-rp-version="v2"] .rp-top-bar-establishment-text { min-width: 0; }
+  html[data-rp-version="v2"] .rp-top-bar-establishment-text strong { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  html[data-rp-version="v2"] .rp-top-bar-establishment-text span, html[data-rp-version="v2"] .rp-top-bar-date-range .rp-top-bar-date-text,
+  html[data-rp-version="v2"] .rp-top-bar-date-range > .rp-icon:last-child { display: none; }
+  html[data-rp-version="v2"] .rp-top-bar-date-range { display: inline-flex; flex: none; }
+  /* rows that hold controls wrap instead of pushing the page sideways */
+  html[data-rp-version="v2"] :is(.rp-tile-title, .rp-tile-title-label, .rp-toolbar, .rp-toolbar-bulk, .rp-stepper, .kit-toolbar, .rp-dialog-actions, .rp-tile-actions) { flex-wrap: wrap; row-gap: 8px; }
+  html[data-rp-version="v2"] .rp-toolbar-bulk { height: auto; min-height: 56px; padding-top: 8px; padding-bottom: 8px; }
+  html[data-rp-version="v2"] .rp-tile-title-actions { margin-left: 0; }
+  html[data-rp-version="v2"] .rp-progress-bar { min-width: 0; }
+  /* settings hub: the section nav stacks above the search and the cards */
+  html[data-rp-version="v2"] .rp-content.kit-settings-hub { flex-direction: column; }
+  html[data-rp-version="v2"] .kit-settings-nav { position: static; width: auto; height: auto; border-right: 0; border-bottom: 1px solid var(--divider); }
+  html[data-rp-version="v2"] .kit-settings-nav-logo { display: none; }
+  html[data-rp-version="v2"] .kit-settings-grid { grid-template-columns: minmax(0, 1fr); }
+  html[data-rp-version="v2"] .kit-settings-search .rp-search { width: 100%; }
+  html[data-rp-version="v2"] .kit-setting-card-person { overflow-wrap: anywhere; }
+}
+/* Snackbars: with reduced motion they appear and leave without sliding (the 1ms keeps shared.js timing intact) */
+@media (prefers-reduced-motion: reduce) {
+  html[data-rp-version="v2"] :is(.rp-snackbar, .rp-snackbar-leave) { animation-duration: 1ms !important; }
 }

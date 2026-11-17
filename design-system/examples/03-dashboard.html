@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Review Dashboard · ReviewPro</title>
+  <title>Reviews Dashboard · ReviewPro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -62,8 +62,14 @@
     </aside>
     <main class="rp-content">
       <div class="rp-content-wrapper">
-        <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><a class="rp-breadcrumb-link" href="#">Reviews</a><span class="rp-breadcrumb-separator">/</span><span class="rp-breadcrumb-text" aria-current="page">Dashboard</span></nav>
-        <h1 class="rp-page-title">Review Dashboard</h1>
+        <div class="rp-page-header">
+          <h1 class="rp-page-header-title">Reviews Dashboard</h1>
+          <div class="rp-page-header-actions">
+            <button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-snackbar="Report scheduled"><span class="rp-icon rp-icon-report-schedule"></span><span>Schedule report</span></button>
+            <button type="button" class="rp-ghost-button" data-rp-menu="downloadMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-download"></span><span>Download report</span></button>
+          </div>
+        </div>
+        <hr class="rp-divider rp-page-header-divider" />
         <div class="kit-toolbar">
           <div class="kit-toolbar-group">
             <div class="rp-select rp-select-size-small" style="width: 220px" data-rp-placeholder="Select">
@@ -89,9 +95,6 @@
                 <button type="button" class="rp-menu-item" role="option" aria-selected="false">French</button>
               </div>
             </div>
-          </div>
-          <div class="kit-toolbar-group">
-            <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-menu="actionsMenu" aria-haspopup="menu" aria-expanded="false"><span class="rp-icon rp-icon-actions"></span><span>Actions</span></button>
           </div>
         </div>
         <div class="kit-stack">
@@ -193,9 +196,9 @@
     </main>
   </div>
 
-  <div class="rp-menu" id="actionsMenu" role="menu" aria-label="Actions">
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-download"></span> Download report</button>
-    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report scheduled"><span class="rp-icon rp-icon-report-schedule"></span> Schedule report</button>
+  <div class="rp-menu" id="downloadMenu" role="menu" aria-label="Download report">
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-pdf"></span> PDF</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-report-download"></span> Excel</button>
   </div>
   <script src="../foundation/shared.js"></script>
 </body>

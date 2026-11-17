@@ -21,6 +21,9 @@ Read before writing any HTML. Non-negotiable.
 | 14 | **One main button per area** (tile, dialog, drawer), on the right, after Cancel. |
 | 15 | **One primary page action.** Page header actions are ghost buttons: the main one primary (`rp-ghost-button`, e.g. Download report on a dashboard), the others secondary (`rp-ghost-button rp-ghost-button-inherit` inside a `rp-text-secondary` group). Never turn the primary one grey. |
 | 16 | **Two top bars.** Establishment view (a property or a group is selected) = `rp-top-bar`, RPP70 blue. Account view (no property: settings, profile, account-level pages; Figma TopNav Corporate) = `rp-top-bar rp-top-bar-corporate`, DRPP100 midnight, with the user or account name instead of the selectors. A QA screenshot is green: build blue. |
+| 17 | **The page header is the PageHeader.** Dashboards and product pages: `rp-page-header` (the h1 title and the page actions in one row), then the divider (`rp-page-header-divider`) and 24px to the filters. Leave the divider out only when nothing follows the header (`data-rp-hide-divider`, like `hideDivider`). |
+| 18 | **Product messages use the product component.** An AI notice is the Disclaimer (`rp-disclaimer`), a page message is an Alert, a confirmation is a Snackbar. Never invent a banner or an alert that the product does not show. |
+| 19 | **Fields keep the library look**: outlined, no fill, the label cuts the outline on the colour of the surface around it (`--rp-surface`). Never give a field a background to make it stand out. |
 
 ## Standard sample data
 | Field | Value |

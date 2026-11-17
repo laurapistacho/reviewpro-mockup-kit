@@ -536,6 +536,25 @@
    }
   },
   {
+   "class": "rp-page-header",
+   "react": "PageHeader",
+   "import": "@reviewpro/ui-components/PageHeader",
+   "figma": "headerPageContainer (Page Headers · 8325:4164)",
+   "category": "Layout",
+   "doc": "rp-app-shell.md",
+   "defaults": "title mode with the divider",
+   "parts": {
+    "rp-page-header-text": "label container: PageHeaderBreadcrumbs above the title",
+    "rp-page-header-title": "title (Typography variant=\"h6\" + <strong>), the page h1",
+    "rp-page-header-actions": "PageHeaderActions: ghost buttons, one primary (rules.md 15), neutral_60",
+    "rp-page-header-divider": "the Divider under the header (24px to the filters); leave it out and set data-rp-hide-divider on rp-page-header for hideDivider"
+   },
+   "props": {
+    "rp-page-header-tabs": "PageHeaderTabs slot (Figma Type=Tabs): no title, the row border is the divider"
+   },
+   "notes": "Dashboards and list pages built on PageHeader (e.g. the Reviews Dashboard). The h4 rp-page-title is the older page title."
+  },
+  {
    "class": "rp-divider",
    "react": "Divider",
    "import": "@reviewpro/ui-components/Divider",
@@ -1013,7 +1032,8 @@
   "kit-version-switch-label": "UI label",
   "kit-version-switch-option": "one option",
   "kit-version-switch-option-selected": "current option",
-  "kit-version-switch-divider": "divider before Light / Dark"
+  "kit-version-switch-divider": "divider before Light / Dark",
+  "kit-version-switch-tag": "\"Concept\" tag on the Modernised option: V2 is a design concept, not the UI App library"
  },
  "tokens": [
   {

@@ -21,9 +21,10 @@ The new Settings page (ui-settings-app `AccountSettingsNext`, in production):
 - shared.js does the rest: search filters the cards and highlights the match, shows "N results" with one chip per section (a chip filters to that section) and a count badge on each nav item; sections without results go grey; no match shows "No settings found". A nav item shows only its section; All Settings shows them all. Opening a rail section folds the nav panel.
 - Sections and items come from production (`settingItems.jsx`): Your Profile, Account Administration, Organisation, Surveys, Case Management, Live FAQ, Messaging, Guests, Integrations, Legal & Privacy. Keep their order; remove the ones the account does not have.
 ## Pattern 3: Dashboard (`03-dashboard.html`)
-- Page title "{Product} Dashboard", toolbar with selectors on the left and an "Actions" default button (menu: Download report, Schedule report) on the right.
+- PageHeader like the production dashboards (`rp-page-header`): the title "{Product} Dashboard" and the page actions in one row (Schedule report = secondary ghost, Download report = the one primary ghost action, with its menu), the divider, then the filters toolbar (selectors). No breadcrumbs on dashboards.
 - Row of 4 KPI tiles, then a 2:1 grid (chart tile + list tile), then a table tile.
 - Charts are inline SVG that fill the tile, with a legend. Hotel = `--blue-main`, competition = `--neutral-40` dashed.
+- Example from production: the Reviews Dashboard (`mockups/reviews-dashboard/`): the AI disclaimer first, the PageHeader, the divider, the Index select, then the tiles (`rp-app-shell.md` § Page header).
 
 ## Pattern 4: Results table (`04-results-table.html`)
 - Toggle button group for the measure, a "Group by" select, Download on the right.

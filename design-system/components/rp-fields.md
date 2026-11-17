@@ -148,6 +148,7 @@ All fields share the field tokens of the code (`getFieldTokens`): one outlined b
 - Selects open, pick, close, filter with `.rp-menu-search`, keep `aria-*` in sync and fire `change` on `.rp-select`.
 - Filters: `data-rp-filter="tableId"` on a search or a select (+ `data-rp-filter-column="2"` for the column, `data-rp-filter-all="All roles"` for the option that means no filter).
 - Validation: a label with `rp-field-label-required` makes the field required for `data-rp-validate` (message "{Label} is required").
+- Assistive tech: the same label makes shared.js add `aria-required="true"` to the input (and ", required" to a select's accessible name), like MUI's `required` prop. Nothing to add by hand.
 
 ## Rules
 - Every form field has a label. A placeholder never replaces it.
