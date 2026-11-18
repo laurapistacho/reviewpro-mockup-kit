@@ -4,7 +4,7 @@
 
 V2 is a modernised version of the ReviewPro admin app: the Shiji brand colours, softer cards, thicker charts, a dark mode, restrained motion and full accessibility (WCAG 2.2 AA). It is always a separate copy of a finished mockup, so the two versions can be compared screen by screen with the switch at the bottom of the page (Current UI | Modernised, Light | Dark, Alt+Shift+V).
 
-What it would take to build, in parts and with the difficulty of each: [`MODERNISATION-PLAN.md`](MODERNISATION-PLAN.md), and the same content as Confluence wiki markup in `modernisation-plan.confluence.txt` (`python3 .kiro/scripts/md-to-confluence.py` makes it from the Markdown). Both are internal: they stay in the kit repository and on Confluence, never on the public website.
+What it would take to build, in parts and with the difficulty of each: [`MODERNISATION-PLAN.md`](MODERNISATION-PLAN.md), and the same content as Confluence wiki markup in `modernisation-plan.confluence.txt` (`python3 .kiro/scripts/md-to-confluence.py` makes it from the Markdown). Both are internal: they stay in the kit repository and on Confluence, never on the public website or in the zip. Published page: [UI Modernisation (V2): What It Contains and What It Takes](https://confluence.shijidev.com/pages/viewpage.action?pageId=926010279) (Design space, User experience and interface). Related: [Design Language Analysis: UI App, Daylight and KTW Workshop Proposals](https://confluence.shijidev.com/pages/viewpage.action?pageId=926194529).
 
 ## Files
 
@@ -104,6 +104,7 @@ Hard rules. Every V2 page and every change to `theme-v2.css` follows them. The n
 | 17 Nov 2026 (1) | 7 Tweak comments on the dashboard: container padding, round buttons, Aeonik title, gradients, two kinds of top bar, one primary action, green avatar; dark mode too blue | V2-2, V2-5, V2-7, V2-10, V2-11, V2-12, V2-13, V2-16, V2-21 |
 | 17 Nov 2026 (2) | 6 comments: animate the donuts and the index chart, animate the side bar icons, two blues for the dark top bars, keep the page header divider, the label background of the Index select | V2-14, V2-15, V2-16, V2-17, V2-19, V2-20 |
 | 17 Nov 2026 (3) | Make the skills consistent for every designer; V2 accessible and compliant, with keyboard navigation; V2 in the Design System website, marked as a concept; a plan for Confluence | V2-1, V2-3, V2-4, V2-9, V2-18, V2-22; `a11y-check.py`; the V2 checks in `check-mockup.py`; `MODERNISATION-PLAN.md` |
+| 18 Nov 2026 | Take the KTW workshop decisions (Design Language Analysis page, 4 Nov) into account, and unify the blues | Documented only, nothing applied. The differences (action blue, round buttons, page background, cards without shadow, rectangular labels, blue family) are recorded as decisions M0.1, M0.7 to M0.11 in `MODERNISATION-PLAN.md`. V2 tokens and rules V2-1 to V2-22 stay unchanged |
 
 ## Principles
 
@@ -248,6 +249,7 @@ Not received yet. When the list arrives, add it here as a table (request, V2 rul
 ## Open questions
 
 - Is Reviewpro Blue `#0030FF` the action colour for the product, or only for marketing? V2 assumes the product (Light).
+- **Unify the blues** (a task Laura plans soon). Today there are two families. The library: steel blue `--blue-main #3F7BAB` (and its 05-90 scale) for buttons and selections, and RPP70 `#014CB7` for the top bar, rail icons and focus. The brand: Reviewpro Blue `#0030FF` (already in the library tokens as `--brand-rpp`). V2 already moves every action, link, selection and focus to `#0030FF` and its tints; the only old blue left is the establishment top bar (`#014CB7`, Dark `#11439A`), kept on purpose by rule V2-16. Unifying means choosing that bar's blue too; when it is decided, change `--v2-topbar-establishment` in `theme-v2.css` (Light and Dark) and rule V2-16, nothing else.
 - The Shiji Day Sans licence for display use inside the product (DE-2337 open question 1).
 - Knowledge Hub in the action blue instead of green: confirm.
 - Success green: the brand kit has Energetic Green only; V2 derives darker greens (`#00A06B` data, `#007A52` text).

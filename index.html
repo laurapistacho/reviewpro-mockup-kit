@@ -72,7 +72,7 @@
       <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="patterns">Pattern Pages</button></li>
       <li><button type="button" class="rp-side-bar-panel-item" data-site-panel="examples">Examples</button></li>
     </ul>
-    <p class="site-nav-footer">ReviewPro UI App · @reviewpro/ui-components names · Figma UI App file</p>
+    <p class="site-nav-footer">ReviewPro UI App · @reviewpro/ui-components names · <a class="rp-link" href="https://www.figma.com/design/ubE7R2jeqiwS8BZ4a5vwHw" target="_blank" rel="noopener">Figma UI App file</a></p>
   </nav>
 
   <main class="site-main">
@@ -190,8 +190,17 @@
         </ul>
         <h2 class="rp-text-h6">How It Is Made</h2>
         <p>Designers ask Kiro for the modernised version of a finished mockup (skill <code>reviewpro-ui-modernise</code>). It makes a separate <code>-v2</code> copy and follows the numbered V2 rules from the design reviews, so every designer gets the same result. Two checks must pass before a V2 page is shared: <code>check-mockup.py</code> (the V2 rules) and <code>a11y-check.py</code> (WCAG 2.2 AA in Light and Dark, with real keyboard presses).</p>
-        <p>The rules, the rejected ideas and the review log: <a class="rp-link" href="design-system/v2/README.md">design-system/v2/README.md</a>. What it would take to build, in parts and with the difficulty of each, is on the Design space in Confluence (User experience and interface) and in the kit as <code>design-system/v2/MODERNISATION-PLAN.md</code>.</p>
-        <div class="site-actions">
+        <h2 class="rp-text-h6">Documents</h2>
+        <ul>
+          <li><a class="rp-link" href="design-system/v2/README.md">V2 rules</a>: the 22 numbered rules (V2-1 to V2-22), the rejected ideas and the review log.</li>
+          <li><a class="rp-link" href="https://confluence.shijidev.com/pages/viewpage.action?pageId=926010279" target="_blank" rel="noopener">UI Modernisation (V2): What It Contains and What It Takes</a> (Confluence): every change V2 makes, split into parts, with the difficulty of each and the decisions still open.</li>
+          <li><a class="rp-link" href="https://confluence.shijidev.com/pages/viewpage.action?pageId=926194529" target="_blank" rel="noopener">Design Language Analysis: UI App, Daylight and KTW Workshop Proposals</a> (Confluence): the design language decided at the KTW workshop on 4 November 2026 for all Shiji products.</li>
+          <li><a class="rp-link" href="https://confluence.shijidev.com/pages/viewpage.action?pageId=926010275" target="_blank" rel="noopener">Fully Rounded UI, No Shadows and One Blue</a> and <a class="rp-link" href="https://confluence.shijidev.com/pages/viewpage.action?pageId=926000044" target="_blank" rel="noopener">Shiji Day Sans Aeonik</a> (Confluence): the analyses behind the shape, colour and font choices.</li>
+          <li><a class="rp-link" href="https://confluence.shijidev.com/display/DES/User+experience+and+interface" target="_blank" rel="noopener">User experience and interface</a> (Confluence): the Design space section where these pages live.</li>
+        </ul>
+        <p class="rp-text-secondary">Confluence pages need a Shiji sign-in.</p>
+        <h2 class="rp-text-h6">V2 and the KTW Decisions</h2>
+        <p>V2 was designed before the KTW workshop decisions were applied, and some of them differ: the action blue, fully round buttons, the page background, cards without shadow and rectangular labels. For now these differences are documented in the Confluence plan (Part 0, decisions to take) and V2 stays as it is.</p>        <div class="site-actions">
           <button type="button" class="rp-main-button" id="openV2System"><span>Open the V2 Design System</span></button>
           <a class="rp-default-button" href="mockups/reviews-dashboard/index-v2.html" data-site-viewer="mockups/reviews-dashboard/index-v2.html" data-site-title="Reviews dashboard (V2 concept)" data-site-from="modernised"><span>Open the Reviews dashboard in V2</span></a>
         </div>
