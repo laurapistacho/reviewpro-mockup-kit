@@ -4,7 +4,7 @@
 
 V2 is a modernised version of the ReviewPro admin app: the Shiji brand colours, softer cards, thicker charts, a dark mode, restrained motion and full accessibility (WCAG 2.2 AA). It is always a separate copy of a finished mockup, so the two versions can be compared screen by screen with the switch at the bottom of the page (Current UI | Modernised, Light | Dark, Alt+Shift+V).
 
-What it would take to build, in parts and with the difficulty of each: [`MODERNISATION-PLAN.md`](MODERNISATION-PLAN.md), and the same content as Confluence wiki markup in `modernisation-plan.confluence.txt` (`python3 .kiro/scripts/md-to-confluence.py` makes it from the Markdown). Both are internal: they stay in the kit repository and on Confluence, never on the public website or in the zip. Published page: [UI Modernisation (V2): What It Contains and What It Takes](https://confluence.shijidev.com/pages/viewpage.action?pageId=926010279) (Design space, User experience and interface). Related: [Design Language Analysis: UI App, Daylight and KTW Workshop Proposals](https://confluence.shijidev.com/pages/viewpage.action?pageId=926194529).
+What it would take to build, in parts and with the difficulty of each: [`MODERNISATION-PLAN.md`](MODERNISATION-PLAN.md), and the same content as Confluence wiki markup in `modernisation-plan.confluence.txt` (`python3 .kiro/scripts/md-to-confluence.py` makes it from the Markdown). Both are internal: they stay in the kit repository and on Confluence, never on the public website or in the zip (if you downloaded the kit, read the plan on Confluence). Published page: [UI Modernisation (V2): What It Contains and What It Takes](https://confluence.shijidev.com/pages/viewpage.action?pageId=926010279) (Design space, User experience and interface). Related: [Design Language Analysis: UI App, Daylight and KTW Workshop Proposals](https://confluence.shijidev.com/pages/viewpage.action?pageId=926194529).
 
 ## Files
 
@@ -15,7 +15,7 @@ What it would take to build, in parts and with the difficulty of each: [`MODERNI
 | `.kiro/scripts/make-v2.py` | Makes `<page>-v2.html` next to a page, copies the two files, adds the accessibility markup (skip link, main target, rail button). `--theme-only` refreshes them |
 | `.kiro/scripts/check-mockup.py` | Checks the V2 rules a script can check (gradients, pills, Energetic Green, display font, motion, files up to date) |
 | `.kiro/scripts/a11y-check.py` | Checks WCAG 2.2 AA in Chrome, in Light and Dark, with real keyboard presses |
-| Examples | `mockups/reviews-dashboard/index-v2.html`, the component showcase `design-system/examples/index-v2.html` |
+| Examples | the component showcase `design-system/examples/index-v2.html`; the Reviews dashboard in V2 is on the website (https://laurapistacho.github.io/reviewpro-mockup-kit/#modernised), not in the download |
 
 ## How a V2 page is made (the same steps for every designer)
 
