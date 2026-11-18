@@ -91,6 +91,22 @@
     .site-main .rp-default-button, .site-main .rp-ghost-button { border-radius: 500px; }
     .site-main .rp-default-button { border-color: var(--site-midnight); color: var(--site-midnight); }
     .ds-bar, .site-viewer-bar { background: #fff; border-bottom-color: #D5ECFF; }
+    /* Closer to the Presentation Designer kit site: serif display titles, gradient menu, day-blue cards */
+    @font-face{font-family:'Shiji Night Serif';src:url('https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67da8139199c44005d0f1b8e_ShijiNightSerifRecklessNeue-Regular.woff2') format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Shiji Night Serif';src:url('https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67dac539ac844f1933bcafb0_ShijiNightSerifRecklessNeue-Heavy.woff2') format('woff2');font-weight:900;font-display:swap;}
+    @font-face{font-family:'Shiji Day Sans';src:url('https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67da8139199c44005d0f1b9c_ShijiDaySansAeonik-Regular.woff2') format('woff2');font-weight:400;font-display:swap;}
+    .site-nav { background: #172554 linear-gradient(160deg, #1E3A8A 0%, #172554 45%, #172554 100%); }
+    .site-nav::before { display: none; }
+    .site-logo span { color: #fff; font-family: "Noto Sans Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .site-content h1 { font-family: "Shiji Night Serif", Georgia, serif; font-weight: 900; font-size: 56px; line-height: 64px; letter-spacing: 0; }
+    .site-content h1::after { display: none; }
+    .site-content h2, .site-step strong { font-weight: 700; }
+    .site-step { border: 1px solid #D5ECFF !important; background: #F1F9FF !important; box-shadow: none !important; }
+    .site-step-num { background: var(--site-midnight); color: var(--site-green); }
+    .site-download .rp-main-button { background: var(--site-blue); border-color: var(--site-blue); color: #fff; }
+    .site-download .rp-main-button:hover { background: var(--site-twilight); border-color: var(--site-twilight); }
+    .site-main .rp-default-button { border-color: #D5ECFF; background: #fff; }
+    .site-main .rp-default-button:hover { border-color: var(--site-blue); }
     @media (max-width: 979px) { .site-nav { width: 200px; } .site-steps, .site-two { grid-template-columns: minmax(0, 1fr); } }
   </style>
 </head>
