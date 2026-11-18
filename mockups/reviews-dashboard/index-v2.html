@@ -25,7 +25,8 @@
     .mentions-cell { width: 160px; }
     .impact, .cqi { display: flex; align-items: center; justify-content: flex-end; gap: var(--spacing-1); }
     .impact .rp-progress-bar-track { width: 120px; background: transparent; }
-    .impact-value { left: auto; right: 0; background: var(--red-main); border-radius: 0; }
+    /* ProgressBar: rounded ends (border-radius from the track), filled from the right for a negative impact */
+    .impact-value { left: auto; right: 0; background: var(--red-main); }
     .cqi .rp-progress-bar-track { width: 140px; }
     .cqi span { min-width: 52px; }
     .category-link { display: inline-flex; align-items: center; gap: var(--spacing-1); font-weight: 400; }
