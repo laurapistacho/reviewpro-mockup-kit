@@ -35,13 +35,13 @@ A counter or dot on an icon or button. `Badge` defaults to `color="informative"`
 <span class="rp-badge rp-badge-size-small"><span class="rp-icon rp-icon-messaging"></span><span class="rp-badge-content">3</span></span>
 <span class="rp-badge rp-badge-inline rp-badge-size-small"><span class="rp-badge-content">12</span></span>
 ```
-Colors: `rp-badge-error`, `-confirmation`, `-warning`, `-neutral`. A count badge on an icon button also needs the count in its `aria-label` ("Notifications, 3 new").
+Colours: `rp-badge-error`, `-confirmation`, `-warning`, `-neutral`. A count badge on an icon button also needs the count in its `aria-label` ("Notifications, 3 new").
 
 ## Avatar
 `Avatar` defaults to `shape="square"` and `size={32}` (Figma: Avatar Medium Acronym). Initials or a photo.
 ```html
 <span class="rp-avatar">MC</span>
-<span class="rp-avatar rp-avatar-round rp-avatar-size-64">AR</span>
+<span class="rp-avatar rp-avatar-round rp-avatar-size-64">GS</span>
 <span class="rp-avatar"><img src="photo.jpg" alt="" /></span>
 ```
 In tables, pair it with two lines: see `rp-table.md` (`rp-table-person`).

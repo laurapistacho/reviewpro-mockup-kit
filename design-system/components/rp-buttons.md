@@ -51,13 +51,16 @@ Always set aria-label: it is the only name a screen reader gets.
 
 One per page, fixed at the bottom right. icon = the .rp-icon; children = the menu it opens (data-rp-menu). Icon-only: set aria-label.
 
-**`rp-toggle-button-group`** = `ToggleButtonGroup` · `@reviewpro/ui-components/ToggleButtonGroup` · Figma: Toggle Button
+**`rp-toggle-button-group`** = `ToggleButtonGroup` · `@reviewpro/ui-components/ToggleButtonGroup` · Figma: Toggle Button_New (🆕 New Toggle Button style, 10053:837) · no class = `size="large" (48px)`
 
 | Class | Code |
 |---|---|
 | `rp-toggle-button` | ToggleButton (value, children, icon) |
+| `rp-toggle-button-group-field` | label + group (the label prop of ToggleButtonGroup) |
+| `rp-toggle-button-group-label` | ToggleButtonGroup label (caption, text primary) |
+| `rp-toggle-button-group-size-small` | ToggleButtonGroup size="small" (40px) |
 | `rp-toggle-button-selected` | ToggleButton selected |
-| `rp-toggle-button-size-small` | ToggleButton size="small" |
+| `rp-toggle-button-size-small` | ToggleButton size="small" (the group passes its size; use the group class) |
 <!-- MAP:END -->
 
 ## When to use
@@ -79,9 +82,19 @@ One per page, fixed at the bottom right. icon = the .rp-icon; children = the men
 <button type="button" class="rp-default-button rp-default-button-size-small rp-default-button-primary">Change photo</button>
 <button type="button" class="rp-ghost-button"><span class="rp-icon rp-icon-filter"></span><span>Filters</span></button>
 <button type="button" class="rp-icon-button" data-rp-menu="rowMenu" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button>
-<div class="rp-toggle-button-group" role="group" aria-label="Show">
-  <button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Volume</button>
-  <button type="button" class="rp-toggle-button" aria-pressed="false">Rating</button>
+<!-- ToggleButtonGroup: the new Figma style (Toggle Button_New) — the group is the outlined field, the options sit inside.
+     Toolbars, tiles and tables use size small (40px, like the small fields); large (48px) is the default of the component. -->
+<div class="rp-toggle-button-group rp-toggle-button-group-size-small" role="group" aria-label="Show">
+  <button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Concepts</button>
+  <button type="button" class="rp-toggle-button" aria-pressed="false">Topics</button>
+</div>
+<!-- with its label (the label prop) -->
+<div class="rp-toggle-button-group-field">
+  <span class="rp-toggle-button-group-label" id="methodLabel">Input method</span>
+  <div class="rp-toggle-button-group rp-toggle-button-group-size-small" role="group" aria-labelledby="methodLabel">
+    <button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Excel</button>
+    <button type="button" class="rp-toggle-button" aria-pressed="false">Manual input</button>
+  </div>
 </div>
 ```
 
@@ -100,6 +113,7 @@ One per page at most, for the page's transversal action. It opens its actions as
 ## Behavior (shared.js)
 - `data-rp-open="id"` opens a dialog or drawer, `data-rp-menu="id"` a menu, `data-rp-snackbar="Text"` shows a snackbar, `data-rp-validate="Text"` checks required fields first.
 - Toggle buttons in a group are exclusive (add `data-rp-multiple` to the group for several).
+- Toggle buttons are the new Figma style only ("🆕 New Toggle Button style", `10053:837`): never joined, outlined buttons side by side, and never a switch built from buttons, chips or tabs (rules.md 23). Size small in toolbars, tiles and tables; icon-only options get an `aria-label`.
 
 ## Rules
 - One `rp-main-button` per area. The action order is Cancel (default) then the main action on the right.

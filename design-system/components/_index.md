@@ -6,7 +6,7 @@ Read only the docs for the components you add or change. Each doc starts with it
 |-----|-----------|---------|
 | `rp-app-shell.md` | Top bar, side bar, section panel, content | Every admin page (the starters already have it) |
 | `rp-tile.md` | Tile, TileTitle, TileContent, TileTable, TileActions, TileExpand | Every widget, form section and table container |
-| `rp-table.md` | Table, Toolbar, bulk bar, TablePagination, volume bar | Lists, results, rankings |
+| `rp-table.md` | Table (types, densities, header slots, cell types, row levels), Toolbar, chips, bulk bar, TablePagination, volume bar | Lists, results, rankings, editable tables |
 | `rp-buttons.md` | MainButton, DefaultButton, GhostButton, IconButton, ToggleButton | Actions |
 | `rp-fields.md` | TextField, Select, Search, TextArea, DatePicker, Slider, Uploader | Forms, filters, files |
 | `rp-selection-controls.md` | Checkbox, Radio, Switch, FormControlLabel | Choices, on / off |

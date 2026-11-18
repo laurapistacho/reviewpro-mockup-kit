@@ -46,9 +46,9 @@
       { type: 'toggle', cls: 'rp-icon-button-primary', label: 'color: primary', name: 'Primary' },
       { type: 'toggle', cls: 'rp-icon-button-disabled', label: 'disabled' }] },
     { name: 'ToggleButton', root: 'rp-toggle-button', props: [
-      { type: 'toggle', cls: 'rp-toggle-button-selected', label: 'selected' },
-      { type: 'group', label: 'size', options: [['rp-toggle-button-size-small', 'small · 32'], [null, 'large · 40']] }] },
-    { name: 'ToggleButtonGroup', root: 'rp-toggle-button-group' },
+      { type: 'toggle', cls: 'rp-toggle-button-selected', label: 'selected' }] },
+    { name: 'ToggleButtonGroup', root: 'rp-toggle-button-group', props: [
+      { type: 'group', label: 'size', options: [[null, 'large · 48'], ['rp-toggle-button-group-size-small', 'small · 40']] }] },
     { name: 'FloatingButton', root: 'rp-floating-button' },
     { name: 'Chip', root: 'rp-chip', props: [
       { type: 'group', label: 'color', preview: 'pill', sample: 'rp-chip rp-chip-size-small', tag: 'span', options: [[null, 'primary'], ['rp-chip-brand', 'brand'], ['rp-chip-secondary', 'secondary'], ['rp-chip-confirmation', 'confirmation'], ['rp-chip-info', 'info'], ['rp-chip-warning', 'warning'], ['rp-chip-error', 'error'], ['rp-chip-deactivated', 'deactivated']] },
@@ -110,6 +110,8 @@
     { name: 'Table', root: 'rp-table', props: [
       { type: 'toggle', cls: 'rp-table-fixed', label: 'fixed' },
       { type: 'toggle', cls: 'rp-table-compact', label: 'Compact rows (kit)' },
+      { type: 'group', label: 'density (Tables doc)', options: [[null, 'library (56px)'], ['rp-table-density-comfortable', 'comfortable'], ['rp-table-density-regular', 'regular'], ['rp-table-density-compact', 'compact']] },
+      { type: 'toggle', cls: 'rp-table-resizable', label: 'Resizable columns (Tables doc)' },
       { type: 'toggle', cls: 'rp-table-sticky-header', label: 'Sticky header (kit)' }] },
     { name: 'TableSortableHead', root: 'rp-table-sort' },
     { name: 'Toolbar', root: 'rp-toolbar' }, { name: 'Toolbar bulk actions', root: 'rp-toolbar-bulk' },

@@ -65,13 +65,16 @@ Always set aria-label: it is the only name a screen reader gets.
 
 One per page, fixed at the bottom right. icon = the .rp-icon; children = the menu it opens (data-rp-menu). Icon-only: set aria-label.
 
-**`rp-toggle-button-group`** = `ToggleButtonGroup` · `@reviewpro/ui-components/ToggleButtonGroup` · Figma: Toggle Button
+**`rp-toggle-button-group`** = `ToggleButtonGroup` · `@reviewpro/ui-components/ToggleButtonGroup` · Figma: Toggle Button_New (🆕 New Toggle Button style, 10053:837) · no class = `size="large" (48px)`
 
 | Class | Code |
 |---|---|
 | `rp-toggle-button` | ToggleButton (value, children, icon) |
+| `rp-toggle-button-group-field` | label + group (the label prop of ToggleButtonGroup) |
+| `rp-toggle-button-group-label` | ToggleButtonGroup label (caption, text primary) |
+| `rp-toggle-button-group-size-small` | ToggleButtonGroup size="small" (40px) |
 | `rp-toggle-button-selected` | ToggleButton selected |
-| `rp-toggle-button-size-small` | ToggleButton size="small" |
+| `rp-toggle-button-size-small` | ToggleButton size="small" (the group passes its size; use the group class) |
 
 **`rp-link`** = `Link / InternalLink` · `@reviewpro/ui-components/Link` · Figma: Link
 
@@ -324,15 +327,22 @@ label = the text after the icon. On a dashboard it sits first in rp-content and 
 | Class | Code |
 |---|---|
 | `rp-volume-bar-value` | the positive share (width %) |
+| `rp-volume-bar-value-neutral` | neutral share (orange) after the positive one: a sentiment bar |
 | `rp-volume-bar-neutral` | Figma Volume-Bar Style=01 (share on a grey range) |
 
-**`rp-table`** = `Table` · `@reviewpro/ui-components/Table` · Figma: Cell · Row Content · Row-Background · Header Content
+**`rp-visually-hidden`** = `VisuallyHidden` · `@reviewpro/ui-components/VisuallyHidden` · Figma: —
+
+**`rp-table`** = `Table` · `@reviewpro/ui-components/Table` · Figma: Cell · Row Content · Row-Background · Header Content · Tables documentation (Table, Header cells, Content cells, Rows)
 
 | Class | Code |
 |---|---|
 | `rp-table-fixed` | fixed |
 | `rp-table-sticky-header` | sticky TableHead (kit) |
 | `rp-table-compact` | compact rows (kit) |
+| `rp-table-density-comfortable` | Comfortable density: 16px row padding, 16px content, 14px headers (Tables doc) |
+| `rp-table-density-regular` | Regular density: 12px row padding, 14px content, 12px headers (Tables doc) |
+| `rp-table-density-compact` | Compact density: 8px row padding, same type as Regular (Tables doc) |
+| `rp-table-resizable` | column resizing from the header right edge (Tables doc) |
 | `rp-table-numeric` | TableCell numeric / align="right" |
 | `rp-table-cell-checkbox` | TableCell with a Checkbox |
 | `rp-table-cell-actions` | TableCellActions |
@@ -347,9 +357,57 @@ label = the text after the icon. On a dashboard it sits first in rp-content and 
 | `rp-table-scroll` | horizontal scroll wrapper |
 | `rp-table-row-total` | bold total row |
 | `rp-table-row-disabled` | disabled row |
-| `rp-table-expandable-row` | expanded detail row (expandable) |
+| `rp-table-expandable-row` | expanded detail row (expandable): 16px of the surface under it, so open rows read as separate accordions |
+| `rp-table-head` | header label + one icon + the column actions slot (Tables doc) |
+| `rp-table-head-end` | right-aligned header without rp-table-numeric (change, goal) (Tables doc) |
+| `rp-table-head-action` | column actions slot: kebab, pin or filter icon button, shown on hover (Tables doc) |
+| `rp-table-head-group` | group header over two or more columns (Tables doc) |
+| `rp-table-head-filter` | field as header: inline filter of a Simple table (Tables doc) |
+| `rp-table-head-filter-trigger` | inline filter trigger (label, applied value, chevron) (Tables doc) |
+| `rp-table-head-filter-label` | inline filter label (the column name) (Tables doc) |
+| `rp-table-head-filter-value` | inline filter applied value with the funnel icon (Tables doc) |
+| `rp-table-head-search-field` | inline header searcher (rp-search shown in the header): the label on the first line, the query on the second, no outline, the X clears and closes (Tables doc) |
+| `rp-table-resize-handle` | resize handle on the header right edge (added by shared.js) (Tables doc) |
+| `rp-table-cell-pinned` | pinned column (sticky left, tile fill, right divider) (Tables doc) |
+| `rp-table-cell-control` | leading control cell: switch, radio, drag handle (Tables doc) |
+| `rp-table-drag` | drag handle icon button (reorder rows) (Tables doc) |
+| `rp-table-row-clickable` | interactive row: hover, pressed and focus states, Enter activates. Only for expand rows: a row that opens a page or a drawer opens through its name (rp-link) (Tables doc) |
+| `rp-table-row-highlighted` | TableRow variant="highlighted" (aggregate or active establishment, by weight) |
+| `rp-table-expand` | expand / collapse trigger of a parent row (chevron + title) (Tables doc) |
+| `rp-table-row-secondary` | second row level (Back. Secondary, child of an expandable row) (Tables doc) |
+| `rp-table-row-tertiary` | third row level (Back. Tertiary, cannot expand) (Tables doc) |
+| `rp-table-indent` | indent of a second level label (24px) (Tables doc) |
+| `rp-table-indent-2` | indent of a third level label (48px) (Tables doc) |
+| `rp-table-delta-positive` | Change cell, positive (green, with + and the trend icon) (Tables doc) |
+| `rp-table-delta-negative` | Change cell, negative (red, with - and the trend icon) (Tables doc) |
+| `rp-table-positive` | semantic positive value (Text-Success) (Tables doc) |
+| `rp-table-negative` | semantic negative value (Text-Error) (Tables doc) |
+| `rp-table-icons` | icon group cell (1-10 icons, 8px gap; arrows for a chain) (Tables doc) |
+| `rp-table-name` | name link + status icon (warning) in the primary column (Tables doc) |
+| `rp-table-truncate` | truncated text with ellipsis (pair with data-rp-tooltip) (Tables doc) |
+| `rp-table-cell-input` | cell with an inline field (editable tables) (Tables doc) |
+| `rp-table-icons-separator` | arrow between the icons of a chain (rp-icon-arrow-right, 16px, grey) (Tables doc) |
+| `rp-table-head-search` | header with an inline searcher: the label and the magnifier in the actions slot; a click anywhere in the cell opens it and it searches only its column; the column doesn't sort (Tables doc) |
+| `rp-table-head-search-value` | closed searcher with a query: magnifier + query on the second header line (added by shared.js) (Tables doc) |
+| `rp-table-row-pagination` | pagination row under the children of an expanded group (more than 5 children) (Tables doc) |
+| `rp-table-assignee` | assignee cell: avatar button that opens the people menu + name and department (Tables doc) |
+| `rp-table-clamp` | text cut at two lines (pair with data-rp-tooltip) (Tables doc) |
+| `rp-table-mention` | highlighted mention inside a review sentence (concept in <strong>) (Tables doc) |
+| `rp-table-mention-positive` | positive mention (green tint) (Tables doc) |
+| `rp-table-mention-negative` | negative mention (red tint) (Tables doc) |
 | `rp-table-row-selected` | selected row (TableRow selected) |
 | `rp-table-sorted` | sorted column (sort="asc" | "desc") |
+| `rp-table-sort-active` | the header line that drives the sort (per-line sort of a two-line header) |
+| `rp-table-head-filter-applied` | inline header filter with a value (Tables doc) |
+| `rp-table-head-search-open` | inline header searcher open (Tables doc) |
+| `rp-table-head-search-applied` | inline header searcher with a query (Tables doc) |
+| `rp-table-cell-pinned-last` | last pinned column (draws the right divider) (Tables doc) |
+| `rp-table-resizing` | a column is being resized |
+| `rp-table-row-dragging` | row being dragged (faded in its place) |
+| `rp-table-row-drop-before` | drop line above the row |
+| `rp-table-row-drop-after` | drop line below the row |
+| `rp-table-assignee-empty` | unassigned: dashed avatar (Tables doc) |
+| `rp-table-head-filtered` | a toolbar filter applies to this column (Tables doc) |
 
 **`rp-toolbar`** = `Toolbar` · `@reviewpro/ui-components/Toolbar` · Figma: Toolbar · Bar + Bulk-Actions
 
@@ -357,9 +415,13 @@ label = the text after the icon. On a dashboard it sits first in rp-content and 
 |---|---|
 | `rp-toolbar-left` | left group (filters, search) |
 | `rp-toolbar-right` | right group (actions) |
-| `rp-toolbar-bulk` | Bulk-Actions bar (shown while rows are selected) |
+| `rp-toolbar-bulk` | Bulk-Actions bar, below the toolbar while rows are selected (never replaces it) |
 | `rp-toolbar-bulk-count` | selected count |
 | `rp-toolbar-bulk-divider` | Divider-Line |
+| `rp-toolbar-chips` | applied filters as dismissible chips + Clear all (filled by shared.js) (Tables doc) |
+| `rp-toolbar-search` | collapsible searcher: icon button that opens the search field (Tables doc) |
+| `rp-toolbar-search-toggle` | the searcher icon button (Tables doc) |
+| `rp-toolbar-search-open` | searcher open |
 
 **`rp-table-pagination`** = `TablePagination` · `@reviewpro/ui-components/TablePagination` · Figma: Footer · Paginator · no class = `variant="default"`
 

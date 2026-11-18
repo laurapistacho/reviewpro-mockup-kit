@@ -52,7 +52,7 @@ Inside a tile, above its title: wrap it in `<div class="rp-tile-alert">` (TileAl
 - Use a snackbar, not an alert, to confirm an action the user just did.
 
 ## Disclaimer
-`Disclaimer` (`@reviewpro/ui-components/Disclaimer`): a white bar with a light shadow, a blue AI icon and a caption. It is not an alert: no colour, no actions. The Reviews dashboard shows the compact one first in the content area, edge to edge, under the top bar (the Actionable Insights notice).
+`Disclaimer` (`@reviewpro/ui-components/Disclaimer`): a white bar with a light shadow, a blue AI icon and a caption. It is not an alert: no colour, no actions. The product shows the compact one right under the top bar, edge to edge, with no space above it or at its sides (the Reviews dashboard's Actionable Insights notice, the Semantic Analysis notice on Mentions). Put it first in `rp-content`, before `rp-content-wrapper`; never inside the wrapper, the page header or a tile (rules.md 24). The page header follows 16px below.
 ```html
 <main class="rp-content">
   <div class="rp-disclaimer rp-disclaimer-compact" role="note"><span class="rp-icon rp-icon-ai"></span>Actionable Insight priorities are determined by an AI model and may not reflect all factors. Please validate the data before taking action.</div>

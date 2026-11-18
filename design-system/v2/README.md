@@ -34,7 +34,7 @@ Hard rules. Every V2 page and every change to `theme-v2.css` follows them. The n
 | # | Rule | Source |
 |---|---|---|
 | V2-1 | **Two versions, never mixed.** The current page stays exactly like the library; V2 lives in the `-v2` copy, `theme-v2.css` and `motion-v2.js`. Nothing of V2 goes into `shared.css`, `shared.js` or a current page (only the switch link). | Design system |
-| V2-2 | **Same content, same behaviour, same hierarchy.** Same data, same interactions, same components, one primary action per area. V2 restyles; it changes a layout only to meet a rule below (accessibility, small screens) and says so. | Review 17 Nov |
+| V2-2 | **Same data, same behaviour, same hierarchy.** Same interactions, same components, one primary action per area. V2 restyles; it changes a layout only to meet a rule below (accessibility, small screens) and says so. The copy follows the Writing rules in `foundation/rules.md`: V2 may reword labels and messages, never the data. | Review 17 Nov; copy 18 Nov |
 | V2-3 | **No improvised treatments.** A component without a rule here keeps the library structure with V2 tokens. A new idea goes into the report as a proposal and becomes a rule only after the Design review. | Consistency |
 | V2-4 | **A concept, labelled as one.** The switch shows "Concept" on every V2 page; reports and handoffs call V2 a proposal, never "the new library". | Review 17 Nov |
 

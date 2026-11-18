@@ -1,6 +1,6 @@
 # Gap analysis: mockup kits, skills and the Figma UI App library
 
-Date: 17 Nov 2026. Scope: `ai-tools-design-test/mockup-kit`, `ai-tools-design-test/kiro-mockup-designer`, the skills and steering that route ReviewPro mockup requests, and the 30 component pages of the Figma UI App library (`ubE7R2jeqiwS8BZ4a5vwHw`).
+Date: 17 Nov 2026. Scope: `ai-tools-design-laura/mockup-kit`, `ai-tools-design-laura/kiro-mockup-designer`, the skills and steering that route ReviewPro mockup requests, and the 30 component pages of the Figma UI App library (`ubE7R2jeqiwS8BZ4a5vwHw`).
 
 ## 1. The two kits, and what was combined
 

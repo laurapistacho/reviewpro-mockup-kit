@@ -125,6 +125,8 @@ html[data-rp-version="v2"] .rp-tile-title-label { font-size: 18px; line-height: 
 html[data-rp-version="v2"] .rp-tile-content { margin: 16px 0 24px; padding: 0 24px; }
 html[data-rp-version="v2"] .rp-tile-actions { margin: 16px 24px 24px; }
 html[data-rp-version="v2"] .rp-tile-table:last-child { border-radius: 0 0 16px 16px; }
+html[data-rp-version="v2"] .rp-tile > .rp-tile-table:first-child { border-radius: 16px 16px 0 0; }
+html[data-rp-version="v2"] .rp-tile > .rp-tile-table:only-child { border-radius: 16px; }
 html[data-rp-version="v2"] .kit-stack { gap: 24px; }
 /* Buttons: 10px corners (--radius-s), never pills; flat with a soft lift and a focus ring. The hierarchy never changes:
    one primary action per area, the page's main action stays a primary ghost button */
@@ -162,7 +164,8 @@ html[data-rp-version="v2"] .rp-alert:not(.rp-alert-info, .rp-alert-confirmation,
 /* AI disclaimer: a flat bar on paper with a hairline, no shadow */
 html[data-rp-version="v2"] .rp-disclaimer { box-shadow: none; border-bottom: 1px solid var(--divider); background: var(--background-paper); color: var(--text-secondary); }
 html[data-rp-version="v2"] .rp-disclaimer > .rp-icon:first-child { color: var(--text-active); }
-html[data-rp-version="v2"] .rp-content > .rp-disclaimer:first-child { margin: -24px -32px 24px; padding: 0 32px; }
+html[data-rp-version="v2"] .rp-content > .rp-disclaimer:first-child,
+html[data-rp-version="v2"] .rp-content > .rp-content-wrapper:not(.rp-content-wrapper-constrained):first-child > .rp-disclaimer:first-child { margin: -24px -32px 24px; padding: 0 32px; }
 /* Tabs: 3px rounded indicator */
 html[data-rp-version="v2"] .rp-tabs { border-bottom-color: var(--divider); }
 html[data-rp-version="v2"] .rp-tab-selected::after { height: 3px; border-radius: 3px 3px 0 0; }
@@ -346,7 +349,8 @@ html[data-rp-version="v2"][data-rp-theme="dark"] .rp-badge-confirmation .rp-badg
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-badge-neutral .rp-badge-content { background: #4A4E57; color: #FFFFFF; }
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-chip-topic-positive { background: rgba(63, 203, 142, .14); border-color: rgba(63, 203, 142, .32); color: #8FE6C2; }
 html[data-rp-version="v2"][data-rp-theme="dark"] .rp-chip-topic-negative { background: rgba(240, 120, 120, .14); border-color: rgba(240, 120, 120, .32); color: #F8BDBD; }
-html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-toggle-button-selected, .rp-toggle-button-selected .rp-icon) { color: var(--text-active); }
+html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-toggle-button-selected:not(:disabled), .rp-toggle-button-selected:not(:disabled) .rp-icon) { color: var(--text-active); }
+html[data-rp-version="v2"][data-rp-theme="dark"] .rp-table-expandable-row > td { background: var(--background-default); } /* recessed like in Light, so the 16px gap under an open row shows */
 html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-tile-expand, .rp-top-bar-account-back, :focus-within > .rp-field-label, .open > .rp-field-label) { color: var(--text-active); }
 /* Windows high contrast: keep field borders and the selected states visible */
 @media (forced-colors: active) {
@@ -360,7 +364,8 @@ html[data-rp-version="v2"][data-rp-theme="dark"] :is(.rp-tile-expand, .rp-top-ba
   html[data-rp-version="v2"] .rp-page-header-actions { display: flex; flex: 1 1 100%; flex-wrap: wrap; }
   html[data-rp-version="v2"] .rp-side-bar { display: flex; }
   html[data-rp-version="v2"] .rp-content { padding: 16px; }
-  html[data-rp-version="v2"] .rp-content > .rp-disclaimer:first-child { margin: -16px -16px 16px; padding: 8px 16px; }
+  html[data-rp-version="v2"] .rp-content > .rp-disclaimer:first-child,
+  html[data-rp-version="v2"] .rp-content > .rp-content-wrapper:not(.rp-content-wrapper-constrained):first-child > .rp-disclaimer:first-child { margin: -16px -16px 16px; padding: 8px 16px; }
   /* top bar: the establishment name shortens, the date range keeps its calendar button, the icon buttons sit closer */
   html[data-rp-version="v2"] .rp-top-bar { gap: 8px; padding-left: 8px; padding-right: 8px; }
   html[data-rp-version="v2"] .rp-top-bar-left { flex: 1; min-width: 0; gap: 4px; }

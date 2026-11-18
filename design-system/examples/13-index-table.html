@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communication Rules · Reviewpro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../foundation/shared.css" />
+  <link rel="stylesheet" href="../foundation/rp-icons.css" />
+</head>
+<body>
+  <header class="rp-top-bar rp-top-bar-corporate">
+    <div class="rp-top-bar-left">
+      <img class="rp-top-bar-logo" src="../brand/establishment-logo.png" alt="" />
+      <span class="rp-top-bar-establishment-text"><strong>Gregor Samsa</strong></span>
+    </div>
+    <div class="rp-top-bar-right">
+      <button type="button" class="rp-icon-button" data-rp-top-bar="notifications" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-badge rp-badge-error rp-badge-size-small"><span class="rp-icon rp-icon-alert"></span><span class="rp-badge-content">4</span></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="help" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="apps" aria-label="App Launcher" data-rp-tooltip="App Launcher" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-size-32 rp-icon-shiji-menu"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="account" aria-label="Account menu, Gregor Samsa" data-rp-user-name="Gregor Samsa" data-rp-user-email="gregor.samsa@coastalhotels.com"><span class="rp-avatar">GS</span></button>
+    </div>
+  </header>
+  <div class="rp-shell-body">
+    <nav class="rp-side-bar" aria-label="Main navigation">
+      <a class="rp-side-bar-item" href="#" data-rp-section="dashboard" aria-label="Dynamic Dashboard" data-rp-tooltip="Dynamic Dashboard" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-dashboard"></span></a>
+      <a class="rp-side-bar-item" href="#" data-rp-section="home" aria-label="My Page" data-rp-tooltip="My Page" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-home"></span></a>
+      <button type="button" class="rp-side-bar-item" data-rp-section="reviews" aria-label="Reviews" data-rp-tooltip="Reviews" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-reviews"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="surveys" aria-label="Surveys" data-rp-tooltip="Surveys" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-survey"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="semantic" aria-label="Semantic" data-rp-tooltip="Semantic" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-semantic"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
+      <a class="rp-side-bar-item" href="#" data-rp-section="analytics" aria-label="Analytics" data-rp-tooltip="Analytics" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-analytics"></span></a>
+      <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right" aria-controls="panel-settings" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-settings-outlined"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
+    </nav>
+    <aside class="rp-side-bar-panel" id="panel-settings" aria-label="Settings pages">
+      <div class="rp-side-bar-panel-header">Settings</div>
+      <ul class="rp-side-bar-panel-list">
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html"><span>All Settings</span></a></li>
+        <li class="rp-side-bar-panel-divider" role="separator"></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#yourProfile"><span>Your Profile</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#accountAdministration"><span>Account Administration</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#organisation"><span>Organisation</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#surveys"><span>Surveys</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#caseManagement"><span>Case Management</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#liveFAQ"><span>Live FAQ</span></a></li>
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="02-settings-hub.html#messaging" aria-current="page"><span>Messaging</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#guests"><span>Guests</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#integrations"><span>Integrations</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#legalAndPrivacy"><span>Legal &amp; Privacy</span></a></li>
+      </ul>
+      <img class="rp-side-bar-panel-logo" src="../brand/reviewpro-reputation-logo.svg" alt="Reviewpro Reputation" />
+    </aside>
+    <main class="rp-content">
+      <div class="rp-content-wrapper">
+        <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><a class="rp-breadcrumb-link" href="#">Settings</a><span class="rp-breadcrumb-separator">/</span><a class="rp-breadcrumb-link" href="#">Messaging</a><span class="rp-breadcrumb-separator">/</span><span class="rp-breadcrumb-text" aria-current="page">Communication Rules</span></nav>
+        <h1 class="rp-page-title">Communication Rules</h1>
+        <div class="kit-stack">
+          <section class="rp-tile">
+            <div class="rp-tile-title">
+              <div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Communication Rules</h2><p class="rp-tile-title-secondary">Rules that send messages to your guests before, during and after the stay</p></div>
+              <div class="rp-tile-title-actions"><button type="button" class="rp-icon-button" aria-label="Download" data-rp-tooltip="Download" data-rp-snackbar="Rules downloaded"><span class="rp-icon rp-icon-download"></span></button><button type="button" class="rp-main-button rp-main-button-size-small" data-rp-snackbar="Opens the rule editor" data-rp-snackbar-variant="info"><span class="rp-icon rp-icon-add"></span><span>Add rule</span></button></div>
+            </div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-density-regular rp-table-resizable" id="rulesTable">
+                <thead>
+                  <tr>
+                    <th class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Activate all rules"></button></th>
+                    <th class="rp-table-head-search">
+                      <div class="rp-table-head">Rule name<button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-head-search aria-label="Search by rule name"><span class="rp-icon rp-icon-search"></span></button></div>
+                      <div class="rp-search rp-search-size-small rp-table-head-search-field" data-rp-filter="rulesTable" data-rp-chip-label="Rule name">
+                        <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Rule name" aria-label="Search by rule name" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search" hidden><span class="rp-icon rp-icon-close"></span></button></div>
+                      </div>
+                    </th>
+                    <th class="rp-table-head-search">
+                      <div class="rp-table-head">Establishment<button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-head-search aria-label="Search by establishment"><span class="rp-icon rp-icon-search"></span></button></div>
+                      <div class="rp-search rp-search-size-small rp-table-head-search-field" data-rp-filter="rulesTable" data-rp-chip-label="Establishment">
+                        <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Establishment" aria-label="Search by establishment" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search" hidden><span class="rp-icon rp-icon-close"></span></button></div>
+                      </div>
+                    </th>
+                    <th>Stay list</th>
+                    <th>Delivery logic</th>
+                    <th>Integrations</th>
+                    <th class="rp-table-cell-actions"><span class="rp-visually-hidden">Actions</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Post-stay thank you, Grand Marina Resort &amp; Spa active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Post-stay thank you" data-rp-snackbar-variant="info">Post-stay thank you</a></span></td><td>Grand Marina Resort &amp; Spa</td><td>Regular guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-image" role="img" aria-label="Image gallery" data-rp-tooltip="Image gallery"></span><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Post-stay thank you, Grand Marina Resort &amp; Spa"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Post-stay VIP follow-up, Grand Marina Resort &amp; Spa active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Post-stay VIP follow-up" data-rp-snackbar-variant="info">Post-stay VIP follow-up</a></span></td><td>Grand Marina Resort &amp; Spa</td><td>VIP guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp" data-rp-tooltip="WhatsApp"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-sms" role="img" aria-label="SMS" data-rp-tooltip="SMS"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Post-stay VIP follow-up, Grand Marina Resort &amp; Spa"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Pre check-out survey, Grand Marina Resort &amp; Spa active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Pre check-out survey" data-rp-snackbar-variant="info">Pre check-out survey</a><span class="rp-icon rp-icon-warning" role="img" aria-label="Warning: The survey of this rule was archived" data-rp-tooltip="The survey of this rule was archived"></span></span></td><td>Grand Marina Resort &amp; Spa</td><td>Regular guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-sms" role="img" aria-label="SMS" data-rp-tooltip="SMS"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Pre check-out survey, Grand Marina Resort &amp; Spa"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Post-stay thank you, Azure Bay Hotel active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Post-stay thank you" data-rp-snackbar-variant="info">Post-stay thank you</a><span class="rp-icon rp-icon-warning" role="img" aria-label="Warning: Email sender not verified" data-rp-tooltip="Email sender not verified"></span></span></td><td>Azure Bay Hotel</td><td>Regular guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp" data-rp-tooltip="WhatsApp"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-image" role="img" aria-label="Image gallery" data-rp-tooltip="Image gallery"></span><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Post-stay thank you, Azure Bay Hotel"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Post-stay VIP follow-up, Azure Bay Hotel active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Post-stay VIP follow-up" data-rp-snackbar-variant="info">Post-stay VIP follow-up</a></span></td><td>Azure Bay Hotel</td><td>VIP guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp" data-rp-tooltip="WhatsApp"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-viber-color" role="img" aria-label="Viber" data-rp-tooltip="Viber"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-sms" role="img" aria-label="SMS" data-rp-tooltip="SMS"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Post-stay VIP follow-up, Azure Bay Hotel"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Pre check-out survey, Azure Bay Hotel active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Pre check-out survey" data-rp-snackbar-variant="info">Pre check-out survey</a><span class="rp-icon rp-icon-warning" role="img" aria-label="Warning: The survey of this rule was archived" data-rp-tooltip="The survey of this rule was archived"></span></span></td><td>Azure Bay Hotel</td><td>Regular guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-sms" role="img" aria-label="SMS" data-rp-tooltip="SMS"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Pre check-out survey, Azure Bay Hotel"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Welcome message, Seaside Palace active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Welcome message" data-rp-snackbar-variant="info">Welcome message</a></span></td><td>Seaside Palace</td><td>All guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp" data-rp-tooltip="WhatsApp"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-image" role="img" aria-label="Image gallery" data-rp-tooltip="Image gallery"></span><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Welcome message, Seaside Palace"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Post-stay VIP follow-up, Harbor View Suites active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Post-stay VIP follow-up" data-rp-snackbar-variant="info">Post-stay VIP follow-up</a></span></td><td>Harbor View Suites</td><td>VIP guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-viber-color" role="img" aria-label="Viber" data-rp-tooltip="Viber"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp" data-rp-tooltip="WhatsApp"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-sms" role="img" aria-label="SMS" data-rp-tooltip="SMS"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Post-stay VIP follow-up, Harbor View Suites"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Pre arrival upsell, Cliff Edge Resort active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Pre arrival upsell" data-rp-snackbar-variant="info">Pre arrival upsell</a></span></td><td>Cliff Edge Resort</td><td>Regular guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Pre arrival upsell, Cliff Edge Resort"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Post-stay thank you, Cliff Edge Resort active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Post-stay thank you" data-rp-snackbar-variant="info">Post-stay thank you</a></span></td><td>Cliff Edge Resort</td><td>Regular guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp" data-rp-tooltip="WhatsApp"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-chat" role="img" aria-label="Web chat" data-rp-tooltip="Web chat"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-email" role="img" aria-label="Email" data-rp-tooltip="Email"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-image" role="img" aria-label="Image gallery" data-rp-tooltip="Image gallery"></span><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Post-stay thank you, Cliff Edge Resort"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Welcome message, Harbor View Suites active"></button></td><td><span class="rp-table-name"><a class="rp-link" href="#" data-rp-snackbar="Opens the rule Welcome message" data-rp-snackbar-variant="info">Welcome message</a></span></td><td>Harbor View Suites</td><td>All guests</td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-chat" role="img" aria-label="Web chat" data-rp-tooltip="Web chat"></span></span></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-list" role="img" aria-label="Stay list" data-rp-tooltip="Stay list"></span></span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="ruleMenu" aria-label="More actions for Welcome message, Harbor View Suites"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-placeholder" data-rp-empty-for="rulesTable">
+              <span class="rp-icon rp-icon-size-80 rp-icon-not-found"></span>
+              <div class="rp-placeholder-content"><span class="rp-placeholder-title">No rules found</span><span>Try another rule or establishment name</span></div>
+              <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-clear-filters="rulesTable">Clear search</button>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="rulesTable" data-rp-total="11">
+              <span class="rp-table-pagination-summary" data-rp-count-for="rulesTable" data-rp-label="{n} / {total} results found" data-rp-label-selected=" - {selected} items selected"> /  results found</span>
+              <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+                <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">10</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">10</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">50</button>
+                  </div>
+                </div>
+              </div>
+              <span class="rp-table-pagination-range">1-10 of 11</span>
+              <div class="rp-table-pagination-actions">
+                  <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="rp-menu" id="ruleMenu" role="menu" aria-label="Rule actions">
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Opens the rule editor" data-rp-snackbar-variant="info"><span class="rp-icon rp-icon-edit"></span> Edit rule</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Rule duplicated"><span class="rp-icon rp-icon-copy"></span> Duplicate</button>
+    <div class="rp-menu-divider"></div>
+    <button type="button" class="rp-menu-item rp-menu-item-danger" role="menuitem" data-rp-snackbar="Rule deleted"><span class="rp-icon rp-icon-delete"></span> Delete rule</button>
+  </div>
+  <script src="../foundation/shared.js"></script>
+  <script>
+    /* A row switch turns its rule on or off (the header switch turns all of them, shared.js) */
+    document.getElementById('rulesTable').addEventListener('change', function (e) {
+      if (!e.target.matches('tbody .rp-switch')) return;
+      clearTimeout(this._t);
+      var on = e.target.classList.contains('rp-switch-checked');
+      this._t = setTimeout(function () { rpSnackbar(on ? 'Rules activated' : 'Rules deactivated'); }, 0);
+    });
+  </script>
+</body>
+</html>

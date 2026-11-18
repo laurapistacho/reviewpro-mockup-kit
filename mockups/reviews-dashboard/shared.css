@@ -207,27 +207,40 @@ img { display: block; max-width: 100%; }
 .rp-floating-button .rp-icon { width: 32px; height: 32px; color: inherit; }
 .rp-floating-button:disabled { background: var(--neutral-20); color: var(--neutral-40); cursor: default; }
 
-/* ═══ TOGGLE BUTTON (ToggleButtonGroup / ToggleButton) ═══ */
-.rp-toggle-button-group { display: inline-flex; flex: none; }
+/* ═══ TOGGLE BUTTON (ToggleButtonGroup / ToggleButton) — Figma UI App "🆕 New Toggle Button style" (Toggle Button_New, 10053:837) ═══
+   The group is the outlined field (1px Neutral main, 8px corners) and the options sit inside it; each option draws its
+   background box (Toggle-Btn-Option-Bg_New) 4px from the top and bottom and 2px from the sides.
+   No class = size="large" (48px, 16px text, 32px icons), rp-toggle-button-group-size-small = 40px (14px text, 24px icons). */
+.rp-toggle-button-group-field { display: inline-flex; flex-direction: column; gap: 4px; flex: none; vertical-align: top; }
+.rp-toggle-button-group-label { color: var(--text-primary); font-size: 12px; line-height: 18px; letter-spacing: 0.004em; }
+.rp-toggle-button-group { display: inline-flex; flex: none; align-items: stretch; vertical-align: top; height: 48px; padding: 0 2px; border-radius: var(--radius-s); background: var(--background-paper); box-shadow: inset 0 0 0 1px var(--neutral-main); } /* the outline is drawn inside, like the Figma stroke */
+.rp-toggle-button-group-size-small { height: 40px; }
 .rp-toggle-button {
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex: none;
-  height: 40px; padding: 0 13px; border: 1px solid var(--neutral-main); border-radius: var(--radius-s);
-  background: var(--background-paper); color: var(--text-primary); font-size: 14px; line-height: 22px; font-weight: 600; cursor: pointer; white-space: nowrap;
+  margin: 0; padding: 4px 18px; border: 0; border-radius: 6px; background: none; color: var(--text-secondary); isolation: isolate;
+  font: inherit; font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 0.0025em; cursor: pointer; white-space: nowrap;
 }
-.rp-toggle-button .rp-icon { color: var(--neutral-60); }
-.rp-toggle-button:hover { border-color: var(--neutral-90); }
-.rp-toggle-button-group .rp-toggle-button { border-radius: 0; }
-.rp-toggle-button-group .rp-toggle-button + .rp-toggle-button { margin-left: -1px; }
-.rp-toggle-button-group .rp-toggle-button:first-child { border-radius: var(--radius-s) 0 0 var(--radius-s); }
-.rp-toggle-button-group .rp-toggle-button:last-child { border-radius: 0 var(--radius-s) var(--radius-s) 0; }
-.rp-toggle-button-selected { z-index: 1; background: var(--blue-20); border-color: var(--blue-60); color: var(--blue-80); }
-.rp-toggle-button-selected .rp-icon { color: var(--blue-80); }
-.rp-toggle-button-selected:hover { background: var(--blue-30); border-color: var(--blue-80); }
-.rp-toggle-button-size-small { height: 32px; padding: 0 9px; }
-.rp-toggle-button:has(> .rp-icon:only-child) { width: 40px; padding: 0; }
-.rp-toggle-button-size-small:has(> .rp-icon:only-child) { width: 32px; }
-.rp-toggle-button:disabled { background: var(--neutral-20); color: var(--neutral-40); border-color: var(--neutral-30); cursor: default; }
-
+.rp-toggle-button-group-size-small .rp-toggle-button, .rp-toggle-button-size-small { font-size: 14px; line-height: 22px; }
+.rp-toggle-button::before { content: ""; position: absolute; inset: 4px 2px; z-index: -1; border: 2px solid transparent; border-radius: 6px; pointer-events: none; }
+.rp-toggle-button .rp-icon { width: 32px; height: 32px; color: inherit; }
+.rp-toggle-button-group-size-small .rp-toggle-button .rp-icon, .rp-toggle-button-size-small .rp-icon { width: 24px; height: 24px; }
+.rp-toggle-button:has(> .rp-icon:only-child) { padding: 4px; }
+.rp-toggle-button-group:has(> .rp-toggle-button > .rp-icon:only-child) { padding: 0 4px; } /* icon-only options: 4px from the outline (Size=*, Content=Icon) */
+.rp-toggle-button:hover, .rp-toggle-button:active { color: var(--text-primary); }
+.rp-toggle-button:hover::before { border-color: var(--neutral-90); }
+.rp-toggle-button:active::before { border-color: var(--neutral-90); background: rgba(63, 123, 171, 0.1); }
+.rp-toggle-button-selected { color: var(--text-primary); }
+.rp-toggle-button-selected::before { border-color: var(--blue-80); background: var(--blue-20); }
+.rp-toggle-button-selected .rp-icon { color: var(--blue-60); }
+.rp-toggle-button-selected:hover::before { border-color: var(--neutral-90); background: linear-gradient(rgba(25, 28, 29, 0.1), rgba(25, 28, 29, 0.1)), var(--blue-20); }
+.rp-toggle-button-selected:active::before { border-color: var(--blue-80); background: linear-gradient(rgba(63, 123, 171, 0.1), rgba(63, 123, 171, 0.1)), var(--blue-30); }
+.rp-toggle-button:focus-visible { outline: 0; }
+.rp-toggle-button:focus-visible::after { content: ""; position: absolute; inset: 2px 0; border: 2px solid var(--brand-rpp70); border-radius: 6px; pointer-events: none; }
+.rp-toggle-button:disabled { color: var(--neutral-30); cursor: default; }
+.rp-toggle-button:disabled::before { border-color: transparent; background: none; }
+.rp-toggle-button-selected:disabled { color: var(--neutral-main); }
+.rp-toggle-button-selected:disabled::before { border: 1px solid var(--neutral-40); background: var(--neutral-20); }
+.rp-toggle-button-group:has(.rp-toggle-button:disabled):not(:has(.rp-toggle-button:not(:disabled))) { box-shadow: inset 0 0 0 1px var(--neutral-40); }
 /* ═══ CHECKBOX · RADIO · FORM CONTROL LABEL ═══ */
 .rp-checkbox, .rp-radio {
   -webkit-appearance: none; appearance: none; flex: none; width: 24px; height: 24px; margin: 0; padding: 0; border: 0;
@@ -489,6 +502,9 @@ img { display: block; max-width: 100%; }
 .rp-tile-content { margin: 16px 0; padding: 0 16px; }
 .rp-tile-table { margin: 16px 0 0; overflow-x: auto; }
 .rp-tile-table:last-child { border-radius: 0 0 var(--radius-xs) var(--radius-xs); }
+/* a tile with no title (the page title already names the table): the table starts at the top edge */
+.rp-tile > .rp-tile-table:first-child { margin-top: 0; border-radius: var(--radius-xs) var(--radius-xs) 0 0; }
+.rp-tile > .rp-tile-table:only-child { border-radius: var(--radius-xs); }
 .rp-tile-actions { display: flex; align-items: center; justify-content: flex-end; gap: 16px; margin: 16px; }
 .rp-tile-alert { margin: 16px 16px 0; }
 .rp-tile-tabs { border-radius: var(--radius-xs) var(--radius-xs) 0 0; }
@@ -562,12 +578,23 @@ img { display: block; max-width: 100%; }
 .rp-table-head-secondary { display: block; font-weight: 400; }
 .rp-table-sort { display: inline-flex; align-items: center; gap: 4px; margin: -4px -8px; padding: 4px 8px; border: 0; border-radius: var(--radius-xs); background: none; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer; }
 .rp-table-sort .rp-icon { width: 16px; height: 16px; color: inherit; }
+/* Zeroheight Tables · Header states: the sort arrow is hidden at rest and shows on hover / focus or while the column is sorted;
+   in right-aligned columns it sits before the label (the inner side) */
+.rp-table-sort:not(.rp-table-sort-active) > .rp-icon:last-child { opacity: 0; transition: opacity .1s; }
+.rp-table th:hover .rp-table-sort > .rp-icon:last-child, .rp-table-sort:focus-visible > .rp-icon:last-child { opacity: 1; }
+.rp-table-numeric > .rp-table-sort, .rp-table-numeric > .rp-table-head > .rp-table-sort { flex-direction: row-reverse; }
 .rp-table-sort:hover { background: rgba(25, 28, 29, 0.08); }
+/* header hover (Tables doc · Header cells · Hover): the whole cell shades and gets a 2px dark underline */
+.rp-table thead th:has(> .rp-table-sort:hover, > .rp-table-head > .rp-table-sort:hover) { background-color: rgba(25, 28, 29, 0.1); color: var(--text-primary); box-shadow: inset 0 -2px 0 var(--neutral-90); }
+.rp-table thead th:has(.rp-table-sort:hover) .rp-table-sort:hover { background: none; }
 .rp-table th.rp-table-sorted { color: var(--text-active); background: rgba(235, 242, 248, 0.3); box-shadow: inset 0 -2px 0 var(--blue-80); }
 .rp-table-fixed { table-layout: fixed; }
 .rp-table-sticky-header thead th { position: sticky; top: var(--rp-table-sticky-top, var(--top-bar-height)); z-index: var(--z-table); }
 .rp-table-compact th, .rp-table-compact td { height: 40px; padding-top: 8px; padding-bottom: 8px; }
 .rp-table-expandable-row > td { background: var(--neutral-05); }
+/* an open detail row is followed by 16px of the surface, so two open rows read as separate accordions (Accordion: open panels
+   get space around them). The border carries the gap because table rows take no margin. */
+.rp-table > tbody > tr.rp-table-expandable-row > td { border-bottom: 16px solid var(--rp-surface, var(--background-paper)); }
 /* cell contents (Row Content in Figma) */
 .rp-table-person { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .rp-table-person-text { display: flex; flex-direction: column; min-width: 0; }
@@ -576,6 +603,162 @@ img { display: block; max-width: 100%; }
 .rp-table-delta { color: var(--text-secondary); font-size: 12px; line-height: 18px; }
 .rp-table-number { font-size: 16px; line-height: 24px; letter-spacing: 0.005em; }
 .rp-table-scroll { overflow-x: auto; }
+/* VisuallyHidden: text for screen readers only (a header without a visible label, a status the chip shows by colour) */
+.rp-visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* ═══ TABLES DOCUMENTATION (Figma Tables: Table · Header cells · Content cells · Rows · Toolbar) ═══
+   Densities, header slots, cell types, row levels and pinning from the Design team's Tables documentation and the
+   Tables prototype (source/Table prototypes). Not in @reviewpro/ui-components yet: the classes are marked "(Tables doc)". */
+/* density: the row top / bottom padding sets the height, the type follows (Table · Styles · Sizing) */
+.rp-table-density-comfortable th, .rp-table-density-comfortable td,
+.rp-table-density-regular th, .rp-table-density-regular td,
+.rp-table-density-compact th, .rp-table-density-compact td { height: auto; }
+.rp-table-density-comfortable th, .rp-table-density-comfortable td { padding-top: 16px; padding-bottom: 16px; }
+.rp-table-density-comfortable td { font-size: 16px; line-height: 24px; }
+.rp-table-density-comfortable th { font-size: 14px; line-height: 22px; }
+.rp-table-density-regular th, .rp-table-density-regular td { padding-top: 12px; padding-bottom: 12px; }
+.rp-table-density-compact th, .rp-table-density-compact td { padding-top: 8px; padding-bottom: 8px; }
+.rp-table-density-regular .rp-table-person-primary, .rp-table-density-compact .rp-table-person-primary,
+.rp-table-density-regular .rp-table-number, .rp-table-density-compact .rp-table-number { font-size: 14px; line-height: 22px; }
+.rp-table .rp-table-numeric { font-variant-numeric: tabular-nums; }
+/* placement: a table in an edit tile has blue dividers and no white fill (Table · Placement) */
+.rp-tile.rp-tile-edit { --rp-surface: var(--background-edit); } /* field labels and pinned cells take the edit fill */
+.rp-tile-edit .rp-table { background: transparent; --rp-surface: var(--background-edit); }
+.rp-table-cell-input > .rp-text-field, .rp-table-cell-input > .rp-select { width: 100%; }
+.rp-tile-edit .rp-table th { background: var(--background-edit); }
+.rp-tile-edit .rp-table th, .rp-tile-edit .rp-table td, .rp-tile-edit .rp-toolbar { border-color: var(--blue-30); }
+.rp-tile-edit .rp-table tbody tr:hover > td { background: rgba(25, 28, 29, 0.05); }
+/* header slots: label + one icon + the column actions slot (Header cells · Structure) */
+.rp-table-head { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.rp-table-numeric > .rp-table-head, .rp-table-head-end > .rp-table-head { justify-content: flex-end; }
+.rp-table-head-action { flex: none; color: var(--text-secondary); opacity: 0; transition: opacity .1s; }
+.rp-table thead th:hover .rp-table-head-action, .rp-table-head-action:focus-visible, .rp-table-head-action[aria-expanded="true"],
+.rp-table-head-action[aria-pressed="true"], .rp-table-head-action.rp-badge-dot { opacity: 1; }
+.rp-table-head-action[aria-pressed="true"] { color: var(--text-active); }
+.rp-table-head-search .rp-table-head-action { opacity: 1; }
+.rp-table-head-secondary .rp-icon { width: 16px; height: 16px; margin-right: 4px; vertical-align: -3px; color: var(--text-secondary); }
+.rp-table-sort.rp-table-head-secondary { display: flex; margin-top: 0; font-weight: 400; }
+.rp-table-sort.rp-table-head-secondary .rp-icon:last-child { margin-right: 0; }
+.rp-table th .rp-table-sort.rp-table-sort-active { color: var(--text-active); }
+/* grouped headers: a parent label over two or more columns (Header cells · Grouping) */
+.rp-table th.rp-table-head-group { height: 32px; padding-top: 4px; padding-bottom: 4px; background: var(--neutral-05); text-align: center; }
+/* field as header: the inline filter of Simple tables (Header cells · Inline header filters) */
+.rp-table th.rp-table-head-filter { padding-top: 4px; padding-bottom: 4px; }
+.rp-table-head-filter .rp-select { width: 100%; }
+.rp-table-head-filter-trigger { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 4px; width: 100%; min-height: 40px; margin: 0 -8px; padding: 0 8px; border: 0; border-radius: var(--radius-xs); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.rp-table-head-filter-trigger::after { content: ""; margin: 0; grid-column: 2; grid-row: 1; width: 24px; height: 24px; background: currentColor; -webkit-mask: var(--rp-glyph-down) center / contain no-repeat; mask: var(--rp-glyph-down) center / contain no-repeat; }
+.rp-table-head-filter-label { grid-column: 1; overflow: hidden; text-overflow: ellipsis; }
+.rp-table-head-filter-value { display: none; grid-column: 1; align-items: center; gap: 4px; min-width: 0; color: var(--text-active); font-size: 14px; line-height: 22px; font-weight: 700; }
+.rp-table-head-filter-value > .rp-icon { flex: none; width: 16px; height: 16px; color: var(--text-active); }
+.rp-table-head-filter-value > .rp-select-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rp-table-head-filter-applied .rp-table-head-filter-value { display: flex; }
+.rp-table-head-filter-applied .rp-table-head-filter-trigger::after { grid-row: 1 / span 2; }
+.rp-table-head-filter-applied .rp-table-head-filter-label { font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); }
+/* a toolbar filter that applies to a column marks its header (Toolbar · If a filter applies to a column, it's reflected in the header) */
+.rp-table th.rp-table-head-filtered { background: rgba(235, 242, 248, 0.3); box-shadow: inset 0 -2px 0 var(--blue-80); }
+.rp-table th.rp-table-head-filter-applied { color: var(--text-active); background: rgba(235, 242, 248, 0.3); box-shadow: inset 0 -2px 0 var(--blue-80); }
+.rp-table th.rp-table-head-filter:hover { background-color: rgba(25, 28, 29, 0.1); color: var(--text-primary); }
+/* inline search header (Header cells · Searcher; Tables prototype · SearchableHeader): the label carries a magnifier and the
+   whole cell opens the search. Open, the label shrinks to a first line and the query runs inline on the second, with no
+   outline (Zeroheight · Inline filtering: never an outlined field in a header); the X at the side clears and closes it. */
+.rp-table th.rp-table-head-search { min-width: 160px; }
+.rp-table thead th.rp-table-head-search:not(.rp-table-head-search-open) { cursor: pointer; }
+.rp-table thead th.rp-table-head-search:not(.rp-table-head-search-open, .rp-table-head-search-applied):hover { background-color: rgba(25, 28, 29, 0.1); color: var(--text-primary); box-shadow: inset 0 -2px 0 var(--neutral-90); }
+.rp-table-head-search-field { display: none; }
+/* the magnifier, and the X once a query is applied, sit in the actions slot at the edge of the cell, opposite the label */
+.rp-table-head-search > .rp-table-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; justify-items: start; align-items: center; gap: 0 4px; min-height: 36px; } /* the two-line height in every state, so the header never jumps */
+.rp-table-head-search > .rp-table-head > .rp-table-head-action { grid-column: 2; grid-row: 1; }
+.rp-table-head-search-applied > .rp-table-head > .rp-table-head-action { grid-row: 1 / span 2; }
+/* column actions and Sort by menus: the label first, the icon at the end (Zeroheight · Column Actions menu examples) */
+.rp-menu-item[data-rp-column-action], .rp-menu-item[data-rp-sort-by] { justify-content: space-between; }
+.rp-menu-item[data-rp-column-action] > .rp-icon, .rp-menu-item[data-rp-sort-by] > .rp-icon { order: 1; color: var(--text-secondary); }
+.rp-menu-item[data-rp-column-action].rp-menu-item-selected, .rp-menu-item[data-rp-sort-by].rp-menu-item-selected { color: var(--text-active); font-weight: 700; }
+.rp-table th.rp-table-head-search-open { padding-top: 10px; padding-bottom: 10px; background-color: rgba(25, 28, 29, 0.1); color: var(--text-primary); box-shadow: inset 0 -2px 0 var(--neutral-90); }
+.rp-table-density-compact th.rp-table-head-search-open { padding-top: 6px; padding-bottom: 6px; }
+.rp-table-density-comfortable th.rp-table-head-search-open { padding-top: 14px; padding-bottom: 14px; }
+.rp-table th.rp-table-head-search-open:focus-within { box-shadow: inset 0 -2px 0 var(--brand-rpp70); }
+.rp-table th.rp-table-head-search-open.rp-table-head-search-applied { background-color: rgba(235, 242, 248, 0.3); color: var(--text-active); }
+.rp-table-head-search-open > .rp-table-head { display: none; }
+.rp-table-head-search-open > .rp-table-head-search-field { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: center; gap: 0 4px; width: 100%; }
+.rp-table-head-search-field::before { content: attr(data-rp-chip-label); grid-column: 1 / 3; grid-row: 1; overflow: hidden; font-size: 12px; line-height: 18px; font-weight: 700; white-space: nowrap; text-overflow: ellipsis; }
+.rp-table-head-search-field > .rp-field-box { display: contents; }
+.rp-table-head-search-field .rp-field-box > .rp-icon { grid-column: 1; grid-row: 2; width: 16px; height: 16px; color: var(--text-secondary); }
+.rp-table-head-search-applied .rp-table-head-search-field .rp-field-box > .rp-icon { color: var(--text-active); }
+.rp-table-head-search-field .rp-field-input { grid-column: 2; grid-row: 2; height: 22px; color: var(--text-primary); font-size: 14px; line-height: 22px; font-weight: 400; letter-spacing: 0.0025em; }
+.rp-table-head-search-field .rp-search-clear { grid-column: 3; grid-row: 1 / span 2; margin: 0; }
+.rp-table-head-search-value { display: none; grid-column: 1; grid-row: 2; align-items: center; gap: 4px; min-width: 0; max-width: 100%; padding: 0; border: 0; background: none; color: var(--text-active); font: inherit; font-size: 12px; line-height: 18px; font-weight: 400; cursor: pointer; }
+.rp-table-head-search-value > span:last-child { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.rp-table-head-search-value > .rp-icon { flex: none; width: 16px; height: 16px; }
+.rp-table-head-search-applied:not(.rp-table-head-search-open) .rp-table-head-search-value { display: flex; }
+.rp-table-head-search-applied:not(.rp-table-head-search-open) > .rp-table-head { color: var(--text-active); }
+.rp-table th.rp-table-head-search-applied { background: rgba(235, 242, 248, 0.3); box-shadow: inset 0 -2px 0 var(--blue-80); }
+/* column resize handle (Header cells · Column resizing): hover the right edge, drag, double-click to auto-fit */
+.rp-table-resizable:not(.rp-table-sticky-header) thead th:not(.rp-table-cell-pinned) { position: relative; }
+.rp-table-resize-handle { position: absolute; top: 0; right: -1px; z-index: 1; width: 6px; height: 100%; cursor: col-resize; }
+.rp-table-resize-handle::after { content: ""; position: absolute; top: 0; right: 2px; width: 2px; height: 100%; background: transparent; }
+.rp-table-resize-handle:hover::after, .rp-table-resizing .rp-table-resize-handle::after { background: var(--brand-rpp50); }
+.rp-table-resizing { cursor: col-resize; user-select: none; }
+/* pinned column: sticks to the left on horizontal scroll, filled with the tile colour, right divider (Rows · Pinned) */
+.rp-table .rp-table-cell-pinned { position: sticky; left: 0; z-index: 1; background-color: var(--rp-surface, var(--background-paper)); }
+.rp-table thead .rp-table-cell-pinned { z-index: calc(var(--z-table) + 1); }
+.rp-table .rp-table-cell-pinned-last { box-shadow: inset -1px 0 0 var(--neutral-20); }
+.rp-tile-edit .rp-table .rp-table-cell-pinned-last { box-shadow: inset -1px 0 0 var(--blue-30); }
+.rp-table .rp-table-row-secondary > .rp-table-cell-pinned { background-color: var(--background-secondary); }
+.rp-table .rp-table-row-tertiary > .rp-table-cell-pinned { background-color: var(--neutral-10); }
+/* leading control column: switch, radio, drag handle (Rows · Structure) */
+.rp-table .rp-table-cell-control { width: 1%; padding-right: 8px; text-align: center; white-space: nowrap; }
+.rp-table-cell-control .rp-switch { vertical-align: middle; }
+.rp-table-drag { cursor: grab; }
+.rp-table .rp-table-row-dragging > td { opacity: .4; }
+.rp-table .rp-table-row-drop-before > td { box-shadow: inset 0 2px 0 var(--brand-rpp70); }
+.rp-table .rp-table-row-drop-after > td { box-shadow: inset 0 -2px 0 var(--brand-rpp70); }
+/* row states of interactive rows: hover, pressed, focus (Rows · States) */
+.rp-table tbody tr.rp-table-row-clickable { cursor: pointer; outline: 0; }
+.rp-table tbody tr.rp-table-row-clickable:hover > td { background-color: rgba(25, 28, 29, 0.1); box-shadow: inset 0 1px 0 var(--neutral-90), inset 0 -1px 0 var(--neutral-90); }
+.rp-table tbody tr.rp-table-row-clickable:active > td { background-color: rgba(63, 123, 171, 0.05); box-shadow: inset 0 1px 0 var(--brand-rpp70), inset 0 -1px 0 var(--brand-rpp70); }
+.rp-table tbody tr.rp-table-row-clickable:focus-visible { outline: 2px solid var(--brand-rpp70); outline-offset: -2px; }
+.rp-table tbody tr.rp-table-row-clickable:focus-visible > td { box-shadow: inset 0 2px 0 var(--brand-rpp70), inset 0 -2px 0 var(--brand-rpp70); }
+.rp-table tbody tr.rp-table-row-clickable:focus-visible > td:first-child { box-shadow: inset 2px 0 0 var(--brand-rpp70), inset 0 2px 0 var(--brand-rpp70), inset 0 -2px 0 var(--brand-rpp70); }
+.rp-table tbody tr.rp-table-row-clickable:focus-visible > td:last-child { box-shadow: inset -2px 0 0 var(--brand-rpp70), inset 0 2px 0 var(--brand-rpp70), inset 0 -2px 0 var(--brand-rpp70); }
+/* highlighted row: the aggregate or the selected establishment, by weight only (Rows · Hierarchy) */
+.rp-table .rp-table-row-highlighted > td { font-weight: 700; }
+/* expandable levels: parent → secondary → tertiary (Rows · Data relations, Table · Accordion tables) */
+.rp-table-expand { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; margin: -4px; padding: 4px; border: 0; border-radius: var(--radius-xs); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.rp-table-expand > .rp-icon { flex: none; width: 16px; height: 16px; transition: transform .15s; }
+.rp-table-expand[aria-expanded="true"] > .rp-icon { transform: rotate(90deg); }
+.rp-table-expand:hover { background: rgba(25, 28, 29, 0.08); }
+.rp-table .rp-table-row-secondary > td { background-color: var(--background-secondary); border-bottom-color: var(--neutral-20); }
+.rp-table .rp-table-row-tertiary > td { background-color: var(--neutral-10); border-bottom-color: var(--neutral-30); }
+.rp-table-indent { display: block; padding-left: 24px; }
+/* pagination inside an expanded group (more than 5 children): a row under the last child */
+.rp-table .rp-table-row-pagination > td { padding: 0; background-color: var(--background-paper); }
+.rp-table-row-pagination .rp-table-pagination { min-height: 48px; padding-top: 4px; padding-bottom: 4px; }
+/* assignee cell: an avatar button that opens the people menu + name and department (Content cells · User assignation) */
+.rp-table-assignee { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; margin: -4px; padding: 4px; border: 0; border-radius: var(--radius-xs); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.rp-table-assignee:hover { background: rgba(25, 28, 29, 0.08); }
+.rp-table-assignee:disabled { cursor: default; opacity: .5; }
+.rp-table-assignee-empty > .rp-avatar { border: 1px dashed var(--neutral-50); background: transparent; color: var(--text-secondary); }
+.rp-table-indent-2 { display: block; padding-left: 48px; }
+/* content cell types (Content cells · Content types) */
+.rp-table-delta:has(> .rp-icon) { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.rp-table-delta .rp-icon { width: 16px; height: 16px; }
+.rp-table-delta-positive { color: var(--text-success); }
+.rp-table-delta-negative { color: var(--text-error); }
+.rp-table .rp-table-positive { color: var(--text-success); }
+.rp-table .rp-table-negative { color: var(--text-error); }
+.rp-table-icons { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; vertical-align: middle; }
+.rp-table-icons-separator { width: 16px; height: 16px; margin: 0 -4px; color: var(--text-secondary); }
+.rp-table-name { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; }
+.rp-table-name > .rp-icon { flex: none; color: var(--text-error); }
+.rp-table-truncate { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rp-table-clamp { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; } /* two lines at most, the rest in a tooltip (Content cells · Two-line text) */
+/* mention cell: the sentence of the review with the mention highlighted by sentiment, the concept in bold (Semantic · Mentions) */
+.rp-table-mention { padding: 1px 2px; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.rp-table-mention-positive { background: var(--green-10); }
+.rp-table-mention-negative { background: var(--red-10); }
+.rp-table .rp-text-field, .rp-table .rp-select { min-width: 0; }
+.rp-table td.rp-table-cell-input { padding-top: 12px; padding-bottom: 12px; }
+/* editable tables: a divider between the edit columns (Zeroheight · Operations editable table) */
+.rp-tile-edit .rp-table .rp-table-cell-input, .rp-tile-edit .rp-table .rp-table-cell-input + .rp-table-cell-actions { border-left: 1px solid var(--blue-30); }
 
 /* ═══ TOOLBAR (Toolbar: bar + bulk actions — Figma Toolbar) ═══ */
 .rp-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 72px; padding: 16px; border-bottom: 1px solid var(--divider); }
@@ -583,7 +766,16 @@ img { display: block; max-width: 100%; }
 .rp-toolbar-right { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
 .rp-toolbar-bulk { display: none; align-items: center; gap: 16px; height: 56px; margin: 16px; padding: 0 16px; border: 1px solid var(--blue-40); border-radius: 6px; background: var(--blue-05); }
 .rp-toolbar-bulk.open { display: flex; }
-.rp-toolbar:has(+ .rp-toolbar-bulk.open) { display: none; }
+.rp-tile-edit .rp-toolbar-bulk { background: var(--background-paper); }
+/* applied filters as chips + Clear all (Toolbar · Applied refinement) */
+.rp-toolbar-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; width: 100%; }
+.rp-toolbar-chips:not(:has(.rp-chip)) { display: none; }
+.rp-toolbar-chips .rp-chip { max-width: 320px; }
+/* collapsible searcher: a magnifier that opens the search field (Toolbar · Search) */
+.rp-toolbar-search { display: inline-flex; align-items: center; }
+.rp-toolbar-search > .rp-search { display: none; width: 280px; }
+.rp-toolbar-search-open > .rp-search { display: block; }
+.rp-toolbar-search-open > .rp-toolbar-search-toggle { display: none; }
 .rp-toolbar-bulk-count { flex: 1; color: var(--text-secondary); font-weight: 700; }
 .rp-toolbar-bulk-divider { width: 1px; height: 16px; background: var(--blue-30); }
 
@@ -730,6 +922,7 @@ img { display: block; max-width: 100%; }
 /* ═══ VOLUME BAR (Figma Volume-Bar_new: positive share green, the rest red) ═══ */
 .rp-volume-bar { display: flex; flex: 1; min-width: 80px; height: 8px; background: var(--red-main); }
 .rp-volume-bar-value { height: 100%; background: var(--green-main); }
+.rp-volume-bar-value-neutral { height: 100%; background: var(--orange-50); }
 /* Figma Volume-Bar Style=01: the share on a grey range instead of the negative red */
 .rp-volume-bar-neutral { background: var(--neutral-20); }
 
@@ -981,7 +1174,8 @@ img { display: block; max-width: 100%; }
   box-shadow: var(--shadow-s); color: var(--text-primary); font-size: 12px; line-height: 18px; letter-spacing: 0.004em; }
 .rp-disclaimer > .rp-icon:first-child { flex: none; width: 18px; height: 18px; color: var(--blue-main); }
 .rp-disclaimer-compact { margin-bottom: 0; padding: 0 8px; }
-.rp-content > .rp-disclaimer:first-child { margin: -16px -16px 16px; }
+.rp-content > .rp-disclaimer:first-child,
+.rp-content > .rp-content-wrapper:not(.rp-content-wrapper-constrained):first-child > .rp-disclaimer:first-child { margin: -16px -16px 16px; }
 /* ═══ SLIDER (Figma Slider 196:1601: label 12/18 #636363, values 16/24, 4px track #E4E4E4 filled #3F7BAB, 16px handle,
        pressed halo rgba(63,123,171,.1), disabled #A4A4A4 / #BBBBBB). shared.js keeps --rp-slider-value in step ═══ */
 .rp-slider { display: flex; flex-direction: column; gap: 6px; width: 284px; max-width: 100%; }

@@ -3,6 +3,22 @@
 Map the request to a starter, then read its section in `../pattern-blueprints.md` and only the component docs you need.
 
 ```
+Any table: decide its type first (components/rp-table.md § 1): read and compare = analysis, analyse and act = hybrid,
+find and go = index, edit row by row = operations. Then Simple (no toolbar, ≤ 2 single filters in the headers) or Complex (toolbar).
+"compare" / "by country / market / source" / "KPIs per row" / "change vs previous period"
+  → 10 Analysis table: field-as-header filter, change columns, bars, highlighted total row on top (Regular)
+"group → establishments" / "expand" / "drill down in the table" / "by language and establishment"
+  → 11 Accordion table: parent rows expand into child rows, two-level header, pinned first column (Compact)
+"goals" / "analyse and act" / "KPIs and actions in one list"
+  → 12 Hybrid table: tile tabs, toolbar (selects, search field, clear all, Sort by), bulk bar, column actions, trash per row
+"manage users" / "take action on items" / "bulk actions" / "filter chips"
+  → 16 Operations list: toolbar (selects, collapsed searcher → chip, Sort by), bulk bar with overflow, links, status chips
+"rules" / "turn on and off" / "search in a column" / "delivery channels"
+  → 13 Index table: switch column with a select-all switch, searchers in the headers, icon chains, resizable columns
+"list where each row opens its settings" / "navigator list"
+  → 14 Index navigation: clickable rows (mouse and keyboard) open a drawer, field-as-header filter
+"enter figures" / "edit in the table" / "monthly data" / "STR"
+  → 15 Editable table: edit tile, inline fields, reset per row, Excel or manual input (Comfortable)
 "list" / "table" / "manage …" / "users" / "settings page with items"
   → 01 Settings list: tile + toolbar (search, filters) + selectable table + bulk bar + pagination
   → Items are created or edited in a drawer → keep the drawer of 01
@@ -48,6 +64,13 @@ Nothing fits → 00 Blank page + compose from tiles (below)
 | 07 | `examples/07-tracking-inbox.html` | Reviews › Tracking |
 | 08 | `examples/08-dialog-form.html` | Manage › Alerts |
 | 09 | `examples/09-wizard.html` | Surveys |
+| 10 | `examples/10-analysis-table.html` | Reviews › Results |
+| 11 | `examples/11-accordion-table.html` | Semantic › Results |
+| 12 | `examples/12-hybrid-table.html` | Manage › Goals |
+| 13 | `examples/13-index-table.html` | Settings › Messaging (account view) |
+| 14 | `examples/14-index-navigation.html` | Settings › Organisation (account view) |
+| 15 | `examples/15-editable-table.html` | Revenue Optimizer › STR Data |
+| 16 | `examples/16-operations-list.html` | Settings › Account Administration (account view) |
 
 ## Composition (no pattern fits)
 | Need | Use |
@@ -55,7 +78,7 @@ Nothing fits → 00 Blank page + compose from tiles (below)
 | A widget, a form section, a card | `rp-tile` (+ title, content or table, actions) |
 | Label / value pairs (read only) | `kit-label-value` in a `kit-grid` inside a tile |
 | A number that matters | `kit-kpi` in a tile |
-| A list of records | `rp-table` in `rp-tile-table` |
+| A list of records | `rp-table` in `rp-tile-table`, with a density class (`rp-table.md` § 1) |
 | A score per item | `rp-progress-bar` or `rp-volume-bar` |
 | Status | `rp-chip` (small in tables) |
 | Views of the same content | `rp-tabs` or `rp-toggle-button-group` |

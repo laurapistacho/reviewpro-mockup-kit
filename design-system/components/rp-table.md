@@ -6,15 +6,22 @@
 | Class | Code |
 |---|---|
 | `rp-volume-bar-value` | the positive share (width %) |
+| `rp-volume-bar-value-neutral` | neutral share (orange) after the positive one: a sentiment bar |
 | `rp-volume-bar-neutral` | Figma Volume-Bar Style=01 (share on a grey range) |
 
-**`rp-table`** = `Table` · `@reviewpro/ui-components/Table` · Figma: Cell · Row Content · Row-Background · Header Content
+**`rp-visually-hidden`** = `VisuallyHidden` · `@reviewpro/ui-components/VisuallyHidden` · Figma: —
+
+**`rp-table`** = `Table` · `@reviewpro/ui-components/Table` · Figma: Cell · Row Content · Row-Background · Header Content · Tables documentation (Table, Header cells, Content cells, Rows)
 
 | Class | Code |
 |---|---|
 | `rp-table-fixed` | fixed |
 | `rp-table-sticky-header` | sticky TableHead (kit) |
 | `rp-table-compact` | compact rows (kit) |
+| `rp-table-density-comfortable` | Comfortable density: 16px row padding, 16px content, 14px headers (Tables doc) |
+| `rp-table-density-regular` | Regular density: 12px row padding, 14px content, 12px headers (Tables doc) |
+| `rp-table-density-compact` | Compact density: 8px row padding, same type as Regular (Tables doc) |
+| `rp-table-resizable` | column resizing from the header right edge (Tables doc) |
 | `rp-table-numeric` | TableCell numeric / align="right" |
 | `rp-table-cell-checkbox` | TableCell with a Checkbox |
 | `rp-table-cell-actions` | TableCellActions |
@@ -29,9 +36,57 @@
 | `rp-table-scroll` | horizontal scroll wrapper |
 | `rp-table-row-total` | bold total row |
 | `rp-table-row-disabled` | disabled row |
-| `rp-table-expandable-row` | expanded detail row (expandable) |
+| `rp-table-expandable-row` | expanded detail row (expandable): 16px of the surface under it, so open rows read as separate accordions |
+| `rp-table-head` | header label + one icon + the column actions slot (Tables doc) |
+| `rp-table-head-end` | right-aligned header without rp-table-numeric (change, goal) (Tables doc) |
+| `rp-table-head-action` | column actions slot: kebab, pin or filter icon button, shown on hover (Tables doc) |
+| `rp-table-head-group` | group header over two or more columns (Tables doc) |
+| `rp-table-head-filter` | field as header: inline filter of a Simple table (Tables doc) |
+| `rp-table-head-filter-trigger` | inline filter trigger (label, applied value, chevron) (Tables doc) |
+| `rp-table-head-filter-label` | inline filter label (the column name) (Tables doc) |
+| `rp-table-head-filter-value` | inline filter applied value with the funnel icon (Tables doc) |
+| `rp-table-head-search-field` | inline header searcher (rp-search shown in the header): the label on the first line, the query on the second, no outline, the X clears and closes (Tables doc) |
+| `rp-table-resize-handle` | resize handle on the header right edge (added by shared.js) (Tables doc) |
+| `rp-table-cell-pinned` | pinned column (sticky left, tile fill, right divider) (Tables doc) |
+| `rp-table-cell-control` | leading control cell: switch, radio, drag handle (Tables doc) |
+| `rp-table-drag` | drag handle icon button (reorder rows) (Tables doc) |
+| `rp-table-row-clickable` | interactive row: hover, pressed and focus states, Enter activates. Only for expand rows: a row that opens a page or a drawer opens through its name (rp-link) (Tables doc) |
+| `rp-table-row-highlighted` | TableRow variant="highlighted" (aggregate or active establishment, by weight) |
+| `rp-table-expand` | expand / collapse trigger of a parent row (chevron + title) (Tables doc) |
+| `rp-table-row-secondary` | second row level (Back. Secondary, child of an expandable row) (Tables doc) |
+| `rp-table-row-tertiary` | third row level (Back. Tertiary, cannot expand) (Tables doc) |
+| `rp-table-indent` | indent of a second level label (24px) (Tables doc) |
+| `rp-table-indent-2` | indent of a third level label (48px) (Tables doc) |
+| `rp-table-delta-positive` | Change cell, positive (green, with + and the trend icon) (Tables doc) |
+| `rp-table-delta-negative` | Change cell, negative (red, with - and the trend icon) (Tables doc) |
+| `rp-table-positive` | semantic positive value (Text-Success) (Tables doc) |
+| `rp-table-negative` | semantic negative value (Text-Error) (Tables doc) |
+| `rp-table-icons` | icon group cell (1-10 icons, 8px gap; arrows for a chain) (Tables doc) |
+| `rp-table-name` | name link + status icon (warning) in the primary column (Tables doc) |
+| `rp-table-truncate` | truncated text with ellipsis (pair with data-rp-tooltip) (Tables doc) |
+| `rp-table-cell-input` | cell with an inline field (editable tables) (Tables doc) |
+| `rp-table-icons-separator` | arrow between the icons of a chain (rp-icon-arrow-right, 16px, grey) (Tables doc) |
+| `rp-table-head-search` | header with an inline searcher: the label and the magnifier in the actions slot; a click anywhere in the cell opens it and it searches only its column; the column doesn't sort (Tables doc) |
+| `rp-table-head-search-value` | closed searcher with a query: magnifier + query on the second header line (added by shared.js) (Tables doc) |
+| `rp-table-row-pagination` | pagination row under the children of an expanded group (more than 5 children) (Tables doc) |
+| `rp-table-assignee` | assignee cell: avatar button that opens the people menu + name and department (Tables doc) |
+| `rp-table-clamp` | text cut at two lines (pair with data-rp-tooltip) (Tables doc) |
+| `rp-table-mention` | highlighted mention inside a review sentence (concept in <strong>) (Tables doc) |
+| `rp-table-mention-positive` | positive mention (green tint) (Tables doc) |
+| `rp-table-mention-negative` | negative mention (red tint) (Tables doc) |
 | `rp-table-row-selected` | selected row (TableRow selected) |
 | `rp-table-sorted` | sorted column (sort="asc" | "desc") |
+| `rp-table-sort-active` | the header line that drives the sort (per-line sort of a two-line header) |
+| `rp-table-head-filter-applied` | inline header filter with a value (Tables doc) |
+| `rp-table-head-search-open` | inline header searcher open (Tables doc) |
+| `rp-table-head-search-applied` | inline header searcher with a query (Tables doc) |
+| `rp-table-cell-pinned-last` | last pinned column (draws the right divider) (Tables doc) |
+| `rp-table-resizing` | a column is being resized |
+| `rp-table-row-dragging` | row being dragged (faded in its place) |
+| `rp-table-row-drop-before` | drop line above the row |
+| `rp-table-row-drop-after` | drop line below the row |
+| `rp-table-assignee-empty` | unassigned: dashed avatar (Tables doc) |
+| `rp-table-head-filtered` | a toolbar filter applies to this column (Tables doc) |
 
 **`rp-toolbar`** = `Toolbar` · `@reviewpro/ui-components/Toolbar` · Figma: Toolbar · Bar + Bulk-Actions
 
@@ -39,9 +94,13 @@
 |---|---|
 | `rp-toolbar-left` | left group (filters, search) |
 | `rp-toolbar-right` | right group (actions) |
-| `rp-toolbar-bulk` | Bulk-Actions bar (shown while rows are selected) |
+| `rp-toolbar-bulk` | Bulk-Actions bar, below the toolbar while rows are selected (never replaces it) |
 | `rp-toolbar-bulk-count` | selected count |
 | `rp-toolbar-bulk-divider` | Divider-Line |
+| `rp-toolbar-chips` | applied filters as dismissible chips + Clear all (filled by shared.js) (Tables doc) |
+| `rp-toolbar-search` | collapsible searcher: icon button that opens the search field (Tables doc) |
+| `rp-toolbar-search-toggle` | the searcher icon button (Tables doc) |
+| `rp-toolbar-search-open` | searcher open |
 
 **`rp-table-pagination`** = `TablePagination` · `@reviewpro/ui-components/TablePagination` · Figma: Footer · Paginator · no class = `variant="default"`
 
@@ -53,27 +112,58 @@
 | `rp-table-pagination-actions` | first / previous / next / last (variant="fastForward") |
 <!-- MAP:END -->
 
-Figma Tables page (`5938:3571`): rows 56px (68px with a two-line person cell), headers 48px, horizontal lines only.
+Figma Tables page (`5938:3571`): rows 56px (68px with a two-line person cell), headers 48px, horizontal lines only. The Design team's **Tables documentation** (Table, Header cells, Content cells, Rows, Toolbar) adds densities, header slots, cell types, row levels and pinning. Those classes say "(Tables doc)" in the table above: they are not in `@reviewpro/ui-components` yet, so tell developers when a mockup uses them. Sources: the Figma **Zeroheight Tables** file (`Y14TS4rKBEiEXs7AIVOKzG`, page Assets - Design › Table Cases, the visual reference the starters were checked against), the Figma Make prototype (`source/Table prototypes/` in the design workspace, with `table-documentation.pdf`) and the Tables Playground (`TnTs6qJaW3UuzyahvtWIYM`, exploration only, not to copy). Design guidance in full: `design-docs/compositions/data-table.md` in the design workspace.
+
+## 1. Pick the table: type → construction → density
+
+| Type | Goal | Rows have | Construction | Density | Starter |
+|---|---|---|---|---|---|
+| Data analysis | Read and compare | Identifier + KPIs, change, bars; no row actions, no checkboxes | Simple (no toolbar) | Regular | `10-analysis-table.html` |
+| Analysis, expand to compare | Compare a group and its members | Parent rows that open child rows | Simple or Complex | Compact | `11-accordion-table.html` |
+| Analysis + operations (hybrid) | Analyse and act | Checkboxes, KPIs, trailing actions | Complex (toolbar) | Regular | `12-hybrid-table.html` |
+| Index | Find and go | Identifier + attributes, a switch, one or two trailing actions | Simple | Regular | `13-index-table.html`, `14-index-navigation.html` |
+| Operations | Take action on items | Checkboxes, name links, status, chips, trailing navigation | Complex | Regular | `16-operations-list.html`, `01-settings-list.html` |
+| Operations (editable) | Edit row by row | Inline fields and selects, reset per row | Complex | Comfortable | `15-editable-table.html` |
+
+**Simple** = no toolbar. All of these hold: single-select filters only, at most 2 filters, no sort on a filterable column, no column action beyond Pin or Hide. Searches and filters go in the header of their column (searcher in the header, field as header), never in a row of fields above the table that repeats the column names (rules.md 25).
+**Complex** = a toolbar. Any of these makes it Complex: more than 2 filters, bulk actions, sort on a filterable column, column management, a search over more than one attribute. Filters move to the toolbar; never mix toolbar filters and header filters.
+
+Density classes: `rp-table-density-comfortable` (16px row padding, content 16px, headers 14px), `rp-table-density-regular` (12px, 14px / 12px), `rp-table-density-compact` (8px, same type as Regular). No density class = the Figma library rows (56px). Placement: a table in `rp-tile-edit` gets blue dividers and no white fill by itself.
+
+## 2. Markup
 
 ```html
 <section class="rp-tile">
-  <div class="rp-toolbar">
-    <div class="rp-toolbar-left"><!-- rp-search + rp-select, all size small, data-rp-filter="usersTable" --></div>
-    <div class="rp-toolbar-right"><button type="button" class="rp-ghost-button">…</button></div>
+  <div class="rp-toolbar" role="toolbar" aria-label="Table controls">            <!-- Complex tables only -->
+    <div class="rp-toolbar-left">
+      <div class="rp-toolbar-search">                                             <!-- collapsible searcher, always first -->
+        <button type="button" class="rp-icon-button rp-toolbar-search-toggle" aria-label="Search by establishment"><span class="rp-icon rp-icon-search"></span></button>
+        <div class="rp-search rp-search-size-small" data-rp-filter="usersTable" data-rp-chip-label="Establishment">…</div>
+      </div>
+      <!-- rp-select rp-select-size-small with data-rp-filter="usersTable" -->
+    </div>
+    <div class="rp-toolbar-right">
+      <button type="button" class="rp-icon-button" data-rp-menu="usersColumns" aria-label="Show or hide columns"><span class="rp-icon rp-icon-eye"></span></button>
+      <button type="button" class="rp-icon-button rp-badge rp-badge-size-small" data-rp-open="filtersDrawer" aria-label="Filters"><span class="rp-icon rp-icon-filter"></span><span class="rp-badge-content" data-rp-filter-count-for="usersTable" hidden>0</span></button>
+    </div>
+    <div class="rp-toolbar-chips" data-rp-table="usersTable"><button type="button" class="rp-ghost-button" data-rp-clear-filters="usersTable">Clear all</button></div>
   </div>
-  <div class="rp-toolbar-bulk" data-rp-table="usersTable">                   <!-- replaces the toolbar while rows are selected -->
+  <div class="rp-toolbar-bulk" data-rp-table="usersTable" aria-live="polite">     <!-- below the toolbar while rows are selected -->
+    <button type="button" class="rp-icon-button rp-icon-button-size-small" data-rp-clear-selection aria-label="Clear selection"><span class="rp-icon rp-icon-close"></span></button><span class="rp-toolbar-bulk-divider"></span>
     <span class="rp-toolbar-bulk-count" data-rp-label="{n} selected">0 selected</span>
-    <button type="button" class="rp-ghost-button">Assign role</button><span class="rp-toolbar-bulk-divider"></span>
+    <button type="button" class="rp-ghost-button" data-rp-snackbar="Role assigned">Assign role</button><span class="rp-toolbar-bulk-divider"></span>
     <button type="button" class="rp-ghost-button rp-ghost-button-danger" data-rp-open="deleteDialog">Delete</button>
   </div>
-  <div class="rp-table-scroll">
-    <table class="rp-table" id="usersTable">
+  <div class="rp-tile-table">
+    <table class="rp-table rp-table-density-regular" id="usersTable">
       <thead><tr>
         <th class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select all users" /></th>
-        <th><button type="button" class="rp-table-sort">User name<span class="rp-icon rp-icon-sort-by"></span></button><span class="rp-table-head-secondary">Email</span></th>
-        <th class="rp-table-numeric">Establishments</th>
+        <th><div class="rp-table-head"><button type="button" class="rp-table-sort">User name<span class="rp-icon rp-icon-sort-by"></span></button>
+            <button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-menu="columnMenu" aria-haspopup="menu" aria-label="Column actions for user name"><span class="rp-icon rp-icon-actions"></span></button></div>
+            <span class="rp-table-head-secondary">Email</span></th>
+        <th class="rp-table-numeric" data-rp-sort-first="descending"><button type="button" class="rp-table-sort">Reviews<span class="rp-icon rp-icon-sort-by"></span></button></th>
         <th>Status</th>
-        <th class="rp-table-cell-actions"></th>
+        <th class="rp-table-cell-actions"><span class="rp-visually-hidden">Actions</span></th>
       </tr></thead>
       <tbody>
         <tr>
@@ -81,7 +171,7 @@ Figma Tables page (`5938:3571`): rows 56px (68px with a two-line person cell), h
           <td><div class="rp-table-person"><span class="rp-avatar">MC</span><div class="rp-table-person-text"><span class="rp-table-person-primary">Maya Chen</span><span class="rp-table-person-secondary">maya.chen@coastalhotels.com</span></div></div></td>
           <td class="rp-table-numeric">18</td>
           <td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">Active</span></td>
-          <td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="rowMenu" aria-label="More actions"><span class="rp-icon rp-icon-actions"></span></button></td>
+          <td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="rowMenu" aria-label="More actions for Maya Chen"><span class="rp-icon rp-icon-actions"></span></button></td>
         </tr>
       </tbody>
     </table>
@@ -91,21 +181,110 @@ Figma Tables page (`5938:3571`): rows 56px (68px with a two-line person cell), h
 </section>
 ```
 
+### Header cells
+| Need | Markup |
+|---|---|
+| Sortable | `<button class="rp-table-sort">Label<span class="rp-icon rp-icon-sort-by"></span></button>`. The icon is hidden at rest and shows on hover, focus and while sorted (the arrow); in right-aligned columns it sits before the label. Volumes and percentages sort descending first: `data-rp-sort-first="descending"` on the `th` |
+| Change column | an icon-only sort button: `rp-icon-change` + `rp-icon-sort-by`, `aria-label="Change in GRI™"` |
+| No visible label (bars, actions) | `<span class="rp-visually-hidden">Positive share</span>` |
+| Two lines | `<span class="rp-table-head-secondary">Email</span>` under the label |
+| Two levels (accordion) | a second `rp-table-sort rp-table-head-secondary` button with `rp-icon-sub-division` and `data-rp-sort-level="child"`: it sorts the child rows inside each parent |
+| Column actions | `rp-table-head` around the label + one `rp-icon-button rp-icon-button-size-small rp-table-head-action` (kebab with `data-rp-menu="columnMenu"`; or pin with `data-rp-pin` when pinning is the only action). Shown on hover, like the product |
+| Group header | an extra first header row: `<th class="rp-table-head-group" colspan="3">Current period</th>`, empty `th` over the other columns (no `rowspan`) |
+| Field as header (Simple tables) | `<th class="rp-table-head-filter">` with an `rp-select` (`data-rp-filter`, `data-rp-filter-column`, `data-rp-filter-all`) whose trigger is `rp-table-head-filter-trigger` → `rp-table-head-filter-label` + `rp-table-head-filter-value` (funnel icon + `rp-select-value`). See `10-analysis-table.html` |
+| Searcher in the header | `<th class="rp-table-head-search">`: `rp-table-head` with the plain label and a magnifier `rp-table-head-action` (`data-rp-head-search`) + an `rp-search rp-table-head-search-field` (`data-rp-filter`, `data-rp-chip-label` = the label). The magnifier sits in the actions slot at the edge of the cell; a click anywhere in the cell opens the search, which looks only in that column. Open, the label moves to the first line and the query runs on the second with no outline; the X beside them clears and closes it. With a query and the focus elsewhere, the header shows the query on its second line (magnifier + text, click to edit) and the slot button becomes an X that clears it. The header keeps one height in every state. A searchable column doesn't sort (rules.md 20). See `13-index-table.html` and `mockups/table-patterns/semantic-categories.html` |
+| Pinned column | `rp-table-cell-pinned` on the header `th` (and on its cells in static markup). Columns before it (checkbox, switch) pin with it |
+
+A toolbar filter with `data-rp-filter-column` marks the header of its column as filtered (`rp-table-head-filtered`: the active look without an arrow).
+
+Toolbar **Sort by**: an icon button (`rp-icon-sort-by`, `data-rp-menu`) and a `.rp-menu` with `data-rp-table="tableId"` and items `data-rp-sort-by="{column index}" data-rp-sort-dir="ascending | descending"`, label first, arrow icon last. See `12-hybrid-table.html`.
+
+Column actions menu: one `.rp-menu` per page with items `data-rp-column-action="sort-asc | sort-desc | pin | hide"` (copy `columnMenu` from `12-hybrid-table.html`). Show / hide columns: a `.rp-menu` with `data-rp-table="tableId"` and `role="menuitemcheckbox"` items `data-rp-column-toggle="{column index}" data-rp-keep-open` (selected = visible).
+
+### Content cells
+| Type | Markup | Align |
+|---|---|---|
+| Text, identifier | plain text; `rp-table-truncate` + `data-rp-tooltip` when it may not fit | left |
+| Long text (two lines at most) | `<span class="rp-table-clamp" data-rp-tooltip="full text">` | left |
+| Mention in a sentence | the sentence with `<span class="rp-table-mention rp-table-mention-positive"><strong>concept</strong> rest of the mention</span>` (`-negative` for red); the sentiment column says it again with an icon and its word | left |
+| Two lines | `rp-table-person-text` (`-primary`, `-secondary`), with `rp-avatar` when it is a person | left |
+| Name link + status | `<span class="rp-table-name"><a class="rp-link" href="#">Post-stay thank you</a><span class="rp-icon rp-icon-warning" role="img" aria-label="Warning: …" data-rp-tooltip="…"></span></span>` | left |
+| Number | `td.rp-table-numeric` (tabular figures); bold row = `rp-table-row-highlighted` | right |
+| Semantic number | `rp-table-positive` / `rp-table-negative` on the `td` (always with the sign or a label too) | right |
+| Change | `<span class="rp-table-delta">+2.1</span>`; with colour and trend icon: `rp-table-delta-positive` + `rp-icon-trend-positive` (16px) | right |
+| Goal | difference as `rp-chip rp-chip-size-small rp-chip-confirmation | rp-chip-error` ("+1.4"); no goal yet = icon button `rp-icon-goal` | right |
+| Bar | `rp-volume-bar` (positive on red); sentiment = add `rp-volume-bar-value-neutral` after the value; `role="img"` + `aria-label`. Always next to the number it shows | left |
+| Chip | `rp-chip rp-chip-size-small` (status or category, at most 5 colours per column) | left |
+| Icon group | `<span class="rp-table-icons">` 1–10 icons; a chain puts `rp-icon-arrow-right rp-table-icons-separator` between them | left |
+| Control | `td.rp-table-cell-checkbox` (checkbox) or `td.rp-table-cell-control` (`rp-switch rp-switch-size-small`, radio, `rp-table-drag` handle) | centre |
+| Inline field | `td.rp-table-cell-input` + `rp-text-field rp-text-field-size-small` with an `aria-label` (hidden label) | left |
+| Name that opens | `<a class="rp-link" href="page.html">Breakfast</a>` for a page, `<a class="rp-link" href="#" data-rp-open="drawerId">` for a drawer: blue semibold, in the first column. No chevron and no row click for it (rules.md 26) | left |
+| Actions | `td.rp-table-cell-actions`: 1–2 icon buttons (delete; a chevron button to open only where the Figma case draws one), more = kebab | right |
+| Assignee | `<button class="rp-table-assignee" data-rp-menu="peopleMenu">` avatar + `rp-table-person-text`; unassigned = `rp-table-assignee-empty` with `rp-icon-add-user`; disabled = `disabled`. The menu has `data-rp-assign-menu`, items with `data-rp-department`. See the showcase | left |
+
+### Rows
+| Row | Markup |
+|---|---|
+| Expand on a row click | `tr.rp-table-row-clickable` on a parent row with an `rp-table-expand`: the whole row toggles; hover, pressed and focus states; Enter and Space activate; Arrow Up / Down move between rows. A row that opens a page or a drawer opens through its name link instead (rules.md 26) |
+| Detail under a row (expand to act) | after the parent row: `<tr class="rp-table-expandable-row" data-rp-parent="rev4"><td colspan="7">…</td></tr>` (the parent has `data-rp-row="rev4"` and an `rp-table-expand`). Grey, with 16px of the surface under it, so open rows read as separate accordions (rules.md 22). See `mockups/table-patterns/reviews-tracking.html` |
+| Highlighted (aggregate, active establishment) | `tr.rp-table-row-highlighted`; add `data-rp-static` to keep it on top while sorting and paging |
+| Total at the bottom | `tr.rp-table-row-total` (bold, stays last) |
+| Expandable parent | `tr data-rp-row="en"` with `<button type="button" class="rp-table-expand" aria-expanded="false"><span class="rp-icon rp-icon-right"></span><span>English</span></button>` in the first data cell |
+| Child level 2 / 3 | `tr.rp-table-row-secondary data-rp-parent="en"` (label in `rp-table-indent`); a third level is `rp-table-row-tertiary` (`rp-table-indent-2`) and cannot expand. Parent rows keep the regular weight |
+| More than 5 children | after the last child: `<tr class="rp-table-row-pagination" data-rp-parent="en"><td colspan="…">` + an `rp-table-pagination` with `data-rp-children-of="en"` (no `data-rp-table`). See `11-accordion-table.html` |
+| Reorderable | `rp-icon-button rp-table-drag` with `rp-icon-drag-handle` in the first cell, `aria-label="Reorder …"` |
+
 ## Behavior (shared.js)
 | Markup | What happens |
 |---|---|
-| `.rp-checkbox` in rows / header | Row selection, select all, bulk bar count |
-| `.rp-table-sort` in a header | Sorts the rows (numbers and text), toggles the arrow, `aria-sort` |
-| `data-rp-filter="tableId"` on a search / select | Filters rows; with `data-rp-filter-column` on one column |
+| `.rp-checkbox` in rows / header | Row selection, select all, bulk bar count; `data-rp-clear-selection` clears it |
+| `.rp-switch` in the header of a switch column | Turns every visible row on or off (each row fires `change`); the header follows the rows |
+| `.rp-table-sort` in a header | Unsorted → ascending → descending → original order (`data-rp-sort-first` swaps the first two), arrow icon, `aria-sort`; child rows move with their parent |
+| `data-rp-filter="tableId"` on a search / select | Filters rows; with `data-rp-filter-column` on one column. A search inside a `th` looks only in its own column; a toolbar search looks in the whole row. Inside a `th`: the header shows the applied state |
+| `.rp-toolbar-chips[data-rp-table]` | One dismissible chip per applied filter the toolbar does not show: drawer and dialog filters, multiple selects, the collapsed searcher ("Author: Grete Samsa", search as "“Seaside”"). Single selects and an open search field show their own value, so no chip. The chip's X clears that value; Clear all shows only with chips |
+| `data-rp-sort-by` items | Toolbar Sort by menu: sorts that column in that direction; the current one is marked |
+| `data-rp-count-for` with `{total}`, `data-rp-label-selected` | Footer summary like the Figma cases: `data-rp-label="{n} / {total} results found" data-rp-label-selected=" - {selected} items selected"`. Unfiltered, `{n}` is the total (`data-rp-total` on the pagination), so a mockup with 12 sample rows of 67 says "67 / 67" |
+| `tr.rp-table-row-pagination` | Pages the children of its parent (first / previous / next / last, rows per page) |
+| `.rp-table-assignee` + `[data-rp-assign-menu]` | Picking a person fills the avatar, name and department and shows a snackbar |
+| `data-rp-filter-count-for="tableId"` | The number of applied filters behind the Filters button (drawer, dialog, multiple selects), hidden at 0 |
+| `.rp-toolbar-search-toggle` | Opens the searcher; it closes on blur or Escape when empty and stays open with a query |
+| `data-rp-head-search`, a click in `th.rp-table-head-search` | Turns the header into its search field; leaving it keeps the query on the second line; the X and Escape clear and close it |
+| `.rp-table-expand` / a click on its row | Shows or hides the child rows; pagination counts parent rows only |
+| `data-rp-column-action`, `data-rp-pin`, `data-rp-column-toggle` | Column actions: sort, pin (the column and the ones before it stick to the left; the divider shows only while the table scrolls), hide / show |
+| `.rp-table-resizable` on the table | Drag a header's right edge to resize (min 48px), double-click to fit again |
+| `.rp-table-drag` | Drag the row, or focus the handle and press Arrow Up / Down; fires `rp-reorder` on the table. Disabled while the table is filtered or sorted |
+| `data-rp-reset-row` | Puts every input of the row back to its saved value |
 | `.rp-table-pagination[data-rp-table]` | Rows per page, range label, first / previous / next / last |
 | `data-rp-empty-for`, `data-rp-count-for` | Empty state when nothing matches, live count label |
 | `data-rp-clear-filters="tableId"` | Resets every filter of the table |
 | `rpRefreshTable(id)` | Call after the page script adds or removes rows |
 
-## Cells
-`rp-table-numeric` (right aligned numbers), `rp-table-person` (avatar + two lines), `rp-table-delta` (change, caption grey), `rp-table-number` (Body01 number), `rp-volume-bar` (positive share: `<div class="rp-volume-bar"><div class="rp-volume-bar-value" style="width: 81%"></div></div>`), `rp-table-row-total` (bold total row).
-
 ## Rules
-- Headers in sentence case, never uppercase. No vertical lines.
-- Every row action is in the kebab (`rp-icon-button` + `data-rp-menu`) or a ghost button; 2–3 actions per menu, each does something.
+- Headers in sentence case, never uppercase (the Figma cases use Title Case; the kit keeps the product's sentence case). No vertical lines, except between the edit columns of an editable table (`rp-table-cell-input` on the `th` and `td`, inside `rp-tile-edit`). One table per tile.
+- Numbers right, text left, controls and icons centre. The header aligns like its column. One number format per column.
+- Colour never alone: a change has its sign, a status chip has text, a warning icon has a name and a tooltip.
+- Analysis tables are read only: no checkboxes, no row actions, no editable cells, no bulk bar, no footer count.
+- Every row action is in the kebab (`rp-icon-button` + `data-rp-menu`) or one or two icon buttons; 2–3 actions per menu, each does something.
+- Bulk bar: below the toolbar, never instead of it (search stays reachable). 3–4 actions; destructive ones confirm in a dialog.
+- The footer summary of operations and settings tables reads "30 / 100 results found - 2 items selected". Analytics tables have none.
+- Pagination: any list that can show more than 5 items. Rows per page 10 / 25 / 50 / 100 (5 in a page with several tiles). First / last buttons only from 5 pages up. Show the count ("12 goals") on operations and settings pages, not on analytics pages.
+- More than 8–10 columns → a show / hide columns menu. Never nest tables; expand rows (3 levels at most) or open a drawer. Never auto-expand rows on load.
 - 8–12 realistic rows. Pagination for lists, never for a short summary table.
+- Value columns sort: every column of names, text, numbers or dates gets `rp-table-sort`. Not: controls, icons, actions, free lists, and columns with a search or a filter in the header (rules.md 20).
+- The page's main list needs no tile title that only repeats the page title, and never a subtitle that explains the UI (rules.md 21).
+- A row opens through its name (`rp-link`), never through a whole-row click with a decorative chevron (rules.md 26).
+
+## Checked against Figma (Zeroheight Tables · Table Cases)
+| Figma case | Starter | Notes |
+|---|---|---|
+| Analysis table, Simple | `10-analysis-table.html` | Bold aggregate row, change columns with the change icon only, bars next to their value, sort arrow before the label in number columns |
+| Analysis, Simple + Accordion | `11-accordion-table.html` | Parents in regular weight, children on Back. Secondary with bars on a grey range, a pager under a group of more than 5 |
+| Analysis and Operations, Complex | `12-hybrid-table.html` | Tile tabs, selects + search field in the toolbar, X (clear all) + Sort by on the right, the filtered column marked, trash per row, summary with the selection |
+| Operations, Complex | `16-operations-list.html` | Collapsed searcher, Sort by, bulk bar with an overflow kebab, name links, status icon, 2FA chips, chevron button to open (the only case that draws one) |
+| Index, Simple with inline search | `13-index-table.html` | Switch column, searchers in the headers (magnifier in the actions slot, the applied query on the second line + X), delivery chain, integrations |
+| Establishment signature | `14-index-navigation.html` | Tile tabs, tile title Establishments, field as header on the identifier, filled Default chip. The establishment name is the link that opens its signature (no chevron, no row click) |
+| Operations editable, Complex | `15-editable-table.html` | Edit tile, vertical dividers between edit columns, mixed fields and selects, Back + Save |
+
+Not in the kit yet: the column actions submenus of the Figma examples ("Asc. order by header" › Header / Second line, "Filter by header" with a search and an option list). The kit's column menu has sort, pin and hide; filters live in the toolbar or the header field.
+
+A worked example of every pattern on real product screens: `mockups/table-patterns/` (Reviews Results, Reviews Tracking, Mentions, Revenue Optimizer, Semantic Categories, File Mapping and its detail), Current UI and V2, all listed under Manage in the side bar.

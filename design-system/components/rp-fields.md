@@ -98,7 +98,7 @@ All fields share the field tokens of the code (`getFieldTokens`): one outlined b
 <!-- TextField -->
 <div class="rp-text-field">
   <label class="rp-field-label rp-field-label-required" for="email">Email</label>
-  <div class="rp-field-box"><input class="rp-field-input" id="email" type="email" value="alex.rivera@coastalhotels.com" /></div>
+  <div class="rp-field-box"><input class="rp-field-input" id="email" type="email" value="gregor.samsa@coastalhotels.com" /></div>
   <span class="rp-field-helper">We send the invitation to this address</span>
 </div>
 

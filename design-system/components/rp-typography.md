@@ -36,7 +36,7 @@
 | `rp-text-body2` (body default) | `variant="body2"` | 14/22 | Default text |
 | `rp-text-caption` | `variant="caption"` | 12/18 | Secondary lines, labels, table headers |
 
-Weights: `rp-text-semibold`, `rp-text-bold`. Colors: `rp-text-secondary` (#636363), `rp-text-active` (link blue #35678F), `rp-text-error`, `rp-text-success`, `rp-text-hint`, `rp-text-disabled`. Font: Noto Sans (400, 500, 600, 700), lining tabular numbers.
+Weights: `rp-text-semibold`, `rp-text-bold`. Colours: `rp-text-secondary` (#636363), `rp-text-active` (link blue #35678F), `rp-text-error`, `rp-text-success`, `rp-text-hint`, `rp-text-disabled`. Font: Noto Sans (400, 500, 600, 700), lining tabular numbers.
 
 ## Link
 ```html

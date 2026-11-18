@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users · Reviewpro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../foundation/shared.css" />
+  <link rel="stylesheet" href="../foundation/rp-icons.css" />
+</head>
+<body>
+  <header class="rp-top-bar rp-top-bar-corporate">
+    <div class="rp-top-bar-left">
+      <img class="rp-top-bar-logo" src="../brand/establishment-logo.png" alt="" />
+      <span class="rp-top-bar-establishment-text"><strong>Gregor Samsa</strong></span>
+    </div>
+    <div class="rp-top-bar-right">
+      <button type="button" class="rp-icon-button" data-rp-top-bar="notifications" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-badge rp-badge-error rp-badge-size-small"><span class="rp-icon rp-icon-alert"></span><span class="rp-badge-content">4</span></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="help" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="apps" aria-label="App Launcher" data-rp-tooltip="App Launcher" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-size-32 rp-icon-shiji-menu"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="account" aria-label="Account menu, Gregor Samsa" data-rp-user-name="Gregor Samsa" data-rp-user-email="gregor.samsa@coastalhotels.com"><span class="rp-avatar">GS</span></button>
+    </div>
+  </header>
+  <div class="rp-shell-body">
+    <nav class="rp-side-bar" aria-label="Main navigation">
+      <a class="rp-side-bar-item" href="#" data-rp-section="dashboard" aria-label="Dynamic Dashboard" data-rp-tooltip="Dynamic Dashboard" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-dashboard"></span></a>
+      <a class="rp-side-bar-item" href="#" data-rp-section="home" aria-label="My Page" data-rp-tooltip="My Page" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-home"></span></a>
+      <button type="button" class="rp-side-bar-item" data-rp-section="reviews" aria-label="Reviews" data-rp-tooltip="Reviews" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-reviews"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="surveys" aria-label="Surveys" data-rp-tooltip="Surveys" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-survey"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="semantic" aria-label="Semantic" data-rp-tooltip="Semantic" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-semantic"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
+      <a class="rp-side-bar-item" href="#" data-rp-section="analytics" aria-label="Analytics" data-rp-tooltip="Analytics" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-analytics"></span></a>
+      <button type="button" class="rp-side-bar-item" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-manage"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right" aria-controls="panel-settings" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-settings-outlined"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
+    </nav>
+    <aside class="rp-side-bar-panel" id="panel-settings" aria-label="Settings pages">
+      <div class="rp-side-bar-panel-header">Settings</div>
+      <ul class="rp-side-bar-panel-list">
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html"><span>All Settings</span></a></li>
+        <li class="rp-side-bar-panel-divider" role="separator"></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#yourProfile"><span>Your Profile</span></a></li>
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="02-settings-hub.html#accountAdministration" aria-current="page"><span>Account Administration</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#organisation"><span>Organisation</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#surveys"><span>Surveys</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#caseManagement"><span>Case Management</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#liveFAQ"><span>Live FAQ</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#messaging"><span>Messaging</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#guests"><span>Guests</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#integrations"><span>Integrations</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="02-settings-hub.html#legalAndPrivacy"><span>Legal &amp; Privacy</span></a></li>
+      </ul>
+      <img class="rp-side-bar-panel-logo" src="../brand/reviewpro-reputation-logo.svg" alt="Reviewpro Reputation" />
+    </aside>
+    <main class="rp-content">
+      <div class="rp-content-wrapper">
+        <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><a class="rp-breadcrumb-link" href="#">Settings</a><span class="rp-breadcrumb-separator">/</span><a class="rp-breadcrumb-link" href="#">Account Administration</a><span class="rp-breadcrumb-separator">/</span><span class="rp-breadcrumb-text" aria-current="page">Users</span></nav>
+        <h1 class="rp-page-title">Users</h1>
+        <div class="kit-stack">
+          <section class="rp-tile">
+            <div class="rp-tile-title">
+              <div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Users</h2><p class="rp-tile-title-secondary">Manage users and their permissions</p></div>
+              <div class="rp-tile-title-actions"><button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-snackbar="Users downloaded">Download all users</button><button type="button" class="rp-ghost-button rp-ghost-button-inherit" data-rp-snackbar="Opens mass assign" data-rp-snackbar-variant="info">Mass assign</button><button type="button" class="rp-main-button rp-main-button-size-small" data-rp-open="userDrawer"><span class="rp-icon rp-icon-add-user"></span><span>Add users</span></button></div>
+            </div>
+            <div class="rp-toolbar" role="toolbar" aria-label="Table controls">
+              <div class="rp-toolbar-left">
+                <div class="rp-select rp-select-size-small" data-rp-filter="usersTable" data-rp-filter-column="2" data-rp-filter-all="All user types" style="width: 180px" data-rp-placeholder="Select">
+                  <span class="rp-field-label">User type</span>
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="User type"><span class="rp-select-value">All user types</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All user types</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Administrator</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Manager</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Analyst</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Editor</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Viewer</button>
+                  </div>
+                </div>
+                <div class="rp-select rp-select-size-small" data-rp-filter="usersTable" data-rp-filter-column="7" data-rp-filter-all="All authentications" style="width: 200px" data-rp-placeholder="Select">
+                  <span class="rp-field-label">2FA</span>
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="2FA"><span class="rp-select-value">All authentications</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All authentications</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">2FA enabled</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">2FA disabled</button>
+                  </div>
+                </div>
+                <div class="rp-toolbar-search">
+                  <button type="button" class="rp-icon-button rp-toolbar-search-toggle" aria-label="Search by user name" data-rp-tooltip="Search"><span class="rp-icon rp-icon-search"></span></button>
+                  <div class="rp-search rp-search-size-small" data-rp-filter="usersTable" data-rp-chip-label="User">
+                    <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search by user name" aria-label="Search by user name" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search" hidden><span class="rp-icon rp-icon-close"></span></button></div>
+                  </div>
+                </div>
+              </div>
+              <div class="rp-toolbar-right">
+                <button type="button" class="rp-icon-button" data-rp-menu="usersSort" aria-haspopup="menu" aria-expanded="false" aria-label="Sort by" data-rp-tooltip="Sort by"><span class="rp-icon rp-icon-sort-by"></span></button>
+              </div>
+              <div class="rp-toolbar-chips" data-rp-table="usersTable"><button type="button" class="rp-ghost-button" data-rp-clear-filters="usersTable">Clear all</button></div>
+            </div>
+            <div class="rp-toolbar-bulk" data-rp-table="usersTable" aria-live="polite">
+              <button type="button" class="rp-icon-button rp-icon-button-size-small" data-rp-clear-selection aria-label="Clear selection"><span class="rp-icon rp-icon-close"></span></button><span class="rp-toolbar-bulk-divider"></span>
+              <span class="rp-toolbar-bulk-count" data-rp-label="{n} selected items">0 selected items</span>
+              <button type="button" class="rp-ghost-button" data-rp-snackbar="Two-factor authentication disabled">Disable two-factor</button><span class="rp-toolbar-bulk-divider"></span>
+              <button type="button" class="rp-ghost-button" data-rp-snackbar="Users suspended">Suspend users</button><span class="rp-toolbar-bulk-divider"></span>
+              <button type="button" class="rp-ghost-button" data-rp-snackbar="Users assigned">Assign</button><span class="rp-toolbar-bulk-divider"></span>
+              <button type="button" class="rp-icon-button rp-icon-button-size-small" data-rp-menu="bulkMore" aria-haspopup="menu" aria-expanded="false" aria-label="More bulk actions"><span class="rp-icon rp-icon-actions"></span></button>
+            </div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-density-regular" id="usersTable">
+                <thead>
+                  <tr>
+                    <th class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select all users" /></th>
+                    <th class="rp-table-sorted" aria-sort="ascending"><button type="button" class="rp-table-sort">User name<span class="rp-icon rp-icon-arrow-up"></span></button></th>
+                    <th>User type</th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Establishments<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Groups<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Workgroups<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-cell-control">Status</th>
+                    <th>2FA</th>
+                    <th class="rp-table-cell-actions"><span class="rp-visually-hidden">Open</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Maya Chen" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Maya Chen</a></td><td>Administrator</td><td class="rp-table-numeric">24</td><td class="rp-table-numeric">5</td><td class="rp-table-numeric">8</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Maya Chen"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Oliver Brooks" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Oliver Brooks</a></td><td>Manager</td><td class="rp-table-numeric">6</td><td class="rp-table-numeric">2</td><td class="rp-table-numeric">3</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Oliver Brooks"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Sofia Rivera" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Sofia Rivera</a></td><td>Analyst</td><td class="rp-table-numeric">14</td><td class="rp-table-numeric">3</td><td class="rp-table-numeric">2</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-info">2FA disabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Sofia Rivera"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Ethan Patel" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Ethan Patel</a></td><td>Viewer</td><td class="rp-table-numeric">1</td><td class="rp-table-numeric">1</td><td class="rp-table-numeric">1</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-info">2FA disabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Ethan Patel"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Amelia Costa" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Amelia Costa</a></td><td>Editor</td><td class="rp-table-numeric">0</td><td class="rp-table-numeric">0</td><td class="rp-table-numeric">0</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Amelia Costa"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Noah Williams" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Noah Williams</a></td><td>Viewer</td><td class="rp-table-numeric">3</td><td class="rp-table-numeric">1</td><td class="rp-table-numeric">1</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Noah Williams"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Isabella Rossi" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Isabella Rossi</a></td><td>Manager</td><td class="rp-table-numeric">9</td><td class="rp-table-numeric">2</td><td class="rp-table-numeric">4</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-info">2FA disabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Isabella Rossi"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Liam Okafor" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Liam Okafor</a></td><td>Analyst</td><td class="rp-table-numeric">12</td><td class="rp-table-numeric">3</td><td class="rp-table-numeric">2</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Liam Okafor"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Chloe Martin" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Chloe Martin</a></td><td>Editor</td><td class="rp-table-numeric">5</td><td class="rp-table-numeric">1</td><td class="rp-table-numeric">2</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Chloe Martin"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Lucas Meyer" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Lucas Meyer</a></td><td>Viewer</td><td class="rp-table-numeric">2</td><td class="rp-table-numeric">1</td><td class="rp-table-numeric">0</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-info">2FA disabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Lucas Meyer"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Gregor Samsa" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Gregor Samsa</a></td><td>Administrator</td><td class="rp-table-numeric">24</td><td class="rp-table-numeric">5</td><td class="rp-table-numeric">8</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-confirmation">2FA enabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Gregor Samsa"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Grete Samsa" /></td><td><a class="rp-link" href="#" data-rp-open="userDrawer">Grete Samsa</a></td><td>Manager</td><td class="rp-table-numeric">7</td><td class="rp-table-numeric">2</td><td class="rp-table-numeric">3</td><td class="rp-table-cell-control"><span class="rp-icon rp-icon-done" role="img" aria-label="Active" data-rp-tooltip="Active"></span></td><td><span class="rp-chip rp-chip-size-small rp-chip-info">2FA disabled</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="userDrawer" aria-label="Open Grete Samsa"><span class="rp-icon rp-icon-right"></span></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-placeholder" data-rp-empty-for="usersTable">
+              <span class="rp-icon rp-icon-size-80 rp-icon-not-found"></span>
+              <div class="rp-placeholder-content"><span class="rp-placeholder-title">No users found</span><span>Try another name, or clear the filters</span></div>
+              <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-clear-filters="usersTable">Clear filters</button>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="usersTable" data-rp-total="12">
+              <span class="rp-table-pagination-summary" data-rp-count-for="usersTable" data-rp-label="{n} / {total} users" data-rp-label-selected=" - {selected} items selected"> /  users</span>
+              <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+                <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">10</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">10</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">50</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">100</button>
+                  </div>
+                </div>
+              </div>
+              <span class="rp-table-pagination-range">1-10 of 12</span>
+              <div class="rp-table-pagination-actions">
+                  <button type="button" class="rp-icon-button" data-rp-page="first" aria-label="First page"><span class="rp-icon rp-icon-rewind"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="rp-menu" id="usersSort" role="menu" aria-label="Sort by" data-rp-table="usersTable">
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="1" data-rp-sort-dir="ascending">User name<span class="rp-icon rp-icon-arrow-up"></span></button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="3" data-rp-sort-dir="descending">Establishments<span class="rp-icon rp-icon-arrow-down"></span></button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="4" data-rp-sort-dir="descending">Groups<span class="rp-icon rp-icon-arrow-down"></span></button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="5" data-rp-sort-dir="descending">Workgroups<span class="rp-icon rp-icon-arrow-down"></span></button>
+  </div>
+  <div class="rp-menu" id="bulkMore" role="menu" aria-label="More bulk actions">
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Password reset emails sent"><span class="rp-icon rp-icon-password"></span> Reset passwords</button>
+    <button type="button" class="rp-menu-item rp-menu-item-danger" role="menuitem" data-rp-snackbar="Users deleted"><span class="rp-icon rp-icon-delete"></span> Delete users</button>
+  </div>
+  <div class="rp-drawer-overlay" id="userDrawer">
+    <aside class="rp-drawer rp-drawer-anchor-right rp-drawer-width-medium" role="dialog" aria-modal="true" aria-labelledby="userDrawer-title">
+      <div class="rp-drawer-title">
+        <h2 class="rp-drawer-title-label" id="userDrawer-title">User</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-drawer-content" data-rp-form>
+        <div class="kit-stack" style="padding-top: var(--spacing-2)">
+          <div class="rp-text-field rp-text-field-full-width">
+            <label class="rp-field-label rp-field-label-required" for="userName">Name</label>
+            <div class="rp-field-box"><input class="rp-field-input" id="userName" type="text" value="Maya Chen" /></div>
+          </div>
+          <div class="rp-text-field rp-text-field-full-width">
+            <label class="rp-field-label rp-field-label-required" for="userEmail">Email</label>
+            <div class="rp-field-box"><input class="rp-field-input" id="userEmail" type="email" value="maya.chen@coastalhotels.com" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="rp-drawer-footer">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-close>Cancel</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small" data-rp-validate="User saved">Save changes</button>
+      </div>
+    </aside>
+  </div>
+  <script src="../foundation/shared.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design System · ReviewPro mockup kit</title>
+  <title>Design System · Reviewpro mockup kit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -43,8 +43,8 @@
 <body>
   <div class="sc">
     <nav class="sc-nav" aria-label="Components">
-      <span class="sc-nav-title">ReviewPro DS</span>
-      <a class="sc-nav-item" href="#sec-colors">Colors</a>
+      <span class="sc-nav-title">Reviewpro DS</span>
+      <a class="sc-nav-item" href="#sec-colors">Colours</a>
       <a class="sc-nav-item" href="#sec-typography">Typography</a>
       <a class="sc-nav-item" href="#sec-spacing">Spacing, radius, shadows</a>
       <a class="sc-nav-item" href="#sec-buttons">Buttons</a>
@@ -66,6 +66,7 @@
       <a class="sc-nav-item" href="#sec-tabs">Tabs</a>
       <a class="sc-nav-item" href="#sec-accordion">Accordion, divider</a>
       <a class="sc-nav-item" href="#sec-table">Table, toolbar, pagination, volume bar</a>
+      <a class="sc-nav-item" href="#sec-tables-doc">Tables documentation</a>
       <a class="sc-nav-item" href="#sec-menu">Menu</a>
       <a class="sc-nav-item" href="#sec-dialog-drawer">Dialog, drawer</a>
       <a class="sc-nav-item" href="#sec-page-header">Page header</a>
@@ -75,7 +76,7 @@
     <main class="sc-main">
       <div><h1 class="rp-text-h4">Design System</h1><p class="rp-text-secondary">Every component and variant of the kit. Class names follow @reviewpro/ui-components; see HANDOFF.md for the props.</p></div>
       <section class="sc-section" id="sec-colors">
-        <div class="sc-head"><h2 class="rp-text-h6">Colors</h2><code class="sc-react">theme.palette</code></div>
+        <div class="sc-head"><h2 class="rp-text-h6">Colours</h2><code class="sc-react">theme.palette</code></div>
         <p class="rp-text-secondary sc-note">Token --{hue}-{shade} = theme.palette.{hue}.{hue}_{shade}. Semantic tokens follow the Figma variables.</p>
         <div class="sc-body">
           <div class="sc-palette"><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-05)"></span><code>--blue-05</code><span class="rp-text-caption rp-text-secondary">#EBF2F8</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-10)"></span><code>--blue-10</code><span class="rp-text-caption rp-text-secondary">#D9E5EE</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-20)"></span><code>--blue-20</code><span class="rp-text-caption rp-text-secondary">#BFD3E3</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-30)"></span><code>--blue-30</code><span class="rp-text-caption rp-text-secondary">#9FBDD5</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-40)"></span><code>--blue-40</code><span class="rp-text-caption rp-text-secondary">#7FA7C7</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-50)"></span><code>--blue-50</code><span class="rp-text-caption rp-text-secondary">#5F91B9</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-60)"></span><code>--blue-60</code><span class="rp-text-caption rp-text-secondary">#35678F</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-70)"></span><code>--blue-70</code><span class="rp-text-caption rp-text-secondary">#2A5272</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-80)"></span><code>--blue-80</code><span class="rp-text-caption rp-text-secondary">#203E56</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-90)"></span><code>--blue-90</code><span class="rp-text-caption rp-text-secondary">#003350</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-main)"></span><code>--blue-main</code><span class="rp-text-caption rp-text-secondary">#3F7BAB</span></div><div class="sc-swatch"><span class="sc-swatch-color" style="background: var(--blue-darkblue)"></span><code>--blue-darkblue</code><span class="rp-text-caption rp-text-secondary">#152939</span></div></div>
@@ -129,7 +130,7 @@
       <section class="sc-section" id="sec-toggle-button">
         <div class="sc-head"><h2 class="rp-text-h6">Toggle button</h2><code class="sc-react">ToggleButtonGroup · ToggleButton</code></div>
         <div class="sc-body">
-          <div class="sc-row"><div class="rp-toggle-button-group" role="group" aria-label="Measure"><button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Volume</button><button type="button" class="rp-toggle-button" aria-pressed="false">Rating</button><button type="button" class="rp-toggle-button" aria-pressed="false">Sentiment</button></div><div class="rp-toggle-button-group" role="group" aria-label="Layout"><button type="button" class="rp-toggle-button rp-toggle-button-size-small rp-toggle-button-selected" aria-label="List" aria-pressed="true"><span class="rp-icon rp-icon-list"></span></button><button type="button" class="rp-toggle-button rp-toggle-button-size-small" aria-label="Grid" aria-pressed="false"><span class="rp-icon rp-icon-layout-compact"></span></button></div></div>
+          <div class="sc-row"><div class="rp-toggle-button-group-field"><span class="rp-toggle-button-group-label" id="scToggleLabel">Measure</span><div class="rp-toggle-button-group" role="group" aria-labelledby="scToggleLabel"><button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Volume</button><button type="button" class="rp-toggle-button" aria-pressed="false">Rating</button><button type="button" class="rp-toggle-button" aria-pressed="false">Sentiment</button></div></div><div class="rp-toggle-button-group rp-toggle-button-group-size-small" role="group" aria-label="Show"><button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true">Concepts</button><button type="button" class="rp-toggle-button" aria-pressed="false">Topics</button></div><div class="rp-toggle-button-group rp-toggle-button-group-size-small" role="group" aria-label="Layout"><button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-label="List" aria-pressed="true"><span class="rp-icon rp-icon-list"></span></button><button type="button" class="rp-toggle-button" aria-label="Grid" aria-pressed="false"><span class="rp-icon rp-icon-layout-compact"></span></button></div><div class="rp-toggle-button-group rp-toggle-button-group-size-small" role="group" aria-label="Period"><button type="button" class="rp-toggle-button rp-toggle-button-selected" aria-pressed="true" disabled>Month</button><button type="button" class="rp-toggle-button" aria-pressed="false" disabled>Year</button></div></div>
         </div>
       </section>
       <section class="sc-section" id="sec-text-field">
@@ -147,7 +148,7 @@
           </div></div>
           <div class="sc-row"><span class="sc-label">Error · warning · disabled</span><div class="rp-text-field rp-text-field-error">
             <label class="rp-field-label">Email</label>
-            <div class="rp-field-box"><input class="rp-field-input" type="text" value="alex.rivera@coastalhotels" aria-label="Email" /></div>
+            <div class="rp-field-box"><input class="rp-field-input" type="text" value="gregor.samsa@coastalhotels" aria-label="Email" /></div>
             <span class="rp-field-helper">Email must include a domain</span>
           </div><div class="rp-text-field rp-text-field-warning">
             <label class="rp-field-label">Threshold</label>
@@ -227,7 +228,7 @@
         <div class="sc-body">
           <div class="sc-row"><div class="rp-text-area" data-rp-max="500" style="width: 420px">
             <label class="rp-field-label">Your reply</label>
-            <div class="rp-field-box"><textarea class="rp-field-input" rows="3" aria-label="Your reply">Thank you for staying with us, Jordan.</textarea></div>
+            <div class="rp-field-box"><textarea class="rp-field-input" rows="3" aria-label="Your reply">Thank you for staying with us, Anna.</textarea></div>
             <span class="rp-field-helper rp-text-area-counter"><span>Published with your signature</span><span class="rp-text-area-count">38/500</span></span>
           </div></div>
         </div>
@@ -270,7 +271,7 @@
       <section class="sc-section" id="sec-avatar">
         <div class="sc-head"><h2 class="rp-text-h6">Avatar</h2><code class="sc-react">Avatar</code></div>
         <div class="sc-body">
-          <div class="sc-row"><span class="rp-avatar rp-avatar-size-24">MC</span><span class="rp-avatar">MC</span><span class="rp-avatar rp-avatar-size-40">OB</span><span class="rp-avatar rp-avatar-round rp-avatar-size-48">SR</span><span class="rp-avatar rp-avatar-round rp-avatar-size-64">AR</span></div>
+          <div class="sc-row"><span class="rp-avatar rp-avatar-size-24">MC</span><span class="rp-avatar">MC</span><span class="rp-avatar rp-avatar-size-40">OB</span><span class="rp-avatar rp-avatar-round rp-avatar-size-48">SR</span><span class="rp-avatar rp-avatar-round rp-avatar-size-64">GS</span></div>
         </div>
       </section>
       <section class="sc-section" id="sec-alert">
@@ -398,6 +399,80 @@
               <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
             </div>
           </div>
+          </section>
+        </div>
+      </section>
+      <section class="sc-section" id="sec-tables-doc">
+        <div class="sc-head"><h2 class="rp-text-h6">Tables documentation: density, header slots, cell types, row levels</h2><code class="sc-react">Table (Tables doc) · VisuallyHidden</code></div>
+        <div class="sc-body">
+          <p class="rp-text-body2 rp-text-secondary">The Design team's Tables documentation, not in code yet. Starters 10–15 use all of it.</p>
+          <div class="kit-grid" style="--kit-columns: 3">
+            <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Comfortable</h3></div></div><div class="rp-tile-table"><table class="rp-table rp-table-density-comfortable"><thead><tr><th>Source</th><th class="rp-table-numeric">GRI™</th><th class="rp-table-numeric"><span class="rp-visually-hidden">Change</span><span class="rp-icon rp-icon-change rp-icon-size-16"></span></th></tr></thead><tbody><tr><td>Google</td><td class="rp-table-numeric">89.4%</td><td class="rp-table-numeric"><span class="rp-table-delta">+1.2</span></td></tr><tr><td>Booking.com</td><td class="rp-table-numeric">87.0%</td><td class="rp-table-numeric"><span class="rp-table-delta">-0.4</span></td></tr><tr><td>Tripadvisor</td><td class="rp-table-numeric">90.1%</td><td class="rp-table-numeric"><span class="rp-table-delta">+2.3</span></td></tr></tbody></table></div></section>
+            <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Regular</h3></div></div><div class="rp-tile-table"><table class="rp-table rp-table-density-regular"><thead><tr><th>Source</th><th class="rp-table-numeric">GRI™</th><th class="rp-table-numeric"><span class="rp-visually-hidden">Change</span><span class="rp-icon rp-icon-change rp-icon-size-16"></span></th></tr></thead><tbody><tr><td>Google</td><td class="rp-table-numeric">89.4%</td><td class="rp-table-numeric"><span class="rp-table-delta">+1.2</span></td></tr><tr><td>Booking.com</td><td class="rp-table-numeric">87.0%</td><td class="rp-table-numeric"><span class="rp-table-delta">-0.4</span></td></tr><tr><td>Tripadvisor</td><td class="rp-table-numeric">90.1%</td><td class="rp-table-numeric"><span class="rp-table-delta">+2.3</span></td></tr></tbody></table></div></section>
+            <section class="rp-tile"><div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Compact</h3></div></div><div class="rp-tile-table"><table class="rp-table rp-table-density-compact"><thead><tr><th>Source</th><th class="rp-table-numeric">GRI™</th><th class="rp-table-numeric"><span class="rp-visually-hidden">Change</span><span class="rp-icon rp-icon-change rp-icon-size-16"></span></th></tr></thead><tbody><tr><td>Google</td><td class="rp-table-numeric">89.4%</td><td class="rp-table-numeric"><span class="rp-table-delta">+1.2</span></td></tr><tr><td>Booking.com</td><td class="rp-table-numeric">87.0%</td><td class="rp-table-numeric"><span class="rp-table-delta">-0.4</span></td></tr><tr><td>Tripadvisor</td><td class="rp-table-numeric">90.1%</td><td class="rp-table-numeric"><span class="rp-table-delta">+2.3</span></td></tr></tbody></table></div></section>
+          </div>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Header Slots and Cell Types</h3><p class="rp-tile-title-secondary">Group header, field as header, searcher, column actions, change header, pinned column, row levels</p></div></div>
+            <div class="rp-toolbar" role="toolbar" aria-label="Table controls">
+              <div class="rp-toolbar-left">
+                <div class="rp-toolbar-search">
+                  <button type="button" class="rp-icon-button rp-toolbar-search-toggle" aria-label="Search by source"><span class="rp-icon rp-icon-search"></span></button>
+                  <div class="rp-search rp-search-size-small" data-rp-filter="scDocTable" data-rp-chip-label="Source"><div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search by source" aria-label="Search by source" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search" hidden><span class="rp-icon rp-icon-close"></span></button></div></div>
+                </div>
+              </div>
+              <div class="rp-toolbar-right">
+                <button type="button" class="rp-icon-button rp-badge rp-badge-size-small" aria-label="Filters" data-rp-snackbar="Opens the filters" data-rp-snackbar-variant="info"><span class="rp-icon rp-icon-filter"></span><span class="rp-badge-content" data-rp-filter-count-for="scDocTable" hidden>0</span></button>
+              </div>
+              <div class="rp-toolbar-chips" data-rp-table="scDocTable"><button type="button" class="rp-ghost-button" data-rp-clear-filters="scDocTable">Clear all</button></div>
+            </div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-density-regular rp-table-resizable" id="scDocTable" style="min-width: 1100px">
+                <thead>
+                  <tr><th></th><th></th><th class="rp-table-head-group" colspan="3">Current period</th><th></th><th></th><th></th><th></th></tr>
+                  <tr>
+                    <th class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small" role="switch" aria-checked="false" aria-label="Activate all sources"></button></th>
+                    <th class="rp-table-cell-pinned"><div class="rp-table-head"><button type="button" class="rp-table-sort">Source<span class="rp-icon rp-icon-sort-by"></span></button><button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-pin aria-pressed="true" aria-label="Unpin the source column"><span class="rp-icon rp-icon-pin"></span></button></div><button type="button" class="rp-table-sort rp-table-head-secondary" data-rp-sort-level="child" aria-label="Sort establishments"><span class="rp-icon rp-icon-sub-division"></span>Establishment<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric" data-rp-sort-first="descending"><div class="rp-table-head"><button type="button" class="rp-table-sort">GRI™<span class="rp-icon rp-icon-sort-by"></span></button><button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-menu="scColumnMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Column actions for GRI™"><span class="rp-icon rp-icon-actions"></span></button></div></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort" aria-label="Change in GRI™"><span class="rp-icon rp-icon-change"></span><span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th><span class="rp-visually-hidden">Sentiment</span></th>
+                    <th class="rp-table-head-filter"><div class="rp-select" data-rp-filter="scDocTable" data-rp-filter-column="5" data-rp-filter-all="All channels"><button type="button" class="rp-select-trigger rp-table-head-filter-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Filter by reply channel"><span class="rp-table-head-filter-label">Reply channel</span><span class="rp-table-head-filter-value"><span class="rp-icon rp-icon-funnel"></span><span class="rp-select-value">All channels</span></span></button><div class="rp-menu" role="listbox"><button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All channels</button><button type="button" class="rp-menu-item" role="option" aria-selected="false">Email</button><button type="button" class="rp-menu-item" role="option" aria-selected="false">WhatsApp</button></div></div></th>
+                    <th class="rp-table-head-search"><div class="rp-table-head">Owner<button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-head-search aria-label="Search by owner"><span class="rp-icon rp-icon-search"></span></button></div><div class="rp-search rp-search-size-small rp-table-head-search-field" data-rp-filter="scDocTable" data-rp-chip-label="Owner"><div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Owner" aria-label="Search by owner" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search" hidden><span class="rp-icon rp-icon-close"></span></button></div></div></th>
+                    <th class="rp-table-numeric rp-table-head-end">Goal</th>
+                    <th class="rp-table-cell-actions"><span class="rp-visually-hidden">Actions</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="rp-table-row-highlighted" data-rp-static><td class="rp-table-cell-control"></td><td class="rp-table-cell-pinned">All sources</td><td class="rp-table-numeric">88.9%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-table-delta-positive"><span class="rp-icon rp-icon-trend-positive"></span>+1.1</span></td><td><div class="rp-volume-bar" role="img" aria-label="78% positive, 12% neutral"><div class="rp-volume-bar-value" style="width: 78%"></div><div class="rp-volume-bar-value-neutral" style="width: 12%"></div></div></td><td></td><td></td><td class="rp-table-numeric"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+0.9</span></td><td class="rp-table-cell-actions"></td></tr>
+                  <tr class="rp-table-row-clickable" data-rp-row="scGoogle"><td class="rp-table-cell-control"><button type="button" class="rp-switch rp-switch-size-small rp-switch-checked" role="switch" aria-checked="true" aria-label="Google active"></button></td><td class="rp-table-cell-pinned"><button type="button" class="rp-table-expand" aria-expanded="true"><span class="rp-icon rp-icon-right"></span><span>Google</span></button></td><td class="rp-table-numeric">89.4%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-table-delta-positive"><span class="rp-icon rp-icon-trend-positive"></span>+1.2</span></td><td><div class="rp-volume-bar" role="img" aria-label="80% positive, 10% neutral"><div class="rp-volume-bar-value" style="width: 80%"></div><div class="rp-volume-bar-value-neutral" style="width: 10%"></div></div></td><td><span class="rp-table-icons"><span class="rp-icon rp-icon-email" role="img" aria-label="Email"></span><span class="rp-icon rp-icon-arrow-right rp-table-icons-separator"></span><span class="rp-icon rp-icon-whatsapp-color" role="img" aria-label="WhatsApp"></span></span></td><td>Gregor Samsa</td><td class="rp-table-numeric"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+1.4</span></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="scMenu" aria-label="More actions for Google"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                  <tr class="rp-table-row-secondary" data-rp-parent="scGoogle" data-rp-row="scGoogleMarina"><td class="rp-table-cell-control"></td><td class="rp-table-cell-pinned"><span class="rp-table-indent"><button type="button" class="rp-table-expand" aria-expanded="true"><span class="rp-icon rp-icon-right"></span><span>Grand Marina Resort &amp; Spa</span></button></span></td><td class="rp-table-numeric">90.2%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-table-delta-negative"><span class="rp-icon rp-icon-trend-negative"></span>-0.3</span></td><td><div class="rp-volume-bar" role="img" aria-label="82% positive"><div class="rp-volume-bar-value" style="width: 82%"></div></div></td><td>Email</td><td>Grete Samsa</td><td class="rp-table-numeric"><span class="rp-chip rp-chip-size-small rp-chip-error">-0.8</span></td><td class="rp-table-cell-actions"></td></tr>
+                  <tr class="rp-table-row-tertiary" data-rp-parent="scGoogleMarina"><td class="rp-table-cell-control"></td><td class="rp-table-cell-pinned"><span class="rp-table-indent-2 rp-table-truncate" data-rp-tooltip="Marina Grill restaurant, ground floor">Marina Grill restaurant, ground floor</span></td><td class="rp-table-numeric">88.7%</td><td class="rp-table-numeric"><span class="rp-table-delta">+0.4</span></td><td></td><td>Email</td><td>Grete Samsa</td><td class="rp-table-numeric"></td><td class="rp-table-cell-actions"></td></tr>
+                  <tr><td class="rp-table-cell-control"><button type="button" class="rp-icon-button rp-table-drag" aria-label="Reorder Booking.com"><span class="rp-icon rp-icon-drag-handle"></span></button></td><td class="rp-table-cell-pinned"><span class="rp-table-name"><a class="rp-link" href="#">Booking.com</a><span class="rp-icon rp-icon-warning" role="img" aria-label="Warning: connection expired" data-rp-tooltip="Connection expired"></span></span></td><td class="rp-table-numeric rp-table-negative">84.0%</td><td class="rp-table-numeric"><span class="rp-table-delta rp-table-delta-negative"><span class="rp-icon rp-icon-trend-negative"></span>-2.0</span></td><td><div class="rp-volume-bar" role="img" aria-label="70% positive"><div class="rp-volume-bar-value" style="width: 70%"></div></div></td><td>WhatsApp</td><td>Anna</td><td class="rp-table-numeric"><button type="button" class="rp-icon-button" aria-label="Set a goal for Booking.com" data-rp-snackbar="Opens the goal editor" data-rp-snackbar-variant="info"><span class="rp-icon rp-icon-goal"></span></button></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-menu="scMenu" aria-label="More actions for Booking.com"><span class="rp-icon rp-icon-actions"></span></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="rp-tile">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Assignee Cell and Sort By</h3><p class="rp-tile-title-secondary">The avatar opens the people menu; the toolbar Sort by menu orders the table</p></div>
+              <div class="rp-tile-title-actions"><button type="button" class="rp-icon-button" data-rp-menu="scSortMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Sort by"><span class="rp-icon rp-icon-sort-by"></span></button></div></div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-density-regular" id="scCasesTable">
+                <thead><tr><th><button type="button" class="rp-table-sort">Case<span class="rp-icon rp-icon-sort-by"></span></button></th><th class="rp-table-numeric"><button type="button" class="rp-table-sort">Overdue (hours)<span class="rp-icon rp-icon-sort-by"></span></button></th><th>Assignee</th></tr></thead>
+                <tbody>
+                  <tr><td>Noise complaint, room 412</td><td class="rp-table-numeric">6</td><td><button type="button" class="rp-table-assignee rp-table-assignee-empty" data-rp-menu="scPeopleMenu" aria-haspopup="menu" aria-label="Unassigned, assign"><span class="rp-avatar"><span class="rp-icon rp-icon-add-user rp-icon-size-20"></span></span><span>Unassigned</span></button></td></tr>
+                  <tr><td>Late check-out request</td><td class="rp-table-numeric">2</td><td><button type="button" class="rp-table-assignee" data-rp-menu="scPeopleMenu" aria-haspopup="menu" aria-label="Assigned to Grete Samsa, change"><span class="rp-avatar">GS</span><span class="rp-table-person-text"><span class="rp-table-person-primary">Grete Samsa</span><span class="rp-table-person-secondary">Front Office</span></span></button></td></tr>
+                  <tr><td>Breakfast allergy question</td><td class="rp-table-numeric">1</td><td><button type="button" class="rp-table-assignee" disabled aria-label="Assigned to Gregor Samsa"><span class="rp-avatar">GS</span><span class="rp-table-person-text"><span class="rp-table-person-primary">Gregor Samsa</span><span class="rp-table-person-secondary">General Manager</span></span></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="rp-tile rp-tile-edit">
+            <div class="rp-tile-title"><div class="rp-tile-title-text"><h3 class="rp-tile-title-label">Editable Cells</h3><p class="rp-tile-title-secondary">A table in an edit tile: blue dividers, inline fields, reset per row</p></div></div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-density-comfortable">
+                <thead><tr><th>Month</th><th>RGI</th><th class="rp-table-cell-actions"><span class="rp-visually-hidden">Reset</span></th></tr></thead>
+                <tbody><tr><td>January</td><td class="rp-table-cell-input"><div class="rp-text-field rp-text-field-size-small"><div class="rp-field-box"><input class="rp-field-input" type="text" value="104.2" aria-label="January RGI" /></div></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-reset-row aria-label="Reset January"><span class="rp-icon rp-icon-reset"></span></button></td></tr></tbody>
+              </table>
+            </div>
           </section>
         </div>
       </section>
@@ -564,6 +639,9 @@
       </div>
     </aside>
   </div>
+  <div class="rp-menu" id="scColumnMenu" role="menu" aria-label="Column actions"><button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="sort-asc"><span class="rp-icon rp-icon-arrow-up"></span> Sort ascending</button><button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="sort-desc"><span class="rp-icon rp-icon-arrow-down"></span> Sort descending</button><div class="rp-menu-divider"></div><button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="pin"><span class="rp-icon rp-icon-pin"></span> Pin column</button><button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="hide"><span class="rp-icon rp-icon-eye-off"></span> Hide column</button></div>
+  <div class="rp-menu" id="scPeopleMenu" role="menu" aria-label="Assign to" data-rp-assign-menu><button type="button" class="rp-menu-item" role="menuitem" data-rp-department="General Manager">Gregor Samsa</button><button type="button" class="rp-menu-item" role="menuitem" data-rp-department="Front Office">Grete Samsa</button><button type="button" class="rp-menu-item" role="menuitem" data-rp-department="Housekeeping">Anna</button></div>
+  <div class="rp-menu" id="scSortMenu" role="menu" aria-label="Sort by" data-rp-table="scCasesTable"><button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="0" data-rp-sort-dir="ascending">Case<span class="rp-icon rp-icon-arrow-up"></span></button><button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="1" data-rp-sort-dir="descending">Most overdue<span class="rp-icon rp-icon-arrow-down"></span></button></div>
   <div class="rp-menu" id="scMenu" role="menu" aria-label="Actions"><button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report downloaded"><span class="rp-icon rp-icon-download"></span> Download report</button><button type="button" class="rp-menu-item" role="menuitem" data-rp-snackbar="Report scheduled"><span class="rp-icon rp-icon-report-schedule"></span> Schedule report</button></div>
   <div class="rp-menu" id="scDateMenu" role="menu" aria-label="Dates" data-rp-selectable><button type="button" class="rp-menu-item" role="menuitem" data-rp-value="01/02/2026 - 28/02/2026">Last month</button><button type="button" class="rp-menu-item rp-menu-item-selected" role="menuitem" data-rp-value="01/03/2026 - 31/03/2026">This month</button></div>
   <script src="../foundation/shared.js"></script>

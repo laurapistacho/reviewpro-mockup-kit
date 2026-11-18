@@ -36,8 +36,8 @@ Status and short labels. `Chip` default is `color="primary"` (filled blue) and `
 <span class="rp-chip rp-chip-secondary">Room <button type="button" class="rp-chip-delete" aria-label="Remove Room"><span class="rp-icon rp-icon-close"></span></button></span>
 ```
 
-## Colors
-| Color | Use |
+## Colours
+| Colour | Use |
 |------|-----|
 | `primary` (no class) | Selected or default value (signature "Default") |
 | `brand` | "New", "Beta" next to navigation items and links |
@@ -49,7 +49,7 @@ Status and short labels. `Chip` default is `color="primary"` (filled blue) and `
 | `secondary` | Neutral tags (departments, keywords), removable filters |
 
 ## Rules
-- A chip always has text: color alone never carries the status.
+- A chip always has text: colour alone never carries the status.
 - Text in sentence case, 1–2 words.
 
 ## Neon and topic chips

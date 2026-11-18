@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Goals · Reviewpro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../foundation/shared.css" />
+  <link rel="stylesheet" href="../foundation/rp-icons.css" />
+</head>
+<body>
+  <header class="rp-top-bar">
+    <div class="rp-top-bar-left">
+      <img class="rp-top-bar-logo" src="../brand/establishment-logo.png" alt="" />
+      <button type="button" class="rp-top-bar-button rp-top-bar-establishment" data-rp-top-bar="establishment" aria-label="Select establishment">
+        <span class="rp-top-bar-establishment-text"><strong>Grand Marina Resort &amp; Spa</strong><span>Establishment view</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down-big"></span>
+      </button>
+      <button type="button" class="rp-top-bar-button rp-top-bar-date-range" data-rp-top-bar="date" aria-label="Date range">
+        <span class="rp-icon rp-icon-size-32 rp-icon-calendar"></span>
+        <span class="rp-top-bar-date-text"><strong>1 Jan 2026 - 31 Mar 2026</strong><span>vs. 1 Oct 2025 - 31 Dec 2025</span></span><span class="rp-icon rp-icon-size-32 rp-icon-down-big"></span>
+      </button>
+    </div>
+    <div class="rp-top-bar-right">
+      <button type="button" class="rp-icon-button" data-rp-top-bar="notifications" aria-label="Notifications" data-rp-tooltip="Notifications" data-rp-tooltip-placement="bottom"><span class="rp-badge rp-badge-error rp-badge-size-small"><span class="rp-icon rp-icon-alert"></span><span class="rp-badge-content">4</span></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="help" aria-label="Help" data-rp-tooltip="Help" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-question-mark"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="apps" aria-label="App Launcher" data-rp-tooltip="App Launcher" data-rp-tooltip-placement="bottom"><span class="rp-icon rp-icon-size-32 rp-icon-shiji-menu"></span></button>
+      <button type="button" class="rp-icon-button" data-rp-top-bar="account" aria-label="Account menu, Gregor Samsa" data-rp-user-name="Gregor Samsa" data-rp-user-email="gregor.samsa@coastalhotels.com"><span class="rp-avatar">GS</span></button>
+    </div>
+  </header>
+  <div class="rp-shell-body">
+    <nav class="rp-side-bar" aria-label="Main navigation">
+      <a class="rp-side-bar-item" href="#" data-rp-section="dashboard" aria-label="Dynamic Dashboard" data-rp-tooltip="Dynamic Dashboard" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-dashboard"></span></a>
+      <a class="rp-side-bar-item" href="#" data-rp-section="home" aria-label="My Page" data-rp-tooltip="My Page" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-home"></span></a>
+      <button type="button" class="rp-side-bar-item" data-rp-section="reviews" aria-label="Reviews" data-rp-tooltip="Reviews" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-reviews"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="surveys" aria-label="Surveys" data-rp-tooltip="Surveys" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-survey"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="semantic" aria-label="Semantic" data-rp-tooltip="Semantic" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-semantic"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="cases" aria-label="Cases" data-rp-tooltip="Cases" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-case"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="messaging" aria-label="Messaging" data-rp-tooltip="Messaging" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-messaging"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="guests" aria-label="Guests" data-rp-tooltip="Guests" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-guest"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="revenue" aria-label="Revenue Optimizer" data-rp-tooltip="Revenue Optimizer" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-revenue-optimizer"></span></button>
+      <a class="rp-side-bar-item" href="#" data-rp-section="analytics" aria-label="Analytics" data-rp-tooltip="Analytics" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-analytics"></span></a>
+      <button type="button" class="rp-side-bar-item rp-side-bar-item-active" data-rp-section="manage" aria-label="Manage" data-rp-tooltip="Manage" data-rp-tooltip-placement="right" aria-controls="panel-manage" aria-expanded="false" data-rp-current><span class="rp-icon rp-icon-manage"></span></button>
+      <button type="button" class="rp-side-bar-item" data-rp-section="settings" aria-label="Settings" data-rp-tooltip="Settings" data-rp-tooltip-placement="right"><span class="rp-icon rp-icon-settings-outlined"></span></button>
+      <button type="button" class="rp-side-bar-item rp-side-bar-knowledge-hub" aria-label="Knowledge Hub" data-rp-tooltip="Knowledge Hub" data-rp-tooltip-placement="right" data-rp-snackbar="Opens the Knowledge Hub" data-rp-snackbar-variant="info"><span class="rp-side-bar-knowledge-hub-glyph"><span class="rp-icon rp-icon-learning"></span></span></button>
+    </nav>
+    <aside class="rp-side-bar-panel" id="panel-manage" aria-label="Manage pages">
+      <div class="rp-side-bar-panel-header">Manage</div>
+      <ul class="rp-side-bar-panel-list">
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Alerts</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Warnings</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Configuration</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Reports</span></a></li>
+        <li><a class="rp-side-bar-panel-item rp-side-bar-panel-item-active" href="#" aria-current="page"><span>Goals</span></a></li>
+        <li><a class="rp-side-bar-panel-item" href="#"><span>Usage</span></a></li>
+      </ul>
+      <img class="rp-side-bar-panel-logo" src="../brand/reviewpro-reputation-logo.svg" alt="Reviewpro Reputation" />
+    </aside>
+    <main class="rp-content">
+      <div class="rp-content-wrapper">
+        <nav class="rp-breadcrumbs" aria-label="Breadcrumb"><a class="rp-breadcrumb-link" href="#">Manage</a><span class="rp-breadcrumb-separator">/</span><span class="rp-breadcrumb-text" aria-current="page">Goals</span></nav>
+        <h1 class="rp-page-title">Goals</h1>
+        <div class="kit-stack">
+          <section class="rp-tile">
+            <div class="rp-tabs rp-tile-tabs" role="tablist" aria-label="Goal type">
+              <button type="button" class="rp-tab rp-tab-selected" role="tab" aria-selected="true" aria-controls="goalsReviews">Reviews</button>
+              <button type="button" class="rp-tab" role="tab" aria-selected="false" aria-controls="goalsSurveys">Surveys</button>
+              <button type="button" class="rp-tab" role="tab" aria-selected="false" aria-controls="goalsCases">Cases</button>
+            </div>
+            <div class="rp-tab-panel" id="goalsReviews" role="tabpanel">
+            <div class="rp-tile-title">
+              <div class="rp-tile-title-text"><h2 class="rp-tile-title-label">Review Goals</h2></div>
+              <div class="rp-tile-title-actions"><button type="button" class="rp-icon-button" aria-label="Download" data-rp-tooltip="Download" data-rp-snackbar="Goals downloaded"><span class="rp-icon rp-icon-download"></span></button><button type="button" class="rp-default-button rp-default-button-size-small" data-rp-open="uploadDialog"><span class="rp-icon rp-icon-upload"></span><span>Upload Excel</span></button></div>
+            </div>
+            <div class="rp-toolbar" role="toolbar" aria-label="Table controls">
+              <div class="rp-toolbar-left">
+                <div class="rp-select rp-select-size-small" data-rp-filter="goalsTable" data-rp-filter-column="1" data-rp-filter-all="All indexes" style="width: 160px" data-rp-placeholder="Select">
+                  <span class="rp-field-label">Index</span>
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Index"><span class="rp-select-value">All indexes</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All indexes</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">GRI™</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">NPS</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Response rate</button>
+                  </div>
+                </div>
+                <div class="rp-select rp-select-size-small" data-rp-filter="goalsTable" data-rp-filter-column="1" data-rp-filter-all="All departments" style="width: 180px" data-rp-placeholder="Select">
+                  <span class="rp-field-label">Department</span>
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Department"><span class="rp-select-value">All departments</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All departments</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Service</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Cleanliness</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Location</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Value</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Room</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">F&amp;B</button>
+                  </div>
+                </div>
+                <div class="rp-select rp-select-size-small" data-rp-filter="goalsTable" data-rp-filter-all="All goals" style="width: 180px" data-rp-placeholder="Select">
+                  <span class="rp-field-label">Goal status</span>
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Goal status"><span class="rp-select-value">All goals</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">All goals</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Goal reached</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">Below goal</button>
+                  </div>
+                </div>
+                <div class="rp-search rp-search-size-small" data-rp-filter="goalsTable" data-rp-chip-label="Establishment" style="flex: 1; min-width: 240px">
+                  <div class="rp-field-box"><span class="rp-icon rp-icon-search"></span><input class="rp-field-input" type="search" placeholder="Search by establishment" aria-label="Search by establishment" /><button type="button" class="rp-icon-button rp-icon-button-size-small rp-search-clear" aria-label="Clear search" hidden><span class="rp-icon rp-icon-close"></span></button></div>
+                </div>
+              </div>
+              <div class="rp-toolbar-right">
+                <button type="button" class="rp-icon-button" data-rp-clear-filters="goalsTable" aria-label="Clear all filters" data-rp-tooltip="Clear all filters"><span class="rp-icon rp-icon-close"></span></button>
+                <button type="button" class="rp-icon-button" data-rp-menu="goalsSort" aria-haspopup="menu" aria-expanded="false" aria-label="Sort by" data-rp-tooltip="Sort by"><span class="rp-icon rp-icon-sort-by"></span></button>
+              </div>
+            </div>
+            <div class="rp-toolbar-bulk" data-rp-table="goalsTable" aria-live="polite">
+              <button type="button" class="rp-icon-button rp-icon-button-size-small" data-rp-clear-selection aria-label="Clear selection"><span class="rp-icon rp-icon-close"></span></button><span class="rp-toolbar-bulk-divider"></span>
+              <span class="rp-toolbar-bulk-count" data-rp-label="{n} selected items">0 selected items</span>
+              <button type="button" class="rp-ghost-button" data-rp-snackbar="Goals marked as reached">Mark as reached</button><span class="rp-toolbar-bulk-divider"></span>
+              <button type="button" class="rp-ghost-button rp-ghost-button-danger" data-rp-open="deleteDialog">Delete</button>
+            </div>
+            <div class="rp-tile-table">
+              <table class="rp-table rp-table-density-regular" id="goalsTable">
+                <thead>
+                  <tr>
+                    <th class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select all goals" /></th>
+                    <th><div class="rp-table-head"><button type="button" class="rp-table-sort">Establishment<span class="rp-icon rp-icon-sort-by"></span></button><button type="button" class="rp-icon-button rp-icon-button-size-small rp-table-head-action" data-rp-menu="columnMenu" aria-haspopup="menu" aria-expanded="false" aria-label="Column actions for Establishment"><span class="rp-icon rp-icon-actions"></span></button></div></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Past year goal<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Previous period<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Current period<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th class="rp-table-numeric"><button type="button" class="rp-table-sort">Goal<span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th><button type="button" class="rp-table-sort" aria-label="Difference with the goal" data-rp-tooltip="Difference with the goal"><span class="rp-icon rp-icon-change"></span><span class="rp-icon rp-icon-sort-by"></span></button></th>
+                    <th>Author<span class="rp-table-head-secondary">Creation date</span></th>
+                    <th class="rp-table-cell-actions"><span class="rp-visually-hidden">Actions</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Grand Marina Resort &amp; Spa, GRI™, Service" /></td><td>Grand Marina Resort &amp; Spa<span class="rp-table-person-secondary"> · GRI™ · Service</span></td><td class="rp-table-numeric rp-table-positive">86.7%</td><td class="rp-table-numeric">88.1%</td><td class="rp-table-numeric">89.4%</td><td class="rp-table-numeric">90.0%</td><td data-rp-sort-value="-0.6"><span class="rp-chip rp-chip-size-small rp-chip-error">-0.60</span><span class="rp-visually-hidden">Below goal</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Gregor Samsa</span><span class="rp-table-person-secondary">14/02/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Grand Marina Resort &amp; Spa, GRI™, Service"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Azure Bay Hotel, GRI™, Cleanliness" /></td><td>Azure Bay Hotel<span class="rp-table-person-secondary"> · GRI™ · Cleanliness</span></td><td class="rp-table-numeric rp-table-positive">85.4%</td><td class="rp-table-numeric">86.0%</td><td class="rp-table-numeric">84.2%</td><td class="rp-table-numeric">88.0%</td><td data-rp-sort-value="-3.8"><span class="rp-chip rp-chip-size-small rp-chip-error">-3.80</span><span class="rp-visually-hidden">Below goal</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Grete Samsa</span><span class="rp-table-person-secondary">14/02/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Azure Bay Hotel, GRI™, Cleanliness"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Seaside Palace, NPS, Service" /></td><td>Seaside Palace<span class="rp-table-person-secondary"> · NPS · Service</span></td><td class="rp-table-numeric rp-table-positive">52</td><td class="rp-table-numeric">55</td><td class="rp-table-numeric">58</td><td class="rp-table-numeric">55</td><td data-rp-sort-value="3.0"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+3.00</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Gregor Samsa</span><span class="rp-table-person-secondary">10/02/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Seaside Palace, NPS, Service"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Harbor View Suites, GRI™, Location" /></td><td>Harbor View Suites<span class="rp-table-person-secondary"> · GRI™ · Location</span></td><td class="rp-table-numeric rp-table-positive">84.0%</td><td class="rp-table-numeric">84.6%</td><td class="rp-table-numeric">86.3%</td><td class="rp-table-numeric">85.0%</td><td data-rp-sort-value="1.3"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+1.30</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Anna</span><span class="rp-table-person-secondary">09/02/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Harbor View Suites, GRI™, Location"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Cliff Edge Resort, Response rate, Value" /></td><td>Cliff Edge Resort<span class="rp-table-person-secondary"> · Response rate · Value</span></td><td class="rp-table-numeric rp-table-positive">78.0%</td><td class="rp-table-numeric">81.0%</td><td class="rp-table-numeric">92.0%</td><td class="rp-table-numeric">90.0%</td><td data-rp-sort-value="2.0"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+2.00</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Grete Samsa</span><span class="rp-table-person-secondary">05/02/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Cliff Edge Resort, Response rate, Value"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Grand Marina Resort &amp; Spa, NPS, Room" /></td><td>Grand Marina Resort &amp; Spa<span class="rp-table-person-secondary"> · NPS · Room</span></td><td class="rp-table-numeric rp-table-positive">61</td><td class="rp-table-numeric">63</td><td class="rp-table-numeric">59</td><td class="rp-table-numeric">65</td><td data-rp-sort-value="-6.0"><span class="rp-chip rp-chip-size-small rp-chip-error">-6.00</span><span class="rp-visually-hidden">Below goal</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Gregor Samsa</span><span class="rp-table-person-secondary">03/02/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Grand Marina Resort &amp; Spa, NPS, Room"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Azure Bay Hotel, Response rate, Service" /></td><td>Azure Bay Hotel<span class="rp-table-person-secondary"> · Response rate · Service</span></td><td class="rp-table-numeric rp-table-positive">70.0%</td><td class="rp-table-numeric">74.0%</td><td class="rp-table-numeric">81.0%</td><td class="rp-table-numeric">80.0%</td><td data-rp-sort-value="1.0"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+1.00</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Anna</span><span class="rp-table-person-secondary">28/01/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Azure Bay Hotel, Response rate, Service"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Seaside Palace, GRI™, F&amp;B" /></td><td>Seaside Palace<span class="rp-table-person-secondary"> · GRI™ · F&amp;B</span></td><td class="rp-table-numeric rp-table-positive">87.2%</td><td class="rp-table-numeric">87.9%</td><td class="rp-table-numeric">86.1%</td><td class="rp-table-numeric">89.0%</td><td data-rp-sort-value="-2.9"><span class="rp-chip rp-chip-size-small rp-chip-error">-2.90</span><span class="rp-visually-hidden">Below goal</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Grete Samsa</span><span class="rp-table-person-secondary">22/01/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Seaside Palace, GRI™, F&amp;B"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Harbor View Suites, NPS, Cleanliness" /></td><td>Harbor View Suites<span class="rp-table-person-secondary"> · NPS · Cleanliness</span></td><td class="rp-table-numeric rp-table-positive">44</td><td class="rp-table-numeric">47</td><td class="rp-table-numeric">51</td><td class="rp-table-numeric">50</td><td data-rp-sort-value="1.0"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+1.00</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Gregor Samsa</span><span class="rp-table-person-secondary">20/01/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Harbor View Suites, NPS, Cleanliness"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Cliff Edge Resort, GRI™, Service" /></td><td>Cliff Edge Resort<span class="rp-table-person-secondary"> · GRI™ · Service</span></td><td class="rp-table-numeric rp-table-positive">89.1%</td><td class="rp-table-numeric">90.2%</td><td class="rp-table-numeric">91.4%</td><td class="rp-table-numeric">91.0%</td><td data-rp-sort-value="0.4"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+0.40</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Anna</span><span class="rp-table-person-secondary">15/01/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Cliff Edge Resort, GRI™, Service"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Grand Marina Resort &amp; Spa, Response rate, Location" /></td><td>Grand Marina Resort &amp; Spa<span class="rp-table-person-secondary"> · Response rate · Location</span></td><td class="rp-table-numeric rp-table-positive">88.0%</td><td class="rp-table-numeric">90.0%</td><td class="rp-table-numeric">93.0%</td><td class="rp-table-numeric">95.0%</td><td data-rp-sort-value="-2.0"><span class="rp-chip rp-chip-size-small rp-chip-error">-2.00</span><span class="rp-visually-hidden">Below goal</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Grete Samsa</span><span class="rp-table-person-secondary">12/01/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Grand Marina Resort &amp; Spa, Response rate, Location"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                  <tr><td class="rp-table-cell-checkbox"><input type="checkbox" class="rp-checkbox" aria-label="Select Azure Bay Hotel, NPS, Value" /></td><td>Azure Bay Hotel<span class="rp-table-person-secondary"> · NPS · Value</span></td><td class="rp-table-numeric rp-table-positive">49</td><td class="rp-table-numeric">50</td><td class="rp-table-numeric">56</td><td class="rp-table-numeric">55</td><td data-rp-sort-value="1.0"><span class="rp-chip rp-chip-size-small rp-chip-confirmation">+1.00</span><span class="rp-visually-hidden">Goal reached</span></td><td><div class="rp-table-person-text"><span class="rp-table-person-primary">Gregor Samsa</span><span class="rp-table-person-secondary">08/01/2026</span></div></td><td class="rp-table-cell-actions"><button type="button" class="rp-icon-button" data-rp-open="deleteDialog" aria-label="Delete the goal of Azure Bay Hotel, NPS, Value"><span class="rp-icon rp-icon-delete"></span></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rp-placeholder" data-rp-empty-for="goalsTable">
+              <span class="rp-icon rp-icon-size-80 rp-icon-not-found"></span>
+              <div class="rp-placeholder-content"><span class="rp-placeholder-title">No goals found</span><span>Try another establishment, or clear the filters</span></div>
+              <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-clear-filters="goalsTable">Clear filters</button>
+            </div>
+            <div class="rp-table-pagination" data-rp-table="goalsTable" data-rp-total="12">
+              <span class="rp-table-pagination-summary" data-rp-count-for="goalsTable" data-rp-label="{n} / {total} results found" data-rp-label-selected=" - {selected} items selected"> /  results found</span>
+              <div class="rp-table-pagination-rows"><span>Rows per page:</span>
+                <div class="rp-select rp-select-inline" data-rp-placeholder="Select">
+                  <button type="button" class="rp-field-box rp-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Rows per page"><span class="rp-select-value">10</span></button>
+                  <div class="rp-menu" role="listbox">
+                    <button type="button" class="rp-menu-item rp-menu-item-selected" role="option" aria-selected="true">10</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">25</button>
+                    <button type="button" class="rp-menu-item" role="option" aria-selected="false">50</button>
+                  </div>
+                </div>
+              </div>
+              <span class="rp-table-pagination-range">1-10 of 12</span>
+              <div class="rp-table-pagination-actions">
+                  <button type="button" class="rp-icon-button" data-rp-page="first" aria-label="First page"><span class="rp-icon rp-icon-rewind"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="prev" aria-label="Previous page"><span class="rp-icon rp-icon-left"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="next" aria-label="Next page"><span class="rp-icon rp-icon-right"></span></button>
+                  <button type="button" class="rp-icon-button" data-rp-page="last" aria-label="Last page"><span class="rp-icon rp-icon-fast-forward"></span></button>
+              </div>
+            </div>
+            </div>
+            <div class="rp-tab-panel" id="goalsSurveys" role="tabpanel" hidden>
+              <div class="rp-placeholder rp-placeholder-show">
+                <span class="rp-icon rp-icon-size-80 rp-icon-goal"></span>
+                <div class="rp-placeholder-content"><span class="rp-placeholder-title">No survey goals yet</span><span>Set a goal for a survey index to follow it here</span></div>
+                <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Opens the goal editor" data-rp-snackbar-variant="info">Add survey goal</button>
+              </div>
+            </div>
+            <div class="rp-tab-panel" id="goalsCases" role="tabpanel" hidden>
+              <div class="rp-placeholder rp-placeholder-show">
+                <span class="rp-icon rp-icon-size-80 rp-icon-goal"></span>
+                <div class="rp-placeholder-content"><span class="rp-placeholder-title">No case goals yet</span><span>Set a goal for the time to close cases</span></div>
+                <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Opens the goal editor" data-rp-snackbar-variant="info">Add case goal</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="rp-menu" id="columnMenu" role="menu" aria-label="Column actions">
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="sort-asc"><span class="rp-icon rp-icon-arrow-up"></span> Sort ascending</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="sort-desc"><span class="rp-icon rp-icon-arrow-down"></span> Sort descending</button>
+    <div class="rp-menu-divider"></div>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="pin"><span class="rp-icon rp-icon-pin"></span> Pin column</button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-column-action="hide"><span class="rp-icon rp-icon-eye-off"></span> Hide column</button>
+  </div>
+  <div class="rp-menu" id="goalsSort" role="menu" aria-label="Sort by" data-rp-table="goalsTable">
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="1" data-rp-sort-dir="ascending">Establishment<span class="rp-icon rp-icon-arrow-up"></span></button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="3" data-rp-sort-dir="descending">Previous period<span class="rp-icon rp-icon-arrow-down"></span></button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="4" data-rp-sort-dir="descending">Current period<span class="rp-icon rp-icon-arrow-down"></span></button>
+    <button type="button" class="rp-menu-item" role="menuitem" data-rp-sort-by="6" data-rp-sort-dir="descending">Difference with the goal<span class="rp-icon rp-icon-arrow-down"></span></button>
+  </div>
+  <div class="rp-dialog-overlay" id="deleteDialog">
+    <div class="rp-dialog rp-dialog-max-width-xs" role="dialog" aria-modal="true" aria-labelledby="deleteDialog-title">
+      <div class="rp-dialog-title">
+        <h2 class="rp-dialog-title-label" id="deleteDialog-title">Delete these goals?</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-dialog-content"><p>The goals stop showing in the dashboards and reports. You cannot undo this action.</p></div>
+      <div class="rp-dialog-actions">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-close>Cancel</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small rp-main-button-danger" data-rp-close data-rp-snackbar="Goals deleted">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div class="rp-dialog-overlay" id="uploadDialog">
+    <div class="rp-dialog" role="dialog" aria-modal="true" aria-labelledby="uploadDialog-title">
+      <div class="rp-dialog-title">
+        <h2 class="rp-dialog-title-label" id="uploadDialog-title">Upload Goals</h2>
+        <button type="button" class="rp-icon-button" data-rp-close aria-label="Close"><span class="rp-icon rp-icon-close"></span></button>
+      </div>
+      <div class="rp-dialog-content"><p>Download the template, fill in one goal per row and upload the file. Goals with the same establishment, index and department are replaced.</p></div>
+      <div class="rp-dialog-actions">
+        <button type="button" class="rp-default-button rp-default-button-size-small" data-rp-snackbar="Template downloaded">Download template</button>
+        <button type="button" class="rp-main-button rp-main-button-size-small" data-rp-close data-rp-snackbar="12 goals uploaded">Upload file</button>
+      </div>
+    </div>
+  </div>
+  <script src="../foundation/shared.js"></script>
+</body>
+</html>

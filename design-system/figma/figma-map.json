@@ -45,7 +45,7 @@
    "kit": "rp-toggle-button-group",
    "doc": "rp-buttons.md",
    "variants": {
-    "Size=Small": "+rp-toggle-button-size-small"
+    "Size=Small": "+rp-toggle-button-group-size-small"
    },
    "notes": "Children: Toggle-Btn-*-Option -> rp-toggle-button (Style=Active -> rp-toggle-button-selected)"
   },

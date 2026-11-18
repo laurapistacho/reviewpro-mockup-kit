@@ -411,6 +411,30 @@
    "kit": "<div style=\"width:1200px\"><div class=\"rp-page-header\" style=\"padding:0\"><h1 class=\"rp-page-header-title\">Dashboard</h1><div class=\"rp-page-header-actions\"><button type=\"button\" class=\"rp-ghost-button rp-ghost-button-inherit\"><span class=\"rp-icon rp-icon-report-schedule\"></span><span>Schedule Report</span></button><button type=\"button\" class=\"rp-ghost-button\"><span class=\"rp-icon rp-icon-download\"></span><span>Download Report</span></button><span style=\"display:flex;padding:0 8px;border-left:1px solid var(--neutral-10)\"><button type=\"button\" class=\"rp-icon-button rp-icon-button-size-small\" aria-label=\"More\"><span class=\"rp-icon rp-icon-actions\"></span></button></span></div></div><hr class=\"rp-divider rp-page-header-divider\" style=\"margin-top:8px\" /></div>",
    "region": "0,0,1200,49",
    "note": "title row and divider; the filters row below is page content (kit-toolbar)"
+  },
+  {
+   "id": "toggle-button/small-text",
+   "node": "10053:838",
+   "kit": "<div class=\"rp-toggle-button-group-field\"><span class=\"rp-toggle-button-group-label\">Label</span><div class=\"rp-toggle-button-group rp-toggle-button-group-size-small\" role=\"group\" aria-label=\"Label\"><button type=\"button\" class=\"rp-toggle-button\">Option 1</button><button type=\"button\" class=\"rp-toggle-button\">Option 2</button><button type=\"button\" class=\"rp-toggle-button\">Option 3</button><button type=\"button\" class=\"rp-toggle-button\">Option 4</button><button type=\"button\" class=\"rp-toggle-button rp-toggle-button-selected\">Option 5</button></div></div>",
+   "snap": true,
+   "threshold": 5,
+   "note": "New Toggle Button style: outline drawn inside, option boxes 4px from the top and bottom; the rest is text anti-aliasing of the grey labels"
+  },
+  {
+   "id": "toggle-button/large-text",
+   "node": "10053:848",
+   "kit": "<div class=\"rp-toggle-button-group-field\"><span class=\"rp-toggle-button-group-label\">Label</span><div class=\"rp-toggle-button-group\" role=\"group\" aria-label=\"Label\"><button type=\"button\" class=\"rp-toggle-button\">Option 1</button><button type=\"button\" class=\"rp-toggle-button\">Option 2</button><button type=\"button\" class=\"rp-toggle-button\">Option 3</button><button type=\"button\" class=\"rp-toggle-button\">Option 4</button><button type=\"button\" class=\"rp-toggle-button rp-toggle-button-selected\">Option 5</button></div></div>",
+   "snap": true,
+   "threshold": 5,
+   "note": "New Toggle Button style: outline drawn inside, option boxes 4px from the top and bottom; the rest is text anti-aliasing of the grey labels"
+  },
+  {
+   "id": "toggle-button/large-icon",
+   "node": "10053:888",
+   "kit": "<div class=\"rp-toggle-button-group-field\"><span class=\"rp-toggle-button-group-label\">Label</span><div class=\"rp-toggle-button-group\" role=\"group\" aria-label=\"Label\"><button type=\"button\" class=\"rp-toggle-button\" aria-label=\"Option 1\"><span class=\"rp-icon rp-icon-star\"></span></button><button type=\"button\" class=\"rp-toggle-button\" aria-label=\"Option 2\"><span class=\"rp-icon rp-icon-star\"></span></button><button type=\"button\" class=\"rp-toggle-button\" aria-label=\"Option 3\"><span class=\"rp-icon rp-icon-star\"></span></button><button type=\"button\" class=\"rp-toggle-button\" aria-label=\"Option 4\"><span class=\"rp-icon rp-icon-star\"></span></button><button type=\"button\" class=\"rp-toggle-button rp-toggle-button-selected\" aria-label=\"Option 5\"><span class=\"rp-icon rp-icon-star\"></span></button></div></div>",
+   "snap": true,
+   "threshold": 5,
+   "note": "New Toggle Button style: outline drawn inside, option boxes 4px from the top and bottom; the rest is text anti-aliasing of the grey labels"
   }
  ]
 }
