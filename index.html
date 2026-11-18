@@ -55,6 +55,42 @@
     .v2-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--spacing-2); margin-top: var(--spacing-2); }
     .v2-cards .rp-tile-content p { font-size: 14px; line-height: 22px; }
     .site-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-1-5); margin-top: var(--spacing-3); }
+    /* Shiji brand skin for the website only (Presentation Designer brand kit, Day & Night). The kit pages and the V2 concept do not use it. */
+    @font-face { font-family: "Shiji Day Sans"; src: url("https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67da8139199c44005d0f1b8f_ShijiDaySansAeonik-Medium.woff2") format("woff2"); font-weight: 500 600; font-display: swap; }
+    @font-face { font-family: "Shiji Day Sans"; src: url("https://cdn.prod.website-files.com/67da8139199c44005d0f1427/67da8139199c44005d0f1b9d_ShijiDaySansAeonik-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+    body { --site-midnight: #172554; --site-twilight: #1E3A8A; --site-blue: #0030FF; --site-meridian: #60A5FA; --site-daylight: #E8F5FF; --site-green: #0AFFAB; background: #F8FCFF; color: var(--site-midnight); }
+    .site-nav { border-right: 0; background: var(--site-midnight); }
+    .site-nav::before { content: ""; display: block; height: 4px; margin: calc(-1 * var(--spacing-3)) calc(-1 * var(--spacing-2)) var(--spacing-3); background: linear-gradient(90deg, #172554 0%, #1E3A8A 50%, #0AFFAB 100%); }
+    .site-logo img { filter: brightness(0) invert(1); }
+    .site-logo span { color: rgba(255, 255, 255, 0.72); }
+    .site-nav .rp-side-bar-panel-item { position: relative; border-radius: 10px; color: rgba(255, 255, 255, 0.86); }
+    .site-nav .rp-side-bar-panel-item:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+    .site-nav .rp-side-bar-panel-item-active, .site-nav .rp-side-bar-panel-item-active:hover { background: rgba(255, 255, 255, 0.12); color: #fff; font-weight: 600; }
+    .site-nav .rp-side-bar-panel-item-active::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 3px; background: var(--site-green); }
+    .site-nav .rp-side-bar-panel-item:focus-visible { outline: 2px solid var(--site-meridian); outline-offset: 2px; }
+    .site-nav-footer { color: rgba(255, 255, 255, 0.72); }
+    .site-nav-footer .rp-link { color: var(--site-meridian); }
+    .site-nav a:focus-visible { outline: 2px solid var(--site-meridian); outline-offset: 2px; }
+    .site-content { max-width: 960px; }
+    .site-content h1 { font-family: "Shiji Day Sans", "Noto Sans", sans-serif; font-size: 44px; line-height: 52px; font-weight: 700; letter-spacing: -0.01em; color: var(--site-midnight); }
+    .site-content h1::after { content: ""; display: block; width: 72px; height: 4px; margin-top: var(--spacing-2); border-radius: 4px; background: linear-gradient(90deg, #0030FF, #0AFFAB); }
+    .site-content h2 { font-family: "Shiji Day Sans", "Noto Sans", sans-serif; font-size: 24px; line-height: 32px; font-weight: 600; color: var(--site-midnight); margin-top: var(--spacing-5); }
+    .site-content h3, .site-content .rp-tile-title-label { color: var(--site-midnight); }
+    .site-content p, .site-content li { color: var(--site-midnight); }
+    .site-lead { color: #3D4A6B !important; }
+    .site-content .rp-link, .site-content a.rp-link { color: var(--site-blue); }
+    .site-content code { background: var(--site-daylight); color: var(--site-twilight); }
+    .site-content .rp-tile, .pattern-card { border: 0; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgba(23, 37, 84, 0.06), 0 8px 24px rgba(23, 37, 84, 0.08); }
+    .pattern-card:hover { box-shadow: 0 2px 4px rgba(23, 37, 84, 0.08), 0 12px 32px rgba(23, 37, 84, 0.14); }
+    .pattern-num { background: var(--site-daylight); color: var(--site-blue); }
+    .site-step-num { background: var(--site-blue); }
+    .site-main .rp-main-button { border-radius: 500px; background: var(--site-blue); border-color: var(--site-blue); padding-inline: 20px; }
+    .site-main .rp-main-button:hover { background: var(--site-twilight); border-color: var(--site-twilight); }
+    .site-download .rp-main-button { background: var(--site-green); border-color: var(--site-green); color: var(--site-midnight); }
+    .site-download .rp-main-button:hover { background: #3DFFBC; border-color: #3DFFBC; }
+    .site-main .rp-default-button, .site-main .rp-ghost-button { border-radius: 500px; }
+    .site-main .rp-default-button { border-color: var(--site-midnight); color: var(--site-midnight); }
+    .ds-bar, .site-viewer-bar { background: #fff; border-bottom-color: #D5ECFF; }
     @media (max-width: 979px) { .site-nav { width: 200px; } .site-steps, .site-two { grid-template-columns: minmax(0, 1fr); } }
   </style>
 </head>
